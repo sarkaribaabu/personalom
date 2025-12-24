@@ -53,7 +53,7 @@ const Footer = () => {
         
         <div className="border-t border-border mt-8 pt-8 text-center">
           <p className="text-sm text-muted-foreground">
-            © 2023 Nexus Blog. All rights reserved.
+            © 2025 Om Mahajan. All rights reserved.
           </p>
         </div>
       </div>
