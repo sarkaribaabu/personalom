@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Button } from '@/components/ui/button';
 import businessPost from '@/assets/business-post.jpg';
 import techPost from '@/assets/tech-post.jpg';
 import fashionPost from '@/assets/fashion-post.jpg';
@@ -6,10 +7,12 @@ import lifestylePost from '@/assets/lifestyle-post.jpg';
 import workLifestyle from '@/assets/work-lifestyle.jpg';
 import fashionLifestyle from '@/assets/fashion-lifestyle.jpg';
 
+const categories = ['All', 'Web Development', 'Mobile Apps', 'AI/ML', 'Design'];
+
 const masonryPosts = [
   {
     title: "Featured Story — Main Content",
-    category: "CATEGORY",
+    category: "Web Development",
     date: "DATE",
     excerpt: "Featured excerpt — Description of the main story content.",
     image: businessPost,
@@ -17,7 +20,7 @@ const masonryPosts = [
   },
   {
     title: "Story Title — Content Preview",
-    category: "CATEGORY",
+    category: "AI/ML",
     date: "DATE",
     excerpt: "Story excerpt — Brief preview of the article content.",
     image: techPost,
@@ -25,7 +28,7 @@ const masonryPosts = [
   },
   {
     title: "Post Title — Summary",
-    category: "CATEGORY",
+    category: "Mobile Apps",
     date: "DATE",
     excerpt: "Post summary — Short description of the content.",
     image: fashionPost,
@@ -33,7 +36,7 @@ const masonryPosts = [
   },
   {
     title: "Article Title — Overview",
-    category: "CATEGORY",
+    category: "Design",
     date: "DATE",
     excerpt: "Article overview — Brief summary of the topic.",
     image: lifestylePost,
@@ -41,7 +44,7 @@ const masonryPosts = [
   },
   {
     title: "Content Title — Description",
-    category: "CATEGORY",
+    category: "Web Development",
     date: "DATE",
     excerpt: "Content description — Summary of the article topic.",
     image: workLifestyle,
@@ -49,7 +52,7 @@ const masonryPosts = [
   },
   {
     title: "Sample Title — Preview",
-    category: "CATEGORY",
+    category: "AI/ML",
     date: "DATE",
     excerpt: "Sample preview — Brief content preview text.",
     image: fashionLifestyle,
@@ -57,7 +60,7 @@ const masonryPosts = [
   },
   {
     title: "Example Title — Summary",
-    category: "CATEGORY",
+    category: "Design",
     date: "DATE",
     excerpt: "Example summary — Description of the sample content.",
     image: businessPost,
@@ -67,6 +70,7 @@ const masonryPosts = [
 
 const MasonryBlock = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [selectedCategory, setSelectedCategory] = useState('All');
 
   const getHeightClass = (height: string) => {
     switch (height) {
@@ -81,14 +85,33 @@ const MasonryBlock = () => {
     }
   };
 
-  // Ensure even number of items
-  const displayPosts = masonryPosts.length % 2 === 0 
+  const filteredPosts = selectedCategory === 'All' 
     ? masonryPosts 
-    : masonryPosts.slice(0, -1);
+    : masonryPosts.filter(post => post.category === selectedCategory);
+
+  // Ensure even number of items
+  const displayPosts = filteredPosts.length % 2 === 0 
+    ? filteredPosts 
+    : filteredPosts.slice(0, -1);
 
   return (
     <section className="container-blog py-16">
-      <h2 id="masonry-heading" className="section-title mb-8">Projects</h2>
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
+        <h2 id="masonry-heading" className="section-title mb-0">Projects</h2>
+        <div className="flex flex-wrap gap-2">
+          {categories.map((category) => (
+            <Button
+              key={category}
+              variant={selectedCategory === category ? "default" : "outline"}
+              size="sm"
+              onClick={() => setSelectedCategory(category)}
+              className="text-xs"
+            >
+              {category}
+            </Button>
+          ))}
+        </div>
+      </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 auto-rows-[180px]" style={{ gridAutoFlow: 'row dense' }}>
         {displayPosts.map((post, index) => (
           <article
@@ -130,6 +153,9 @@ const MasonryBlock = () => {
           </article>
         ))}
       </div>
+      {displayPosts.length === 0 && (
+        <p className="text-center text-muted-foreground py-8">No projects found in this category.</p>
+      )}
     </section>
   );
 };
