@@ -9,10 +9,12 @@ const Header = () => {
   const navigate = useNavigate();
 
   const navItems = [
-    { name: 'ALL POST', href: '/posts' },
-    { name: 'BUSINESS', href: '/business' },
-    { name: 'TECHNOLOGY', href: '/technology' },
-    { name: 'PODCAST', href: '/podcast' },
+    { name: 'HOME', href: '/' },
+    { name: 'ABOUT', href: '/about' },
+    { name: 'JOURNEY', href: '/journey' },
+    { name: 'PROJECTS', href: '/projects' },
+    { name: 'BOOKS', href: '/books' },
+    { name: 'CONTACT', href: '/contact' },
   ];
 
   const socialLinks = [
