@@ -2,9 +2,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { DefaultFeaturedArticle } from '@/components/FeaturedArticle';
 import EditorsPick from '@/components/EditorsPick';
-import TrendingBlock from '@/components/TrendingBlock';
 import MasonryBlock from '@/components/MasonryBlock';
-import BlogGrid from '@/components/BlogGrid';
 
 const Index = () => {
   return (
@@ -15,14 +13,8 @@ const Index = () => {
         <section aria-labelledby="editors-pick-heading">
           <EditorsPick />
         </section>
-        <section aria-labelledby="trending-heading">
-          <TrendingBlock />
-        </section>
         <section aria-labelledby="masonry-heading">
           <MasonryBlock />
-        </section>
-        <section aria-labelledby="all-posts-heading">
-          <BlogGrid />
         </section>
       </main>
       <Footer />

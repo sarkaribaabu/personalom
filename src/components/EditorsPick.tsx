@@ -84,8 +84,8 @@ const EditorsPick = () => {
   return (
     <section className="container-blog py-16">
       <div className="flex items-center justify-between mb-8">
-        <h2 id="editors-pick-heading" className="section-title mb-0">Editor's Pick</h2>
-        <div className="flex space-x-2" role="group" aria-label="Navigation controls for editor's picks">
+        <h2 id="editors-pick-heading" className="section-title mb-0">Technical Blogs</h2>
+        <div className="flex space-x-2" role="group" aria-label="Navigation controls for technical blogs">
           <Button
             variant="outline"
             size="sm"
@@ -112,7 +112,7 @@ const EditorsPick = () => {
         className="flex space-x-6 overflow-x-auto scrollbar-hide pb-4"
         style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         role="region"
-        aria-label="Editor's pick articles carousel"
+        aria-label="Technical blogs carousel"
         tabIndex={0}
       >
         {picks.map((pick) => (

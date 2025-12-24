@@ -88,7 +88,7 @@ const MasonryBlock = () => {
 
   return (
     <section className="container-blog py-16">
-      <h2 id="masonry-heading" className="section-title mb-8">Featured Stories</h2>
+      <h2 id="masonry-heading" className="section-title mb-8">Projects</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 auto-rows-[180px]" style={{ gridAutoFlow: 'row dense' }}>
         {displayPosts.map((post, index) => (
           <article
