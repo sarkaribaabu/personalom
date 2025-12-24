@@ -1,12 +1,10 @@
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { Search, Facebook, Twitter, Instagram, Menu, X } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Facebook, Twitter, Instagram, Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import ThemeToggle from './ThemeToggle';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const navigate = useNavigate();
 
   const navItems = [
     { name: 'HOME', href: '/' },
@@ -56,16 +54,6 @@ const Header = () => {
                 </a>
               </Button>
             ))}
-            
-            <Button 
-              variant="outline" 
-              size="sm" 
-              aria-label="Search articles"
-              onClick={() => navigate('/search')}
-            >
-              <Search className="h-4 w-4" />
-            </Button>
-            <ThemeToggle />
           </div>
 
           {/* Mobile Menu Button */}
@@ -95,7 +83,7 @@ const Header = () => {
               ))}
             </nav>
             
-            <div className="mt-6 space-y-4">
+            <div className="mt-6">
               <div className="flex space-x-2 items-center">
                 {socialLinks.map(({ icon: Icon, href, label }) => (
                   <Button key={label} variant="outline" size="sm" asChild>
@@ -104,18 +92,7 @@ const Header = () => {
                     </a>
                   </Button>
                 ))}
-                
-                <ThemeToggle />
               </div>
-              
-                <Button 
-                  variant="outline" 
-                  size="sm" 
-                  aria-label="Search articles"
-                  onClick={() => navigate('/search')}
-                >
-                  <Search className="h-4 w-4" />
-                </Button>
             </div>
           </div>
         )}
