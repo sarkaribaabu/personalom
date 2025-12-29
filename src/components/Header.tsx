@@ -12,6 +12,7 @@ const Header = () => {
     { name: 'JOURNEY', href: '/journey' },
     { name: 'PROJECTS', href: '/projects' },
     { name: 'BOOKS', href: '/books' },
+    { name: 'HOBBIES', href: '/hobbies' },
     { name: 'CONTACT', href: '/contact' },
   ];
 
@@ -45,14 +46,17 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* Social Links & Search */}
-          <div className="hidden lg:flex items-center space-x-4">
+          {/* Social Links */}
+          <div className="hidden lg:flex items-center space-x-2">
             {socialLinks.map(({ icon: Icon, href, label }) => (
-              <Button key={label} variant="outline" size="sm" asChild>
-                <a href={href} aria-label={label}>
-                  <Icon className="h-4 w-4" />
-                </a>
-              </Button>
+              <a 
+                key={label} 
+                href={href} 
+                aria-label={label}
+                className="p-2 text-muted-foreground hover:text-primary transition-colors"
+              >
+                <Icon className="h-4 w-4" />
+              </a>
             ))}
           </div>
 
@@ -83,16 +87,17 @@ const Header = () => {
               ))}
             </nav>
             
-            <div className="mt-6">
-              <div className="flex space-x-2 items-center">
-                {socialLinks.map(({ icon: Icon, href, label }) => (
-                  <Button key={label} variant="outline" size="sm" asChild>
-                    <a href={href} aria-label={label}>
-                      <Icon className="h-4 w-4" />
-                    </a>
-                  </Button>
-                ))}
-              </div>
+            <div className="flex space-x-3 items-center">
+              {socialLinks.map(({ icon: Icon, href, label }) => (
+                <a 
+                  key={label} 
+                  href={href} 
+                  aria-label={label}
+                  className="p-2 text-muted-foreground hover:text-primary transition-colors"
+                >
+                  <Icon className="h-4 w-4" />
+                </a>
+              ))}
             </div>
           </div>
         )}
