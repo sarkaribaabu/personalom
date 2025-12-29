@@ -111,26 +111,58 @@ const About = () => {
             </div>
           </div>
 
-          {/* Additional Info */}
-          <div className="prose prose-lg dark:prose-invert max-w-none mb-16">
-            <h2 className="text-3xl font-serif font-light text-foreground mb-6">
-              Current Focus
+          {/* Academic & Professional Qualifications */}
+          <div className="mb-16">
+            <h2 className="text-2xl md:text-3xl font-serif font-light text-foreground mb-8 tracking-wide">
+              ACADEMIC & PROFESSIONAL QUALIFICATIONS
             </h2>
-            <p className="text-muted-foreground leading-relaxed mb-8">
-              Om is currently working on his next book, which explores emerging trends in 
-              AI/ML infrastructure and the future of cloud computing. He continues to consult 
-              with organizations on their digital transformation journeys and regularly shares 
-              insights through articles, podcasts, and speaking engagements.
-            </p>
+            <div className="space-y-4 text-muted-foreground">
+              <p className="leading-relaxed">
+                <em>B.E. (Bachelor of Engineering) in Computer Science</em>, with focus on software development and systems architecture.
+              </p>
+              <p className="leading-relaxed">
+                <em>15+ years of industry experience</em> in cloud computing, DevOps, and enterprise architecture across Fortune 500 companies and innovative startups.
+              </p>
+              <p className="leading-relaxed">
+                <em>Certified Cloud Architect</em> with expertise in AWS, Azure, and Google Cloud Platform. Multiple professional certifications in cloud infrastructure and DevOps practices.
+              </p>
+              <p className="leading-relaxed">
+                <em>Technical Leadership Roles</em> spanning solution architecture, team leadership, and digital transformation initiatives for global enterprises.
+              </p>
+              <p className="leading-relaxed">
+                Continuing education in emerging technologies including AI/ML, Kubernetes, and modern software development practices.
+              </p>
+            </div>
+          </div>
 
-            <h2 className="text-3xl font-serif font-light text-foreground mb-6">
-              Connect
+          {/* Writing Section */}
+          <div className="mb-16">
+            <h2 className="text-2xl md:text-3xl font-serif font-light text-foreground mb-8 tracking-wide">
+              WRITING
             </h2>
-            <p className="text-muted-foreground leading-relaxed mb-8">
-              Om is always interested in connecting with fellow technologists, aspiring authors, 
-              and anyone passionate about building meaningful technology solutions. Whether you 
-              have questions about his books, want to discuss a project, or simply want to 
-              exchange ideas, feel free to reach out.
+            <div className="space-y-6 text-muted-foreground">
+              <p className="leading-relaxed">
+                Om is the author of published works that bridge the gap between complex technical concepts and practical implementation. His writing has been praised for its clarity, depth, and real-world applicability.
+              </p>
+              <p className="leading-relaxed">
+                His first book covers cloud architecture and DevOps practices, providing readers with actionable strategies for building scalable, resilient systems. The book has been well-received by both beginners looking to enter the field and experienced practitioners seeking to deepen their knowledge.
+              </p>
+              <p className="leading-relaxed">
+                His upcoming book, currently in final stages before publication, explores the intersection of AI/ML infrastructure and cloud computing. It addresses the challenges organizations face when implementing machine learning systems at scale, offering practical guidance grounded in years of hands-on experience.
+              </p>
+              <p className="leading-relaxed">
+                Beyond books, Om regularly contributes articles and technical content to industry publications, sharing insights on emerging trends, best practices, and lessons learned from real-world implementations.
+              </p>
+            </div>
+          </div>
+
+          {/* Current Focus */}
+          <div className="mb-16">
+            <h2 className="text-2xl md:text-3xl font-serif font-light text-foreground mb-8 tracking-wide">
+              CURRENT FOCUS
+            </h2>
+            <p className="text-muted-foreground leading-relaxed">
+              Om is currently focused on completing his next book while continuing to consult with organizations on their digital transformation journeys. He regularly shares insights through articles, podcasts, and speaking engagements, and is always interested in connecting with fellow technologists and aspiring authors.
             </p>
           </div>
 
