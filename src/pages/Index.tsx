@@ -1,6 +1,6 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { DefaultFeaturedArticle } from '@/components/FeaturedArticle';
+import HeroSection from '@/components/HeroSection';
 import EditorsPick from '@/components/EditorsPick';
 import MasonryBlock from '@/components/MasonryBlock';
 
@@ -9,7 +9,7 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Header />
       <main id="main-content">
-        <DefaultFeaturedArticle />
+        <HeroSection />
         <section aria-labelledby="editors-pick-heading">
           <EditorsPick />
         </section>
