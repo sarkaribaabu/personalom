@@ -1,6 +1,7 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import HeroSection from '@/components/HeroSection';
+import AboutAuthor from '@/components/AboutAuthor';
 import EditorsPick from '@/components/EditorsPick';
 import MasonryBlock from '@/components/MasonryBlock';
 
@@ -10,6 +11,7 @@ const Index = () => {
       <Header />
       <main id="main-content">
         <HeroSection />
+        <AboutAuthor />
         <section aria-labelledby="editors-pick-heading">
           <EditorsPick />
         </section>
