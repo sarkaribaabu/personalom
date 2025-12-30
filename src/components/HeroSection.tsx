@@ -121,83 +121,61 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* Image with Abstract Background */}
+          {/* Image with Professional Abstract Background */}
           <div className="relative order-1 lg:order-2 flex justify-center items-center min-h-[500px]">
-            {/* Abstract paint splash / geometric shapes */}
-            <svg
-              className="absolute w-[600px] h-[600px] -z-0"
-              viewBox="0 0 600 600"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              {/* Main splash shape */}
-              <path
-                d="M300 50C380 30 480 80 520 150C560 220 550 300 530 370C510 440 450 500 380 530C310 560 230 550 170 510C110 470 70 400 60 330C50 260 70 180 120 130C170 80 220 70 300 50Z"
-                className="fill-primary/20"
-              />
-              {/* Secondary organic shape */}
-              <path
-                d="M320 100C390 90 470 140 500 200C530 260 520 330 490 390C460 450 400 490 340 500C280 510 210 490 170 440C130 390 120 320 140 260C160 200 250 110 320 100Z"
-                className="fill-primary/30"
-              />
-              {/* Splatter dots */}
-              <circle cx="480" cy="120" r="25" className="fill-primary/40" />
-              <circle cx="520" cy="180" r="15" className="fill-primary/30" />
-              <circle cx="100" cy="400" r="20" className="fill-primary/25" />
-              <circle cx="140" cy="450" r="12" className="fill-primary/35" />
-              <circle cx="550" cy="350" r="18" className="fill-primary/20" />
-              <circle cx="80" cy="250" r="10" className="fill-primary/40" />
-              {/* Accent splashes */}
-              <ellipse cx="450" cy="480" rx="30" ry="20" className="fill-accent/30" transform="rotate(-20 450 480)" />
-              <ellipse cx="120" cy="150" rx="25" ry="15" className="fill-accent/25" transform="rotate(30 120 150)" />
-            </svg>
-
-            {/* Animated floating elements */}
-            <div className="absolute top-10 right-10 w-16 h-16 bg-primary/20 rounded-full blur-sm animate-bounce" style={{ animationDuration: '4s' }} />
-            <div className="absolute bottom-20 left-10 w-12 h-12 bg-accent/30 rounded-full blur-sm animate-bounce" style={{ animationDuration: '5s', animationDelay: '1s' }} />
-            <div className="absolute top-1/3 right-5 w-8 h-8 bg-primary/30 rounded-full animate-pulse" />
+            {/* Clean gradient orbs */}
+            <div className="absolute w-[450px] h-[450px] rounded-full bg-gradient-to-br from-primary/20 via-primary/10 to-transparent blur-3xl" />
+            <div className="absolute w-[350px] h-[350px] rounded-full bg-gradient-to-tr from-accent/15 to-transparent blur-2xl translate-x-10 translate-y-10" />
             
-            {/* Profile image - styled as if it's a PNG cutout */}
+            {/* Subtle geometric accents */}
+            <div className="absolute top-20 right-16 w-20 h-20 border border-primary/20 rounded-full" />
+            <div className="absolute bottom-32 left-12 w-14 h-14 border border-primary/15 rounded-full" />
+            <div className="absolute top-1/3 right-8 w-3 h-3 bg-primary/40 rounded-full" />
+            <div className="absolute bottom-1/3 left-20 w-2 h-2 bg-primary/30 rounded-full" />
+            
+            {/* Decorative lines */}
+            <div className="absolute top-28 left-1/4 w-16 h-[1px] bg-gradient-to-r from-transparent via-primary/30 to-transparent rotate-45" />
+            <div className="absolute bottom-40 right-1/4 w-20 h-[1px] bg-gradient-to-r from-transparent via-primary/20 to-transparent -rotate-12" />
+            
+            {/* Profile image container */}
             <div className="relative z-10">
-              <div className="relative w-80 h-96 md:w-[380px] md:h-[460px]">
-                {/* Image with mask for PNG-like effect */}
-                <div 
-                  className="w-full h-full overflow-hidden"
+              <div className="relative w-72 h-[420px] md:w-80 md:h-[480px]">
+                {/* Clean image presentation */}
+                <img
+                  src={heroImage}
+                  alt="Om Mahajan - IT Professional and Author"
+                  className="w-full h-full object-cover object-top rounded-2xl shadow-2xl"
                   style={{
-                    maskImage: 'linear-gradient(to bottom, black 85%, transparent 100%)',
-                    WebkitMaskImage: 'linear-gradient(to bottom, black 85%, transparent 100%)'
+                    maskImage: 'linear-gradient(to bottom, black 90%, transparent 100%)',
+                    WebkitMaskImage: 'linear-gradient(to bottom, black 90%, transparent 100%)'
                   }}
-                >
-                  <img
-                    src={heroImage}
-                    alt="Om Mahajan - IT Professional and Author"
-                    className="w-full h-full object-cover object-top drop-shadow-2xl"
-                  />
-                </div>
+                />
+                {/* Subtle border glow */}
+                <div className="absolute inset-0 rounded-2xl border border-primary/10" />
               </div>
             </div>
 
-            {/* Floating badges */}
-            <div className="absolute top-16 right-4 md:right-0 bg-background/95 backdrop-blur-sm border border-border rounded-xl p-4 shadow-xl z-20">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-                  <Terminal className="w-5 h-5 text-primary" />
+            {/* Floating badges - refined */}
+            <div className="absolute top-12 right-2 md:right-8 bg-background border border-border/50 rounded-xl p-3 shadow-lg z-20">
+              <div className="flex items-center gap-2">
+                <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
+                  <Terminal className="w-4 h-4 text-primary" />
                 </div>
                 <div>
-                  <span className="text-sm font-semibold block">IT Expert</span>
-                  <span className="text-xs text-muted-foreground">15+ Years</span>
+                  <span className="text-xs font-semibold block">IT Expert</span>
+                  <span className="text-[10px] text-muted-foreground">15+ Years</span>
                 </div>
               </div>
             </div>
             
-            <div className="absolute bottom-24 left-0 md:-left-4 bg-background/95 backdrop-blur-sm border border-border rounded-xl p-4 shadow-xl z-20">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center">
-                  <BookOpen className="w-5 h-5 text-primary" />
+            <div className="absolute bottom-20 left-2 md:left-8 bg-background border border-border/50 rounded-xl p-3 shadow-lg z-20">
+              <div className="flex items-center gap-2">
+                <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
+                  <BookOpen className="w-4 h-4 text-primary" />
                 </div>
                 <div>
-                  <span className="text-sm font-semibold block">Author</span>
-                  <span className="text-xs text-muted-foreground">2 Books</span>
+                  <span className="text-xs font-semibold block">Author</span>
+                  <span className="text-[10px] text-muted-foreground">2 Books</span>
                 </div>
               </div>
             </div>
