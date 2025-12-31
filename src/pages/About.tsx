@@ -2,7 +2,23 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import { Mail, Linkedin, Twitter } from 'lucide-react';
+import { Mail, Linkedin, Twitter, Briefcase, Building2, ArrowRight } from 'lucide-react';
+
+// Experience highlights for About page
+const experienceHighlights = [
+  {
+    icon: Building2,
+    title: "Head of Operations (Technical)",
+    company: "Multinational Company",
+    description: "Leading e-governance projects and managing 45+ team members"
+  },
+  {
+    icon: Briefcase,
+    title: "Founder & Director",
+    company: "Precise IT Solutions Pvt Ltd",
+    description: "Built an IT company specializing in eCommerce and mobile solutions"
+  }
+];
 
 const About = () => {
   const testimonials = [
@@ -154,6 +170,42 @@ const About = () => {
                 Beyond books, Om regularly contributes articles and technical content to industry publications, sharing insights on emerging trends, best practices, and lessons learned from real-world implementations.
               </p>
             </div>
+          </div>
+
+          {/* Experience Highlights Section */}
+          <div className="mb-16">
+            <h2 className="text-2xl md:text-3xl font-serif font-light text-foreground mb-8 tracking-wide">
+              EXPERIENCE HIGHLIGHTS
+            </h2>
+            <div className="grid md:grid-cols-2 gap-6 mb-6">
+              {experienceHighlights.map((exp, index) => {
+                const Icon = exp.icon;
+                return (
+                  <div 
+                    key={index}
+                    className="bg-muted/50 border border-border rounded-xl p-6 hover:border-primary/30 transition-colors"
+                  >
+                    <div className="flex items-start gap-4">
+                      <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                        <Icon className="w-5 h-5 text-primary" />
+                      </div>
+                      <div>
+                        <h3 className="font-semibold text-foreground">{exp.title}</h3>
+                        <p className="text-sm text-primary mb-2">{exp.company}</p>
+                        <p className="text-sm text-muted-foreground">{exp.description}</p>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+            <Link 
+              to="/journey" 
+              className="inline-flex items-center gap-2 text-primary hover:underline font-medium"
+            >
+              View full professional journey
+              <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
 
           {/* Current Focus */}
