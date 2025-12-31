@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { BookOpen, Code, Terminal } from 'lucide-react';
-import heroImage from '@/assets/hero-image.jpg';
+import heroImage from '@/assets/om-headshot.png';
 
 const roles = [
   "IT Professional",
