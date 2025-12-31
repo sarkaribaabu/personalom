@@ -1,6 +1,6 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { Lightbulb, TrendingUp, Compass, BookOpen, Users } from 'lucide-react';
+import { Lightbulb, TrendingUp, Compass, BookOpen, Users, Briefcase, Building2, Rocket, Award } from 'lucide-react';
 
 const journeySteps = [
   {
@@ -47,6 +47,56 @@ const journeySteps = [
       "Now, as the Head of Operations (Technical) at a multinational company, he leads multiple e-governance projects and manages a team of over 45 individuals. His leadership has played a key role in achieving notable successes."
     ],
     align: "right"
+  }
+];
+
+// Professional Experience Data - Customize with your actual experience
+const professionalExperience = [
+  {
+    role: "Head of Operations (Technical)",
+    company: "Current Company Name",
+    period: "2020 - Present",
+    type: "employee",
+    icon: Award,
+    highlights: [
+      "Leading multiple e-governance projects across various departments",
+      "Managing a team of 45+ professionals",
+      "Overseeing technical strategy and digital transformation initiatives"
+    ]
+  },
+  {
+    role: "Founder & Director",
+    company: "Precise IT Solutions Pvt Ltd",
+    period: "2015 - Present",
+    type: "employer",
+    icon: Rocket,
+    highlights: [
+      "Founded and grew an IT solutions company",
+      "Specialized in eCommerce portals and mobile app development",
+      "Expanded into government tendering sector"
+    ]
+  },
+  {
+    role: "IT Professional",
+    company: "Previous IT Organization",
+    period: "2013 - 2015",
+    type: "employee",
+    icon: Building2,
+    highlights: [
+      "Worked across various departments gaining diverse experience",
+      "Developed expertise in software solutions and project management"
+    ]
+  },
+  {
+    role: "Telecom Professional",
+    company: "Multinational Telecommunications Company",
+    period: "2012 - 2013",
+    type: "employee",
+    icon: Briefcase,
+    highlights: [
+      "Started career in a high-profile telecommunications role",
+      "Gained valuable corporate experience before transitioning"
+    ]
   }
 ];
 
@@ -130,6 +180,77 @@ const Journey = () => {
                 </div>
               );
             })}
+          </div>
+        </section>
+
+        {/* Professional Experience Section */}
+        <section className="py-16 bg-muted/30">
+          <div className="container-blog">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+                Professional Experience
+              </h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                A timeline of roles that shaped my career as both an employee and entrepreneur
+              </p>
+            </div>
+
+            <div className="max-w-4xl mx-auto space-y-6">
+              {professionalExperience.map((exp, index) => {
+                const Icon = exp.icon;
+                return (
+                  <div 
+                    key={index}
+                    className="bg-card border border-border rounded-xl p-6 hover:shadow-lg transition-all duration-300 hover:border-primary/30"
+                  >
+                    <div className="flex flex-col md:flex-row md:items-start gap-4">
+                      {/* Icon */}
+                      <div className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 ${
+                        exp.type === 'employer' 
+                          ? 'bg-gradient-to-br from-primary to-primary/70' 
+                          : 'bg-gradient-to-br from-secondary to-secondary/70'
+                      }`}>
+                        <Icon className="w-6 h-6 text-primary-foreground" />
+                      </div>
+
+                      {/* Content */}
+                      <div className="flex-1">
+                        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 mb-3">
+                          <div>
+                            <h3 className="text-xl font-bold text-foreground">{exp.role}</h3>
+                            <p className="text-primary font-medium">{exp.company}</p>
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <span className={`px-3 py-1 text-xs font-medium rounded-full ${
+                              exp.type === 'employer'
+                                ? 'bg-primary/10 text-primary'
+                                : 'bg-secondary/10 text-secondary-foreground'
+                            }`}>
+                              {exp.type === 'employer' ? 'Founder' : 'Employee'}
+                            </span>
+                            <span className="text-sm text-muted-foreground">{exp.period}</span>
+                          </div>
+                        </div>
+
+                        <ul className="space-y-2">
+                          {exp.highlights.map((highlight, hIndex) => (
+                            <li key={hIndex} className="flex items-start gap-2 text-muted-foreground">
+                              <span className="w-1.5 h-1.5 bg-primary rounded-full mt-2 shrink-0" />
+                              {highlight}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Note about customization */}
+            <p className="text-center text-sm text-muted-foreground mt-8 italic">
+              Update the professionalExperience data in Journey.tsx with your actual roles and achievements
+            </p>
           </div>
         </section>
       </main>
