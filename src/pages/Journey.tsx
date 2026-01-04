@@ -106,80 +106,120 @@ const Journey = () => {
       <Header />
       <main id="main-content">
         {/* Hero Section */}
-        <section className="bg-gradient-to-br from-primary/10 via-background to-secondary/10 py-20">
-          <div className="container-blog text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+        <section className="relative overflow-hidden py-24">
+          {/* Decorative background elements */}
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-accent/10" />
+          <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-10 right-10 w-96 h-96 bg-accent/20 rounded-full blur-3xl" />
+          
+          <div className="container-blog text-center relative z-10">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full text-primary text-sm font-medium mb-6">
+              <Compass className="w-4 h-4" />
+              <span>The Path I've Traveled</span>
+            </div>
+            <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
               Journey So Far
             </h1>
-            <p className="text-xl text-primary font-medium">
-              From Words to World-Changing Leadership
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              From Words to World-Changing Leadership — a story of passion, pivots, and purpose
             </p>
           </div>
         </section>
 
-        {/* Timeline Section */}
-        <section className="container-blog py-16">
-          <div className="relative">
-            {/* Vertical Line */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-border hidden md:block" />
+        {/* Creative Timeline Section */}
+        <section className="container-blog py-16 relative">
+          {/* Decorative winding path SVG */}
+          <div className="absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-full max-w-4xl hidden lg:block pointer-events-none">
+            <svg className="w-full h-full" preserveAspectRatio="none" viewBox="0 0 400 1000" fill="none">
+              <path 
+                d="M200 0 Q350 100, 200 200 Q50 300, 200 400 Q350 500, 200 600 Q50 700, 200 800 Q350 900, 200 1000" 
+                stroke="hsl(var(--primary) / 0.15)" 
+                strokeWidth="3" 
+                strokeDasharray="8 8"
+                fill="none"
+              />
+            </svg>
+          </div>
 
+          <div className="relative space-y-0">
             {journeySteps.map((step, index) => {
               const Icon = step.icon;
-              const isRight = step.align === "right";
+              const isEven = index % 2 === 0;
               
               return (
-                <div key={index} className="relative mb-16 last:mb-0">
-                  {/* Timeline Node */}
-                  <div className="absolute left-1/2 transform -translate-x-1/2 w-12 h-12 bg-primary rounded-full flex items-center justify-center z-10 hidden md:flex">
-                    <Icon className="w-6 h-6 text-primary-foreground" />
+                <div 
+                  key={index} 
+                  className={`relative flex flex-col lg:flex-row items-center gap-8 lg:gap-16 py-12 ${
+                    isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'
+                  }`}
+                >
+                  {/* Milestone marker - center */}
+                  <div className="absolute left-1/2 transform -translate-x-1/2 z-20 hidden lg:flex flex-col items-center">
+                    <div className="relative">
+                      {/* Pulsing ring animation */}
+                      <div className="absolute inset-0 w-20 h-20 bg-primary/20 rounded-full animate-pulse" />
+                      <div className="relative w-20 h-20 bg-gradient-to-br from-primary to-primary/80 rounded-full flex items-center justify-center shadow-lg shadow-primary/30">
+                        <Icon className="w-8 h-8 text-primary-foreground" />
+                      </div>
+                      {/* Step number */}
+                      <div className="absolute -top-2 -right-2 w-8 h-8 bg-background border-2 border-primary rounded-full flex items-center justify-center text-sm font-bold text-primary">
+                        {index + 1}
+                      </div>
+                    </div>
                   </div>
 
                   {/* Content Card */}
-                  <div className={`md:w-5/12 ${isRight ? 'md:ml-auto md:pl-8' : 'md:mr-auto md:pr-8'}`}>
-                    <div className="bg-card border border-border rounded-xl p-6 md:p-8 shadow-sm hover:shadow-md transition-shadow">
+                  <div className={`lg:w-5/12 ${isEven ? 'lg:text-right' : 'lg:text-left'}`}>
+                    <div className="group relative bg-card border border-border rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-500 hover:border-primary/30 hover:-translate-y-1">
+                      {/* Decorative corner accent */}
+                      <div className={`absolute top-0 ${isEven ? 'right-0 rounded-tr-2xl rounded-bl-2xl' : 'left-0 rounded-tl-2xl rounded-br-2xl'} w-24 h-24 bg-gradient-to-br from-primary/10 to-transparent -z-10`} />
+                      
                       {/* Mobile Icon */}
-                      <div className="flex items-center gap-3 mb-4 md:hidden">
-                        <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
-                          <Icon className="w-5 h-5 text-primary-foreground" />
+                      <div className="flex items-center gap-4 mb-6 lg:hidden">
+                        <div className="relative">
+                          <div className="w-14 h-14 bg-gradient-to-br from-primary to-primary/80 rounded-xl flex items-center justify-center shadow-lg">
+                            <Icon className="w-7 h-7 text-primary-foreground" />
+                          </div>
+                          <div className="absolute -top-1 -right-1 w-6 h-6 bg-background border-2 border-primary rounded-full flex items-center justify-center text-xs font-bold text-primary">
+                            {index + 1}
+                          </div>
                         </div>
-                        <h3 className="text-xl font-bold text-primary">{step.title}</h3>
+                        <h3 className="text-2xl font-bold text-foreground">{step.title}</h3>
                       </div>
 
                       {/* Desktop Title */}
-                      <h3 className="text-2xl font-bold text-primary mb-4 hidden md:block">
+                      <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-6 hidden lg:block group-hover:text-primary transition-colors">
                         {step.title}
                       </h3>
 
                       <div className="space-y-4">
                         {step.content.map((paragraph, pIndex) => (
-                          <p key={pIndex} className="text-muted-foreground leading-relaxed">
+                          <p key={pIndex} className={`text-muted-foreground leading-relaxed ${isEven ? 'lg:text-right' : 'lg:text-left'}`}>
                             {paragraph}
                           </p>
                         ))}
                       </div>
+
+                      {/* Decorative quote mark */}
+                      <div className={`absolute ${isEven ? '-left-4' : '-right-4'} top-8 text-6xl text-primary/10 font-serif hidden lg:block`}>
+                        "
+                      </div>
                     </div>
                   </div>
 
-                  {/* Connecting Arrow (Desktop) */}
-                  {index < journeySteps.length - 1 && (
-                    <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 top-full">
-                      <svg 
-                        className="w-8 h-16 text-primary/30" 
-                        viewBox="0 0 32 64" 
-                        fill="none"
-                      >
-                        <path 
-                          d={isRight ? "M16 0 C16 32, 28 32, 16 64" : "M16 0 C16 32, 4 32, 16 64"} 
-                          stroke="currentColor" 
-                          strokeWidth="2" 
-                          strokeDasharray="4 4"
-                        />
-                      </svg>
-                    </div>
-                  )}
+                  {/* Spacer for the other side */}
+                  <div className="hidden lg:block lg:w-5/12" />
                 </div>
               );
             })}
+          </div>
+
+          {/* Journey continues indicator */}
+          <div className="text-center pt-8">
+            <div className="inline-flex flex-col items-center gap-2 text-muted-foreground">
+              <div className="w-0.5 h-12 bg-gradient-to-b from-primary/50 to-transparent" />
+              <span className="text-sm italic">The journey continues...</span>
+            </div>
           </div>
         </section>
 
