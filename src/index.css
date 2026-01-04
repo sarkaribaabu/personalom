@@ -18,8 +18,8 @@ All colors MUST be HSL.
     --popover: 270 20% 99%;
     --popover-foreground: 270 25% 12%;
 
-    /* Deep plum as primary */
-    --primary: 300 25% 25%;
+    /* Deep plum as primary - #662D66 */
+    --primary: 300 39% 29%;
     --primary-foreground: 45 30% 95%;
 
     /* Champagne/gold secondary */
@@ -40,7 +40,7 @@ All colors MUST be HSL.
     /* Subtle purple-tinted borders */
     --border: 270 15% 88%;
     --input: 270 15% 88%;
-    --ring: 300 25% 25%;
+    --ring: 300 39% 29%;
 
     /* Blog-specific design tokens */
     --content-width: 1200px;
@@ -72,12 +72,12 @@ All colors MUST be HSL.
 
     --sidebar-background: 270 15% 97%;
     --sidebar-foreground: 270 20% 25%;
-    --sidebar-primary: 300 25% 25%;
+    --sidebar-primary: 300 39% 29%;
     --sidebar-primary-foreground: 45 30% 95%;
     --sidebar-accent: 45 30% 92%;
     --sidebar-accent-foreground: 300 20% 15%;
     --sidebar-border: 270 15% 88%;
-    --sidebar-ring: 300 25% 30%;
+    --sidebar-ring: 300 39% 34%;
   }
 
   .dark {
@@ -91,8 +91,8 @@ All colors MUST be HSL.
     --popover: 270 18% 9%;
     --popover-foreground: 270 15% 95%;
 
-    /* Brighter plum for dark mode */
-    --primary: 300 30% 55%;
+    /* Brighter plum for dark mode - based on #662D66 */
+    --primary: 300 45% 58%;
     --primary-foreground: 270 20% 6%;
 
     /* Muted champagne secondary */
@@ -111,16 +111,16 @@ All colors MUST be HSL.
 
     --border: 270 15% 18%;
     --input: 270 15% 18%;
-    --ring: 300 30% 55%;
+    --ring: 300 45% 58%;
     
     --sidebar-background: 270 18% 8%;
     --sidebar-foreground: 270 15% 90%;
-    --sidebar-primary: 300 30% 55%;
+    --sidebar-primary: 300 45% 58%;
     --sidebar-primary-foreground: 270 20% 6%;
     --sidebar-accent: 45 20% 15%;
     --sidebar-accent-foreground: 45 30% 90%;
     --sidebar-border: 270 15% 18%;
-    --sidebar-ring: 300 30% 55%;
+    --sidebar-ring: 300 45% 58%;
   }
 }
 
