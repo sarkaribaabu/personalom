@@ -36,11 +36,12 @@ const AboutAuthor = () => {
             </h2>
 
             <p className="text-muted-foreground leading-relaxed">
-              My journey spans over a decade and a half in the technology industry, 
-              where I've architected enterprise solutions, led digital transformations, 
-              and mentored the next generation of tech professionals. Parallel to my 
-              technical career, I've discovered a passion for writing—both technical 
-              documentation that simplifies complexity and fiction that ignites imagination.
+              A dynamic professional with expertise in project management and product development, 
+              Om has a sharp eye for detail and a talent for strategic planning. Known for turning 
+              ideas into reality, he delivers successful outcomes through strong relationship-building 
+              and seamless teamwork. Beyond his analytical skills, Om has a poetic mindset, allowing 
+              for innovative problem-solving. As a fiction author, he blends creativity with a deep 
+              understanding of human nature, crafting engaging stories that captivate readers.
             </p>
 
             {/* Highlights */}
