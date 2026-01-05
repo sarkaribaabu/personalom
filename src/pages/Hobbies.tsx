@@ -1,8 +1,23 @@
+import { useState } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Play, Music, Camera, Gamepad2, Utensils, Mountain } from 'lucide-react';
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from '@/components/ui/dialog';
+
+interface Video {
+  id: string;
+  title: string;
+  duration: string;
+}
 
 const Hobbies = () => {
+  const [selectedVideo, setSelectedVideo] = useState<Video | null>(null);
+
   const hobbyCategories = [
     {
       id: 'music',
@@ -131,6 +146,7 @@ const Hobbies = () => {
                     <div 
                       key={videoIndex}
                       className="group cursor-pointer"
+                      onClick={() => setSelectedVideo(video)}
                     >
                       {/* Video Thumbnail */}
                       <div className="relative aspect-video rounded-lg overflow-hidden bg-muted mb-3">
@@ -187,6 +203,28 @@ const Hobbies = () => {
           </a>
         </div>
       </main>
+
+      {/* Video Player Dialog */}
+      <Dialog open={!!selectedVideo} onOpenChange={(open) => !open && setSelectedVideo(null)}>
+        <DialogContent className="max-w-4xl p-0 overflow-hidden">
+          <DialogHeader className="p-4 pb-0">
+            <DialogTitle className="text-lg font-medium">
+              {selectedVideo?.title}
+            </DialogTitle>
+          </DialogHeader>
+          <div className="aspect-video w-full">
+            {selectedVideo && (
+              <iframe
+                src={`https://www.youtube.com/embed/${selectedVideo.id}?autoplay=1`}
+                title={selectedVideo.title}
+                className="w-full h-full"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            )}
+          </div>
+        </DialogContent>
+      </Dialog>
       
       <Footer />
     </div>
