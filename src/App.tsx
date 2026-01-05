@@ -22,6 +22,7 @@ const About = lazy(() => import("./pages/About"));
 const Contact = lazy(() => import("./pages/Contact"));
 const Journey = lazy(() => import("./pages/Journey"));
 const Projects = lazy(() => import("./pages/Projects"));
+const ProjectDetail = lazy(() => import("./pages/ProjectDetail"));
 const Books = lazy(() => import("./pages/Books"));
 const BookDetail = lazy(() => import("./pages/BookDetail"));
 const Hobbies = lazy(() => import("./pages/Hobbies"));
@@ -52,6 +53,7 @@ const App = () => (
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/journey" element={<Journey />} />
                 <Route path="/projects" element={<Projects />} />
+                <Route path="/projects/:projectId" element={<ProjectDetail />} />
                 <Route path="/books" element={<Books />} />
                 <Route path="/books/:bookId" element={<BookDetail />} />
                 <Route path="/hobbies" element={<Hobbies />} />

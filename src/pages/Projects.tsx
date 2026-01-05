@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
@@ -140,45 +141,49 @@ const Projects = () => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 auto-rows-[180px]" style={{ gridAutoFlow: 'row dense' }}>
-            {filteredProjects.map((project, index) => (
-              <article
-                key={index}
-                className={`group cursor-pointer ${getHeightClass(project.height)} transition-all duration-300 hover:scale-[1.02] hover:shadow-lg`}
-                onMouseEnter={() => setHoveredIndex(index)}
-                onMouseLeave={() => setHoveredIndex(null)}
-              >
-                <div className="relative w-full h-full rounded-lg overflow-hidden bg-card border border-border">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover object-center transition-transform duration-300 group-hover:scale-105"
-                    loading="lazy"
-                    decoding="async"
-                    width="294"
-                    height={project.height === 'tall' ? '540' : project.height === 'medium' ? '360' : '180'}
-                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 294px"
-                    style={{ minHeight: '100%', maxHeight: '100%' }}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                  <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
-                    <div className="flex items-center gap-2 mb-2">
-                      <span className="text-xs font-medium bg-primary/80 px-2 py-1 rounded-full">
-                        {project.category}
-                      </span>
-                      <span className="text-xs opacity-80">{project.date}</span>
+            {filteredProjects.map((project, index) => {
+              const projectSlug = project.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+              return (
+                <Link
+                  key={index}
+                  to={`/projects/${projectSlug}`}
+                  className={`group cursor-pointer ${getHeightClass(project.height)} transition-all duration-300 hover:scale-[1.02] hover:shadow-lg block`}
+                  onMouseEnter={() => setHoveredIndex(index)}
+                  onMouseLeave={() => setHoveredIndex(null)}
+                >
+                  <div className="relative w-full h-full rounded-lg overflow-hidden bg-card border border-border">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover object-center transition-transform duration-300 group-hover:scale-105"
+                      loading="lazy"
+                      decoding="async"
+                      width="294"
+                      height={project.height === 'tall' ? '540' : project.height === 'medium' ? '360' : '180'}
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 294px"
+                      style={{ minHeight: '100%', maxHeight: '100%' }}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                    <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
+                      <div className="flex items-center gap-2 mb-2">
+                        <span className="text-xs font-medium bg-primary/80 px-2 py-1 rounded-full">
+                          {project.category}
+                        </span>
+                        <span className="text-xs opacity-80">{project.date}</span>
+                      </div>
+                      <h3 className="font-bold text-sm md:text-base mb-2 line-clamp-2">
+                        {project.title}
+                      </h3>
+                      {hoveredIndex === index && project.excerpt && (
+                        <p className="text-xs opacity-90 line-clamp-2 transition-opacity duration-300">
+                          {project.excerpt}
+                        </p>
+                      )}
                     </div>
-                    <h3 className="font-bold text-sm md:text-base mb-2 line-clamp-2">
-                      {project.title}
-                    </h3>
-                    {hoveredIndex === index && project.excerpt && (
-                      <p className="text-xs opacity-90 line-clamp-2 transition-opacity duration-300">
-                        {project.excerpt}
-                      </p>
-                    )}
                   </div>
-                </div>
-              </article>
-            ))}
+                </Link>
+              );
+            })}
           </div>
           
           {filteredProjects.length === 0 && (
