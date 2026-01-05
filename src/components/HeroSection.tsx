@@ -110,7 +110,7 @@ const HeroSection = () => {
 
             {/* Tech & Writing Tags */}
             <div className="flex flex-wrap gap-2 pt-4">
-              {['Cloud Computing', 'DevOps', 'Fiction Writing', 'Technical Blogs'].map((tag) => (
+              {['Project / Product Management', 'Strategic Planning', 'Global Technical Sales', 'Fictional Author', 'Poetic Mind', 'Biker / Rider'].map((tag) => (
                 <span
                   key={tag}
                   className="px-3 py-1 text-xs font-medium bg-muted text-muted-foreground rounded-full border border-border/50"
