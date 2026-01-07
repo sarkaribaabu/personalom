@@ -12,6 +12,13 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from '@/components/ui/carousel';
 import { 
   Building2, 
   Calendar, 
@@ -23,7 +30,8 @@ import {
   Lightbulb,
   Target,
   TrendingUp,
-  BookOpen
+  BookOpen,
+  ImageIcon
 } from 'lucide-react';
 import businessPost from '@/assets/business-post.jpg';
 import techPost from '@/assets/tech-post.jpg';
@@ -49,29 +57,17 @@ const projectsData: Record<string, {
     context: string;
     constraints: string[];
   };
-  realityCheck: {
+  contextAndApproach: {
     environment: string;
     challenges: string[];
-  };
-  approach: {
     principles: string[];
     decisions: string[];
-  };
-  execution: {
-    overview: string;
-    modules: string[];
-    considerations: string[];
   };
   challengesThatMattered: {
     title: string;
     description: string;
   }[];
-  solutions: {
-    problem: string;
-    decision: string;
-    intervention: string;
-    result: string;
-  }[];
+  solutionsSummary: string;
   outcomes: {
     quantitative: string[];
     qualitative: string[];
@@ -81,6 +77,7 @@ const projectsData: Record<string, {
     improvements: string[];
     insights: string[];
   };
+  gallery: string[];
 }> = {
   'featured-story-main-content': {
     title: "Featured Story — Main Content",
@@ -103,16 +100,14 @@ const projectsData: Record<string, {
         "Phased rollout across 500+ branches"
       ]
     },
-    realityCheck: {
+    contextAndApproach: {
       environment: "The existing infrastructure comprised decades-old COBOL-based systems with limited API capabilities. Multiple teams operated in silos with varying levels of technical maturity.",
       challenges: [
         "Fragmented data across multiple legacy databases",
         "Resistance to change from traditional banking operations teams",
         "Regulatory audits scheduled during the implementation phase",
         "Limited documentation of existing business logic"
-      ]
-    },
-    approach: {
+      ],
       principles: [
         "Incremental modernization over big-bang replacement",
         "API-first architecture to enable future flexibility",
@@ -125,20 +120,6 @@ const projectsData: Record<string, {
         "Established cross-functional pods over traditional team structures"
       ]
     },
-    execution: {
-      overview: "Designed a microservices-based architecture with an API gateway layer that abstracted legacy system complexities while enabling modern frontend applications.",
-      modules: [
-        "Customer Identity & Access Management",
-        "Real-time Transaction Processing Engine",
-        "Regulatory Reporting Dashboard",
-        "Branch Operations Portal"
-      ],
-      considerations: [
-        "End-to-end encryption for all data in transit and at rest",
-        "Multi-region deployment for disaster recovery",
-        "Comprehensive audit logging for compliance"
-      ]
-    },
     challengesThatMattered: [
       {
         title: "Data Migration Without Downtime",
@@ -149,20 +130,7 @@ const projectsData: Record<string, {
         description: "Maintaining audit trails and compliance reporting across both old and new systems during the 18-month transition period required building temporary bridge solutions."
       }
     ],
-    solutions: [
-      {
-        problem: "Legacy systems couldn't handle real-time API requests",
-        decision: "Implemented an event-driven caching layer",
-        intervention: "Built Redis-based cache with eventual consistency guarantees",
-        result: "Reduced average response time from 8 seconds to 200ms"
-      },
-      {
-        problem: "Teams lacked experience with modern development practices",
-        decision: "Invested in capability building before scaling",
-        intervention: "Established internal academy with hands-on workshops",
-        result: "90% of team members certified in cloud-native technologies within 6 months"
-      }
-    ],
+    solutionsSummary: "To address legacy system limitations, we implemented a Redis-based caching layer with eventual consistency guarantees, reducing response times from 8 seconds to 200ms. For team capability gaps, we established an internal academy with hands-on workshops, achieving 90% cloud-native certification within 6 months.",
     outcomes: {
       quantitative: [
         "60% reduction in customer onboarding time",
@@ -188,7 +156,8 @@ const projectsData: Record<string, {
       insights: [
         "Change management is as critical as technical excellence in enterprise transformations"
       ]
-    }
+    },
+    gallery: [businessPost, techPost, fashionPost, lifestylePost, workLifestyle, fashionLifestyle]
   },
   'story-title-content-preview': {
     title: "Story Title — Content Preview",
@@ -211,16 +180,14 @@ const projectsData: Record<string, {
         "Budget constraints typical of government projects"
       ]
     },
-    realityCheck: {
+    contextAndApproach: {
       environment: "Existing workflow involved manual verification by multiple officers across different departments. Document formats varied significantly across districts.",
       challenges: [
         "Inconsistent document quality from rural submission centers",
         "Limited training data for regional language documents",
         "Resistance from staff concerned about automation",
         "Complex approval hierarchies across departments"
-      ]
-    },
-    approach: {
+      ],
       principles: [
         "Augment human capability, not replace",
         "Build for the lowest common denominator in terms of document quality",
@@ -230,20 +197,6 @@ const projectsData: Record<string, {
         "Hybrid model combining ML classification with human verification for edge cases",
         "Invested in building proprietary training dataset for regional languages",
         "Designed explainable AI outputs for officer review"
-      ]
-    },
-    execution: {
-      overview: "Developed a document intelligence platform with OCR, classification, and extraction capabilities, integrated into existing workflow management systems.",
-      modules: [
-        "Multi-language OCR Engine",
-        "Document Classification Model",
-        "Data Extraction & Validation",
-        "Officer Dashboard & Review Queue"
-      ],
-      considerations: [
-        "On-premise deployment to meet data sovereignty requirements",
-        "Confidence scoring for automated vs manual routing",
-        "Comprehensive audit trails for all AI decisions"
       ]
     },
     challengesThatMattered: [
@@ -256,20 +209,7 @@ const projectsData: Record<string, {
         description: "Rolling out AI-assisted processing across 38 districts with varying levels of digital literacy required extensive training and support."
       }
     ],
-    solutions: [
-      {
-        problem: "Low accuracy on handwritten regional language documents",
-        decision: "Built custom training datasets with local language experts",
-        intervention: "Engaged 50+ language specialists for annotation over 3 months",
-        result: "Achieved 94% accuracy across all supported languages"
-      },
-      {
-        problem: "Staff resistance to automation",
-        decision: "Positioned AI as assistant, not replacement",
-        intervention: "Created 'AI Buddy' program pairing officers with the system",
-        result: "85% positive feedback from staff after 6 months"
-      }
-    ],
+    solutionsSummary: "We engaged 50+ language specialists for annotation over 3 months to build custom training datasets, achieving 94% accuracy across all supported languages. The 'AI Buddy' program paired officers with the system, resulting in 85% positive feedback from staff after 6 months.",
     outcomes: {
       quantitative: [
         "Reduced average processing time from 45 days to 7 days",
@@ -295,7 +235,8 @@ const projectsData: Record<string, {
       insights: [
         "Success in government AI projects depends more on adoption than technology"
       ]
-    }
+    },
+    gallery: [techPost, businessPost, fashionPost, lifestylePost, workLifestyle, fashionLifestyle]
   },
   'post-title-summary': {
     title: "Post Title — Summary",
@@ -318,15 +259,13 @@ const projectsData: Record<string, {
         "Limited in-store staff for app promotion"
       ]
     },
-    realityCheck: {
+    contextAndApproach: {
       environment: "Stores operated on different technology stacks based on when they were set up. Inventory synchronization was batch-based with significant delays.",
       challenges: [
         "Varying network quality across store locations",
         "Multiple POS vendors with different integration capabilities",
         "Staff unfamiliarity with mobile-first customer service"
-      ]
-    },
-    approach: {
+      ],
       principles: [
         "Offline-first architecture for reliable in-store experience",
         "Progressive feature rollout based on store readiness",
@@ -338,34 +277,13 @@ const projectsData: Record<string, {
         "Prioritized store pickup over delivery for initial launch"
       ]
     },
-    execution: {
-      overview: "Developed a cross-platform mobile app with offline capabilities, real-time inventory visibility, and seamless integration with store operations.",
-      modules: [
-        "Product Discovery & Search",
-        "In-store Mode with Barcode Scanner",
-        "Unified Cart & Checkout",
-        "Store Pickup Coordination"
-      ],
-      considerations: [
-        "Local SQLite database for offline product catalog",
-        "Background sync for inventory updates",
-        "Push notifications for pickup readiness"
-      ]
-    },
     challengesThatMattered: [
       {
         title: "Real-time Inventory Accuracy",
         description: "Achieving accurate stock visibility when underlying systems had batch updates required building predictive inventory models."
       }
     ],
-    solutions: [
-      {
-        problem: "Inventory data was 4-6 hours stale",
-        decision: "Built predictive stock model",
-        intervention: "ML model predicting stock based on sales velocity and batch data",
-        result: "Achieved 97% inventory accuracy for in-app display"
-      }
-    ],
+    solutionsSummary: "We built a predictive stock model using ML that predicted inventory based on sales velocity and batch data, achieving 97% inventory accuracy for in-app display despite underlying systems having 4-6 hour data staleness.",
     outcomes: {
       quantitative: [
         "25% increase in store pickup orders",
@@ -389,7 +307,8 @@ const projectsData: Record<string, {
       insights: [
         "Retail apps succeed when they add value to both customers and store staff"
       ]
-    }
+    },
+    gallery: [fashionPost, businessPost, techPost, lifestylePost, workLifestyle, fashionLifestyle]
   },
   'article-title-overview': {
     title: "Article Title — Overview",
@@ -412,15 +331,13 @@ const projectsData: Record<string, {
         "Adoption by both tech-savvy and elderly patients"
       ]
     },
-    realityCheck: {
+    contextAndApproach: {
       environment: "Healthcare providers used different data standards, making interoperability extremely challenging. Many small clinics still used paper records.",
       challenges: [
         "Lack of standardized health data formats across providers",
         "Trust issues around sharing patient data",
         "Varying digital literacy among patient demographics"
-      ]
-    },
-    approach: {
+      ],
       principles: [
         "Patient as the owner and controller of their data",
         "Universal design for accessibility across age groups",
@@ -432,280 +349,137 @@ const projectsData: Record<string, {
         "Designed for 'digital proxy' scenarios for elderly patients"
       ]
     },
-    execution: {
-      overview: "Designed and built a patient-centric health records platform with strong focus on usability, accessibility, and data privacy.",
-      modules: [
-        "Health Records Aggregation",
-        "Consent Management Portal",
-        "Family Health Dashboard",
-        "Provider Integration Hub"
-      ],
-      considerations: [
-        "End-to-end encryption with patient-held keys",
-        "Accessibility compliance (WCAG 2.1 AA)",
-        "Multilingual interface"
-      ]
-    },
     challengesThatMattered: [
       {
         title: "Designing for Elderly Users",
-        description: "Creating an interface that worked for both tech-native millennials and elderly patients with limited smartphone experience required extensive user research and testing."
+        description: "Creating an interface that worked for both tech-savvy millennials and 70+ year old patients with limited smartphone experience."
       }
     ],
-    solutions: [
-      {
-        problem: "Elderly users struggled with complex health apps",
-        decision: "Created adaptive interface modes",
-        intervention: "Developed 'Simple Mode' with larger text, fewer options, and voice guidance",
-        result: "NPS of 72 among 60+ age group users"
-      }
-    ],
+    solutionsSummary: "We conducted extensive user research with 200+ patients across age groups, implementing large touch targets, voice-guided navigation, and a 'family caregiver' mode. For interoperability, we built 50+ EMR connectors using FHIR adapters, enabling seamless data aggregation.",
     outcomes: {
       quantitative: [
-        "85% patient activation rate",
         "40% reduction in redundant diagnostic tests",
-        "NPS of 68 across all user segments"
+        "30% improvement in medication adherence",
+        "85% patient satisfaction score"
       ],
       qualitative: [
-        "Praised for accessibility in industry reviews",
-        "Selected for government health platform pilot"
+        "First platform to achieve both HIPAA and Indian compliance",
+        "Partnership with major hospital chains"
       ]
     },
     learnings: {
       keyLearnings: [
-        "Healthcare UX must accommodate extreme user diversity",
-        "Trust is the biggest barrier in health data sharing"
+        "Healthcare UX requires extensive real-world validation",
+        "Compliance should be built-in, not bolted-on"
       ],
       improvements: [
-        "Would have involved caregivers earlier in the design process"
+        "Would have engaged regulatory consultants earlier in design"
       ],
       insights: [
-        "Simple design is harder but essential for inclusive healthcare products"
+        "In healthcare, trust is earned through transparency and control"
       ]
-    }
+    },
+    gallery: [lifestylePost, businessPost, techPost, fashionPost, workLifestyle, fashionLifestyle]
   },
-  'content-title-description': {
-    title: "Content Title — Description",
-    category: "Web Development",
+  'featured-content-piece': {
+    title: "Featured Content Piece",
+    category: "Cloud",
     image: workLifestyle,
     snapshot: {
       client: "Manufacturing Conglomerate",
-      industry: "Manufacturing / Industry 4.0",
-      role: "Digital Transformation Lead",
+      industry: "Manufacturing / Industrial",
+      role: "Cloud Transformation Lead",
       duration: "24 months",
-      techStack: ["Angular", "Java Spring", "Kafka", "TimescaleDB", "Azure IoT"]
+      techStack: ["AWS", "Kubernetes", "Terraform", "Python", "IoT Hub"]
     },
     brief: {
-      problem: "Lack of real-time visibility into production metrics across 12 plants was causing inefficiencies, quality issues, and delayed decision-making.",
-      context: "The conglomerate needed to implement Industry 4.0 principles across their manufacturing operations while dealing with legacy machinery and varying levels of plant modernization.",
+      problem: "Disparate on-premise systems across 12 manufacturing units were causing visibility gaps, delayed reporting, and inability to implement predictive maintenance.",
+      context: "The conglomerate needed a unified cloud platform to connect all manufacturing units while ensuring minimal disruption to 24/7 production operations.",
       constraints: [
-        "Plants spread across 4 countries with different regulations",
-        "Machinery ranging from 2 years to 40 years old",
-        "Unionized workforce with concerns about monitoring",
-        "24/7 operations with zero tolerance for production stoppage"
+        "Zero tolerance for production downtime",
+        "Legacy OT systems with limited connectivity options",
+        "Compliance with industrial safety standards",
+        "Workforce with limited cloud technology exposure"
       ]
     },
-    realityCheck: {
-      environment: "Each plant operated as an independent unit with different reporting standards, shift patterns, and operational KPIs.",
+    contextAndApproach: {
+      environment: "Manufacturing units operated independently with varying levels of automation. Some units had modern PLCs while others relied on decades-old equipment.",
       challenges: [
-        "Integrating IoT sensors with legacy machinery",
-        "Standardizing metrics across diverse manufacturing processes",
-        "Addressing workforce concerns about surveillance"
-      ]
-    },
-    approach: {
+        "Connecting OT and IT networks securely",
+        "Handling intermittent connectivity at remote plant locations",
+        "Resistance from plant managers concerned about centralized control"
+      ],
       principles: [
-        "Non-invasive sensor integration for legacy equipment",
-        "Transparency in what data is collected and how it's used",
-        "Local optimization with global visibility"
+        "Edge-first architecture for resilience",
+        "Security as non-negotiable foundation",
+        "Federated model respecting plant autonomy"
       ],
       decisions: [
-        "Retrofitting approach over equipment replacement",
-        "Edge computing for latency-critical decisions",
-        "Plant-level autonomy with corporate dashboards"
-      ]
-    },
-    execution: {
-      overview: "Built an end-to-end IoT platform with edge computing capabilities, real-time data pipelines, and role-based dashboards for different stakeholders.",
-      modules: [
-        "IoT Gateway & Edge Processing",
-        "Real-time Production Dashboard",
-        "Predictive Maintenance Engine",
-        "Quality Analytics Portal"
-      ],
-      considerations: [
-        "Sub-second latency for critical alerts",
-        "Offline capability for edge devices",
-        "Role-based access across organizational hierarchy"
+        "Deployed edge gateways at each plant for local processing",
+        "Implemented zero-trust security model",
+        "Created plant-level dashboards before central visibility"
       ]
     },
     challengesThatMattered: [
       {
-        title: "Retrofitting 40-year-old Machinery",
-        description: "Many critical machines lacked any digital interfaces, requiring creative sensor placement and signal interpretation."
-      },
-      {
-        title: "Union Negotiations",
-        description: "Workforce representatives had legitimate concerns about monitoring that needed to be addressed through transparent dialogue and policy commitments."
+        title: "OT-IT Convergence",
+        description: "Bridging decades-old operational technology with modern cloud infrastructure required custom integration solutions and extensive security considerations."
       }
     ],
-    solutions: [
-      {
-        problem: "Legacy machines had no digital interfaces",
-        decision: "Developed custom IoT adapters",
-        intervention: "Created vibration and audio-based monitoring for analog machines",
-        result: "100% machine coverage including 40-year-old equipment"
-      },
-      {
-        problem: "Worker concerns about surveillance",
-        decision: "Transparent monitoring charter",
-        intervention: "Joint committee for data usage policies, worker dashboard access",
-        result: "Union endorsement of the program"
-      }
-    ],
+    solutionsSummary: "We designed custom edge gateway solutions with local processing capabilities, ensuring plants could operate independently during connectivity issues. A zero-trust security model with network segmentation addressed OT-IT convergence concerns, enabling secure data flow without exposing critical systems.",
     outcomes: {
       quantitative: [
-        "15% improvement in Overall Equipment Effectiveness (OEE)",
-        "35% reduction in unplanned downtime",
-        "$8M annual savings from predictive maintenance",
-        "22% reduction in quality defects"
+        "23% reduction in unplanned downtime through predictive maintenance",
+        "15% improvement in overall equipment effectiveness",
+        "₹12 Cr annual savings in operational costs"
       ],
       qualitative: [
-        "Transformed organizational culture around data-driven decisions",
-        "Model for industry recognition and awards"
+        "Real-time visibility across all manufacturing units",
+        "Foundation for AI-driven production optimization"
       ]
     },
     learnings: {
       keyLearnings: [
-        "Industrial IoT projects are as much about people as technology",
-        "Retrofitting requires creative engineering and patience"
+        "Industrial digital transformation requires patience and trust-building",
+        "Edge computing is essential for mission-critical OT environments"
       ],
       improvements: [
-        "Would have started union engagement from project inception"
+        "Would have involved plant managers as design partners from day one"
       ],
       insights: [
-        "Industry 4.0 success requires balancing efficiency gains with workforce trust"
+        "Manufacturing transformation succeeds when it empowers plant teams, not just headquarters"
       ]
-    }
+    },
+    gallery: [workLifestyle, businessPost, techPost, fashionPost, lifestylePost, fashionLifestyle]
   },
-  'sample-title-preview': {
-    title: "Sample Title — Preview",
-    category: "AI/ML",
-    image: fashionLifestyle,
-    snapshot: {
-      client: "Confidential",
-      industry: "Insurance",
-      role: "Product Manager",
-      duration: "14 months",
-      techStack: ["Python", "PyTorch", "AWS SageMaker", "PostgreSQL", "React"]
-    },
-    brief: {
-      problem: "Manual claims processing was taking 15-20 days on average, leading to customer dissatisfaction and high operational costs.",
-      context: "The insurer needed to automate claims assessment while maintaining accuracy and regulatory compliance.",
-      constraints: [
-        "IRDAI regulatory compliance",
-        "Integration with legacy claims management system",
-        "Fraud detection requirements"
-      ]
-    },
-    realityCheck: {
-      environment: "Claims involved diverse document types and required cross-referencing with multiple data sources for validation.",
-      challenges: [
-        "Highly variable claim documentation quality",
-        "Complex fraud patterns requiring expert judgment",
-        "Regulatory scrutiny on automated decisions"
-      ]
-    },
-    approach: {
-      principles: [
-        "Human-in-the-loop for high-value claims",
-        "Explainable AI for regulatory transparency",
-        "Continuous learning from adjuster decisions"
-      ],
-      decisions: [
-        "Tiered automation based on claim complexity",
-        "Built confidence scoring for routing decisions"
-      ]
-    },
-    execution: {
-      overview: "Developed an AI-powered claims triage and assessment platform with fraud detection and automated settlement for straightforward claims.",
-      modules: [
-        "Document Intelligence Engine",
-        "Claims Triage & Routing",
-        "Fraud Detection Model",
-        "Automated Settlement Module"
-      ],
-      considerations: [
-        "Model explainability for regulatory audits",
-        "Continuous model retraining pipeline"
-      ]
-    },
-    challengesThatMattered: [
-      {
-        title: "Balancing Speed with Accuracy",
-        description: "Pressure to reduce processing time while maintaining high accuracy standards required careful threshold calibration."
-      }
-    ],
-    solutions: [
-      {
-        problem: "Need for speed vs accuracy trade-off",
-        decision: "Dynamic routing based on confidence",
-        intervention: "Built confidence-based routing with different SLAs",
-        result: "70% of claims auto-settled, maintaining 99.2% accuracy"
-      }
-    ],
-    outcomes: {
-      quantitative: [
-        "Average claims processing reduced from 17 days to 3 days",
-        "70% of straightforward claims auto-settled",
-        "40% reduction in claims operations costs"
-      ],
-      qualitative: [
-        "Customer satisfaction scores improved significantly",
-        "Adjusters focused on complex, high-value claims"
-      ]
-    },
-    learnings: {
-      keyLearnings: [
-        "Regulatory acceptance of AI requires extensive explainability investment"
-      ],
-      improvements: [
-        "Would have built model monitoring dashboards earlier"
-      ],
-      insights: [
-        "AI in regulated industries requires patience and transparency"
-      ]
-    }
-  },
-  'example-title-summary': {
-    title: "Example Title — Summary",
+  'latest-design-showcase': {
+    title: "Latest Design Showcase",
     category: "Design",
-    image: businessPost,
+    image: fashionLifestyle,
     snapshot: {
       client: "EdTech Platform",
       industry: "Education Technology",
-      role: "Product Lead",
+      role: "UX Strategy Lead",
       duration: "6 months",
-      techStack: ["Figma", "React", "Node.js", "PostgreSQL", "WebRTC"]
+      techStack: ["Figma", "React", "Next.js", "Tailwind CSS", "Framer Motion"]
     },
     brief: {
-      problem: "Low student engagement and high dropout rates in online courses were affecting platform growth and learning outcomes.",
-      context: "The platform needed to reimagine the online learning experience to improve completion rates and learner satisfaction.",
+      problem: "Low course completion rates and declining user engagement were threatening the platform's growth and learner outcomes.",
+      context: "The platform needed a complete UX overhaul to make learning more engaging while maintaining content quality and learning effectiveness.",
       constraints: [
-        "Must work on low-bandwidth connections",
-        "Support for vernacular languages",
-        "Accessibility for learners with disabilities"
+        "Must maintain backward compatibility with existing content",
+        "Mobile-first for primary user base",
+        "Accessibility requirements for diverse learner base",
+        "Limited engineering bandwidth for implementation"
       ]
     },
-    realityCheck: {
+    contextAndApproach: {
       environment: "Learners accessed the platform on a variety of devices, primarily mobile, often with intermittent connectivity.",
       challenges: [
         "Attention span challenges for long-form content",
         "Limited interactivity in existing course formats",
         "Instructor content creation bottlenecks"
-      ]
-    },
-    approach: {
+      ],
       principles: [
         "Mobile-first, bite-sized learning",
         "Gamification without gimmicks",
@@ -717,34 +491,13 @@ const projectsData: Record<string, {
         "Created simplified content authoring tools"
       ]
     },
-    execution: {
-      overview: "Redesigned the learning experience with focus on engagement, accessibility, and community features.",
-      modules: [
-        "Micro-learning Content Player",
-        "Interactive Quiz Engine",
-        "Peer Discussion Forums",
-        "Progress Gamification System"
-      ],
-      considerations: [
-        "Offline content download for low connectivity",
-        "Screen reader compatibility",
-        "Data-light mode for 2G networks"
-      ]
-    },
     challengesThatMattered: [
       {
         title: "Content Migration",
         description: "Converting 500+ hours of existing long-form content into micro-learning format while maintaining coherence."
       }
     ],
-    solutions: [
-      {
-        problem: "Massive existing content needed restructuring",
-        decision: "AI-assisted content chunking",
-        intervention: "Built AI tool to suggest optimal break points and create summaries",
-        result: "Content migration completed 3x faster than manual approach"
-      }
-    ],
+    solutionsSummary: "We built an AI-assisted content chunking tool that suggested optimal break points and created summaries, enabling content migration to complete 3x faster than a manual approach. The gamification system focused on learning milestones rather than superficial metrics.",
     outcomes: {
       quantitative: [
         "Course completion rates improved from 12% to 47%",
@@ -766,7 +519,8 @@ const projectsData: Record<string, {
       insights: [
         "EdTech success is about behavior change, not just content delivery"
       ]
-    }
+    },
+    gallery: [fashionLifestyle, businessPost, techPost, fashionPost, lifestylePost, workLifestyle]
   },
   'another-web-project': {
     title: "Another Web Project",
@@ -788,15 +542,13 @@ const projectsData: Record<string, {
         "Real-time updates at scale (10,000+ vehicles)"
       ]
     },
-    realityCheck: {
+    contextAndApproach: {
       environment: "Fleet operated across diverse geographies with varying road conditions and connectivity. Drivers had different levels of smartphone proficiency.",
       challenges: [
         "GPS data quality varied significantly across vendors",
         "Driver adoption of new mobile app",
         "Scaling real-time tracking for thousands of simultaneous vehicles"
-      ]
-    },
-    approach: {
+      ],
       principles: [
         "Driver experience as critical as operations experience",
         "Graceful degradation for connectivity issues",
@@ -808,34 +560,13 @@ const projectsData: Record<string, {
         "Designed offline-capable driver app"
       ]
     },
-    execution: {
-      overview: "Developed an integrated fleet management platform with route optimization, real-time tracking, and customer visibility portal.",
-      modules: [
-        "Route Optimization Engine",
-        "Real-time Tracking Dashboard",
-        "Driver Mobile App",
-        "Customer Visibility Portal"
-      ],
-      considerations: [
-        "WebSocket connections for live tracking",
-        "Geospatial indexing for efficient queries",
-        "Multi-tenant data isolation"
-      ]
-    },
     challengesThatMattered: [
       {
         title: "Real-time at Scale",
         description: "Processing and broadcasting location updates for 10,000+ vehicles every 30 seconds required careful architecture."
       }
     ],
-    solutions: [
-      {
-        problem: "Broadcasting updates to thousands of dashboard users",
-        decision: "Implemented geo-partitioned pub/sub",
-        intervention: "Redis-based pub/sub with geographic partitioning",
-        result: "Sub-second update latency at 10K vehicle scale"
-      }
-    ],
+    solutionsSummary: "We implemented a geo-partitioned Redis-based pub/sub system that efficiently broadcast updates to thousands of dashboard users, achieving sub-second update latency at 10K vehicle scale. The unified GPS abstraction layer normalized data quality across vendors.",
     outcomes: {
       quantitative: [
         "18% reduction in fuel costs through route optimization",
@@ -857,7 +588,8 @@ const projectsData: Record<string, {
       insights: [
         "Logistics technology succeeds when it makes drivers' jobs easier"
       ]
-    }
+    },
+    gallery: [techPost, businessPost, fashionPost, lifestylePost, workLifestyle, fashionLifestyle]
   },
   'mobile-app-design': {
     title: "Mobile App Design",
@@ -879,15 +611,13 @@ const projectsData: Record<string, {
         "Must work for both salaried and self-employed users"
       ]
     },
-    realityCheck: {
+    contextAndApproach: {
       environment: "Users had varying financial literacy levels. Bank API availability was inconsistent, and many transactions were still cash-based.",
       challenges: [
         "Incomplete transaction data from bank feeds",
         "Cash transaction categorization",
         "Building user trust for financial data access"
-      ]
-    },
-    approach: {
+      ],
       principles: [
         "Minimum effort for maximum insight",
         "Trust through transparency",
@@ -899,34 +629,13 @@ const projectsData: Record<string, {
         "Created explainable AI for financial recommendations"
       ]
     },
-    execution: {
-      overview: "Designed and built an intelligent personal finance app with automated transaction categorization, spending insights, and personalized recommendations.",
-      modules: [
-        "Bank Account Aggregation",
-        "Smart Categorization Engine",
-        "Spending Analytics Dashboard",
-        "Goal-based Savings Tracker"
-      ],
-      considerations: [
-        "Biometric authentication",
-        "Local data encryption",
-        "Data minimization principles"
-      ]
-    },
     challengesThatMattered: [
       {
         title: "Cash Transaction Tracking",
         description: "India's cash-heavy economy meant bank feeds only told part of the story. Making cash tracking effortless was crucial."
       }
     ],
-    solutions: [
-      {
-        problem: "Users wouldn't manually log cash transactions",
-        decision: "Built instant receipt scanning",
-        intervention: "AI-powered receipt OCR with one-tap logging",
-        result: "Cash transactions captured increased by 300%"
-      }
-    ],
+    solutionsSummary: "We built an AI-powered receipt OCR with one-tap logging, increasing cash transaction capture by 300%. Smart categorization learned from user corrections, improving accuracy over time while maintaining transparency about how recommendations were generated.",
     outcomes: {
       quantitative: [
         "User savings rate increased by average 15%",
@@ -948,13 +657,9 @@ const projectsData: Record<string, {
       insights: [
         "Financial apps must balance automation with user sense of control"
       ]
-    }
+    },
+    gallery: [lifestylePost, businessPost, techPost, fashionPost, workLifestyle, fashionLifestyle]
   }
-};
-
-// Helper to convert title to slug
-const titleToSlug = (title: string) => {
-  return title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
 };
 
 const ProjectDetail = () => {
@@ -1006,20 +711,10 @@ const ProjectDetail = () => {
           </Breadcrumb>
         </div>
 
-        {/* Hero Image */}
+        {/* Title Section */}
         <div className="container-blog py-8">
-          <div className="relative aspect-[21/9] rounded-xl overflow-hidden">
-            <img 
-              src={project.image} 
-              alt={project.title}
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-            <div className="absolute bottom-6 left-6 right-6">
-              <Badge className="mb-3">{project.category}</Badge>
-              <h1 className="text-3xl md:text-4xl font-bold text-white">{project.title}</h1>
-            </div>
-          </div>
+          <Badge className="mb-4">{project.category}</Badge>
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">{project.title}</h1>
         </div>
 
         <div className="container-blog pb-16">
@@ -1100,96 +795,64 @@ const ProjectDetail = () => {
 
               <Separator />
 
-              {/* 3. Context & Reality Check */}
-              <section>
-                <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">
-                  <AlertTriangle className="h-5 w-5 text-primary" />
-                  Context & Reality Check
-                </h2>
-                <p className="text-muted-foreground leading-relaxed mb-4">{project.realityCheck.environment}</p>
-                <div className="grid gap-3">
-                  {project.realityCheck.challenges.map((challenge, i) => (
-                    <div key={i} className="flex items-start gap-3 p-3 rounded-lg bg-muted/30">
-                      <span className="text-amber-500 mt-0.5">⚠</span>
-                      <span className="text-sm">{challenge}</span>
-                    </div>
-                  ))}
-                </div>
-              </section>
-
-              <Separator />
-
-              {/* 4. My Approach */}
+              {/* 3. Context & Approach (Merged) */}
               <section>
                 <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">
                   <Lightbulb className="h-5 w-5 text-primary" />
-                  My Approach
+                  Context & Approach
                 </h2>
-                <div className="space-y-6">
-                  <div>
-                    <h4 className="text-sm font-medium mb-3">Guiding Principles</h4>
-                    <div className="grid gap-2">
-                      {project.approach.principles.map((principle, i) => (
-                        <div key={i} className="flex items-center gap-3 p-3 rounded-lg border border-border">
-                          <span className="w-6 h-6 rounded-full bg-primary/10 text-primary text-xs flex items-center justify-center font-medium">{i + 1}</span>
-                          <span className="text-sm">{principle}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                  <div>
-                    <h4 className="text-sm font-medium mb-3">Strategic Decisions</h4>
-                    <ul className="space-y-2">
-                      {project.approach.decisions.map((decision, i) => (
-                        <li key={i} className="text-sm text-muted-foreground flex items-start gap-2">
-                          <CheckCircle2 className="h-4 w-4 text-green-500 mt-0.5 shrink-0" />
-                          {decision}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              </section>
-
-              <Separator />
-
-              {/* 5. Execution & Architecture */}
-              <section>
-                <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">
-                  <Layers className="h-5 w-5 text-primary" />
-                  Execution & Architecture
-                </h2>
-                <p className="text-muted-foreground leading-relaxed mb-6">{project.execution.overview}</p>
+                <p className="text-muted-foreground leading-relaxed mb-6">{project.contextAndApproach.environment}</p>
                 
-                <div className="grid md:grid-cols-2 gap-6 mb-6">
-                  <div>
-                    <h4 className="text-sm font-medium mb-3">Key Modules</h4>
-                    <div className="space-y-2">
-                      {project.execution.modules.map((module, i) => (
-                        <div key={i} className="flex items-center gap-2 p-2 rounded bg-muted/50">
-                          <div className="w-2 h-2 rounded-full bg-primary" />
-                          <span className="text-sm">{module}</span>
-                        </div>
+                <div className="overflow-x-auto">
+                  <table className="w-full border-collapse">
+                    <thead>
+                      <tr className="border-b border-border">
+                        <th className="text-left py-3 px-4 text-sm font-semibold text-primary bg-muted/50">Challenges Faced</th>
+                        <th className="text-left py-3 px-4 text-sm font-semibold text-primary bg-muted/50">Guiding Principles</th>
+                        <th className="text-left py-3 px-4 text-sm font-semibold text-primary bg-muted/50">Strategic Decisions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {Array.from({ length: Math.max(
+                        project.contextAndApproach.challenges.length,
+                        project.contextAndApproach.principles.length,
+                        project.contextAndApproach.decisions.length
+                      ) }).map((_, i) => (
+                        <tr key={i} className="border-b border-border/50">
+                          <td className="py-3 px-4 text-sm text-muted-foreground align-top">
+                            {project.contextAndApproach.challenges[i] && (
+                              <span className="flex items-start gap-2">
+                                <AlertTriangle className="h-4 w-4 text-amber-500 mt-0.5 shrink-0" />
+                                {project.contextAndApproach.challenges[i]}
+                              </span>
+                            )}
+                          </td>
+                          <td className="py-3 px-4 text-sm text-muted-foreground align-top">
+                            {project.contextAndApproach.principles[i] && (
+                              <span className="flex items-start gap-2">
+                                <span className="w-5 h-5 rounded-full bg-primary/10 text-primary text-xs flex items-center justify-center font-medium shrink-0">{i + 1}</span>
+                                {project.contextAndApproach.principles[i]}
+                              </span>
+                            )}
+                          </td>
+                          <td className="py-3 px-4 text-sm text-muted-foreground align-top">
+                            {project.contextAndApproach.decisions[i] && (
+                              <span className="flex items-start gap-2">
+                                <CheckCircle2 className="h-4 w-4 text-green-500 mt-0.5 shrink-0" />
+                                {project.contextAndApproach.decisions[i]}
+                              </span>
+                            )}
+                          </td>
+                        </tr>
                       ))}
-                    </div>
-                  </div>
-                  <div>
-                    <h4 className="text-sm font-medium mb-3">Technical Considerations</h4>
-                    <ul className="space-y-2">
-                      {project.execution.considerations.map((item, i) => (
-                        <li key={i} className="text-sm text-muted-foreground flex items-start gap-2">
-                          <span className="text-primary">→</span>
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                    </tbody>
+                  </table>
                 </div>
               </section>
 
               <Separator />
 
-              {/* 6. Challenges That Mattered */}
+              {/* 4. Challenges That Mattered */}
               <section>
                 <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">
                   <AlertTriangle className="h-5 w-5 text-primary" />
@@ -1209,42 +872,18 @@ const ProjectDetail = () => {
 
               <Separator />
 
-              {/* 7. Solutions & Interventions */}
+              {/* 5. Solutions & Interventions (Simplified) */}
               <section>
                 <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">
                   <CheckCircle2 className="h-5 w-5 text-primary" />
                   Solutions & Interventions
                 </h2>
-                <div className="space-y-6">
-                  {project.solutions.map((solution, i) => (
-                    <div key={i} className="relative pl-6 border-l-2 border-primary/30">
-                      <div className="absolute left-0 top-0 w-3 h-3 -translate-x-[7px] rounded-full bg-primary" />
-                      <div className="space-y-3">
-                        <div>
-                          <span className="text-xs text-muted-foreground uppercase tracking-wide">Problem</span>
-                          <p className="text-sm font-medium">{solution.problem}</p>
-                        </div>
-                        <div>
-                          <span className="text-xs text-muted-foreground uppercase tracking-wide">Decision</span>
-                          <p className="text-sm">{solution.decision}</p>
-                        </div>
-                        <div>
-                          <span className="text-xs text-muted-foreground uppercase tracking-wide">Intervention</span>
-                          <p className="text-sm">{solution.intervention}</p>
-                        </div>
-                        <div className="p-3 rounded-lg bg-green-500/10 border border-green-500/20">
-                          <span className="text-xs text-green-600 dark:text-green-400 uppercase tracking-wide">Result</span>
-                          <p className="text-sm font-medium text-green-700 dark:text-green-300">{solution.result}</p>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
+                <p className="text-muted-foreground leading-relaxed">{project.solutionsSummary}</p>
               </section>
 
               <Separator />
 
-              {/* 9. Learnings & Reflections */}
+              {/* 6. Learnings & Reflections */}
               <section>
                 <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">
                   <BookOpen className="h-5 w-5 text-primary" />
@@ -1290,7 +929,7 @@ const ProjectDetail = () => {
             {/* Sidebar - Outcomes */}
             <div className="lg:col-span-1">
               <div className="sticky top-24 space-y-6">
-                {/* 8. Outcomes & Impact */}
+                {/* Outcomes & Impact */}
                 <Card className="bg-gradient-to-br from-primary/5 to-primary/10 border-primary/20">
                   <CardContent className="p-6">
                     <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">
@@ -1339,6 +978,37 @@ const ProjectDetail = () => {
               </div>
             </div>
           </div>
+
+          {/* Project Gallery Carousel */}
+          <section className="mt-16">
+            <h2 className="text-xl font-semibold mb-6 flex items-center gap-2">
+              <ImageIcon className="h-5 w-5 text-primary" />
+              Project Gallery
+            </h2>
+            <div className="px-12">
+              <Carousel opts={{ align: "start", loop: true }}>
+                <CarouselContent>
+                  {project.gallery.map((image, i) => (
+                    <CarouselItem key={i} className="md:basis-1/2 lg:basis-1/3">
+                      <div className="p-1">
+                        <Card className="overflow-hidden">
+                          <CardContent className="p-0">
+                            <img 
+                              src={image} 
+                              alt={`${project.title} - Image ${i + 1}`}
+                              className="w-full aspect-[4/3] object-cover hover:scale-105 transition-transform duration-300"
+                            />
+                          </CardContent>
+                        </Card>
+                      </div>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                <CarouselPrevious />
+                <CarouselNext />
+              </Carousel>
+            </div>
+          </section>
         </div>
       </main>
       
