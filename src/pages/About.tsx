@@ -73,61 +73,95 @@ const About = () => {
         </div>
       </section>
 
-      {/* Main Bio Section */}
+      {/* Main Bio Section - Side by Side Layout */}
       <main id="main-content" className="container-blog py-16">
-        <div className="max-w-4xl mx-auto">
-          {/* Bio Content */}
-          <div className="prose prose-lg dark:prose-invert max-w-none">
-            <p className="text-xl text-foreground leading-relaxed mb-8">
-              Om Mahajan is an IT professional with over 15 years of experience in cloud computing, 
-              DevOps, and enterprise architecture. As an author, consultant, and technology leader, 
-              his work focuses on helping organizations navigate the complexities of modern IT 
-              infrastructure and digital transformation.
-            </p>
-
-            <p className="text-muted-foreground leading-relaxed mb-8">
-              With a career spanning multiple industries and technologies, Om has built expertise 
-              in designing scalable systems, implementing DevOps practices, and architecting 
-              cloud-native solutions. His practical approach to technology, combined with a deep 
-              understanding of business needs, has made him a trusted advisor to enterprises 
-              worldwide.
-            </p>
-
-            <p className="text-muted-foreground leading-relaxed mb-8">
-              As an author, Om has written and published books that demystify complex technical 
-              concepts for practitioners at all levels. His writing combines real-world experience 
-              with accessible explanations, making advanced topics approachable without sacrificing 
-              depth. His published works cover cloud architecture, DevOps practices, and the 
-              intersection of technology with business strategy.
-            </p>
-
-            <p className="text-muted-foreground leading-relaxed mb-8">
-              Beyond writing, Om is a frequent speaker at technology conferences and contributes 
-              to the tech community through mentoring, workshops, and open-source projects. He 
-              believes in continuous learning and sharing knowledge as the foundation of 
-              professional growth.
-            </p>
-
-            <p className="text-muted-foreground leading-relaxed mb-12">
-              When not immersed in technology, Om enjoys exploring new ideas, reading across 
-              diverse subjects, and connecting with fellow professionals who share his passion 
-              for building better systems and solving complex problems.
-            </p>
-          </div>
-
-          {/* Photo Section */}
-          <div className="my-16">
-            <div className="aspect-[4/3] max-w-2xl mx-auto rounded-lg bg-muted flex items-center justify-center">
-              <div className="text-center">
-                <div className="w-32 h-32 bg-primary/20 rounded-full mx-auto mb-4 flex items-center justify-center">
-                  <span className="text-4xl font-serif text-primary">OM</span>
+        <div className="max-w-6xl mx-auto">
+          {/* Author Introduction - Creative Side by Side */}
+          <div className="grid lg:grid-cols-5 gap-12 lg:gap-16 items-start mb-20">
+            {/* Photo Column - Sticky on larger screens */}
+            <div className="lg:col-span-2 lg:sticky lg:top-24">
+              <div className="relative">
+                {/* Main Photo */}
+                <div className="aspect-[3/4] rounded-2xl overflow-hidden bg-muted shadow-2xl">
+                  <div className="w-full h-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
+                    <div className="text-center">
+                      <div className="w-32 h-32 bg-primary/30 rounded-full mx-auto mb-4 flex items-center justify-center border-4 border-background shadow-lg">
+                        <span className="text-5xl font-serif text-primary">OM</span>
+                      </div>
+                      <p className="text-muted-foreground text-sm">Author Photo</p>
+                    </div>
+                  </div>
                 </div>
-                <p className="text-muted-foreground">Author Photo</p>
+                {/* Decorative elements */}
+                <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-primary/10 rounded-2xl -z-10" />
+                <div className="absolute -top-4 -left-4 w-16 h-16 bg-accent/20 rounded-full -z-10" />
+              </div>
+              
+              {/* Quick Stats under photo */}
+              <div className="mt-8 grid grid-cols-2 gap-4">
+                <div className="text-center p-4 bg-muted/50 rounded-xl">
+                  <span className="text-3xl font-bold text-primary">15+</span>
+                  <p className="text-xs text-muted-foreground mt-1">Years Experience</p>
+                </div>
+                <div className="text-center p-4 bg-muted/50 rounded-xl">
+                  <span className="text-3xl font-bold text-primary">2</span>
+                  <p className="text-xs text-muted-foreground mt-1">Books Authored</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Bio Content Column */}
+            <div className="lg:col-span-3 space-y-6">
+              <div className="inline-block px-4 py-1.5 bg-primary/10 rounded-full text-sm text-primary font-medium mb-2">
+                IT Professional & Author
+              </div>
+              
+              <h2 className="text-3xl md:text-4xl font-serif font-light text-foreground leading-tight">
+                Building Technology, <br className="hidden md:block" />
+                <span className="text-primary">Crafting Stories</span>
+              </h2>
+
+              <div className="space-y-6 text-muted-foreground leading-relaxed">
+                <p className="text-lg text-foreground">
+                  Om Mahajan is an IT professional with over 15 years of experience in cloud computing, 
+                  DevOps, and enterprise architecture. As an author, consultant, and technology leader, 
+                  his work focuses on helping organizations navigate the complexities of modern IT 
+                  infrastructure and digital transformation.
+                </p>
+
+                <p>
+                  With a career spanning multiple industries and technologies, Om has built expertise 
+                  in designing scalable systems, implementing DevOps practices, and architecting 
+                  cloud-native solutions. His practical approach to technology, combined with a deep 
+                  understanding of business needs, has made him a trusted advisor to enterprises 
+                  worldwide.
+                </p>
+
+                <p>
+                  As an author, Om has written and published books that demystify complex technical 
+                  concepts for practitioners at all levels. His writing combines real-world experience 
+                  with accessible explanations, making advanced topics approachable without sacrificing 
+                  depth. His published works cover cloud architecture, DevOps practices, and the 
+                  intersection of technology with business strategy.
+                </p>
+
+                <p>
+                  Beyond writing, Om is a frequent speaker at technology conferences and contributes 
+                  to the tech community through mentoring, workshops, and open-source projects. He 
+                  believes in continuous learning and sharing knowledge as the foundation of 
+                  professional growth.
+                </p>
+
+                <p>
+                  When not immersed in technology, Om enjoys exploring new ideas, reading across 
+                  diverse subjects, and connecting with fellow professionals who share his passion 
+                  for building better systems and solving complex problems.
+                </p>
               </div>
             </div>
           </div>
 
-          {/* Academic & Professional Qualifications */}
+          <div className="max-w-4xl mx-auto">
           <div className="mb-16">
             <h2 className="text-2xl md:text-3xl font-serif font-light text-foreground mb-8 tracking-wide">
               ACADEMIC & PROFESSIONAL QUALIFICATIONS
@@ -252,6 +286,7 @@ const About = () => {
                 <Twitter className="h-6 w-6" />
               </a>
             </div>
+          </div>
           </div>
         </div>
       </main>
