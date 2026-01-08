@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { Play, Music, Camera, Gamepad2, Utensils, Mountain } from 'lucide-react';
+import { Play, Music, Camera, Gamepad2, Utensils, Mountain, Eye } from 'lucide-react';
 import {
   Dialog,
   DialogContent,
@@ -13,6 +13,9 @@ interface Video {
   id: string;
   title: string;
   duration: string;
+  views: string;
+  uploadedAt: string;
+  description: string;
 }
 
 const Hobbies = () => {
@@ -25,9 +28,9 @@ const Hobbies = () => {
       icon: Music,
       description: 'Exploring melodies and rhythms through various instruments',
       videos: [
-        { id: 'dQw4w9WgXcQ', title: 'Guitar Session', duration: '4:32' },
-        { id: 'dQw4w9WgXcQ', title: 'Piano Practice', duration: '6:15' },
-        { id: 'dQw4w9WgXcQ', title: 'Jam Session', duration: '8:42' },
+        { id: 'dQw4w9WgXcQ', title: 'Guitar Session', duration: '4:32', views: '12K', uploadedAt: '2 weeks ago', description: 'An evening jam session exploring acoustic melodies.' },
+        { id: 'dQw4w9WgXcQ', title: 'Piano Practice', duration: '6:15', views: '8.5K', uploadedAt: '1 month ago', description: 'Learning classical pieces on the piano.' },
+        { id: 'dQw4w9WgXcQ', title: 'Jam Session', duration: '8:42', views: '15K', uploadedAt: '3 months ago', description: 'Impromptu jam with friends at the studio.' },
       ]
     },
     {
@@ -36,8 +39,8 @@ const Hobbies = () => {
       icon: Camera,
       description: 'Capturing moments and telling stories through the lens',
       videos: [
-        { id: 'dQw4w9WgXcQ', title: 'Landscape Photography Tips', duration: '12:08' },
-        { id: 'dQw4w9WgXcQ', title: 'Street Photography Walk', duration: '15:23' },
+        { id: 'dQw4w9WgXcQ', title: 'Landscape Photography Tips', duration: '12:08', views: '25K', uploadedAt: '1 week ago', description: 'Essential tips for capturing stunning landscape shots.' },
+        { id: 'dQw4w9WgXcQ', title: 'Street Photography Walk', duration: '15:23', views: '18K', uploadedAt: '2 months ago', description: 'A morning walk through the city capturing candid moments.' },
       ]
     },
     {
@@ -46,10 +49,10 @@ const Hobbies = () => {
       icon: Gamepad2,
       description: 'From casual gaming to competitive esports adventures',
       videos: [
-        { id: 'dQw4w9WgXcQ', title: 'Strategy Game Playthrough', duration: '45:12' },
-        { id: 'dQw4w9WgXcQ', title: 'Retro Gaming Night', duration: '28:45' },
-        { id: 'dQw4w9WgXcQ', title: 'Game Review', duration: '18:30' },
-        { id: 'dQw4w9WgXcQ', title: 'Multiplayer Fun', duration: '32:15' },
+        { id: 'dQw4w9WgXcQ', title: 'Strategy Game Playthrough', duration: '45:12', views: '42K', uploadedAt: '3 days ago', description: 'Complete walkthrough of the latest strategy release.' },
+        { id: 'dQw4w9WgXcQ', title: 'Retro Gaming Night', duration: '28:45', views: '31K', uploadedAt: '2 weeks ago', description: 'Revisiting classic games from the 90s era.' },
+        { id: 'dQw4w9WgXcQ', title: 'Game Review', duration: '18:30', views: '22K', uploadedAt: '1 month ago', description: 'Honest review of the most talked-about game this year.' },
+        { id: 'dQw4w9WgXcQ', title: 'Multiplayer Fun', duration: '32:15', views: '19K', uploadedAt: '6 weeks ago', description: 'Gaming session with friends in online multiplayer.' },
       ]
     },
     {
@@ -58,8 +61,8 @@ const Hobbies = () => {
       icon: Utensils,
       description: 'Experimenting with flavors and creating delicious dishes',
       videos: [
-        { id: 'dQw4w9WgXcQ', title: 'Weekend Cooking Vlog', duration: '10:45' },
-        { id: 'dQw4w9WgXcQ', title: 'Traditional Recipe', duration: '14:22' },
+        { id: 'dQw4w9WgXcQ', title: 'Weekend Cooking Vlog', duration: '10:45', views: '14K', uploadedAt: '5 days ago', description: 'A relaxed weekend cooking session trying new recipes.' },
+        { id: 'dQw4w9WgXcQ', title: 'Traditional Recipe', duration: '14:22', views: '28K', uploadedAt: '3 weeks ago', description: 'Recreating my grandmother\'s traditional recipe.' },
       ]
     },
     {
@@ -68,9 +71,9 @@ const Hobbies = () => {
       icon: Mountain,
       description: 'Hiking, trekking, and exploring the great outdoors',
       videos: [
-        { id: 'dQw4w9WgXcQ', title: 'Mountain Trek Vlog', duration: '22:18' },
-        { id: 'dQw4w9WgXcQ', title: 'Camping Experience', duration: '35:42' },
-        { id: 'dQw4w9WgXcQ', title: 'Nature Walk', duration: '16:55' },
+        { id: 'dQw4w9WgXcQ', title: 'Mountain Trek Vlog', duration: '22:18', views: '35K', uploadedAt: '1 week ago', description: 'An exhilarating trek through the Western Ghats.' },
+        { id: 'dQw4w9WgXcQ', title: 'Camping Experience', duration: '35:42', views: '48K', uploadedAt: '1 month ago', description: 'Weekend camping trip with breathtaking sunrise views.' },
+        { id: 'dQw4w9WgXcQ', title: 'Nature Walk', duration: '16:55', views: '21K', uploadedAt: '2 months ago', description: 'A peaceful morning walk through the forest trails.' },
       ]
     },
   ];
@@ -140,8 +143,8 @@ const Hobbies = () => {
                   </div>
                 </div>
 
-                {/* Videos Grid */}
-                <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                {/* Videos Grid - YouTube Style */}
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-4 gap-y-8">
                   {category.videos.map((video, videoIndex) => (
                     <div 
                       key={videoIndex}
@@ -149,7 +152,7 @@ const Hobbies = () => {
                       onClick={() => setSelectedVideo(video)}
                     >
                       {/* Video Thumbnail */}
-                      <div className="relative aspect-video rounded-lg overflow-hidden bg-muted mb-3">
+                      <div className="relative aspect-video rounded-xl overflow-hidden bg-muted mb-3">
                         <img
                           src={`https://img.youtube.com/vi/${video.id}/maxresdefault.jpg`}
                           alt={video.title}
@@ -162,14 +165,30 @@ const Hobbies = () => {
                           </div>
                         </div>
                         {/* Duration Badge */}
-                        <span className="absolute bottom-2 right-2 px-2 py-0.5 bg-black/80 text-white text-xs rounded">
+                        <span className="absolute bottom-2 right-2 px-2 py-0.5 bg-black/80 text-white text-xs font-medium rounded">
                           {video.duration}
                         </span>
                       </div>
-                      {/* Video Info */}
-                      <h3 className="font-medium text-foreground group-hover:text-primary transition-colors line-clamp-2">
-                        {video.title}
-                      </h3>
+
+                      {/* Video Info - YouTube Style */}
+                      <div className="space-y-1.5">
+                        <h3 className="font-medium text-foreground group-hover:text-primary transition-colors line-clamp-2 leading-snug">
+                          {video.title}
+                        </h3>
+                        
+                        {/* Views & Date */}
+                        <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
+                          <Eye className="w-3.5 h-3.5" />
+                          <span>{video.views} views</span>
+                          <span className="mx-1">•</span>
+                          <span>{video.uploadedAt}</span>
+                        </div>
+
+                        {/* Description */}
+                        <p className="text-sm text-muted-foreground line-clamp-2 leading-relaxed">
+                          {video.description}
+                        </p>
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -207,10 +226,18 @@ const Hobbies = () => {
       {/* Video Player Dialog */}
       <Dialog open={!!selectedVideo} onOpenChange={(open) => !open && setSelectedVideo(null)}>
         <DialogContent className="max-w-4xl p-0 overflow-hidden">
-          <DialogHeader className="p-4 pb-0">
+          <DialogHeader className="p-4 pb-2">
             <DialogTitle className="text-lg font-medium">
               {selectedVideo?.title}
             </DialogTitle>
+            {selectedVideo && (
+              <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                <Eye className="w-4 h-4" />
+                <span>{selectedVideo.views} views</span>
+                <span className="mx-1">•</span>
+                <span>{selectedVideo.uploadedAt}</span>
+              </div>
+            )}
           </DialogHeader>
           <div className="aspect-video w-full">
             {selectedVideo && (
@@ -223,6 +250,13 @@ const Hobbies = () => {
               />
             )}
           </div>
+          {selectedVideo && (
+            <div className="p-4 pt-2 border-t border-border">
+              <p className="text-sm text-muted-foreground">
+                {selectedVideo.description}
+              </p>
+            </div>
+          )}
         </DialogContent>
       </Dialog>
       
