@@ -78,40 +78,8 @@ const About = () => {
         <div className="max-w-6xl mx-auto">
           {/* Author Introduction - Creative Side by Side */}
           <div className="grid lg:grid-cols-5 gap-12 lg:gap-16 items-start mb-20">
-            {/* Photo Column - Sticky on larger screens */}
-            <div className="lg:col-span-2 lg:sticky lg:top-24">
-              <div className="relative">
-                {/* Main Photo */}
-                <div className="aspect-[3/4] rounded-2xl overflow-hidden bg-muted shadow-2xl">
-                  <div className="w-full h-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-32 h-32 bg-primary/30 rounded-full mx-auto mb-4 flex items-center justify-center border-4 border-background shadow-lg">
-                        <span className="text-5xl font-serif text-primary">OM</span>
-                      </div>
-                      <p className="text-muted-foreground text-sm">Author Photo</p>
-                    </div>
-                  </div>
-                </div>
-                {/* Decorative elements */}
-                <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-primary/10 rounded-2xl -z-10" />
-                <div className="absolute -top-4 -left-4 w-16 h-16 bg-accent/20 rounded-full -z-10" />
-              </div>
-              
-              {/* Quick Stats under photo */}
-              <div className="mt-8 grid grid-cols-2 gap-4">
-                <div className="text-center p-4 bg-muted/50 rounded-xl">
-                  <span className="text-3xl font-bold text-primary">15+</span>
-                  <p className="text-xs text-muted-foreground mt-1">Years Experience</p>
-                </div>
-                <div className="text-center p-4 bg-muted/50 rounded-xl">
-                  <span className="text-3xl font-bold text-primary">2</span>
-                  <p className="text-xs text-muted-foreground mt-1">Books Authored</p>
-                </div>
-              </div>
-            </div>
-
             {/* Bio Content Column */}
-            <div className="lg:col-span-3 space-y-6">
+            <div className="lg:col-span-3 space-y-6 order-2 lg:order-1">
               <div className="inline-block px-4 py-1.5 bg-primary/10 rounded-full text-sm text-primary font-medium mb-2">
                 IT Professional & Author
               </div>
@@ -157,6 +125,38 @@ const About = () => {
                   diverse subjects, and connecting with fellow professionals who share his passion 
                   for building better systems and solving complex problems.
                 </p>
+              </div>
+            </div>
+
+            {/* Photo Column - Sticky on larger screens */}
+            <div className="lg:col-span-2 lg:sticky lg:top-24 order-1 lg:order-2">
+              <div className="relative">
+                {/* Main Photo */}
+                <div className="aspect-[3/4] rounded-2xl overflow-hidden bg-muted shadow-2xl">
+                  <div className="w-full h-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
+                    <div className="text-center">
+                      <div className="w-32 h-32 bg-primary/30 rounded-full mx-auto mb-4 flex items-center justify-center border-4 border-background shadow-lg">
+                        <span className="text-5xl font-serif text-primary">OM</span>
+                      </div>
+                      <p className="text-muted-foreground text-sm">Author Photo</p>
+                    </div>
+                  </div>
+                </div>
+                {/* Decorative elements */}
+                <div className="absolute -bottom-4 -left-4 w-24 h-24 bg-primary/10 rounded-2xl -z-10" />
+                <div className="absolute -top-4 -right-4 w-16 h-16 bg-accent/20 rounded-full -z-10" />
+              </div>
+              
+              {/* Quick Stats under photo */}
+              <div className="mt-8 grid grid-cols-2 gap-4">
+                <div className="text-center p-4 bg-muted/50 rounded-xl">
+                  <span className="text-3xl font-bold text-primary">15+</span>
+                  <p className="text-xs text-muted-foreground mt-1">Years Experience</p>
+                </div>
+                <div className="text-center p-4 bg-muted/50 rounded-xl">
+                  <span className="text-3xl font-bold text-primary">2</span>
+                  <p className="text-xs text-muted-foreground mt-1">Books Authored</p>
+                </div>
               </div>
             </div>
           </div>
