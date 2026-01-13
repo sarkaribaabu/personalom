@@ -1,6 +1,6 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { GraduationCap, TrendingUp, Compass, Rocket, Users, Briefcase, Building2, Award, Target, Crown, Sparkles } from 'lucide-react';
+import { GraduationCap, TrendingUp, Compass, Rocket, Users, Briefcase, Building2, Award, Target, Crown, Sparkles, PenTool, Bike } from 'lucide-react';
 
 const journeySteps = [
   {
@@ -12,6 +12,16 @@ const journeySteps = [
       "My first career step was as a Business Development Executive at an International Forex & Telematic Company through MBA campus placement. But destiny had other plans — I soon transitioned to a Business Development Manager role at a small IT company, a decision that would shape my entire future."
     ],
     align: "right"
+  },
+  {
+    icon: PenTool,
+    year: "College Days - Present",
+    title: "The Author Within",
+    content: [
+      "The creative spark ignited during my college days. I started writing poems and small articles — all exploring themes of love, romance, and lust. These weren't just words; they were emotions flowing through ink, capturing the intensity of human connections.",
+      "This passion culminated in 2020 when I published my first erotica novel 'Lustful Love' — now available globally on Amazon, Flipkart, iStore, PlayStore Books, Kindle, and Kobo. In early 2025, I completed another suspense erotica murder mystery, ready to captivate readers with its thrilling narrative. The author within continues to evolve."
+    ],
+    align: "left"
   },
   {
     icon: TrendingUp,
@@ -32,6 +42,16 @@ const journeySteps = [
       "In 2018, recognizing the opportunity in the government sector, I partnered with a proven market leader who had been excelling since 2009. This strategic alliance opened doors to the Government sector, expanding our horizons beyond private enterprises."
     ],
     align: "right"
+  },
+  {
+    icon: Bike,
+    year: "2012-2026",
+    title: "The Rider's Dream",
+    content: [
+      "Back in 2012, I owned a Honda CBR250RR — a machine that represented freedom, speed, and dreams. But in 2014, when Precise IT Solutions needed financial foundation, I made a difficult choice. The bike was sold, and the dream of riding sports bikes on open roads was put on hold.",
+      "Fast forward to 2026 — with the career graph rising strong, it was time to revive that dream. I upgraded to a BMW G310RR, a symbol of perseverance. The dream that was once sacrificed for entrepreneurship is now alive again. Soon, I'll be riding on the roads, living the passion that never faded."
+    ],
+    align: "left"
   },
   {
     icon: Award,
