@@ -1,6 +1,6 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { GraduationCap, Compass, Rocket, Building2, Award, Crown, Sparkles, Target, Briefcase } from 'lucide-react';
+import { GraduationCap, Compass, Rocket, Building2, Award, Crown, Sparkles, Target, Clock } from 'lucide-react';
 
 const journeySteps = [
   {
@@ -48,8 +48,8 @@ const journeySteps = [
     year: "2014",
     title: "The Foundation Years",
     content: [
-      <>While pursuing <span className="font-semibold">Engineering (IT)</span>, I made a decision that surprised everyone — I <span className="font-semibold text-primary">declined an MNC job offer</span> from campus placement. Instead, I chose to pursue an <span className="font-semibold">MBA in Marketing</span>. My first career step was as a Business Development Executive at an International Forex & Telematic Company, then transitioning to a small IT company.</>,
-      <>Working at that small-scale IT company became my <span className="font-semibold italic">real-world MBA</span>. I handled multiple roles — <span className="font-medium">finance, accounts, HR, sales, pre-sales, development, testing, execution, and management</span>. These two years were transformative, building the vision for what would come next. I also started <span className="font-medium text-primary">writing poems and articles</span> during college days — exploring themes of love, romance, and lust — planting the seeds of the author within.</>
+      <>While pursuing <span className="font-semibold">Engineering (IT)</span>, I made a decision that surprised everyone — I <span className="font-semibold text-primary">declined an MNC job offer</span> from campus placement. Instead, I chose to pursue an <span className="font-semibold">MBA in Marketing</span>. My first career step was at <span className="font-semibold text-primary">Excellence IT Solutions Pvt Ltd</span> as Business Development Manager.</>,
+      <>Working at <span className="font-semibold text-primary">Excellence IT Solutions</span> became my <span className="font-semibold italic">real-world MBA</span>. I handled multiple roles — <span className="font-medium">finance, accounts, HR, sales, pre-sales, development, testing, execution, and management</span>. These two years were transformative, building the vision for what would come next. I also started <span className="font-medium text-primary">writing poems and articles</span> during college days — exploring themes of love, romance, and lust — planting the seeds of the author within.</>
     ],
     align: "right"
   }
@@ -60,6 +60,7 @@ const professionalExperience = [
     role: "Founder & Director",
     company: "Tantrayu Software Pvt Ltd",
     period: "2025 - Present",
+    duration: "1 year",
     type: "employer",
     icon: Sparkles,
     highlights: [
@@ -72,6 +73,7 @@ const professionalExperience = [
     role: "Partner & Core Team Member",
     company: "Techlead Group",
     period: "2022 - Present",
+    duration: "4 years",
     type: "employee",
     icon: Target,
     highlights: [
@@ -84,6 +86,7 @@ const professionalExperience = [
     role: "Founder & Director",
     company: "Precise IT Solutions Pvt Ltd",
     period: "2014 - Present",
+    duration: "12 years",
     type: "employer",
     icon: Rocket,
     highlights: [
@@ -95,26 +98,15 @@ const professionalExperience = [
   },
   {
     role: "Business Development Manager",
-    company: "Small Scale IT Company",
+    company: "Excellence IT Solutions Pvt Ltd",
     period: "2012 - 2014",
+    duration: "2 years",
     type: "employee",
     icon: Building2,
     highlights: [
       "Cross-functional experience across all departments",
       "Learned finance, HR, sales, development, testing & management",
       "Gained deep understanding of IT market trends and requirements"
-    ]
-  },
-  {
-    role: "Business Development Executive",
-    company: "International Forex & Telematic Company",
-    period: "2010 - 2012",
-    type: "employee",
-    icon: Briefcase,
-    highlights: [
-      "First corporate role via MBA campus placement",
-      "International exposure in forex and telematics industry",
-      "Foundation for understanding B2B sales dynamics"
     ]
   }
 ];
@@ -279,15 +271,21 @@ const Journey = () => {
                             <h3 className="text-xl font-bold text-foreground">{exp.role}</h3>
                             <p className="text-primary font-medium">{exp.company}</p>
                           </div>
-                          <div className="flex items-center gap-2">
-                            <span className={`px-3 py-1 text-xs font-medium rounded-full ${
-                              exp.type === 'employer'
-                                ? 'bg-primary/10 text-primary'
-                                : 'bg-secondary/10 text-secondary-foreground'
-                            }`}>
-                              {exp.type === 'employer' ? 'Founder' : 'Employee'}
-                            </span>
-                            <span className="text-sm text-muted-foreground">{exp.period}</span>
+                          <div className="flex flex-col items-start md:items-end gap-1">
+                            <div className="flex items-center gap-2">
+                              <span className={`px-3 py-1 text-xs font-medium rounded-full ${
+                                exp.type === 'employer'
+                                  ? 'bg-primary/10 text-primary'
+                                  : 'bg-secondary/10 text-secondary-foreground'
+                              }`}>
+                                {exp.type === 'employer' ? 'Founder' : 'Employee'}
+                              </span>
+                              <span className="text-sm text-muted-foreground">{exp.period}</span>
+                            </div>
+                            <div className="flex items-center gap-1 text-xs text-muted-foreground">
+                              <Clock className="w-3 h-3" />
+                              <span>{exp.duration}</span>
+                            </div>
                           </div>
                         </div>
 
