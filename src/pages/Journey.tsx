@@ -1,87 +1,57 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { GraduationCap, TrendingUp, Compass, Rocket, Users, Briefcase, Building2, Award, Target, Crown, Sparkles, PenTool, Bike } from 'lucide-react';
+import { GraduationCap, Compass, Rocket, Building2, Award, Crown, Sparkles, Target, Briefcase } from 'lucide-react';
 
 const journeySteps = [
   {
-    icon: GraduationCap,
-    year: "2010-2012",
-    title: "The Bold Beginning",
+    icon: Crown,
+    year: "2026",
+    title: "The Next Chapter & Recognition",
     content: [
-      "While pursuing Engineering (IT), I made a decision that surprised everyone — I declined an MNC job offer from campus placement. Instead, I chose to pursue an MBA in Marketing, believing that understanding business was as crucial as understanding technology.",
-      "My first career step was as a Business Development Executive at an International Forex & Telematic Company through MBA campus placement. But destiny had other plans — I soon transitioned to a Business Development Manager role at a small IT company, a decision that would shape my entire future."
+      "In 2025, I launched Tantrayu Software Pvt Ltd with a focused mission — to bring digital transformation to small-scale municipal corporations, councils, Zilla Parishads, and Nagar Parishads across India.",
+      "In January 2026, I was honored with an Honorary Doctorate by Frankford International University for my contributions toward 'Digital Transformation in Urban Governance.' The same year, I upgraded to a BMW G310RR — reviving a dream that was sacrificed back in 2014 when I sold my Honda CBR250RR to fund Precise IT Solutions. The passion that never faded is now alive again."
     ],
     align: "right"
   },
   {
-    icon: PenTool,
-    year: "College Days - Present",
-    title: "The Author Within",
+    icon: Building2,
+    year: "2025",
+    title: "Scaling New Heights with Techlead",
     content: [
-      "The creative spark ignited during my college days. I started writing poems and small articles — all exploring themes of love, romance, and lust. These weren't just words; they were emotions flowing through ink, capturing the intensity of human connections.",
-      "This passion culminated in 2020 when I published my first erotica novel 'Lustful Love' — now available globally on Amazon, Flipkart, iStore, PlayStore Books, Kindle, and Kobo. In early 2025, I completed another suspense erotica murder mystery, ready to captivate readers with its thrilling narrative. The author within continues to evolve."
-    ],
-    align: "left"
-  },
-  {
-    icon: TrendingUp,
-    year: "2012-2014",
-    title: "The Learning Ground",
-    content: [
-      "Working at a small-scale IT company became my MBA in real-world business. I wasn't just doing one job — I was living multiple roles. From finance and accounts to HR, from sales and pre-sales to after-sales, from development and testing to execution and management.",
-      "These two years were transformative. While handling diverse responsibilities, I was simultaneously absorbing market trends, understanding IT vertical requirements, and building a vision for what would come next. Every department taught me something invaluable about building and running a business."
-    ],
-    align: "left"
-  },
-  {
-    icon: Rocket,
-    year: "2014-2018",
-    title: "The Entrepreneurial Leap",
-    content: [
-      "Armed with comprehensive experience and market insights, I took the entrepreneurial plunge in 2014 — founding Precise IT Solutions Pvt Ltd. The response was overwhelming — we achieved 300% Year-over-Year growth in the private sector.",
-      "In 2018, recognizing the opportunity in the government sector, I partnered with a proven market leader who had been excelling since 2009. This strategic alliance opened doors to the Government sector, expanding our horizons beyond private enterprises."
-    ],
-    align: "right"
-  },
-  {
-    icon: Bike,
-    year: "2012-2026",
-    title: "The Rider's Dream",
-    content: [
-      "Back in 2012, I owned a Honda CBR250RR — a machine that represented freedom, speed, and dreams. But in 2014, when Precise IT Solutions needed financial foundation, I made a difficult choice. The bike was sold, and the dream of riding sports bikes on open roads was put on hold.",
-      "Fast forward to 2026 — with the career graph rising strong, it was time to revive that dream. I upgraded to a BMW G310RR, a symbol of perseverance. The dream that was once sacrificed for entrepreneurship is now alive again. Soon, I'll be riding on the roads, living the passion that never faded."
+      "In 2022, I joined Techlead Group as a Partner and Core Team Member, bringing my eGovernance expertise to larger platforms. This role challenged me to handle massive ERP projects for organizations like MHADA, PCMC, and NMMC.",
+      "It was more than sales — it tested my core competencies in Project Management and Head Operations (Technical). Managing, implementing, and delivering these complex projects refined my leadership and execution capabilities to new heights."
     ],
     align: "left"
   },
   {
     icon: Award,
-    year: "2018-2022",
-    title: "Government Excellence",
+    year: "2022",
+    title: "Government Excellence & Recognition",
     content: [
-      "The next four years were dedicated to delivering turnkey solutions to Maharashtra Government and the Home Department. Our commitment wasn't just about completing projects — it was about exceeding expectations, delivering more than 100% satisfaction on every engagement.",
-      "Our dedication was recognized at the highest levels. I was felicitated by Shri Devendra Fadnavis for our due diligence in implementing the Dial 100 system, complete with analytics and proven track records. These weren't just projects; they were contributions to public safety and governance."
-    ],
-    align: "left"
-  },
-  {
-    icon: Building2,
-    year: "2022-2025",
-    title: "Scaling New Heights",
-    content: [
-      "In 2022, I joined Techlead Group as a Partner and Core Team Member, bringing my eGovernance expertise to larger platforms. This role challenged me to handle massive ERP projects for organizations like MHADA, PCMC, and NMMC.",
-      "It was more than sales — it tested my core competencies in Project Management and Head Operations (Technical). Managing, implementing, and delivering these complex projects refined my leadership and execution capabilities to new heights."
+      "From 2018 to 2022, I dedicated myself to delivering turnkey solutions to Maharashtra Government and the Home Department. Our commitment wasn't just about completing projects — it was about exceeding expectations, delivering more than 100% satisfaction on every engagement.",
+      "Our dedication was recognized at the highest levels. I was felicitated by Shri Devendra Fadnavis for our due diligence in implementing the Dial 100 system, complete with analytics and proven track records. In 2020, I also published my first erotica novel 'Lustful Love' — now available globally on Amazon, Flipkart, Kindle, and more. In early 2025, I completed another suspense erotica murder mystery, ready to captivate readers."
     ],
     align: "right"
   },
   {
-    icon: Crown,
-    year: "2025-Present",
-    title: "The Next Chapter",
+    icon: Rocket,
+    year: "2018",
+    title: "The Entrepreneurial Leap",
     content: [
-      "In 2025, I launched Tantrayu Software Pvt Ltd with a focused mission — to bring digital transformation to small-scale municipal corporations, councils, Zilla Parishads, and Nagar Parishads across India.",
-      "In January 2026, I was honored with an Honorary Doctorate by Frankford International University for my contributions toward 'Digital Transformation in Urban Governance.' This recognition fuels my passion to continue driving change and pursuing even greater adventures ahead."
+      "Armed with comprehensive experience and market insights, I took the entrepreneurial plunge in 2014 — founding Precise IT Solutions Pvt Ltd. The response was overwhelming — we achieved 300% Year-over-Year growth in the private sector.",
+      "In 2018, recognizing the opportunity in the government sector, I partnered with a proven market leader who had been excelling since 2009. This strategic alliance opened doors to the Government sector, expanding our horizons beyond private enterprises."
     ],
     align: "left"
+  },
+  {
+    icon: GraduationCap,
+    year: "2014",
+    title: "The Foundation Years",
+    content: [
+      "While pursuing Engineering (IT), I made a decision that surprised everyone — I declined an MNC job offer from campus placement. Instead, I chose to pursue an MBA in Marketing. My first career step was as a Business Development Executive at an International Forex & Telematic Company, then transitioning to a small IT company.",
+      "Working at that small-scale IT company became my real-world MBA. I handled multiple roles — finance, accounts, HR, sales, pre-sales, development, testing, execution, and management. These two years were transformative, building the vision for what would come next. I also started writing poems and articles during college days — exploring themes of love, romance, and lust — planting the seeds of the author within."
+    ],
+    align: "right"
   }
 ];
 
