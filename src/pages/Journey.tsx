@@ -8,8 +8,8 @@ const journeySteps = [
     year: "2026",
     title: "The Next Chapter & Recognition",
     content: [
-      "In 2025, I launched Tantrayu Software Pvt Ltd with a focused mission — to bring digital transformation to small-scale municipal corporations, councils, Zilla Parishads, and Nagar Parishads across India.",
-      "In January 2026, I was honored with an Honorary Doctorate by Frankford International University for my contributions toward 'Digital Transformation in Urban Governance.' The same year, I upgraded to a BMW G310RR — reviving a dream that was sacrificed back in 2014 when I sold my Honda CBR250RR to fund Precise IT Solutions. The passion that never faded is now alive again."
+      <>In 2025, I launched <span className="font-semibold text-primary">Tantrayu Software Pvt Ltd</span> with a focused mission — to bring <span className="font-semibold">digital transformation</span> to small-scale municipal corporations, councils, Zilla Parishads, and Nagar Parishads across India.</>,
+      <>In January 2026, I was honored with an <span className="font-semibold text-primary underline decoration-primary/50">Honorary Doctorate</span> by <span className="font-medium">Frankford International University</span> for my contributions toward <span className="italic">'Digital Transformation in Urban Governance.'</span> The same year, I upgraded to a <span className="font-semibold">BMW G310RR</span> — reviving a dream that was sacrificed back in 2014 when I sold my Honda CBR250RR to fund Precise IT Solutions. The passion that never faded is now alive again.</>
     ],
     align: "right"
   },
@@ -18,8 +18,8 @@ const journeySteps = [
     year: "2025",
     title: "Scaling New Heights with Techlead",
     content: [
-      "In 2022, I joined Techlead Group as a Partner and Core Team Member, bringing my eGovernance expertise to larger platforms. This role challenged me to handle massive ERP projects for organizations like MHADA, PCMC, and NMMC.",
-      "It was more than sales — it tested my core competencies in Project Management and Head Operations (Technical). Managing, implementing, and delivering these complex projects refined my leadership and execution capabilities to new heights."
+      <>In 2022, I joined <span className="font-semibold text-primary">Techlead Group</span> as a <span className="font-semibold">Partner and Core Team Member</span>, bringing my eGovernance expertise to larger platforms. This role challenged me to handle massive ERP projects for organizations like <span className="font-medium">MHADA, PCMC, and NMMC</span>.</>,
+      <>It was more than sales — it tested my core competencies in <span className="font-semibold text-primary">Project Management</span> and <span className="font-semibold text-primary">Head Operations (Technical)</span>. Managing, implementing, and delivering these complex projects refined my leadership and execution capabilities to new heights.</>
     ],
     align: "left"
   },
@@ -28,8 +28,8 @@ const journeySteps = [
     year: "2022",
     title: "Government Excellence & Recognition",
     content: [
-      "From 2018 to 2022, I dedicated myself to delivering turnkey solutions to Maharashtra Government and the Home Department. Our commitment wasn't just about completing projects — it was about exceeding expectations, delivering more than 100% satisfaction on every engagement.",
-      "Our dedication was recognized at the highest levels. I was felicitated by Shri Devendra Fadnavis for our due diligence in implementing the Dial 100 system, complete with analytics and proven track records. In 2020, I also published my first erotica novel 'Lustful Love' — now available globally on Amazon, Flipkart, Kindle, and more. In early 2025, I completed another suspense erotica murder mystery, ready to captivate readers."
+      <>From 2018 to 2022, I dedicated myself to delivering <span className="font-semibold">turnkey solutions</span> to <span className="font-semibold text-primary">Maharashtra Government</span> and the <span className="font-medium">Home Department</span>. Our commitment wasn't just about completing projects — it was about exceeding expectations, delivering <span className="font-semibold underline decoration-primary/50">more than 100% satisfaction</span> on every engagement.</>,
+      <>Our dedication was recognized at the highest levels. I was <span className="font-semibold text-primary">felicitated by Shri Devendra Fadnavis</span> for our due diligence in implementing the <span className="font-semibold">Dial 100 system</span>, complete with analytics and proven track records. In 2020, I also published my first erotica novel <span className="font-semibold italic text-primary">'Lustful Love'</span> — now available globally on Amazon, Flipkart, Kindle, and more. In early 2025, I completed another <span className="font-medium">suspense erotica murder mystery</span>, ready to captivate readers.</>
     ],
     align: "right"
   },
@@ -38,8 +38,8 @@ const journeySteps = [
     year: "2018",
     title: "The Entrepreneurial Leap",
     content: [
-      "Armed with comprehensive experience and market insights, I took the entrepreneurial plunge in 2014 — founding Precise IT Solutions Pvt Ltd. The response was overwhelming — we achieved 300% Year-over-Year growth in the private sector.",
-      "In 2018, recognizing the opportunity in the government sector, I partnered with a proven market leader who had been excelling since 2009. This strategic alliance opened doors to the Government sector, expanding our horizons beyond private enterprises."
+      <>Armed with comprehensive experience and market insights, I took the entrepreneurial plunge in 2014 — founding <span className="font-semibold text-primary">Precise IT Solutions Pvt Ltd</span>. The response was overwhelming — we achieved <span className="font-semibold underline decoration-primary/50">300% Year-over-Year growth</span> in the private sector.</>,
+      <>In 2018, recognizing the opportunity in the government sector, I partnered with a <span className="font-medium">proven market leader</span> who had been excelling since 2009. This strategic alliance opened doors to the <span className="font-semibold text-primary">Government sector</span>, expanding our horizons beyond private enterprises.</>
     ],
     align: "left"
   },
@@ -48,8 +48,8 @@ const journeySteps = [
     year: "2014",
     title: "The Foundation Years",
     content: [
-      "While pursuing Engineering (IT), I made a decision that surprised everyone — I declined an MNC job offer from campus placement. Instead, I chose to pursue an MBA in Marketing. My first career step was as a Business Development Executive at an International Forex & Telematic Company, then transitioning to a small IT company.",
-      "Working at that small-scale IT company became my real-world MBA. I handled multiple roles — finance, accounts, HR, sales, pre-sales, development, testing, execution, and management. These two years were transformative, building the vision for what would come next. I also started writing poems and articles during college days — exploring themes of love, romance, and lust — planting the seeds of the author within."
+      <>While pursuing <span className="font-semibold">Engineering (IT)</span>, I made a decision that surprised everyone — I <span className="font-semibold text-primary">declined an MNC job offer</span> from campus placement. Instead, I chose to pursue an <span className="font-semibold">MBA in Marketing</span>. My first career step was as a Business Development Executive at an International Forex & Telematic Company, then transitioning to a small IT company.</>,
+      <>Working at that small-scale IT company became my <span className="font-semibold italic">real-world MBA</span>. I handled multiple roles — <span className="font-medium">finance, accounts, HR, sales, pre-sales, development, testing, execution, and management</span>. These two years were transformative, building the vision for what would come next. I also started <span className="font-medium text-primary">writing poems and articles</span> during college days — exploring themes of love, romance, and lust — planting the seeds of the author within.</>
     ],
     align: "right"
   }
@@ -188,7 +188,7 @@ const Journey = () => {
                   </div>
 
                   {/* Content Card */}
-                  <div className={`lg:w-5/12 ${isEven ? 'lg:text-right' : 'lg:text-left'}`}>
+                  <div className="lg:w-5/12">
                     <div className="group relative bg-card border border-border rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-500 hover:border-primary/30 hover:-translate-y-1">
                       {/* Decorative corner accent */}
                       <div className={`absolute top-0 ${isEven ? 'right-0 rounded-tr-2xl rounded-bl-2xl' : 'left-0 rounded-tl-2xl rounded-br-2xl'} w-24 h-24 bg-gradient-to-br from-primary/10 to-transparent -z-10`} />
@@ -213,7 +213,7 @@ const Journey = () => {
 
                       <div className="space-y-4">
                         {step.content.map((paragraph, pIndex) => (
-                          <p key={pIndex} className={`text-muted-foreground leading-relaxed ${isEven ? 'lg:text-right' : 'lg:text-left'}`}>
+                          <p key={pIndex} className="text-muted-foreground leading-relaxed text-justify">
                             {paragraph}
                           </p>
                         ))}
