@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Facebook, Twitter, Instagram, Menu, X } from 'lucide-react';
+import { Facebook, Linkedin, Instagram, Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const Header = () => {
@@ -17,9 +17,9 @@ const Header = () => {
   ];
 
   const socialLinks = [
-    { icon: Facebook, href: '#', label: 'Facebook' },
-    { icon: Twitter, href: '#', label: 'Twitter' },  
-    { icon: Instagram, href: '#', label: 'Instagram' },
+    { icon: Linkedin, href: 'https://www.linkedin.com/in/om-mahajan/', label: 'LinkedIn' },
+    { icon: Facebook, href: 'https://www.facebook.com/mahajan.aum', label: 'Facebook' },
+    { icon: Instagram, href: 'https://www.instagram.com/perfectly.planted.brain/', label: 'Instagram' },
   ];
 
   return (
