@@ -1,308 +1,262 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { Play, Bike, Camera, Mountain, Instagram } from 'lucide-react';
+import { Play, Music, Camera, Gamepad2, Utensils, Mountain, Eye } from 'lucide-react';
 import {
   Dialog,
   DialogContent,
+  DialogHeader,
+  DialogTitle,
 } from '@/components/ui/dialog';
 
-interface Reel {
+interface Video {
   id: string;
-  embedUrl: string;
-  embedCode?: string;
   title: string;
-  category: string;
+  duration: string;
+  views: string;
+  uploadedAt: string;
+  description: string;
 }
 
 const Hobbies = () => {
-  const [selectedReel, setSelectedReel] = useState<Reel | null>(null);
+  const [selectedVideo, setSelectedVideo] = useState<Video | null>(null);
 
-  // Load Instagram embed script
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.src = '//www.instagram.com/embed.js';
-    script.async = true;
-    document.body.appendChild(script);
-    
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
-
-  // Reload Instagram embeds when dialog opens
-  useEffect(() => {
-    if (selectedReel && (window as any).instgrm) {
-      (window as any).instgrm.Embeds.process();
-    }
-  }, [selectedReel]);
-
-  // Instagram Reels - Replace with your actual Instagram reel URLs
-  const reels: Reel[] = [
+  const hobbyCategories = [
     {
-      id: '1',
-      embedUrl: 'https://www.instagram.com/reel/DTXEEnKiDc2/',
-      embedCode: `<blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DTXEEnKiDc2/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"></blockquote>`,
-      title: 'RustyRider Journey',
-      category: 'rustyrider'
+      id: 'music',
+      title: 'Music & Instruments',
+      icon: Music,
+      description: 'Exploring melodies and rhythms through various instruments',
+      videos: [
+        { id: 'dQw4w9WgXcQ', title: 'Guitar Session', duration: '4:32', views: '12K', uploadedAt: '2 weeks ago', description: 'An evening jam session exploring acoustic melodies.' },
+        { id: 'dQw4w9WgXcQ', title: 'Piano Practice', duration: '6:15', views: '8.5K', uploadedAt: '1 month ago', description: 'Learning classical pieces on the piano.' },
+        { id: 'dQw4w9WgXcQ', title: 'Jam Session', duration: '8:42', views: '15K', uploadedAt: '3 months ago', description: 'Impromptu jam with friends at the studio.' },
+      ]
     },
     {
-      id: '2',
-      embedUrl: 'https://www.instagram.com/reel/EXAMPLE2/',
-      title: 'Mountain Trail',
-      category: 'adventure'
+      id: 'photography',
+      title: 'Photography & Videography',
+      icon: Camera,
+      description: 'Capturing moments and telling stories through the lens',
+      videos: [
+        { id: 'dQw4w9WgXcQ', title: 'Landscape Photography Tips', duration: '12:08', views: '25K', uploadedAt: '1 week ago', description: 'Essential tips for capturing stunning landscape shots.' },
+        { id: 'dQw4w9WgXcQ', title: 'Street Photography Walk', duration: '15:23', views: '18K', uploadedAt: '2 months ago', description: 'A morning walk through the city capturing candid moments.' },
+      ]
     },
     {
-      id: '3',
-      embedUrl: 'https://www.instagram.com/reel/EXAMPLE3/',
-      title: 'Miniature Photography',
-      category: 'photography'
+      id: 'gaming',
+      title: 'Gaming & Esports',
+      icon: Gamepad2,
+      description: 'From casual gaming to competitive esports adventures',
+      videos: [
+        { id: 'dQw4w9WgXcQ', title: 'Strategy Game Playthrough', duration: '45:12', views: '42K', uploadedAt: '3 days ago', description: 'Complete walkthrough of the latest strategy release.' },
+        { id: 'dQw4w9WgXcQ', title: 'Retro Gaming Night', duration: '28:45', views: '31K', uploadedAt: '2 weeks ago', description: 'Revisiting classic games from the 90s era.' },
+        { id: 'dQw4w9WgXcQ', title: 'Game Review', duration: '18:30', views: '22K', uploadedAt: '1 month ago', description: 'Honest review of the most talked-about game this year.' },
+        { id: 'dQw4w9WgXcQ', title: 'Multiplayer Fun', duration: '32:15', views: '19K', uploadedAt: '6 weeks ago', description: 'Gaming session with friends in online multiplayer.' },
+      ]
     },
     {
-      id: '4',
-      embedUrl: 'https://www.instagram.com/reel/EXAMPLE4/',
-      title: 'Weekend Escape',
-      category: 'rustyrider'
+      id: 'cooking',
+      title: 'Cooking & Culinary Arts',
+      icon: Utensils,
+      description: 'Experimenting with flavors and creating delicious dishes',
+      videos: [
+        { id: 'dQw4w9WgXcQ', title: 'Weekend Cooking Vlog', duration: '10:45', views: '14K', uploadedAt: '5 days ago', description: 'A relaxed weekend cooking session trying new recipes.' },
+        { id: 'dQw4w9WgXcQ', title: 'Traditional Recipe', duration: '14:22', views: '28K', uploadedAt: '3 weeks ago', description: 'Recreating my grandmother\'s traditional recipe.' },
+      ]
     },
     {
-      id: '5',
-      embedUrl: 'https://www.instagram.com/reel/EXAMPLE5/',
-      title: 'Creative Shots',
-      category: 'photography'
-    },
-    {
-      id: '6',
-      embedUrl: 'https://www.instagram.com/reel/EXAMPLE6/',
-      title: 'Road Adventures',
-      category: 'adventure'
-    },
-    {
-      id: '7',
-      embedUrl: 'https://www.instagram.com/reel/EXAMPLE7/',
-      title: 'Sunset Ride',
-      category: 'rustyrider'
-    },
-    {
-      id: '8',
-      embedUrl: 'https://www.instagram.com/reel/EXAMPLE8/',
-      title: 'Macro World',
-      category: 'photography'
-    },
-    {
-      id: '9',
-      embedUrl: 'https://www.instagram.com/reel/EXAMPLE9/',
-      title: 'Hill Station Trip',
-      category: 'adventure'
+      id: 'outdoor',
+      title: 'Outdoor Adventures',
+      icon: Mountain,
+      description: 'Hiking, trekking, and exploring the great outdoors',
+      videos: [
+        { id: 'dQw4w9WgXcQ', title: 'Mountain Trek Vlog', duration: '22:18', views: '35K', uploadedAt: '1 week ago', description: 'An exhilarating trek through the Western Ghats.' },
+        { id: 'dQw4w9WgXcQ', title: 'Camping Experience', duration: '35:42', views: '48K', uploadedAt: '1 month ago', description: 'Weekend camping trip with breathtaking sunrise views.' },
+        { id: 'dQw4w9WgXcQ', title: 'Nature Walk', duration: '16:55', views: '21K', uploadedAt: '2 months ago', description: 'A peaceful morning walk through the forest trails.' },
+      ]
     },
   ];
-
-  const categories = [
-    { id: 'all', label: 'All', icon: Play },
-    { id: 'rustyrider', label: 'RustyRider', icon: Bike },
-    { id: 'photography', label: 'Photography', icon: Camera },
-    { id: 'adventure', label: 'Adventure', icon: Mountain },
-  ];
-
-  const [activeCategory, setActiveCategory] = useState('all');
-
-  const filteredReels = activeCategory === 'all' 
-    ? reels 
-    : reels.filter(reel => reel.category === activeCategory);
 
   return (
     <div className="min-h-screen bg-background">
       <Header />
       
-      {/* Creative Page Header */}
-      <section className="pt-24 pb-12">
-        <div className="container-blog">
-          {/* Staggered Typography Header */}
-          <div className="relative">
-            {/* Background decorative elements */}
-            <div className="absolute -top-8 left-0 w-32 h-32 bg-gradient-to-br from-primary/20 to-transparent rounded-full blur-3xl" />
-            <div className="absolute top-0 right-1/4 w-24 h-24 bg-gradient-to-br from-accent/30 to-transparent rounded-full blur-2xl" />
-            
-            {/* Main Title - Asymmetric Layout */}
-            <div className="relative">
-              <div className="flex flex-col md:flex-row md:items-end gap-2 md:gap-6">
-                <h1 className="text-6xl md:text-8xl font-serif font-light text-foreground tracking-tight">
-                  Beyond
-                </h1>
-                <div className="flex items-center gap-3">
-                  <span className="text-6xl md:text-8xl font-serif font-light text-primary">Code</span>
-                  <div className="hidden md:flex items-center gap-2">
-                    <span className="w-12 h-0.5 bg-primary" />
-                    <span className="text-sm text-muted-foreground uppercase tracking-widest">Life in Reels</span>
-                  </div>
-                </div>
-              </div>
-              
-              {/* Subtitle */}
-              <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed">
-                When the IDE closes, the road opens. A glimpse into my world of 
-                <span className="text-foreground font-medium"> motorcycle journeys</span>, 
-                <span className="text-foreground font-medium"> miniature photography</span>, and 
-                <span className="text-foreground font-medium"> curious adventures</span>.
-              </p>
-
-              {/* Mobile subtext */}
-              <div className="flex md:hidden items-center gap-2 mt-4">
-                <span className="w-8 h-0.5 bg-primary" />
-                <span className="text-xs text-muted-foreground uppercase tracking-widest">Life in Reels</span>
-              </div>
-            </div>
-          </div>
+      {/* Hero Section */}
+      <section className="relative py-20 bg-gradient-to-b from-primary/10 via-primary/5 to-background">
+        <div className="container-blog text-center">
+          <h1 className="text-5xl md:text-7xl font-serif font-light text-foreground tracking-wide mb-6">
+            HOBBIES
+          </h1>
+          <div className="w-16 h-0.5 bg-primary mx-auto mb-6" />
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Life beyond code. Exploring passions, learning new skills, and sharing 
+            the journey through video content.
+          </p>
         </div>
       </section>
 
-      {/* Category Filter Pills */}
+      {/* Category Navigation */}
       <nav className="sticky top-20 z-40 bg-background/95 backdrop-blur-sm border-b border-border">
         <div className="container-blog py-4">
           <div className="flex gap-3 overflow-x-auto pb-2 scrollbar-hide">
-            {categories.map((category) => {
+            {hobbyCategories.map((category) => {
               const Icon = category.icon;
-              const isActive = activeCategory === category.id;
               return (
-                <button
+                <a
                   key={category.id}
-                  onClick={() => setActiveCategory(category.id)}
-                  className={`flex items-center gap-2 px-5 py-2.5 rounded-full transition-all whitespace-nowrap text-sm font-medium ${
-                    isActive 
-                      ? 'bg-primary text-primary-foreground shadow-lg shadow-primary/25' 
-                      : 'bg-muted hover:bg-primary/10 text-muted-foreground hover:text-primary'
-                  }`}
+                  href={`#${category.id}`}
+                  className="flex items-center gap-2 px-4 py-2 rounded-full bg-muted hover:bg-primary/10 text-muted-foreground hover:text-primary transition-all whitespace-nowrap text-sm font-medium"
                 >
                   <Icon className="h-4 w-4" />
-                  {category.label}
-                </button>
+                  {category.title}
+                </a>
               );
             })}
           </div>
         </div>
       </nav>
 
-      {/* Instagram Reels Grid - Creative Masonry-like Layout */}
+      {/* Main Content */}
       <main id="main-content" className="container-blog py-12">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
-          {filteredReels.map((reel, index) => {
-            // Create varying heights for visual interest
-            const isLarge = index % 5 === 0;
-            const isMedium = index % 3 === 1;
-            
+        <div className="space-y-20">
+          {hobbyCategories.map((category, categoryIndex) => {
+            const Icon = category.icon;
             return (
-              <div 
-                key={reel.id}
-                className={`group relative cursor-pointer rounded-2xl overflow-hidden bg-gradient-to-br from-muted to-muted/50 ${
-                  isLarge ? 'row-span-2' : isMedium ? 'row-span-1' : 'row-span-1'
-                }`}
-                style={{ aspectRatio: isLarge ? '9/16' : '9/12' }}
-                onClick={() => setSelectedReel(reel)}
+              <section 
+                key={category.id} 
+                id={category.id}
+                className="scroll-mt-40"
               >
-                {/* Placeholder Gradient Background */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-accent/10 to-muted" />
-                
-                {/* Reel Preview Pattern */}
-                <div className="absolute inset-0 opacity-30">
-                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(var(--primary-rgb),0.1)_1px,transparent_1px)] bg-[length:20px_20px]" />
+                {/* Category Header */}
+                <div className="flex items-center gap-4 mb-8">
+                  <div className="p-3 rounded-xl bg-primary/10">
+                    <Icon className="h-8 w-8 text-primary" />
+                  </div>
+                  <div>
+                    <h2 className="text-2xl md:text-3xl font-serif font-light text-foreground">
+                      {category.title}
+                    </h2>
+                    <p className="text-muted-foreground mt-1">
+                      {category.description}
+                    </p>
+                  </div>
                 </div>
 
-                {/* Content Overlay */}
-                <div className="absolute inset-0 flex flex-col justify-between p-4">
-                  {/* Top - Category Tag */}
-                  <div className="flex justify-end">
-                    <span className="px-2 py-1 bg-black/40 backdrop-blur-sm text-white text-xs rounded-full capitalize">
-                      {reel.category}
-                    </span>
-                  </div>
-
-                  {/* Bottom - Title & Play */}
-                  <div className="space-y-3">
-                    <h3 className="text-white font-medium text-sm md:text-base drop-shadow-lg">
-                      {reel.title}
-                    </h3>
-                    
-                    {/* Play Button */}
-                    <div className="flex items-center gap-2">
-                      <div className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center group-hover:bg-white/40 group-hover:scale-110 transition-all duration-300">
-                        <Play className="h-4 w-4 text-white ml-0.5" fill="currentColor" />
+                {/* Videos Grid - YouTube Style */}
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-4 gap-y-8">
+                  {category.videos.map((video, videoIndex) => (
+                    <div 
+                      key={videoIndex}
+                      className="group cursor-pointer"
+                      onClick={() => setSelectedVideo(video)}
+                    >
+                      {/* Video Thumbnail */}
+                      <div className="relative aspect-video rounded-xl overflow-hidden bg-muted mb-3">
+                        <img
+                          src={`https://img.youtube.com/vi/${video.id}/maxresdefault.jpg`}
+                          alt={video.title}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        />
+                        {/* Play Overlay */}
+                        <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                          <div className="w-14 h-14 rounded-full bg-primary/90 flex items-center justify-center">
+                            <Play className="h-6 w-6 text-primary-foreground ml-1" fill="currentColor" />
+                          </div>
+                        </div>
+                        {/* Duration Badge */}
+                        <span className="absolute bottom-2 right-2 px-2 py-0.5 bg-black/80 text-white text-xs font-medium rounded">
+                          {video.duration}
+                        </span>
                       </div>
-                      <span className="text-white/80 text-xs opacity-0 group-hover:opacity-100 transition-opacity">
-                        Watch Reel
-                      </span>
+
+                      {/* Video Info - YouTube Style */}
+                      <div className="space-y-1.5">
+                        <h3 className="font-medium text-foreground group-hover:text-primary transition-colors line-clamp-2 leading-snug">
+                          {video.title}
+                        </h3>
+                        
+                        {/* Views & Date */}
+                        <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
+                          <Eye className="w-3.5 h-3.5" />
+                          <span>{video.views} views</span>
+                          <span className="mx-1">•</span>
+                          <span>{video.uploadedAt}</span>
+                        </div>
+
+                        {/* Description */}
+                        <p className="text-sm text-muted-foreground line-clamp-2 leading-relaxed">
+                          {video.description}
+                        </p>
+                      </div>
                     </div>
-                  </div>
+                  ))}
                 </div>
 
-                {/* Hover Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
-                
-                {/* Instagram Icon */}
-                <div className="absolute top-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <Instagram className="h-5 w-5 text-white/80" />
-                </div>
-              </div>
+                {/* Section Divider */}
+                {categoryIndex < hobbyCategories.length - 1 && (
+                  <div className="mt-16 border-b border-border/50" />
+                )}
+              </section>
             );
           })}
         </div>
 
-        {/* Instagram CTA */}
-        <div className="mt-16 text-center">
-          <div className="inline-flex flex-col items-center gap-4 p-8 bg-gradient-to-br from-muted/50 to-muted/30 rounded-3xl border border-border/50">
-            <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-500 via-pink-500 to-orange-400 flex items-center justify-center">
-              <Instagram className="h-8 w-8 text-white" />
-            </div>
-            <div className="space-y-2">
-              <h3 className="text-xl font-serif font-light text-foreground">
-                Follow the Journey
-              </h3>
-              <p className="text-muted-foreground text-sm max-w-sm">
-                More reels, behind-the-scenes moments, and spontaneous adventures on Instagram
-              </p>
-            </div>
-            <a
-              href="https://instagram.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-600 via-pink-600 to-orange-500 hover:from-purple-700 hover:via-pink-700 hover:to-orange-600 text-white rounded-xl transition-all font-medium shadow-lg shadow-pink-500/25"
-            >
-              <Instagram className="h-5 w-5" />
-              @ommahajan
-            </a>
-          </div>
+        {/* CTA Section */}
+        <div className="mt-20 text-center py-12 bg-muted/30 rounded-2xl">
+          <h3 className="text-2xl font-serif font-light text-foreground mb-4">
+            More Content Coming Soon
+          </h3>
+          <p className="text-muted-foreground max-w-lg mx-auto">
+            Subscribe to my YouTube channel to stay updated with new hobby videos 
+            and behind-the-scenes content.
+          </p>
+          <a
+            href="https://youtube.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 mt-6 px-6 py-3 bg-red-600 hover:bg-red-700 text-white rounded-lg transition-colors font-medium"
+          >
+            <Play className="h-5 w-5" fill="currentColor" />
+            Subscribe on YouTube
+          </a>
         </div>
       </main>
 
-      {/* Reel Viewer Dialog */}
-      <Dialog open={!!selectedReel} onOpenChange={(open) => !open && setSelectedReel(null)}>
-        <DialogContent className="max-w-[400px] p-4 overflow-hidden bg-background border border-border">
-          <div className="w-full flex flex-col items-center justify-center">
-            {selectedReel && (
-              <>
-                {selectedReel.embedCode ? (
-                  <div 
-                    className="w-full"
-                    dangerouslySetInnerHTML={{ __html: selectedReel.embedCode }}
-                  />
-                ) : (
-                  <div className="text-center text-muted-foreground p-8">
-                    <Instagram className="h-12 w-12 mx-auto mb-4 text-muted-foreground/40" />
-                    <p className="text-sm mb-4">
-                      Instagram Reel
-                    </p>
-                    <a 
-                      href={selectedReel.embedUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 hover:bg-primary/20 text-primary rounded-lg transition-colors text-sm"
-                    >
-                      <Play className="h-4 w-4" />
-                      Open in Instagram
-                    </a>
-                  </div>
-                )}
-              </>
+      {/* Video Player Dialog */}
+      <Dialog open={!!selectedVideo} onOpenChange={(open) => !open && setSelectedVideo(null)}>
+        <DialogContent className="max-w-4xl p-0 overflow-hidden">
+          <DialogHeader className="p-4 pb-2">
+            <DialogTitle className="text-lg font-medium">
+              {selectedVideo?.title}
+            </DialogTitle>
+            {selectedVideo && (
+              <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                <Eye className="w-4 h-4" />
+                <span>{selectedVideo.views} views</span>
+                <span className="mx-1">•</span>
+                <span>{selectedVideo.uploadedAt}</span>
+              </div>
+            )}
+          </DialogHeader>
+          <div className="aspect-video w-full">
+            {selectedVideo && (
+              <iframe
+                src={`https://www.youtube.com/embed/${selectedVideo.id}?autoplay=1`}
+                title={selectedVideo.title}
+                className="w-full h-full"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
             )}
           </div>
+          {selectedVideo && (
+            <div className="p-4 pt-2 border-t border-border">
+              <p className="text-sm text-muted-foreground">
+                {selectedVideo.description}
+              </p>
+            </div>
+          )}
         </DialogContent>
       </Dialog>
       
