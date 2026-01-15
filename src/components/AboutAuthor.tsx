@@ -21,9 +21,10 @@ const AboutAuthor = () => {
   return (
     <section className="py-20 bg-muted/30">
       <div className="container-blog">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        {/* Main content grid */}
+        <div className="grid lg:grid-cols-2 gap-12 items-start">
           {/* Left side - Stats and Text */}
-          <div className="space-y-8">
+          <div className="space-y-6">
             <div className="flex items-baseline gap-4">
               <span className="text-8xl md:text-9xl font-bold text-primary leading-none">
                 15
@@ -51,26 +52,6 @@ const AboutAuthor = () => {
               </p>
             </div>
 
-            {/* Skills - Two Rows */}
-            <div className="space-y-3">
-              <div className="grid grid-cols-2 gap-3">
-                {professionalSkills.map((item) => (
-                  <div key={item} className="flex items-center gap-2">
-                    <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
-                    <span className="text-sm font-medium">{item}</span>
-                  </div>
-                ))}
-              </div>
-              <div className="grid grid-cols-2 gap-3">
-                {creativeSkills.map((item) => (
-                  <div key={item} className="flex items-center gap-2">
-                    <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
-                    <span className="text-sm font-medium">{item}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
             <Button asChild className="gap-2">
               <a href="/about">
                 Read More
@@ -82,8 +63,8 @@ const AboutAuthor = () => {
           {/* Right side - Images */}
           <div className="relative">
             <div className="grid grid-cols-2 gap-4">
-              <div className="space-y-4">
-                <div className="aspect-[3/4] rounded-2xl overflow-hidden shadow-xl">
+              <div>
+                <div className="aspect-[4/5] rounded-2xl overflow-hidden shadow-xl">
                   <img
                     src={heroImage}
                     alt="Om Mahajan working on technology projects"
@@ -91,8 +72,8 @@ const AboutAuthor = () => {
                   />
                 </div>
               </div>
-              <div className="space-y-4 pt-8">
-                <div className="aspect-[3/4] rounded-2xl overflow-hidden shadow-xl">
+              <div className="pt-8">
+                <div className="aspect-[4/5] rounded-2xl overflow-hidden shadow-xl">
                   <img
                     src={workLifestyle}
                     alt="Om Mahajan writing and creating content"
@@ -105,6 +86,26 @@ const AboutAuthor = () => {
             {/* Decorative element */}
             <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-primary/10 rounded-2xl -z-10" />
             <div className="absolute -top-6 -right-6 w-24 h-24 bg-accent/20 rounded-full -z-10" />
+          </div>
+        </div>
+
+        {/* Skills - Full Width Below */}
+        <div className="mt-16 pt-12 border-t border-border/50">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+            {professionalSkills.map((item) => (
+              <div key={item} className="flex items-center gap-2">
+                <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
+                <span className="text-sm font-medium">{item}</span>
+              </div>
+            ))}
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mt-4">
+            {creativeSkills.map((item) => (
+              <div key={item} className="flex items-center gap-2">
+                <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
+                <span className="text-sm font-medium">{item}</span>
+              </div>
+            ))}
           </div>
         </div>
       </div>
