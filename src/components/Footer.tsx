@@ -35,15 +35,15 @@ const Footer = () => {
           <div className="space-y-4">
             <h3 className="font-medium text-foreground">Connect</h3>
             <div className="flex space-x-4">
-              <a href="#" className="text-muted-foreground hover:text-foreground transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded" aria-label="Follow us on Facebook">
+              <a href="https://www.linkedin.com/in/om-mahajan/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded" aria-label="Connect on LinkedIn">
+                <span className="sr-only">LinkedIn</span>
+                LinkedIn
+              </a>
+              <a href="https://www.facebook.com/mahajan.aum" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded" aria-label="Follow on Facebook">
                 <span className="sr-only">Facebook</span>
                 Facebook
               </a>
-              <a href="#" className="text-muted-foreground hover:text-foreground transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded" aria-label="Follow us on Twitter">
-                <span className="sr-only">Twitter</span>
-                Twitter
-              </a>
-              <a href="#" className="text-muted-foreground hover:text-foreground transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded" aria-label="Follow us on Instagram">
+              <a href="https://www.instagram.com/perfectly.planted.brain/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded" aria-label="Follow on Instagram">
                 <span className="sr-only">Instagram</span>
                 Instagram
               </a>
