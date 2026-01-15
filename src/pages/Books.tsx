@@ -3,59 +3,22 @@ import { Link } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
+import lustfulLoveCover from '@/assets/lustful-love-cover.png';
 
 const books = [
   {
-    id: 'mastering-cloud-architecture',
-    title: 'Mastering Cloud Architecture',
-    subtitle: 'A Practical Guide to Modern Infrastructure',
-    cover: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=400&h=600&fit=crop',
+    id: 'lustful-love',
+    title: 'Lustful Love',
+    subtitle: 'A Sizzling Erotica',
+    cover: lustfulLoveCover,
     status: 'Published',
-    year: '2023',
-    category: 'Cloud Computing',
+    year: '2020',
+    category: 'Erotic Romance',
     isLatest: true,
-  },
-  {
-    id: 'devops-handbook',
-    title: 'The DevOps Handbook',
-    subtitle: 'Transforming IT Operations',
-    cover: 'https://images.unsplash.com/photo-1532012197267-da84d127e765?w=400&h=600&fit=crop',
-    status: 'Coming Soon',
-    releaseDate: 'June 2025',
-    year: '2025',
-    category: 'DevOps',
-  },
-  {
-    id: 'ai-for-developers',
-    title: 'AI for Developers',
-    subtitle: 'Building Intelligent Applications',
-    cover: 'https://images.unsplash.com/photo-1589998059171-988d887df646?w=400&h=600&fit=crop',
-    status: 'Coming Soon',
-    releaseDate: 'September 2025',
-    year: '2025',
-    category: 'AI/ML',
-  },
-  {
-    id: 'microservices-patterns',
-    title: 'Microservices Patterns',
-    subtitle: 'Designing Scalable Systems',
-    cover: 'https://images.unsplash.com/photo-1516979187457-637abb4f9353?w=400&h=600&fit=crop',
-    status: 'Published',
-    year: '2022',
-    category: 'Architecture',
-  },
-  {
-    id: 'kubernetes-in-action',
-    title: 'Kubernetes in Action',
-    subtitle: 'Container Orchestration Mastery',
-    cover: 'https://images.unsplash.com/photo-1543002588-bfa74002ed7e?w=400&h=600&fit=crop',
-    status: 'Published',
-    year: '2021',
-    category: 'Cloud Computing',
   },
 ];
 
-const categories = ['All', 'Cloud Computing', 'DevOps', 'AI/ML', 'Architecture'];
+const categories = ['All', 'Erotic Romance'];
 
 const Books = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
@@ -78,8 +41,8 @@ const Books = () => {
               Books
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-              With over 15 years in the IT industry, I've distilled my experience and knowledge into books 
-              that help professionals navigate the ever-evolving technology landscape. Click on any cover 
+              With over 15 years in the IT industry, I've also pursued my passion for creative writing. 
+              My books explore diverse themes from romance to thrillers. Click on any cover 
               to explore more details, purchase links, and exclusive content.
             </p>
           </div>
@@ -89,9 +52,11 @@ const Books = () => {
             <a href="#latest" className="px-6 py-3 border border-border rounded-lg hover:bg-accent transition-colors">
               Latest Release
             </a>
-            <a href="#coming-soon" className="px-6 py-3 border border-border rounded-lg hover:bg-accent transition-colors">
-              Coming Soon
-            </a>
+            {comingSoonBooks.length > 0 && (
+              <a href="#coming-soon" className="px-6 py-3 border border-border rounded-lg hover:bg-accent transition-colors">
+                Coming Soon
+              </a>
+            )}
             <a href="#all-books" className="px-6 py-3 border border-border rounded-lg hover:bg-accent transition-colors">
               Browse All Books
             </a>
@@ -124,7 +89,7 @@ const Books = () => {
                   <p className="text-xl text-muted-foreground mb-6">{latestBook.subtitle}</p>
                   <div className="flex items-center gap-3 mb-6">
                     <span className="px-3 py-1 bg-primary/10 text-primary text-sm rounded">{latestBook.category}</span>
-                    <span className="text-muted-foreground">{latestBook.year}</span>
+                    <span className="text-muted-foreground">Published: {latestBook.year}</span>
                   </div>
                   <Button size="lg">Get Your Copy</Button>
                 </div>
