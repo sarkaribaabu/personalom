@@ -225,26 +225,26 @@ const Blog = () => {
           </div>
         </section>
 
-        {/* Latest Articles List */}
+        {/* Latest Articles List - 2 column grid */}
         <section>
           <h2 className="text-xl md:text-2xl font-bold text-foreground mb-6">
             Latest Articles
           </h2>
-          <div className="space-y-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {listPosts.map((post) => (
               <Link
                 key={post.slug}
                 to={`/blog/${post.slug}`}
-                className="group flex gap-4 md:gap-6 p-4 bg-card rounded-xl border border-border hover:border-primary/30 transition-all duration-300 hover:shadow-lg"
+                className="group flex gap-4 md:gap-5 p-4 bg-card rounded-xl border border-border hover:border-primary/30 transition-all duration-300 hover:shadow-lg"
               >
-                <div className="flex-shrink-0 w-24 h-24 md:w-32 md:h-32 rounded-lg overflow-hidden">
+                <div className="flex-shrink-0 w-28 h-28 md:w-36 md:h-36 rounded-lg overflow-hidden">
                   <img
                     src={post.image}
                     alt={post.title}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>
-                <div className="flex-1 min-w-0">
+                <div className="flex-1 min-w-0 flex flex-col justify-center">
                   <span className="inline-block text-xs font-medium text-primary mb-2">
                     {post.category}
                   </span>
