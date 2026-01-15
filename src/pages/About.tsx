@@ -163,49 +163,88 @@ const About = () => {
           </div>
 
           <div className="max-w-4xl mx-auto">
+          {/* Education & Research */}
           <div className="mb-16">
             <h2 className="text-2xl md:text-3xl font-serif font-light text-foreground mb-8 tracking-wide">
-              ACADEMIC & PROFESSIONAL QUALIFICATIONS
+              EDUCATION & RESEARCH
             </h2>
             <div className="space-y-4 text-muted-foreground">
               <p className="leading-relaxed">
-                <em>B.E. (Bachelor of Engineering) in Computer Science</em>, with focus on software development and systems architecture.
+                <strong className="text-foreground">2026:</strong> Honorary Doctorate (Hon. Ph.D.) in Digital Transformation in Urban Governance | <em>Frankford International University</em>.
               </p>
               <p className="leading-relaxed">
-                <em>15+ years of industry experience</em> in cloud computing, DevOps, and enterprise architecture across Fortune 500 companies and innovative startups.
+                <strong className="text-foreground">2012:</strong> Master of Business Administration (MBA) in Marketing.
               </p>
               <p className="leading-relaxed">
-                <em>Certified Cloud Architect</em> with expertise in AWS, Azure, and Google Cloud Platform. Multiple professional certifications in cloud infrastructure and DevOps practices.
-              </p>
-              <p className="leading-relaxed">
-                <em>Technical Leadership Roles</em> spanning solution architecture, team leadership, and digital transformation initiatives for global enterprises.
-              </p>
-              <p className="leading-relaxed">
-                Continuing education in emerging technologies including AI/ML, Kubernetes, and modern software development practices.
+                <strong className="text-foreground">2010:</strong> Bachelor of Engineering (B.E.) in Information Technology.
               </p>
             </div>
           </div>
 
-          {/* Writing Section */}
+          {/* Professional Expertise */}
           <div className="mb-16">
             <h2 className="text-2xl md:text-3xl font-serif font-light text-foreground mb-8 tracking-wide">
-              WRITING
+              PROFESSIONAL EXPERTISE
             </h2>
             <div className="space-y-6 text-muted-foreground">
-              <p className="leading-relaxed">
-                Om is the author of published works that bridge the gap between complex technical concepts and practical implementation. His writing has been praised for its clarity, depth, and real-world applicability.
-              </p>
-              <p className="leading-relaxed">
-                His first book covers cloud architecture and DevOps practices, providing readers with actionable strategies for building scalable, resilient systems. The book has been well-received by both beginners looking to enter the field and experienced practitioners seeking to deepen their knowledge.
-              </p>
-              <p className="leading-relaxed">
-                His upcoming book, currently in final stages before publication, explores the intersection of AI/ML infrastructure and cloud computing. It addresses the challenges organizations face when implementing machine learning systems at scale, offering practical guidance grounded in years of hands-on experience.
-              </p>
-              <p className="leading-relaxed">
-                Beyond books, Om regularly contributes articles and technical content to industry publications, sharing insights on emerging trends, best practices, and lessons learned from real-world implementations.
-              </p>
+              <div>
+                <h3 className="font-semibold text-foreground mb-2">Strategic Leadership in e-Governance</h3>
+                <p className="leading-relaxed">
+                  Founder of Tantrayu Software Pvt Ltd (2025), focused on driving digital transformation for municipal councils and Zilla Parishads. Previously a Partner at Techlead Group, where he managed large-scale ERP implementations for major bodies like MHADA, PCMC, and NMMC.
+                </p>
+              </div>
+              <div>
+                <h3 className="font-semibold text-foreground mb-2">Award-Winning Execution</h3>
+                <p className="leading-relaxed">
+                  Renowned for delivering turnkey government solutions with precision. Om was felicitated by Shri Devendra Fadnavis for the successful implementation of the Dial 100 system, a critical public safety initiative backed by advanced analytics.
+                </p>
+              </div>
+              <div>
+                <h3 className="font-semibold text-foreground mb-2">Enterprise Architecture</h3>
+                <p className="leading-relaxed">
+                  Over 15 years of experience spanning the private and public sectors. From achieving 300% growth with Precise IT Solutions to navigating complex government frameworks, Om specializes in bridging the gap between legacy systems and modern, cloud-native infrastructure.
+                </p>
+              </div>
             </div>
           </div>
+
+          {/* Literature & Creative */}
+          <div className="mb-16">
+            <h2 className="text-2xl md:text-3xl font-serif font-light text-foreground mb-8 tracking-wide">
+              LITERATURE & CREATIVE
+            </h2>
+            <div className="space-y-6 text-muted-foreground">
+              <div>
+                <h3 className="font-semibold text-foreground mb-2">Published Author</h3>
+                <p className="leading-relaxed mb-3">
+                  Om explores the complexities of human relationships and suspense through his fiction.
+                </p>
+                <ul className="space-y-2 ml-4">
+                  <li className="flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 bg-primary rounded-full mt-2 shrink-0"></span>
+                    <span><strong className="text-foreground">26 October Ki Raat (2026)</strong> – An Erotic Thriller Murder Mystery.</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 bg-primary rounded-full mt-2 shrink-0"></span>
+                    <span><strong className="text-foreground">Lustful Love (2020)</strong> – A Global Debut in Erotica Romance.</span>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="font-semibold text-foreground mb-2">The Narrative Mindset</h3>
+                <p className="leading-relaxed">
+                  A believer that "Code builds the structure, but stories build the soul," Om applies his literary creativity to his technical leadership, ensuring that digital systems remain human-centric.
+                </p>
+              </div>
+              <div>
+                <h3 className="font-semibold text-foreground mb-2">The Rider's Spirit</h3>
+                <p className="leading-relaxed">
+                  A passionate motorcyclist, Om rides a BMW G310RR—a symbol of resilience and a "full circle" moment, reclaiming a passion he once sacrificed to fund his entrepreneurial dreams.
+                </p>
+              </div>
+            </div>
+          </div>
+
 
           {/* Experience Highlights Section */}
           <div className="mb-16">
