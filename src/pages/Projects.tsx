@@ -10,421 +10,373 @@ import lifestylePost from '@/assets/lifestyle-post.jpg';
 import workLifestyle from '@/assets/work-lifestyle.jpg';
 import fashionLifestyle from '@/assets/fashion-lifestyle.jpg';
 
-const categories = ['All', 'Web Portals', 'Mobile Apps', 'AI/ML', 'eGovernance', 'eCommerce', 'BI Dashboards'];
+const categories = ['All', 'Web Apps', 'Mobile Apps', 'AI/ML/CV', 'eGovernance', 'eCommerce', 'BI Dashboards'];
 
 const images = [businessPost, techPost, fashionPost, lifestylePost, workLifestyle, fashionLifestyle];
 
 const projects = [
-  // Web Portals (9 projects)
+  // Web Apps (12 projects)
   {
-    title: "Enterprise Resource Planning Portal",
-    category: "Web Portals",
-    date: "2024",
-    excerpt: "Comprehensive ERP solution for manufacturing companies with inventory, HR, and finance modules.",
+    title: "SC Land Records",
+    category: "Web Apps",
+    date: "2020",
+    excerpt: "Digital land records management system for Supreme Court with comprehensive document tracking.",
     image: images[0],
     height: "tall"
   },
   {
-    title: "Healthcare Patient Portal",
-    category: "Web Portals",
+    title: "NMMC Portal",
+    category: "Web Apps",
     date: "2024",
-    excerpt: "Patient-centric portal for appointment booking, medical records access, and telemedicine.",
+    excerpt: "Navi Mumbai Municipal Corporation citizen services portal with integrated payment systems.",
     image: images[1],
     height: "medium"
   },
   {
-    title: "Learning Management System",
-    category: "Web Portals",
-    date: "2023",
-    excerpt: "Interactive LMS with course management, assessments, and progress tracking features.",
+    title: "PCMC Portal",
+    category: "Web Apps",
+    date: "2024",
+    excerpt: "Pimpri Chinchwad Municipal Corporation web portal for citizen services and grievance redressal.",
     image: images[2],
     height: "medium"
   },
   {
-    title: "Real Estate Listing Platform",
-    category: "Web Portals",
+    title: "MHADA Portal",
+    category: "Web Apps",
     date: "2023",
-    excerpt: "Property listing portal with virtual tours, mortgage calculator, and agent management.",
+    excerpt: "Maharashtra Housing and Area Development Authority housing management system.",
     image: images[3],
     height: "short"
   },
   {
-    title: "Corporate Intranet Portal",
-    category: "Web Portals",
-    date: "2023",
-    excerpt: "Internal communication platform with document sharing, news feeds, and employee directory.",
+    title: "DMS",
+    category: "Web Apps",
+    date: "2025",
+    excerpt: "Document Management System with advanced search, versioning, and workflow automation.",
     image: images[4],
     height: "medium"
   },
   {
-    title: "Legal Case Management Portal",
-    category: "Web Portals",
-    date: "2022",
-    excerpt: "End-to-end case management system for law firms with document automation.",
+    title: "Jnana Prabodhini",
+    category: "Web Apps",
+    date: "2018",
+    excerpt: "Educational institution portal with student management and learning resources.",
     image: images[5],
     height: "short"
   },
   {
-    title: "Insurance Claims Portal",
-    category: "Web Portals",
-    date: "2022",
-    excerpt: "Digital claims processing platform with automated workflows and fraud detection.",
+    title: "L&T Defense",
+    category: "Web Apps",
+    date: "2020",
+    excerpt: "Defense sector application for project management and resource allocation.",
     image: images[0],
     height: "medium"
   },
   {
-    title: "Vendor Management System",
-    category: "Web Portals",
-    date: "2021",
-    excerpt: "Centralized vendor onboarding, compliance tracking, and performance management.",
+    title: "Cipla",
+    category: "Web Apps",
+    date: "2025",
+    excerpt: "Pharmaceutical industry web application for operations and compliance management.",
     image: images[1],
     height: "tall"
   },
   {
-    title: "NGO Donation Portal",
-    category: "Web Portals",
-    date: "2021",
-    excerpt: "Donation management platform with campaign tracking and donor engagement tools.",
-    image: images[2],
-    height: "short"
-  },
-
-  // Mobile Apps (8 projects)
-  {
-    title: "Food Delivery App",
-    category: "Mobile Apps",
-    date: "2024",
-    excerpt: "On-demand food delivery application with real-time tracking and multi-restaurant support.",
-    image: images[3],
-    height: "tall"
-  },
-  {
-    title: "Fitness & Wellness Tracker",
-    category: "Mobile Apps",
-    date: "2024",
-    excerpt: "Health monitoring app with workout plans, nutrition tracking, and wearable integration.",
-    image: images[4],
-    height: "medium"
-  },
-  {
-    title: "Banking & Finance App",
-    category: "Mobile Apps",
-    date: "2023",
-    excerpt: "Secure mobile banking with biometric auth, fund transfers, and investment tracking.",
-    image: images[5],
-    height: "medium"
-  },
-  {
-    title: "Event Management App",
-    category: "Mobile Apps",
-    date: "2023",
-    excerpt: "Event discovery and booking app with QR ticketing and social features.",
-    image: images[0],
-    height: "short"
-  },
-  {
-    title: "Field Service Management App",
-    category: "Mobile Apps",
-    date: "2023",
-    excerpt: "Mobile solution for field technicians with job scheduling and offline capabilities.",
-    image: images[1],
-    height: "medium"
-  },
-  {
-    title: "Travel Companion App",
-    category: "Mobile Apps",
-    date: "2022",
-    excerpt: "All-in-one travel app with itinerary planning, bookings, and local recommendations.",
+    title: "Glasban",
+    category: "Web Apps",
+    date: "2025",
+    excerpt: "Enterprise web application for business process automation and management.",
     image: images[2],
     height: "short"
   },
   {
-    title: "Parking Finder App",
-    category: "Mobile Apps",
-    date: "2022",
-    excerpt: "Smart parking solution with real-time availability and digital payment integration.",
+    title: "Smith+Nephew's Portal",
+    category: "Web Apps",
+    date: "2024",
+    excerpt: "Medical devices company portal for inventory and distribution management.",
     image: images[3],
     height: "medium"
   },
   {
-    title: "Mental Health Support App",
-    category: "Mobile Apps",
-    date: "2021",
-    excerpt: "Wellness app with guided meditation, mood tracking, and therapist connection.",
-    image: images[4],
-    height: "tall"
-  },
-
-  // AI/ML (8 projects)
-  {
-    title: "Predictive Maintenance System",
-    category: "AI/ML",
+    title: "Dr. Reddy's Lab",
+    category: "Web Apps",
     date: "2024",
-    excerpt: "ML-powered system predicting equipment failures before they occur in manufacturing.",
-    image: images[5],
-    height: "tall"
-  },
-  {
-    title: "Customer Churn Prediction",
-    category: "AI/ML",
-    date: "2024",
-    excerpt: "AI model identifying at-risk customers and recommending retention strategies.",
-    image: images[0],
-    height: "medium"
-  },
-  {
-    title: "Document Intelligence Platform",
-    category: "AI/ML",
-    date: "2024",
-    excerpt: "OCR and NLP-based document processing with automated data extraction.",
-    image: images[1],
-    height: "medium"
-  },
-  {
-    title: "Fraud Detection Engine",
-    category: "AI/ML",
-    date: "2023",
-    excerpt: "Real-time fraud detection system for financial transactions using deep learning.",
-    image: images[2],
-    height: "short"
-  },
-  {
-    title: "Chatbot & Virtual Assistant",
-    category: "AI/ML",
-    date: "2023",
-    excerpt: "Conversational AI for customer support with multi-language capabilities.",
-    image: images[3],
-    height: "medium"
-  },
-  {
-    title: "Sentiment Analysis Dashboard",
-    category: "AI/ML",
-    date: "2023",
-    excerpt: "Social media sentiment tracking with brand monitoring and trend analysis.",
-    image: images[4],
-    height: "short"
-  },
-  {
-    title: "Image Recognition System",
-    category: "AI/ML",
-    date: "2022",
-    excerpt: "Computer vision solution for product quality inspection in manufacturing.",
-    image: images[5],
-    height: "medium"
-  },
-  {
-    title: "Recommendation Engine",
-    category: "AI/ML",
-    date: "2022",
-    excerpt: "Personalized content and product recommendations using collaborative filtering.",
-    image: images[0],
-    height: "tall"
-  },
-
-  // eGovernance (8 projects)
-  {
-    title: "Citizen Services Portal",
-    category: "eGovernance",
-    date: "2024",
-    excerpt: "One-stop portal for government services including certificates, permits, and payments.",
-    image: images[1],
-    height: "tall"
-  },
-  {
-    title: "Land Records Management System",
-    category: "eGovernance",
-    date: "2024",
-    excerpt: "Digital land registry with blockchain-based ownership verification.",
-    image: images[2],
-    height: "medium"
-  },
-  {
-    title: "Public Grievance Redressal",
-    category: "eGovernance",
-    date: "2023",
-    excerpt: "Complaint management system with escalation workflows and resolution tracking.",
-    image: images[3],
-    height: "medium"
-  },
-  {
-    title: "e-Procurement Platform",
-    category: "eGovernance",
-    date: "2023",
-    excerpt: "Government procurement portal with tender management and vendor evaluation.",
-    image: images[4],
-    height: "short"
-  },
-  {
-    title: "Election Management System",
-    category: "eGovernance",
-    date: "2023",
-    excerpt: "End-to-end election management with voter registration and result compilation.",
-    image: images[5],
-    height: "medium"
-  },
-  {
-    title: "Smart City Dashboard",
-    category: "eGovernance",
-    date: "2022",
-    excerpt: "Integrated dashboard for urban services monitoring and citizen engagement.",
-    image: images[0],
-    height: "short"
-  },
-  {
-    title: "Court Case Information System",
-    category: "eGovernance",
-    date: "2022",
-    excerpt: "Judiciary information system with case tracking and hearing schedules.",
-    image: images[1],
-    height: "medium"
-  },
-  {
-    title: "Municipality Tax Portal",
-    category: "eGovernance",
-    date: "2021",
-    excerpt: "Property tax assessment and online payment portal for local governments.",
-    image: images[2],
-    height: "tall"
-  },
-
-  // eCommerce (9 projects)
-  {
-    title: "Multi-Vendor Marketplace",
-    category: "eCommerce",
-    date: "2024",
-    excerpt: "B2C marketplace platform with vendor management and commission tracking.",
-    image: images[3],
-    height: "tall"
-  },
-  {
-    title: "B2B Wholesale Platform",
-    category: "eCommerce",
-    date: "2024",
-    excerpt: "Wholesale trading platform with bulk ordering and tiered pricing.",
+    excerpt: "Pharmaceutical laboratory management system with compliance tracking.",
     image: images[4],
     height: "medium"
   },
   {
-    title: "Fashion eCommerce Store",
-    category: "eCommerce",
+    title: "Vendiman",
+    category: "Web Apps",
     date: "2024",
-    excerpt: "Apparel store with size recommendations and virtual try-on features.",
-    image: images[5],
-    height: "medium"
-  },
-  {
-    title: "Grocery Delivery Platform",
-    category: "eCommerce",
-    date: "2023",
-    excerpt: "Online grocery shopping with slot-based delivery and subscription services.",
-    image: images[0],
-    height: "short"
-  },
-  {
-    title: "Electronics Marketplace",
-    category: "eCommerce",
-    date: "2023",
-    excerpt: "Consumer electronics store with product comparisons and warranty management.",
-    image: images[1],
-    height: "medium"
-  },
-  {
-    title: "Subscription Box Platform",
-    category: "eCommerce",
-    date: "2023",
-    excerpt: "Recurring subscription commerce with customizable box curation.",
-    image: images[2],
-    height: "short"
-  },
-  {
-    title: "Automobile Parts Store",
-    category: "eCommerce",
-    date: "2022",
-    excerpt: "Auto parts ecommerce with vehicle fitment lookup and inventory management.",
-    image: images[3],
-    height: "medium"
-  },
-  {
-    title: "Jewelry eCommerce Platform",
-    category: "eCommerce",
-    date: "2022",
-    excerpt: "Luxury jewelry store with 360° product views and certification verification.",
-    image: images[4],
-    height: "tall"
-  },
-  {
-    title: "Organic Products Marketplace",
-    category: "eCommerce",
-    date: "2021",
-    excerpt: "Farm-to-table marketplace connecting organic farmers with consumers.",
+    excerpt: "Vendor management platform with onboarding and performance analytics.",
     image: images[5],
     height: "short"
   },
 
-  // BI Dashboards (8 projects)
+  // Mobile Apps (10 projects)
   {
-    title: "Sales Performance Dashboard",
-    category: "BI Dashboards",
-    date: "2024",
-    excerpt: "Real-time sales analytics with pipeline tracking and forecasting.",
-    image: images[0],
+    title: "eTechSchool",
+    category: "Mobile Apps",
+    date: "2019",
+    excerpt: "Educational mobile app with interactive learning modules and progress tracking.",
+    image: images[3],
     height: "tall"
   },
   {
-    title: "Financial Analytics Platform",
-    category: "BI Dashboards",
+    title: "NMMC App",
+    category: "Mobile Apps",
     date: "2024",
-    excerpt: "CFO dashboard with P&L analysis, cash flow monitoring, and budget tracking.",
-    image: images[1],
-    height: "medium"
-  },
-  {
-    title: "HR Analytics Dashboard",
-    category: "BI Dashboards",
-    date: "2024",
-    excerpt: "Workforce analytics covering attrition, engagement, and recruitment metrics.",
-    image: images[2],
-    height: "medium"
-  },
-  {
-    title: "Supply Chain Visibility",
-    category: "BI Dashboards",
-    date: "2023",
-    excerpt: "End-to-end supply chain monitoring with inventory and logistics insights.",
-    image: images[3],
-    height: "short"
-  },
-  {
-    title: "Marketing ROI Dashboard",
-    category: "BI Dashboards",
-    date: "2023",
-    excerpt: "Campaign performance analytics with attribution modeling and conversion tracking.",
+    excerpt: "Navi Mumbai Municipal Corporation mobile app for citizen services on-the-go.",
     image: images[4],
     height: "medium"
   },
   {
-    title: "Operations Efficiency Dashboard",
-    category: "BI Dashboards",
-    date: "2023",
-    excerpt: "Manufacturing operations KPIs with OEE tracking and downtime analysis.",
+    title: "PCMC App",
+    category: "Mobile Apps",
+    date: "2024",
+    excerpt: "Pimpri Chinchwad Municipal Corporation mobile application for civic services.",
     image: images[5],
+    height: "medium"
+  },
+  {
+    title: "MHADA App",
+    category: "Mobile Apps",
+    date: "2023",
+    excerpt: "Housing authority mobile app for lottery applications and housing services.",
+    image: images[0],
     height: "short"
   },
   {
-    title: "Customer 360 Dashboard",
-    category: "BI Dashboards",
+    title: "PWD Pothole",
+    category: "Mobile Apps",
+    date: "2023",
+    excerpt: "Public Works Department pothole reporting and tracking application.",
+    image: images[1],
+    height: "medium"
+  },
+  {
+    title: "BMC Pothole",
+    category: "Mobile Apps",
     date: "2022",
-    excerpt: "Unified customer view with lifetime value, segments, and journey analytics.",
+    excerpt: "Brihanmumbai Municipal Corporation pothole complaint and resolution app.",
+    image: images[2],
+    height: "short"
+  },
+  {
+    title: "Smith+Nephew's App",
+    category: "Mobile Apps",
+    date: "2025",
+    excerpt: "Medical devices field service mobile application for technicians.",
+    image: images[3],
+    height: "medium"
+  },
+  {
+    title: "Laws Of Motion",
+    category: "Mobile Apps",
+    date: "2022",
+    excerpt: "Interactive physics learning app with simulations and AI-powered tutoring.",
+    image: images[4],
+    height: "tall"
+  },
+  {
+    title: "BMC Disaster Management",
+    category: "Mobile Apps",
+    date: "2021",
+    excerpt: "Emergency response and disaster management mobile application for BMC.",
+    image: images[5],
+    height: "medium"
+  },
+  {
+    title: "Mobile Games Development",
+    category: "Mobile Apps",
+    date: "2021",
+    excerpt: "Suite of casual mobile games with engaging gameplay mechanics.",
+    image: images[0],
+    height: "short"
+  },
+
+  // AI/ML/CV (3 projects)
+  {
+    title: "Laws of Motion AI",
+    category: "AI/ML/CV",
+    date: "2022",
+    excerpt: "AI-powered physics education platform with intelligent tutoring and adaptive learning.",
+    image: images[5],
+    height: "tall"
+  },
+  {
+    title: "Clairity",
+    category: "AI/ML/CV",
+    date: "2024",
+    excerpt: "Computer vision solution for clarity assessment and image analysis.",
     image: images[0],
     height: "medium"
   },
   {
-    title: "Executive KPI Dashboard",
-    category: "BI Dashboards",
-    date: "2022",
-    excerpt: "C-suite dashboard with company-wide KPIs and strategic goal tracking.",
+    title: "Guppa.ai",
+    category: "AI/ML/CV",
+    date: "2025",
+    excerpt: "Conversational AI platform with natural language processing capabilities.",
+    image: images[1],
+    height: "medium"
+  },
+
+  // eGovernance (11 projects)
+  {
+    title: "NMMC eGovernance",
+    category: "eGovernance",
+    date: "2024",
+    excerpt: "Comprehensive e-governance solution for Navi Mumbai Municipal Corporation.",
     image: images[1],
     height: "tall"
+  },
+  {
+    title: "PCMC eGovernance",
+    category: "eGovernance",
+    date: "2024",
+    excerpt: "Digital governance platform for Pimpri Chinchwad Municipal Corporation.",
+    image: images[2],
+    height: "medium"
+  },
+  {
+    title: "BMC eGovernance",
+    category: "eGovernance",
+    date: "2022",
+    excerpt: "Brihanmumbai Municipal Corporation e-governance and citizen services platform.",
+    image: images[3],
+    height: "medium"
+  },
+  {
+    title: "Thane Police",
+    category: "eGovernance",
+    date: "2019",
+    excerpt: "Police department digitization with case management and citizen portal.",
+    image: images[4],
+    height: "short"
+  },
+  {
+    title: "Chandrapur Police",
+    category: "eGovernance",
+    date: "2019",
+    excerpt: "Law enforcement digital platform for Chandrapur district police.",
+    image: images[5],
+    height: "medium"
+  },
+  {
+    title: "Navi Mumbai Police",
+    category: "eGovernance",
+    date: "2025",
+    excerpt: "Modern policing solution with analytics and citizen engagement features.",
+    image: images[0],
+    height: "tall"
+  },
+  {
+    title: "Ahilyanagar Police",
+    category: "eGovernance",
+    date: "2019",
+    excerpt: "District police digital transformation with integrated systems.",
+    image: images[1],
+    height: "short"
+  },
+  {
+    title: "Nepal Police",
+    category: "eGovernance",
+    date: "2024",
+    excerpt: "International police modernization project with comprehensive digital systems.",
+    image: images[2],
+    height: "medium"
+  },
+  {
+    title: "SC Land Records eGov",
+    category: "eGovernance",
+    date: "2022",
+    excerpt: "Supreme Court land records digitization with governance workflows.",
+    image: images[3],
+    height: "short"
+  },
+  {
+    title: "Turks & Caicos Island",
+    category: "eGovernance",
+    date: "2018",
+    excerpt: "International e-governance implementation for island territory government.",
+    image: images[4],
+    height: "medium"
+  },
+  {
+    title: "DRDO",
+    category: "eGovernance",
+    date: "2020",
+    excerpt: "Defense Research and Development Organisation project management system.",
+    image: images[5],
+    height: "medium"
+  },
+
+  // eCommerce (3 projects)
+  {
+    title: "PNG Brothers",
+    category: "eCommerce",
+    date: "2022",
+    excerpt: "Jewelry eCommerce platform with virtual try-on and certification features.",
+    image: images[3],
+    height: "tall"
+  },
+  {
+    title: "CS Jewellers",
+    category: "eCommerce",
+    date: "2016",
+    excerpt: "Online jewelry store with catalog management and secure payments.",
+    image: images[4],
+    height: "medium"
+  },
+  {
+    title: "Mrugrae",
+    category: "eCommerce",
+    date: "2024",
+    excerpt: "Fashion and lifestyle eCommerce platform with modern shopping experience.",
+    image: images[5],
+    height: "medium"
+  },
+
+  // BI Dashboards (6 projects)
+  {
+    title: "Navi Mumbai Police BI",
+    category: "BI Dashboards",
+    date: "2025",
+    excerpt: "Crime analytics and operational intelligence dashboard for law enforcement.",
+    image: images[0],
+    height: "tall"
+  },
+  {
+    title: "NMMC Dashboard",
+    category: "BI Dashboards",
+    date: "2024",
+    excerpt: "Municipal performance analytics with KPI tracking and citizen metrics.",
+    image: images[1],
+    height: "medium"
+  },
+  {
+    title: "Nepal Police Dashboard",
+    category: "BI Dashboards",
+    date: "2024",
+    excerpt: "International law enforcement analytics and reporting platform.",
+    image: images[2],
+    height: "medium"
+  },
+  {
+    title: "Bajaj Finance",
+    category: "BI Dashboards",
+    date: "2020",
+    excerpt: "Financial analytics dashboard with portfolio and risk management insights.",
+    image: images[3],
+    height: "short"
+  },
+  {
+    title: "Gurukul Schools",
+    category: "BI Dashboards",
+    date: "2019",
+    excerpt: "Educational institution analytics with student performance and enrollment tracking.",
+    image: images[4],
+    height: "medium"
   }
 ];
 
@@ -463,7 +415,7 @@ const Projects = () => {
         <section className="container-blog py-16 border-b border-border">
           <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">Projects</h1>
           <p className="text-lg text-muted-foreground max-w-2xl">
-            A portfolio of 50+ enterprise solutions spanning web portals, mobile applications, AI/ML implementations, eGovernance, eCommerce platforms, and BI dashboards.
+            A portfolio of 45+ enterprise solutions spanning web applications, mobile apps, AI/ML implementations, eGovernance, eCommerce platforms, and BI dashboards across 15+ years of experience.
           </p>
         </section>
 
