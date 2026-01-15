@@ -13,6 +13,7 @@ const books = [
     cover: lustfulLoveCover,
     status: 'Published',
     year: '2020',
+    releaseDate: 'December 2020',
     category: 'Erotic Romance',
     isLatest: true,
   },
