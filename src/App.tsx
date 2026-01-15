@@ -11,6 +11,7 @@ import Index from "./pages/Index";
 // Lazy load non-critical pages
 const BlogDetail = lazy(() => import("./pages/BlogDetail"));
 const AllPosts = lazy(() => import("./pages/AllPosts"));
+const Blog = lazy(() => import("./pages/Blog"));
 const Business = lazy(() => import("./pages/Business"));
 const Technology = lazy(() => import("./pages/Technology"));
 const Podcast = lazy(() => import("./pages/Podcast"));
@@ -41,6 +42,7 @@ const App = () => (
             <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}>
               <Routes>
                 <Route path="/" element={<Index />} />
+                <Route path="/blog" element={<Blog />} />
                 <Route path="/posts" element={<AllPosts />} />
                 <Route path="/business" element={<Business />} />
                 <Route path="/technology" element={<Technology />} />
