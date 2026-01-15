@@ -1,3 +1,4 @@
+import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
@@ -20,22 +21,57 @@ const experienceHighlights = [
 ];
 
 const About = () => {
+  const testimonials = [
+    {
+      quote: "A visionary technologist who bridges the gap between complex systems and business outcomes",
+      source: "Tech Leadership Journal"
+    },
+    {
+      quote: "His books demystify cloud architecture in ways that both beginners and experts appreciate",
+      source: "Cloud Computing Weekly"
+    },
+    {
+      quote: "One of the most insightful voices in the DevOps and cloud computing space",
+      source: "DevOps Digest"
+    },
+    {
+      quote: "An author who truly understands the challenges of modern IT infrastructure",
+      source: "Enterprise Architecture Review"
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-background">
-      {/* Simple Header with Navigation and Centered Title */}
-      <header className="border-b border-border">
-        <div className="container-blog py-6">
-          <div className="flex items-center justify-between">
-            <Link to="/" className="text-lg font-serif text-foreground hover:text-primary transition-colors">
-              ← Home
-            </Link>
-            <h1 className="text-2xl md:text-3xl font-serif font-light text-foreground tracking-wide">
-              ABOUT OM
-            </h1>
-            <div className="w-16" /> {/* Spacer for centering */}
+      <Header />
+      
+      {/* Hero Section with Background */}
+      <section className="relative min-h-[70vh] flex items-center justify-center bg-gradient-to-b from-primary/20 via-primary/10 to-background">
+        <div className="absolute inset-0 bg-[url('/placeholder.svg')] bg-cover bg-center opacity-10" />
+        <div className="relative z-10 text-center px-4">
+          <h1 className="text-5xl md:text-7xl font-serif font-light text-foreground tracking-wide mb-6">
+            ABOUT OM
+          </h1>
+          <div className="w-16 h-0.5 bg-primary mx-auto" />
+        </div>
+      </section>
+
+      {/* Testimonials Grid */}
+      <section className="py-16 bg-muted/30">
+        <div className="container-blog">
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {testimonials.map((testimonial, index) => (
+              <div key={index} className="text-center px-6">
+                <p className="text-lg md:text-xl text-primary/90 italic font-light leading-relaxed mb-4">
+                  '{testimonial.quote}'
+                </p>
+                <p className="text-sm text-muted-foreground uppercase tracking-widest">
+                  {testimonial.source}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
-      </header>
+      </section>
 
       {/* Main Bio Section - Side by Side Layout */}
       <main id="main-content" className="container-blog py-16">
@@ -246,6 +282,15 @@ const About = () => {
             </Link>
           </div>
 
+          {/* Current Focus */}
+          <div className="mb-16">
+            <h2 className="text-2xl md:text-3xl font-serif font-light text-foreground mb-8 tracking-wide">
+              CURRENT FOCUS
+            </h2>
+            <p className="text-muted-foreground leading-relaxed">
+              Om is currently focused on completing his next book while continuing to consult with organizations on their digital transformation journeys. He regularly shares insights through articles, podcasts, and speaking engagements, and is always interested in connecting with fellow technologists and aspiring authors.
+            </p>
+          </div>
 
           {/* CTA Section */}
           <div className="text-center border-t border-border pt-12">
