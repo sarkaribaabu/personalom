@@ -3,18 +3,11 @@ import { CheckCircle, ArrowRight } from 'lucide-react';
 import heroImage from '@/assets/hero-image.jpg';
 import workLifestyle from '@/assets/work-lifestyle.jpg';
 
-const professionalSkills = [
+const skills = [
   "e-Governance Architect",
   "Digital Transformation",
-  "Urban Tech Researcher",
-  "Smart City Strategist"
-];
-
-const creativeSkills = [
   "Fiction Author",
-  "Narrative Designer",
-  "Visual Storyteller",
-  "Poet & Essayist"
+  "Visual Storyteller"
 ];
 
 const AboutAuthor = () => {
@@ -51,24 +44,14 @@ const AboutAuthor = () => {
               </p>
             </div>
 
-            {/* Skills - Two Rows */}
-            <div className="space-y-3">
-              <div className="grid grid-cols-2 gap-3">
-                {professionalSkills.map((item) => (
-                  <div key={item} className="flex items-center gap-2">
-                    <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
-                    <span className="text-sm font-medium">{item}</span>
-                  </div>
-                ))}
-              </div>
-              <div className="grid grid-cols-2 gap-3">
-                {creativeSkills.map((item) => (
-                  <div key={item} className="flex items-center gap-2">
-                    <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
-                    <span className="text-sm font-medium">{item}</span>
-                  </div>
-                ))}
-              </div>
+            {/* Skills */}
+            <div className="grid grid-cols-2 gap-3">
+              {skills.map((item) => (
+                <div key={item} className="flex items-center gap-2">
+                  <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
+                  <span className="text-sm font-medium">{item}</span>
+                </div>
+              ))}
             </div>
 
             <Button asChild className="gap-2">
