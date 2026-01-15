@@ -21,9 +21,9 @@ const Hobbies = () => {
   const reels: Reel[] = [
     {
       id: '1',
-      embedUrl: 'https://www.instagram.com/reel/EXAMPLE1/',
-      title: 'Morning Ride',
-      category: 'motorcycle'
+      embedUrl: 'https://www.instagram.com/reel/DTXEEnKiDc2/',
+      title: 'RustyRider Journey',
+      category: 'rustyrider'
     },
     {
       id: '2',
@@ -41,7 +41,7 @@ const Hobbies = () => {
       id: '4',
       embedUrl: 'https://www.instagram.com/reel/EXAMPLE4/',
       title: 'Weekend Escape',
-      category: 'motorcycle'
+      category: 'rustyrider'
     },
     {
       id: '5',
@@ -59,7 +59,7 @@ const Hobbies = () => {
       id: '7',
       embedUrl: 'https://www.instagram.com/reel/EXAMPLE7/',
       title: 'Sunset Ride',
-      category: 'motorcycle'
+      category: 'rustyrider'
     },
     {
       id: '8',
@@ -77,7 +77,7 @@ const Hobbies = () => {
 
   const categories = [
     { id: 'all', label: 'All', icon: Play },
-    { id: 'motorcycle', label: 'Motorcycle', icon: Bike },
+    { id: 'rustyrider', label: 'RustyRider', icon: Bike },
     { id: 'photography', label: 'Photography', icon: Camera },
     { id: 'adventure', label: 'Adventure', icon: Mountain },
   ];
