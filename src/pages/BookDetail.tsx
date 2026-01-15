@@ -3,6 +3,8 @@ import { ArrowLeft, ExternalLink, BookOpen, Calendar, Tag } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
+import lustfulLoveCover from '@/assets/lustful-love-cover.png';
+import lustfulLoveHeader from '@/assets/lustful-love-header.png';
 
 const booksData: Record<string, {
   title: string;
@@ -15,9 +17,36 @@ const booksData: Record<string, {
   quote: string;
   description: string[];
   publisher: string;
-  buyLinks: { name: string; url: string }[];
+  buyLinks: { name: string; url: string; icon?: string }[];
   reviews: { text: string; author: string; source: string }[];
 }> = {
+  'lustful-love': {
+    title: 'Lustful Love',
+    subtitle: 'A Sizzling Erotica',
+    cover: lustfulLoveCover,
+    heroImage: lustfulLoveHeader,
+    status: 'Published',
+    releaseDate: 'December 2020',
+    category: 'Erotic Romance',
+    quote: 'Lustful Love – A Sizzling Erotica is a love story interspersed with sizzle, sex, smoky casinos, soothing togetherness, serious troubles and life\'s puzzles and more.',
+    description: [
+      'Nick is fed up of his singlehood, brought about by his father\'s frequent job transfers, and now he finally wants to find the love of his life – a decent, loving girl – who he can have a long term, meaningful and at the same time, passionate and exciting companionship with.',
+      'When Nick met Gabby, it seemed impossible. He was an average-looking, inexperienced bloke. And there she was, a real mermaid of a woman! Dazzling. Shocking. So very desirable. But then there were also jealous rivals, perverted strangers, horrifying hijackers, to spoil their chances of togetherness.',
+      'Was it ever going to be possible? May be dreams, after all, come true? Or do they not? Is this Nick\'s dream come true, or just the beginning of yet another end?',
+    ],
+    publisher: 'Notion Press',
+    buyLinks: [
+      { name: 'Amazon India', url: 'https://www.amazon.in/dp/1636697313', icon: 'amazon' },
+      { name: 'Amazon US', url: 'https://www.amazon.com/dp/1636697313', icon: 'amazon' },
+      { name: 'Amazon UK', url: 'https://www.amazon.co.uk/dp/1636697313', icon: 'amazon' },
+      { name: 'Flipkart', url: 'https://www.flipkart.com/lustful-love-sizzling-erotica/p/itmd52b82f775631?pid=9781636697314', icon: 'flipkart' },
+      { name: 'Kobo', url: 'https://www.kobo.com/in/en/ebook/lustful-love', icon: 'kobo' },
+      { name: 'Google Play', url: 'https://play.google.com/store/books/details/Om_Mahajan_Lustful_Love?id=jRMOEAAAQBAJ', icon: 'google' },
+      { name: 'Apple Books', url: 'https://books.apple.com/us/book/lustful-love/id1547869074', icon: 'apple' },
+      { name: 'Kindle', url: 'https://www.amazon.in/Lustful-Love-Sizzling-Om-Mahajan-ebook/dp/B08QCNVFNR', icon: 'kindle' },
+    ],
+    reviews: [],
+  },
   'mastering-cloud-architecture': {
     title: 'Mastering Cloud Architecture',
     subtitle: 'A Practical Guide to Modern Infrastructure',
@@ -51,26 +80,26 @@ const booksData: Record<string, {
       },
     ],
   },
-  'devops-handbook': {
-    title: 'The DevOps Handbook',
-    subtitle: 'Transforming IT Operations',
-    cover: 'https://images.unsplash.com/photo-1532012197267-da84d127e765?w=600&h=900&fit=crop',
-    heroImage: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=1920&h=800&fit=crop',
-    status: 'Coming Soon',
-    releaseDate: 'June 2025',
-    category: 'Technology',
-    quote: 'DevOps is not just a methodology—it\'s a cultural transformation that bridges the gap between development and operations.',
-    description: [
-      'The DevOps revolution has fundamentally changed how organizations deliver software. This upcoming book explores the principles, practices, and tools that enable teams to achieve continuous delivery and operational excellence.',
-      'Based on years of implementing DevOps practices in various organizations, this handbook provides a structured approach to adopting DevOps culture while avoiding common pitfalls.',
-      'From CI/CD pipelines to infrastructure as code, from monitoring strategies to incident response, this book covers the full spectrum of DevOps practices with actionable insights.',
-    ],
-    publisher: 'TechPress Publications',
-    buyLinks: [
-      { name: 'Pre-order on Amazon', url: 'https://amazon.com' },
-    ],
-    reviews: [],
-  },
+};
+
+// Platform icons/logos as simple styled buttons
+const getPlatformStyle = (icon?: string) => {
+  switch (icon) {
+    case 'amazon':
+      return 'bg-[#FF9900] hover:bg-[#FF9900]/90 text-black border-[#FF9900]';
+    case 'flipkart':
+      return 'bg-[#2874F0] hover:bg-[#2874F0]/90 text-white border-[#2874F0]';
+    case 'kobo':
+      return 'bg-[#BF0000] hover:bg-[#BF0000]/90 text-white border-[#BF0000]';
+    case 'google':
+      return 'bg-[#4285F4] hover:bg-[#4285F4]/90 text-white border-[#4285F4]';
+    case 'apple':
+      return 'bg-black hover:bg-black/90 text-white border-black';
+    case 'kindle':
+      return 'bg-[#1A8CFF] hover:bg-[#1A8CFF]/90 text-white border-[#1A8CFF]';
+    default:
+      return '';
+  }
 };
 
 const BookDetail = () => {
@@ -143,17 +172,19 @@ const BookDetail = () => {
                   />
                 </div>
                 
-                <div className="space-y-3">
+                <h3 className="text-lg font-semibold text-foreground mb-4">Order Now</h3>
+                <div className="grid grid-cols-2 gap-2">
                   {book.buyLinks.map((link) => (
                     <Button
                       key={link.name}
-                      variant="outline"
-                      className="w-full justify-between"
+                      variant={link.icon ? "default" : "outline"}
+                      size="sm"
+                      className={`w-full justify-center text-xs font-medium ${link.icon ? getPlatformStyle(link.icon) : ''}`}
                       asChild
                     >
                       <a href={link.url} target="_blank" rel="noopener noreferrer">
                         {link.name}
-                        <ExternalLink className="h-4 w-4" />
+                        <ExternalLink className="h-3 w-3 ml-1" />
                       </a>
                     </Button>
                   ))}
