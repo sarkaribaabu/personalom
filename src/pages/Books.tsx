@@ -4,6 +4,8 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import lustfulLoveCover from '@/assets/lustful-love-cover.png';
+import octoberCover from '@/assets/26october-cover.jpg';
+import codenameCover from '@/assets/codename-cover.png';
 
 const books = [
   {
@@ -19,13 +21,35 @@ const books = [
   },
 ];
 
-const categories = ['All', 'Erotic Romance'];
+const comingSoonBooksData = [
+  {
+    id: '26-october-ki-raat',
+    title: '26 October ki Raat',
+    subtitle: 'Where Lust Meets Suspense',
+    cover: octoberCover,
+    status: 'Coming Soon',
+    releaseDate: 'Q2, 2026',
+    category: 'Romantic Thriller',
+    storyline: 'On a fateful Chabbis October ki Raat, love and darkness collide. During a train journey, Riya, an aspiring writer, meets Arjun, a magnetic stranger. Attraction is instant, but danger lurks beneath the surface. As passion deepens, secrets unravel. Riya begins to see the darkness behind Arjun\'s charm, and desire turns into a perilous game of trust, obsession, and survival.',
+  },
+  {
+    id: 'codename-untitled',
+    title: 'Codename: Untitled',
+    subtitle: 'They loved. They lived. They never stopped.',
+    cover: codenameCover,
+    status: 'Coming Soon',
+    releaseDate: 'Q4, 2026',
+    category: 'Pure Intense Love Story',
+    storyline: 'Some love stories begin quietly. This one began with a message and never truly ended. They loved deeply, but life demanded choices love could not make. Years passed. Paths changed. Yet something remained, steady and unspoken. Not all love stories end in togetherness. Some end in understanding.',
+  },
+];
+
+const categories = ['All', 'Erotic Romance', 'Romantic Thriller', 'Pure Intense Love Story'];
 
 const Books = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
 
   const latestBook = books.find(book => book.isLatest);
-  const comingSoonBooks = books.filter(book => book.status === 'Coming Soon');
   const allBooks = selectedCategory === 'All' 
     ? books 
     : books.filter(book => book.category === selectedCategory);
@@ -53,11 +77,9 @@ const Books = () => {
             <a href="#latest" className="px-6 py-3 border border-border rounded-lg hover:bg-accent transition-colors">
               Latest Release
             </a>
-            {comingSoonBooks.length > 0 && (
-              <a href="#coming-soon" className="px-6 py-3 border border-border rounded-lg hover:bg-accent transition-colors">
-                Coming Soon
-              </a>
-            )}
+            <a href="#coming-soon" className="px-6 py-3 border border-border rounded-lg hover:bg-accent transition-colors">
+              Coming Soon
+            </a>
             <a href="#all-books" className="px-6 py-3 border border-border rounded-lg hover:bg-accent transition-colors">
               Browse All Books
             </a>
@@ -106,22 +128,18 @@ const Books = () => {
           )}
 
           {/* Coming Soon Section */}
-          {comingSoonBooks.length > 0 && (
-            <section id="coming-soon" className="mb-20">
-              <div className="flex items-center gap-4 mb-12">
-                <div className="h-px flex-1 bg-border" />
-                <h2 className="text-xl md:text-2xl font-semibold text-primary">Coming Soon</h2>
-                <div className="h-px flex-1 bg-border" />
-              </div>
+          <section id="coming-soon" className="mb-20">
+            <div className="flex items-center gap-4 mb-12">
+              <div className="h-px flex-1 bg-border" />
+              <h2 className="text-xl md:text-2xl font-semibold text-primary">Coming Soon</h2>
+              <div className="h-px flex-1 bg-border" />
+            </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                {comingSoonBooks.map((book) => (
-                  <Link
-                    key={book.id}
-                    to={`/books/${book.id}`}
-                    className="group block"
-                  >
-                    <div className="relative aspect-[2/3] mb-4 overflow-hidden rounded-lg shadow-lg">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+              {comingSoonBooksData.map((book) => (
+                <div key={book.id} className="group">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 items-start">
+                    <div className="relative aspect-[2/3] max-w-xs mx-auto sm:mx-0 overflow-hidden rounded-lg shadow-lg">
                       <img
                         src={book.cover}
                         alt={book.title}
@@ -131,15 +149,24 @@ const Books = () => {
                         Coming Soon
                       </div>
                     </div>
-                    <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
-                      {book.title}
-                    </h3>
-                    <p className="text-sm text-muted-foreground mb-2">{book.releaseDate}</p>
-                  </Link>
-                ))}
-              </div>
-            </section>
-          )}
+                    <div>
+                      <h3 className="text-xl md:text-2xl font-bold text-foreground mb-2">
+                        {book.title}
+                      </h3>
+                      <p className="text-sm text-muted-foreground italic mb-4">{book.subtitle}</p>
+                      <div className="flex flex-wrap items-center gap-2 mb-4">
+                        <span className="px-3 py-1 bg-primary/10 text-primary text-xs rounded">{book.category}</span>
+                        <span className="text-xs text-muted-foreground">Expected: {book.releaseDate}</span>
+                      </div>
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        {book.storyline}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
 
           {/* Browse All Books Section */}
           <section id="all-books">
