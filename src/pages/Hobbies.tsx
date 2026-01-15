@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Play, Bike, Camera, Mountain, Instagram } from 'lucide-react';
@@ -10,6 +10,7 @@ import {
 interface Reel {
   id: string;
   embedUrl: string;
+  embedCode?: string;
   title: string;
   category: string;
 }
@@ -17,11 +18,31 @@ interface Reel {
 const Hobbies = () => {
   const [selectedReel, setSelectedReel] = useState<Reel | null>(null);
 
+  // Load Instagram embed script
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = '//www.instagram.com/embed.js';
+    script.async = true;
+    document.body.appendChild(script);
+    
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
+  // Reload Instagram embeds when dialog opens
+  useEffect(() => {
+    if (selectedReel && (window as any).instgrm) {
+      (window as any).instgrm.Embeds.process();
+    }
+  }, [selectedReel]);
+
   // Instagram Reels - Replace with your actual Instagram reel URLs
   const reels: Reel[] = [
     {
       id: '1',
       embedUrl: 'https://www.instagram.com/reel/DTXEEnKiDc2/',
+      embedCode: `<blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DTXEEnKiDc2/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"></blockquote>`,
       title: 'RustyRider Journey',
       category: 'rustyrider'
     },
@@ -253,24 +274,33 @@ const Hobbies = () => {
 
       {/* Reel Viewer Dialog */}
       <Dialog open={!!selectedReel} onOpenChange={(open) => !open && setSelectedReel(null)}>
-        <DialogContent className="max-w-sm p-0 overflow-hidden bg-black border-0">
-          <div className="aspect-[9/16] w-full flex items-center justify-center">
+        <DialogContent className="max-w-[400px] p-4 overflow-hidden bg-background border border-border">
+          <div className="w-full flex flex-col items-center justify-center">
             {selectedReel && (
-              <div className="text-center text-white/60 p-8">
-                <Instagram className="h-12 w-12 mx-auto mb-4 text-white/40" />
-                <p className="text-sm mb-4">
-                  Replace with actual Instagram embed
-                </p>
-                <a 
-                  href={selectedReel.embedUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 hover:bg-white/20 rounded-lg transition-colors text-sm"
-                >
-                  <Play className="h-4 w-4" />
-                  Open in Instagram
-                </a>
-              </div>
+              <>
+                {selectedReel.embedCode ? (
+                  <div 
+                    className="w-full"
+                    dangerouslySetInnerHTML={{ __html: selectedReel.embedCode }}
+                  />
+                ) : (
+                  <div className="text-center text-muted-foreground p-8">
+                    <Instagram className="h-12 w-12 mx-auto mb-4 text-muted-foreground/40" />
+                    <p className="text-sm mb-4">
+                      Instagram Reel
+                    </p>
+                    <a 
+                      href={selectedReel.embedUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 hover:bg-primary/20 text-primary rounded-lg transition-colors text-sm"
+                    >
+                      <Play className="h-4 w-4" />
+                      Open in Instagram
+                    </a>
+                  </div>
+                )}
+              </>
             )}
           </div>
         </DialogContent>
