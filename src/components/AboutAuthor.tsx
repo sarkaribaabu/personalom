@@ -3,11 +3,18 @@ import { CheckCircle, ArrowRight } from 'lucide-react';
 import heroImage from '@/assets/hero-image.jpg';
 import workLifestyle from '@/assets/work-lifestyle.jpg';
 
-const highlights = [
-  "Enterprise Solutions Expert",
-  "Published Technical Author",
-  "Cloud & DevOps Specialist",
-  "Creative Storyteller"
+const professionalSkills = [
+  "e-Governance Architect",
+  "Digital Transformation",
+  "Urban Tech Researcher",
+  "Smart City Strategist"
+];
+
+const creativeSkills = [
+  "Fiction Author",
+  "Narrative Designer",
+  "Visual Storyteller",
+  "Poet & Essayist"
 ];
 
 const AboutAuthor = () => {
@@ -32,26 +39,36 @@ const AboutAuthor = () => {
             </div>
 
             <h2 className="text-2xl md:text-3xl font-semibold leading-tight">
-              Building innovative IT solutions while crafting compelling narratives
+              Transforming Cities with Technology. Exploring Life through Fiction.
             </h2>
 
-            <p className="text-muted-foreground leading-relaxed">
-              A dynamic professional with expertise in project management and product development, 
-              Om has a sharp eye for detail and a talent for strategic planning. Known for turning 
-              ideas into reality, he delivers successful outcomes through strong relationship-building 
-              and seamless teamwork. Beyond his analytical skills, Om has a poetic mindset, allowing 
-              for innovative problem-solving. As a fiction author, he blends creativity with a deep 
-              understanding of human nature, crafting engaging stories that captivate readers.
-            </p>
+            <div className="text-muted-foreground leading-relaxed space-y-4">
+              <p>
+                Om Mahajan believes code and prose share a single purpose: solving problems and touching lives. A digital transformation specialist in urban governance, he modernizes city systems through initiatives such as the NMMC Property Tax module and ongoing doctoral research.
+              </p>
+              <p>
+                Beyond technology, he is a storyteller whose fiction and poetry deepen his empathy and leadership. Whether shaping systems or stories, he turns complexity into meaningful experience.
+              </p>
+            </div>
 
-            {/* Highlights */}
-            <div className="grid grid-cols-2 gap-4">
-              {highlights.map((item) => (
-                <div key={item} className="flex items-center gap-2">
-                  <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
-                  <span className="text-sm font-medium">{item}</span>
-                </div>
-              ))}
+            {/* Skills - Two Rows */}
+            <div className="space-y-3">
+              <div className="grid grid-cols-2 gap-3">
+                {professionalSkills.map((item) => (
+                  <div key={item} className="flex items-center gap-2">
+                    <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
+                    <span className="text-sm font-medium">{item}</span>
+                  </div>
+                ))}
+              </div>
+              <div className="grid grid-cols-2 gap-3">
+                {creativeSkills.map((item) => (
+                  <div key={item} className="flex items-center gap-2">
+                    <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
+                    <span className="text-sm font-medium">{item}</span>
+                  </div>
+                ))}
+              </div>
             </div>
 
             <Button asChild className="gap-2">
