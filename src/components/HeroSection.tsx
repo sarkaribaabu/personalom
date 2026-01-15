@@ -71,10 +71,15 @@ const HeroSection = () => {
               </div>
             </div>
 
-            <p className="text-lg text-muted-foreground leading-relaxed max-w-lg">
-              Bridging the gap between technology and imagination. With <span className="text-foreground font-semibold">15+ years</span> in IT 
-              and a passion for storytelling, I craft both digital solutions and captivating narratives.
-            </p>
+            <div className="space-y-3 max-w-lg">
+              <h2 className="text-xl md:text-2xl font-semibold text-foreground">
+                Architecting Digital Systems. Crafting Human Narratives.
+              </h2>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Bridging the precision of e-Governance with the empathy of Storytelling. With <span className="text-foreground font-semibold">15+ years</span> in IT 
+                and a lifetime of imagination, I build solutions for Smart Cities and write stories for the soul.
+              </p>
+            </div>
 
             {/* Stats */}
             <div className="flex flex-wrap gap-8 py-4">
@@ -108,17 +113,6 @@ const HeroSection = () => {
               </Button>
             </div>
 
-            {/* Tech & Writing Tags */}
-            <div className="flex flex-wrap gap-2 pt-4">
-              {['Project / Product Management', 'Strategic Planning', 'Global Technical Sales', 'Fictional Author', 'Poetic Mind', 'Biker / Rider'].map((tag) => (
-                <span
-                  key={tag}
-                  className="px-3 py-1 text-xs font-medium bg-muted text-muted-foreground rounded-full border border-border/50"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
           </div>
 
           {/* Image with Professional Abstract Background */}
