@@ -92,6 +92,13 @@ const Books = () => {
                     <span className="px-3 py-1 bg-primary/10 text-primary text-sm rounded">{latestBook.category}</span>
                     <span className="text-muted-foreground">Published: {latestBook.year}</span>
                   </div>
+                  <p className="text-muted-foreground leading-relaxed mb-6">
+                    Nick is tired of being single after a life of constant moves. All he wants now is a real connection: long-term, meaningful, and passionate.
+                    <br /><br />
+                    Then he meets Gabby. He's ordinary and inexperienced. She's dazzling, almost unreal. Desire sparks instantly but staying together proves dangerous. Jealous rivals, twisted strangers, and chilling threats close in.
+                    <br /><br />
+                    Is this Nick's dream finally coming true, or the beginning of another devastating end?
+                  </p>
                   <Button size="lg">Get Your Copy</Button>
                 </div>
               </Link>
