@@ -36,7 +36,7 @@ const Hobbies = () => {
       tagline: 'Raw roads, rusted tales',
       gradient: 'from-orange-500 to-amber-600',
       shorts: [
-        { id: 'dQw4w9WgXcQ', title: 'First Cold Start of the Season', views: '12K', uploadedAt: '2 weeks ago', description: 'Waking up the beast after months.' },
+        { id: 'Ibsr4GFKrd4', title: 'First Cold Start of the Season', views: '12K', uploadedAt: '2 weeks ago', description: 'Waking up the beast after months.' },
         { id: 'dQw4w9WgXcQ', title: 'Rain Ride Therapy', views: '8.5K', uploadedAt: '1 month ago', description: 'When the weather tests your spirit.' },
         { id: 'dQw4w9WgXcQ', title: 'Night City Cruise', views: '15K', uploadedAt: '3 months ago', description: 'Mumbai lights from two wheels.' },
       ]
