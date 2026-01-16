@@ -90,46 +90,45 @@ const Hobbies = () => {
     <div className="min-h-screen bg-background">
       <Header />
       
-      {/* Creative Page Header */}
-      <section className="relative pt-32 pb-16 overflow-hidden">
+      {/* Creative Page Header - Compact */}
+      <section className="relative pt-24 pb-8 overflow-hidden">
         {/* Background Elements */}
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-accent/5" />
-        <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-10 right-10 w-96 h-96 bg-accent/10 rounded-full blur-3xl" />
+        <div className="absolute top-10 left-10 w-48 h-48 bg-primary/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-5 right-10 w-64 h-64 bg-accent/10 rounded-full blur-3xl" />
         
         <div className="container-blog relative">
-          <div className="flex flex-col items-center text-center">
-            {/* Decorative Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6">
-              <Bike className="w-4 h-4 text-primary" />
-              <span className="text-sm font-medium text-primary">Life on Two Wheels</span>
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+            {/* Left: Title & Subtitle */}
+            <div className="flex-1">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 mb-3">
+                <Bike className="w-3.5 h-3.5 text-primary" />
+                <span className="text-xs font-medium text-primary">Life on Two Wheels</span>
+              </div>
+              
+              <h1 className="text-3xl md:text-4xl font-serif font-light text-foreground tracking-wide">
+                THE RIDER'S <span className="text-primary">SPIRIT</span>
+              </h1>
+              
+              <p className="text-sm text-muted-foreground max-w-md leading-relaxed mt-2">
+                Short stories from the saddle. Quick glimpses of freedom, 
+                resilience, and the open road.
+              </p>
             </div>
-            
-            {/* Main Title */}
-            <h1 className="text-5xl md:text-7xl font-serif font-light text-foreground tracking-wide mb-4">
-              THE RIDER'S
-              <span className="block text-primary mt-2">SPIRIT</span>
-            </h1>
-            
-            {/* Subtitle */}
-            <p className="text-lg text-muted-foreground max-w-xl mx-auto leading-relaxed">
-              Short stories from the saddle. Quick glimpses of freedom, 
-              resilience, and the open road captured in vertical frames.
-            </p>
 
-            {/* Stats Row */}
-            <div className="flex gap-8 mt-8 pt-8 border-t border-border/50">
+            {/* Right: Stats Row */}
+            <div className="flex gap-6 md:gap-8">
               <div className="text-center">
-                <span className="block text-3xl font-light text-foreground">{allShorts.length}</span>
-                <span className="text-sm text-muted-foreground">Shorts</span>
+                <span className="block text-2xl font-light text-foreground">{allShorts.length}</span>
+                <span className="text-xs text-muted-foreground">Shorts</span>
               </div>
               <div className="text-center">
-                <span className="block text-3xl font-light text-foreground">{hobbyCategories.length}</span>
-                <span className="text-sm text-muted-foreground">Series</span>
+                <span className="block text-2xl font-light text-foreground">{hobbyCategories.length}</span>
+                <span className="text-xs text-muted-foreground">Series</span>
               </div>
               <div className="text-center">
-                <span className="block text-3xl font-light text-foreground">BMW</span>
-                <span className="text-sm text-muted-foreground">G310RR</span>
+                <span className="block text-2xl font-light text-foreground">BMW</span>
+                <span className="text-xs text-muted-foreground">G310RR</span>
               </div>
             </div>
           </div>
