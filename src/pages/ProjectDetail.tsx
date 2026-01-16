@@ -65,6 +65,7 @@ import pngBrothers from '@/assets/png-brothers.png';
 import csJewellers from '@/assets/cs-jewellers.png';
 import lomAi from '@/assets/lom-ai.png';
 import bmcDm from '@/assets/bmc-dm.png';
+import mobileGames from '@/assets/mobile-games.png';
 
 // Tech stack icon mapping
 const techIcons: Record<string, React.ReactNode> = {
@@ -2761,6 +2762,154 @@ const projectsData: Record<string, {
       ]
     },
     gallery: [bmcDm]
+  },
+  'mobile-games-development': {
+    title: "Mobile Games Development",
+    category: "Simulation Games & Game Production Collaboration",
+    image: mobileGames,
+    snapshot: {
+      client: "Cypher Gamez (Sister Concern)",
+      industry: "Private | Gaming | Mobile Simulation & Entertainment",
+      role: "Gamer / Tester (Collaborative Role)",
+      duration: "3+ years",
+      techStack: ["Unity"]
+    },
+    brief: {
+      problem: "This engagement had two distinct problem spaces, addressed simultaneously through game design, testing, and production collaboration.",
+      context: "Cypher Gamez positioned itself as both a B2C game publisher creating niche simulation experiences and a B2B technical execution partner for mobile game production.",
+      constraints: [
+        "Mobile gamers seeking immersive yet accessible simulation experiences",
+        "Lack of culturally relevant simulation content on mobile platforms",
+        "Businesses lacking in-house game development capabilities",
+        "Need for end-to-end game production services",
+        "Cross-device performance optimization requirements"
+      ]
+    },
+    contextReality: {
+      environment: "Mobile gamers often seek simulation experiences that let them step into specific real-world roles such as driving an Indian auto-rickshaw, operating a metro train, parking vehicles, or navigating off-road terrains. Most mobile platforms lack variety in niche, culturally relevant simulation content.",
+      existingSystems: [
+        "Train Simulator – Indian Metro",
+        "Rescue Ship Simulator",
+        "Offroad 4x4 Simulation",
+        "Vehicle Parking and Driving Simulators"
+      ],
+      constraints: [
+        "Game development",
+        "Platform porting",
+        "Optimization for mobile performance",
+        "Publishing and maintenance",
+        "End-to-end production services"
+      ]
+    },
+    approach: {
+      principles: [
+        "Gameplay must feel familiar within seconds",
+        "Controls should be forgiving, especially on mobile",
+        "Realism should enhance fun, not slow it down",
+        "Progression keeps casual players engaged"
+      ],
+      strategicDecisions: [
+        "Focus on niche, culturally relevant simulation titles",
+        "Prioritize accessibility and recognizable environments",
+        "Implement progression-driven gameplay",
+        "Provide end-to-end services for B2B partners"
+      ],
+      tradeoffs: [
+        "Simplified controls over strict realism",
+        "Adjustable difficulty for broader accessibility",
+        "Stability and performance over feature overload",
+        "Cross-device consistency as priority"
+      ]
+    },
+    execution: {
+      architecture: "Games were built using Unity engine, optimized for mobile performance across a wide range of Android devices with varying hardware capabilities.",
+      keyModules: [
+        "Unity-based game development",
+        "Mobile-optimized graphics and physics",
+        "Cross-device compatibility testing",
+        "Performance tuning for varied hardware",
+        "Progression and engagement systems"
+      ],
+      integrations: [
+        "Mobile app stores (Google Play, App Store)",
+        "Analytics and performance monitoring",
+        "In-app purchase systems",
+        "Ad networks for monetization"
+      ],
+      considerations: [
+        "Wide variation in mobile hardware performance",
+        "User experience across different screen sizes",
+        "Battery and resource optimization",
+        "Iterative feedback loops for quality"
+      ]
+    },
+    challengesThatMattered: [
+      {
+        title: "Balancing Realism with Playability",
+        description: "Highly realistic simulations can become tedious on mobile.",
+        impact: "Simplified controls, adjustable difficulty, and focus on experience over strict realism. Games remained accessible while still feeling authentic."
+      },
+      {
+        title: "Ensuring Stability Across Devices",
+        description: "Wide variation in mobile hardware performance.",
+        impact: "Extensive testing across devices and performance tuning within Unity. Smoother gameplay and fewer post-release issues."
+      },
+      {
+        title: "Creating Culturally Relevant Content",
+        description: "Most simulation games lack local, recognizable environments.",
+        impact: "Focus on Indian scenarios like auto-rickshaws, metro trains, and local street environments. Higher player engagement and connection."
+      }
+    ],
+    solutions: [
+      {
+        problem: "Balancing Realism with Playability",
+        decision: "Simplified controls and adjustable difficulty",
+        intervention: "Focus on experience over strict realism with forgiving controls",
+        result: "Games remained accessible while still feeling authentic"
+      },
+      {
+        problem: "Ensuring Stability Across Devices",
+        decision: "Extensive cross-device testing",
+        intervention: "Performance tuning within Unity for varied hardware",
+        result: "Smoother gameplay and fewer post-release issues"
+      },
+      {
+        problem: "Creating Culturally Relevant Content",
+        decision: "Focus on local Indian scenarios",
+        intervention: "Auto-rickshaws, metro trains, and recognizable street environments",
+        result: "Higher player engagement and emotional connection"
+      }
+    ],
+    outcomes: {
+      quantitative: [
+        "Multiple simulation titles published",
+        "3+ years of continuous collaboration",
+        "Wide device compatibility achieved",
+        "Reduced post-release issues through testing"
+      ],
+      qualitative: [
+        "Access to niche, culturally relevant simulation experiences",
+        "Engaging gameplay without steep learning curves",
+        "Variety across simulation genres",
+        "Reliable execution partner for mobile game production",
+        "Faster go-to-market for game ideas",
+        "Reduced technical overhead for collaborators"
+      ],
+      impact: "The collaboration delivered engaging, culturally relevant simulation games while providing B2B partners with reliable game production services, reducing technical overhead and accelerating time-to-market."
+    },
+    learnings: {
+      keyLearnings: [
+        "Deep exposure to game development lifecycles",
+        "Strong understanding of player psychology in simulation games",
+        "Experience bridging creative intent and technical execution"
+      ],
+      improvements: [],
+      insights: [
+        "Culturally relevant content creates stronger player connections",
+        "Mobile game success requires balancing realism with accessibility"
+      ]
+    },
+    gallery: [mobileGames]
   }
 };
 

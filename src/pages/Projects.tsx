@@ -25,6 +25,7 @@ import pngBrothers from '@/assets/png-brothers.png';
 import csJewellers from '@/assets/cs-jewellers.png';
 import lomAi from '@/assets/lom-ai.png';
 import bmcDm from '@/assets/bmc-dm.png';
+import mobileGames from '@/assets/mobile-games.png';
 
 const categories = ['All', 'Web Apps', 'Mobile Apps', 'AI/ML/CV', 'eGovernance', 'eCommerce', 'BI Dashboards'];
 
@@ -206,9 +207,9 @@ const projects = [
     title: "Mobile Games Development",
     category: "Mobile Apps",
     date: "2021",
-    excerpt: "Suite of casual mobile games with engaging gameplay mechanics.",
-    image: images[0],
-    height: "short"
+    excerpt: "Simulation Games & Game Production Collaboration with Train Simulator, Rescue Ship, and Offroad simulations.",
+    image: mobileGames,
+    height: "tall"
   },
 
   // AI/ML/CV (3 projects)
