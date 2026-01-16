@@ -116,24 +116,29 @@ const Journey = () => {
     <div className="min-h-screen bg-background">
       <Header />
       <main id="main-content">
-        {/* Hero Section */}
-        <section className="relative overflow-hidden py-24">
+        {/* Hero Section - Compact */}
+        <section className="relative overflow-hidden pt-24 pb-8">
           {/* Decorative background elements */}
           <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-accent/10" />
-          <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-10 right-10 w-96 h-96 bg-accent/20 rounded-full blur-3xl" />
+          <div className="absolute top-10 left-10 w-48 h-48 bg-primary/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-5 right-10 w-64 h-64 bg-accent/20 rounded-full blur-3xl" />
           
-          <div className="container-blog text-center relative z-10">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full text-primary text-sm font-medium mb-6">
-              <Compass className="w-4 h-4" />
-              <span>15+ Years of Innovation</span>
+          <div className="container-blog relative z-10">
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+              {/* Left: Title & Subtitle */}
+              <div className="flex-1">
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-primary/10 rounded-full text-primary text-xs font-medium mb-3">
+                  <Compass className="w-3.5 h-3.5" />
+                  <span>15+ Years of Innovation</span>
+                </div>
+                <h1 className="text-3xl md:text-4xl font-bold text-foreground">
+                  My Journey
+                </h1>
+                <p className="text-sm text-muted-foreground max-w-lg leading-relaxed mt-2">
+                  From declining an MNC offer to receiving an Honorary Doctorate — a story of bold decisions and digital transformation
+                </p>
+              </div>
             </div>
-            <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
-              My Journey
-            </h1>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              From declining an MNC offer to receiving an Honorary Doctorate — a story of bold decisions, relentless growth, and digital transformation
-            </p>
           </div>
         </section>
 

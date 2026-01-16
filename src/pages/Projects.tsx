@@ -411,12 +411,28 @@ const Projects = () => {
       <Header />
       
       <main id="main-content" className="min-h-screen bg-background">
-        {/* Hero Section */}
-        <section className="container-blog py-16 border-b border-border">
-          <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">Projects</h1>
-          <p className="text-lg text-muted-foreground max-w-2xl">
-            A portfolio of 45+ enterprise solutions spanning web applications, mobile apps, AI/ML implementations, eGovernance, eCommerce platforms, and BI dashboards across 15+ years of experience.
-          </p>
+        {/* Hero Section - Compact */}
+        <section className="relative overflow-hidden pt-24 pb-8">
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-accent/5" />
+          <div className="absolute top-10 left-10 w-48 h-48 bg-primary/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-5 right-10 w-64 h-64 bg-accent/10 rounded-full blur-3xl" />
+          
+          <div className="container-blog relative z-10">
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+              {/* Left: Title & Subtitle */}
+              <div className="flex-1">
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-primary/10 rounded-full text-primary text-xs font-medium mb-3">
+                  <span>45+ Projects Delivered</span>
+                </div>
+                <h1 className="text-3xl md:text-4xl font-bold text-foreground">
+                  Projects
+                </h1>
+                <p className="text-sm text-muted-foreground max-w-lg leading-relaxed mt-2">
+                  Enterprise solutions spanning web apps, mobile apps, AI/ML, eGovernance, eCommerce, and BI dashboards.
+                </p>
+              </div>
+            </div>
+          </div>
         </section>
 
         {/* Projects Grid */}

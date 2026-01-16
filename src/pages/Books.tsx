@@ -58,18 +58,24 @@ const Books = () => {
     <div className="min-h-screen bg-background">
       <Header />
       
-      <main className="py-16 md:py-24">
+      <main className="pt-24 pb-16">
         <div className="container-blog">
-          {/* Hero Section */}
-          <div className="max-w-4xl mb-12">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
-              Books
-            </h1>
-            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-              With over 15 years in the IT industry, I've also pursued my passion for creative writing. 
-              My books explore diverse themes from romance to thrillers. Click on any cover 
-              to explore more details, purchase links, and exclusive content.
-            </p>
+          {/* Hero Section - Compact */}
+          <div className="relative mb-12">
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+              {/* Left: Title & Subtitle */}
+              <div className="flex-1">
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-primary/10 rounded-full text-primary text-xs font-medium mb-3">
+                  <span>Author & Storyteller</span>
+                </div>
+                <h1 className="text-3xl md:text-4xl font-bold text-foreground">
+                  Books
+                </h1>
+                <p className="text-sm text-muted-foreground max-w-lg leading-relaxed mt-2">
+                  Exploring diverse themes from romance to thrillers. Click on any cover for details and purchase links.
+                </p>
+              </div>
+            </div>
           </div>
 
           {/* Quick Links */}

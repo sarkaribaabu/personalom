@@ -53,22 +53,25 @@ const Contact = () => {
     <div className="min-h-screen bg-background">
       <Header />
       
-      {/* Hero Section */}
-      <section className="relative py-20 md:py-28 bg-gradient-to-br from-primary/10 via-background to-accent/10 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,hsl(var(--primary)/0.1),transparent_50%)]" />
+      {/* Hero Section - Compact */}
+      <section className="relative pt-24 pb-8 bg-gradient-to-br from-primary/5 via-background to-accent/5 overflow-hidden">
+        <div className="absolute top-10 left-10 w-48 h-48 bg-primary/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-5 right-10 w-64 h-64 bg-accent/10 rounded-full blur-3xl" />
+        
         <div className="container-blog relative z-10">
-          <div className="max-w-3xl">
-            <span className="inline-block px-4 py-1.5 bg-primary/10 rounded-full text-sm text-primary font-medium mb-6">
-              Let's Connect
-            </span>
-            <h1 className="text-4xl md:text-6xl font-serif font-light text-foreground mb-6 leading-tight">
-              Have an idea? <br />
-              <span className="text-primary">Let's talk.</span>
-            </h1>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed">
-              Whether you're looking for consulting, speaking engagements, or book collaborations — 
-              I'm always open to meaningful conversations.
-            </p>
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+            {/* Left: Title & Subtitle */}
+            <div className="flex-1">
+              <span className="inline-flex items-center gap-2 px-3 py-1.5 bg-primary/10 rounded-full text-xs text-primary font-medium mb-3">
+                Let's Connect
+              </span>
+              <h1 className="text-3xl md:text-4xl font-serif font-light text-foreground">
+                Have an idea? <span className="text-primary">Let's talk.</span>
+              </h1>
+              <p className="text-sm text-muted-foreground max-w-lg leading-relaxed mt-2">
+                Whether you're looking for consulting, speaking engagements, or collaborations — I'm always open to meaningful conversations.
+              </p>
+            </div>
           </div>
         </div>
       </section>
