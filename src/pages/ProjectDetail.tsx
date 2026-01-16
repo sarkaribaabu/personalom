@@ -62,6 +62,7 @@ import nmmcDashboard from '@/assets/nmmc-dashboard.png';
 import bajajFinserv from '@/assets/bajaj-finserv.png';
 import guppaai from '@/assets/guppaai.png';
 import pngBrothers from '@/assets/png-brothers.png';
+import csJewellers from '@/assets/cs-jewellers.png';
 
 // Tech stack icon mapping
 const techIcons: Record<string, React.ReactNode> = {
@@ -2436,6 +2437,157 @@ const projectsData: Record<string, {
       ]
     },
     gallery: [pngBrothers]
+  },
+  'cs-jewellers': {
+    title: "CS Jewellers",
+    category: "Phygital Ecommerce & B2B Inventory Platform | Web Portal",
+    image: csJewellers,
+    snapshot: {
+      client: "CS Jewellers (Private Jewelry Retail Chain)",
+      industry: "Private | Ecommerce | Jewelry Retail & Trading",
+      role: "Project Director",
+      duration: "18+ months",
+      techStack: ["PHP", "Laravel", "MySQL", "WhatsApp"]
+    },
+    brief: {
+      problem: "High-value jewelry purchases online inherently trigger trust concerns around purity, authenticity, and pricing transparency. Customers are often unsure whether the displayed price reflects real-time metal rates, accurate making charges, and genuine certification. At the same time, the absence of physical interaction creates a sensory gap that discourages commitment. For CS Jewellers, the challenge was compounded by scale. Beyond B2C ecommerce, the organization also required a B2B trading and inventory movement system to manage stock across 36 stores spread throughout Maharashtra.",
+      context: "CS Jewellers is a multi-store retail chain with strong offline credibility. The objective was twofold: Create a consumer-facing ecommerce platform that replicated the confidence of in-store buying, and digitize internal B2B inventory trading to improve stock utilization and operational efficiency across locations.",
+      constraints: [
+        "Trust barriers in high-value online purchases",
+        "36 stores requiring centralized inventory visibility",
+        "Dual B2C and B2B platform requirements",
+        "Real-time pricing with daily metal rate fluctuations",
+        "Role-based access for store managers and head office",
+        "Multiple payment gateway integrations"
+      ]
+    },
+    contextReality: {
+      environment: "The solution was designed as a dual-layer platform: a trust-centric B2C ecommerce experience for customers and a controlled B2B portal for inter-store inventory visibility and trading. Both layers were anchored around transparency, real-time data, and human-assisted decision making.",
+      existingSystems: [
+        "Traditional retail operations across 36 stores",
+        "Manual stock coordination between locations",
+        "Offline trust signals needing digital translation"
+      ],
+      constraints: [
+        "Real-time gold and diamond rate integration",
+        "Transparent price breakup (metal, making charges, taxes)",
+        "Authenticity and purity assurance indicators",
+        "Assisted buying via WhatsApp and voice support",
+        "Store-backed order fulfillment",
+        "Centralized inventory visibility across 36 stores",
+        "Inter-store stock transfer and trading workflows",
+        "Role-based access for store managers and head office",
+        "Transaction and audit tracking for internal movements"
+      ]
+    },
+    approach: {
+      principles: [
+        "Trust must be visible at every decision point",
+        "Transparency reduces hesitation more than promotions",
+        "Digital systems should strengthen physical retail, not compete with it",
+        "Internal efficiency is as critical as customer experience"
+      ],
+      strategicDecisions: [
+        "Dual-layer platform supporting both B2C and B2B workflows",
+        "Standardized pricing logic and disclosures across all channels",
+        "Store-linked fulfillment for accountability",
+        "Centralized B2B inventory visibility"
+      ],
+      tradeoffs: [
+        "Clear separation of B2C and B2B experiences",
+        "Role-based access and workflows for operational control",
+        "Phased rollout across store network"
+      ]
+    },
+    execution: {
+      architecture: "The platform was built to support both customer experience and enterprise operations without compromising performance or security. Unified backend supporting B2C and B2B workflows with dynamic pricing engine aligned with daily metal rates and secure role-based access across organizational hierarchy.",
+      keyModules: [
+        "B2C Ecommerce Portal",
+        "B2B Inventory & Trading Portal",
+        "Dynamic Pricing Engine",
+        "Real-time Rate Integration",
+        "Inter-store Stock Transfer System",
+        "Role-based Access Control",
+        "Assisted Commerce Layer"
+      ],
+      integrations: [
+        "Payment gateways: CCAvenue, ICICI",
+        "Communication: WhatsApp, Email, SMS",
+        "VoIP systems for assisted sales and support"
+      ],
+      considerations: [
+        "Unified backend for B2C and B2B",
+        "Dynamic pricing with daily metal rates",
+        "Secure role-based access hierarchy",
+        "Communication layer for assisted commerce"
+      ]
+    },
+    challengesThatMattered: [
+      {
+        title: "Scaling Trust Across a Retail Chain",
+        description: "Ensuring consistent trust signals across all stores and online channels.",
+        impact: "Standardized pricing logic and disclosures with store-linked fulfillment and accountability. Uniform customer confidence regardless of entry point."
+      },
+      {
+        title: "Managing Inventory Across 36 Stores",
+        description: "Stock imbalance and manual coordination between locations.",
+        impact: "Centralized B2B inventory visibility with structured inter-store trading workflows. Improved stock utilization and reduced idle inventory."
+      },
+      {
+        title: "Balancing B2C Simplicity with B2B Control",
+        description: "Customer flows needed to remain simple while internal operations were complex.",
+        impact: "Clear separation of B2C and B2B experiences with role-based access and workflows. Operational control without user experience compromise."
+      }
+    ],
+    solutions: [
+      {
+        problem: "Scaling Trust Across a Retail Chain",
+        decision: "Standardized pricing logic and disclosures",
+        intervention: "Store-linked fulfillment and accountability across all channels",
+        result: "Uniform customer confidence regardless of entry point"
+      },
+      {
+        problem: "Managing Inventory Across 36 Stores",
+        decision: "Centralized B2B inventory visibility",
+        intervention: "Structured inter-store trading workflows with audit tracking",
+        result: "Improved stock utilization and reduced idle inventory"
+      },
+      {
+        problem: "Balancing B2C Simplicity with B2B Control",
+        decision: "Clear separation of B2C and B2B experiences",
+        intervention: "Role-based access and workflows for different user types",
+        result: "Operational control without user experience compromise"
+      }
+    ],
+    outcomes: {
+      quantitative: [
+        "Increased confidence in online jewelry purchases",
+        "Clear understanding of pricing and authenticity",
+        "Assisted buying experience comparable to in-store visits",
+        "36 stores with centralized inventory visibility"
+      ],
+      qualitative: [
+        "Successful omni-channel expansion",
+        "Better inventory circulation across stores",
+        "Reduced dependency on manual coordination",
+        "Phygital commerce model scaled across a retail chain",
+        "Digital backbone supporting both sales and operations",
+        "Future-ready platform for expansion and analytics"
+      ],
+      impact: "CS Jewellers successfully built a dual-layer phygital commerce platform that serves both customers and internal operations, proving that trust-first design combined with operational efficiency can scale across a 36-store retail chain."
+    },
+    learnings: {
+      keyLearnings: [
+        "Trust visibility at every decision point is critical for high-value purchases",
+        "Digital systems should strengthen physical retail, not compete with it",
+        "Internal efficiency is as critical as customer experience"
+      ],
+      improvements: [],
+      insights: [
+        "Phygital commerce with B2B inventory integration creates sustainable competitive advantage for retail chains"
+      ]
+    },
+    gallery: [csJewellers]
   }
 };
 

@@ -22,6 +22,7 @@ import nmmcDashboard from '@/assets/nmmc-dashboard.png';
 import bajajFinserv from '@/assets/bajaj-finserv.png';
 import guppaai from '@/assets/guppaai.png';
 import pngBrothers from '@/assets/png-brothers.png';
+import csJewellers from '@/assets/cs-jewellers.png';
 
 const categories = ['All', 'Web Apps', 'Mobile Apps', 'AI/ML/CV', 'eGovernance', 'eCommerce', 'BI Dashboards'];
 
@@ -337,8 +338,8 @@ const projects = [
     title: "CS Jewellers",
     category: "eCommerce",
     date: "2016",
-    excerpt: "Online jewelry store with catalog management and secure payments.",
-    image: images[4],
+    excerpt: "Phygital Ecommerce & B2B Inventory Platform with dual-layer B2C and B2B capabilities across 36 stores.",
+    image: csJewellers,
     height: "medium"
   },
   {
