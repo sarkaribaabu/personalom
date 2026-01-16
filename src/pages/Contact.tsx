@@ -4,15 +4,15 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
-import { Mail, Send, MapPin, Clock, Linkedin, Twitter, ArrowRight } from 'lucide-react';
+import { Mail, Send, MapPin, Clock, Linkedin, Facebook, Instagram, Youtube, ArrowRight } from 'lucide-react';
 import { useState } from 'react';
 import { useToast } from '@/hooks/use-toast';
 
 const contactReasons = [
   { id: 'consulting', label: 'Consulting & Advisory', icon: '💼' },
-  { id: 'speaking', label: 'Speaking Engagement', icon: '🎤' },
-  { id: 'collaboration', label: 'Book Collaboration', icon: '📚' },
-  { id: 'general', label: 'General Inquiry', icon: '💬' },
+  { id: 'synergies', label: 'Synergies / Project', icon: '🤝' },
+  { id: 'riding', label: 'Riding Collaboration', icon: '🏍️' },
+  { id: 'general', label: 'General Enquiry', icon: '💬' },
 ];
 
 const Contact = () => {
@@ -142,20 +142,40 @@ const Contact = () => {
                 </h2>
                 <div className="flex gap-4">
                   <a 
-                    href="https://linkedin.com/in/ommahajan" 
+                    href="https://www.linkedin.com/in/om-mahajan/" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="w-12 h-12 rounded-xl bg-muted flex items-center justify-center hover:bg-primary/10 hover:text-primary transition-colors"
+                    aria-label="LinkedIn"
                   >
                     <Linkedin className="w-5 h-5" />
                   </a>
                   <a 
-                    href="https://twitter.com/ommahajan" 
+                    href="https://www.facebook.com/mahajan.aum" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="w-12 h-12 rounded-xl bg-muted flex items-center justify-center hover:bg-primary/10 hover:text-primary transition-colors"
+                    aria-label="Facebook"
                   >
-                    <Twitter className="w-5 h-5" />
+                    <Facebook className="w-5 h-5" />
+                  </a>
+                  <a 
+                    href="https://www.instagram.com/perfectly.planted.brain/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="w-12 h-12 rounded-xl bg-muted flex items-center justify-center hover:bg-primary/10 hover:text-primary transition-colors"
+                    aria-label="Instagram"
+                  >
+                    <Instagram className="w-5 h-5" />
+                  </a>
+                  <a 
+                    href="https://www.youtube.com/@RustyRidersPune" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="w-12 h-12 rounded-xl bg-muted flex items-center justify-center hover:bg-primary/10 hover:text-primary transition-colors"
+                    aria-label="YouTube"
+                  >
+                    <Youtube className="w-5 h-5" />
                   </a>
                 </div>
               </div>
