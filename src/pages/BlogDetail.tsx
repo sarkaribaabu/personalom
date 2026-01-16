@@ -1,4 +1,5 @@
 import { useParams, Link } from 'react-router-dom';
+import { useRef } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ReadingProgress from '@/components/ReadingProgress';
@@ -10,7 +11,46 @@ import lifestylePost from '@/assets/lifestyle-post.jpg';
 import workLifestyle from '@/assets/work-lifestyle.jpg';
 import fashionLifestyle from '@/assets/fashion-lifestyle.jpg';
 import fashionPost from '@/assets/fashion-post.jpg';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, ChevronLeft, ChevronRight, Quote, Lightbulb, ArrowRight } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+
+// Callout component for highlighted text blocks
+const Callout = ({ type, children }: { type: 'quote' | 'insight' | 'key'; children: React.ReactNode }) => {
+  const styles = {
+    quote: 'border-l-4 border-primary bg-primary/5 pl-6 pr-4 py-4 my-8 italic',
+    insight: 'bg-accent/50 border border-accent rounded-xl p-6 my-8',
+    key: 'bg-secondary/50 border border-secondary rounded-xl p-6 my-8'
+  };
+  
+  const icons = {
+    quote: <Quote className="w-5 h-5 text-primary mb-2" />,
+    insight: <Lightbulb className="w-5 h-5 text-primary mb-2" />,
+    key: <ArrowRight className="w-5 h-5 text-primary mb-2" />
+  };
+
+  return (
+    <div className={styles[type]}>
+      {icons[type]}
+      <div className="text-foreground font-medium">{children}</div>
+    </div>
+  );
+};
+
+// Inline image component
+const InlineImage = ({ src, alt, caption }: { src: string; alt: string; caption?: string }) => (
+  <figure className="my-10">
+    <img 
+      src={src} 
+      alt={alt} 
+      className="w-full rounded-xl object-cover aspect-[16/9]"
+    />
+    {caption && (
+      <figcaption className="text-sm text-muted-foreground text-center mt-3 italic">
+        {caption}
+      </figcaption>
+    )}
+  </figure>
+);
 
 // Blog posts data matching the listing page
 const blogPosts: Record<string, {
@@ -21,6 +61,8 @@ const blogPosts: Record<string, {
   author: string;
   heroImage: string;
   content: string;
+  inlineImages?: { src: string; alt: string; caption?: string; afterParagraph: number }[];
+  callouts?: { type: 'quote' | 'insight' | 'key'; text: string; afterParagraph: number }[];
 }> = {
   "digital-transformation-urban-governance": {
     title: "Digital Transformation in Urban Governance: A Case Study",
@@ -29,6 +71,13 @@ const blogPosts: Record<string, {
     readTime: "8 min read",
     author: "Om Mahajan",
     heroImage: techPost,
+    inlineImages: [
+      { src: workLifestyle, alt: "Smart city infrastructure", caption: "Modern urban infrastructure powered by digital solutions", afterParagraph: 2 }
+    ],
+    callouts: [
+      { type: 'insight', text: "A 40% reduction in processing time was achieved within the first year of digital transformation implementation.", afterParagraph: 4 },
+      { type: 'quote', text: "The foundations laid today will determine the smart cities of tomorrow.", afterParagraph: 6 }
+    ],
     content: `
       <p class="lead">Digital transformation in urban governance represents a fundamental shift in how cities operate, deliver services, and engage with citizens. This case study explores the journey of implementing smart city initiatives in municipal operations.</p>
       
@@ -36,30 +85,34 @@ const blogPosts: Record<string, {
       
       <p>Municipal corporations across developing nations face unique challenges when embarking on digital transformation journeys. Legacy systems, limited technical expertise, and resistance to change often create significant barriers to progress.</p>
       
-      <p>The NMMC Property Tax module serves as an excellent example of how thoughtful digital intervention can transform citizen services while improving operational efficiency.</p>
+      <p>The NMMC Property Tax module serves as an excellent example of how thoughtful digital intervention can transform citizen services while improving operational efficiency. By understanding the specific pain points faced by citizens and staff alike, we were able to design solutions that addressed real needs rather than imagined requirements.</p>
+
+      <p>The journey began with extensive stakeholder consultations, mapping existing workflows, and identifying bottlenecks that slowed down service delivery. This groundwork proved invaluable in shaping our implementation strategy.</p>
       
       <h2>Key Implementation Strategies</h2>
       
-      <p>Successful digital transformation in government requires a multi-pronged approach that addresses technology, process, and people simultaneously:</p>
+      <p>Successful digital transformation in government requires a multi-pronged approach that addresses technology, process, and people simultaneously. Each of these dimensions requires careful attention and cannot be neglected without risking project failure.</p>
       
       <ul>
-        <li><strong>Stakeholder Engagement:</strong> Building consensus among political leaders, administrators, and citizens</li>
-        <li><strong>Phased Implementation:</strong> Breaking down large projects into manageable, measurable milestones</li>
-        <li><strong>Capacity Building:</strong> Training staff at all levels to embrace new systems</li>
-        <li><strong>Citizen-Centric Design:</strong> Prioritizing user experience over technical complexity</li>
+        <li><strong>Stakeholder Engagement:</strong> Building consensus among political leaders, administrators, and citizens through regular communication and feedback sessions</li>
+        <li><strong>Phased Implementation:</strong> Breaking down large projects into manageable, measurable milestones that demonstrate value incrementally</li>
+        <li><strong>Capacity Building:</strong> Training staff at all levels to embrace new systems with hands-on workshops and continuous support</li>
+        <li><strong>Citizen-Centric Design:</strong> Prioritizing user experience over technical complexity to ensure adoption</li>
       </ul>
       
       <h2>Measuring Success</h2>
       
-      <p>The impact of digital transformation can be measured through multiple metrics including processing time reduction, citizen satisfaction scores, revenue collection efficiency, and employee productivity gains.</p>
+      <p>The impact of digital transformation can be measured through multiple metrics including processing time reduction, citizen satisfaction scores, revenue collection efficiency, and employee productivity gains. Establishing clear baselines before implementation is crucial for accurate measurement.</p>
       
-      <p>In the case of property tax digitization, we observed a 40% reduction in processing time and a significant improvement in collection efficiency within the first year of implementation.</p>
+      <p>In the case of property tax digitization, we observed significant improvements across all key metrics. The data-driven approach allowed us to identify areas needing further optimization and celebrate wins that motivated the team.</p>
+
+      <p>Beyond quantitative metrics, qualitative feedback from citizens showed improved trust in government services and reduced frustration with bureaucratic processes.</p>
       
       <h2>Lessons for Future Projects</h2>
       
-      <p>Every digital transformation project offers valuable lessons. The importance of change management, the need for robust testing, and the value of iterative improvement have become clear through practical experience.</p>
+      <p>Every digital transformation project offers valuable lessons. The importance of change management, the need for robust testing, and the value of iterative improvement have become clear through practical experience. Documentation and knowledge transfer ensure these lessons benefit future initiatives.</p>
       
-      <p>As cities continue to evolve, the intersection of technology and governance will only grow more critical. The foundations laid today will determine the smart cities of tomorrow.</p>
+      <p>As cities continue to evolve, the intersection of technology and governance will only grow more critical. The foundations laid today will determine the smart cities of tomorrow. Investment in digital infrastructure is not just a technical decision—it's a commitment to better serving citizens.</p>
     `
   },
   "storytelling-technical-documentation": {
@@ -335,11 +388,29 @@ const allPosts = Object.entries(blogPosts).map(([slug, post]) => ({
 const BlogDetail = () => {
   const { slug } = useParams();
   const post = slug && blogPosts[slug] ? blogPosts[slug] : null;
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
   
-  // Get related posts (same category, excluding current)
+  // Get related posts (same category first, then others, excluding current)
   const relatedPosts = allPosts
-    .filter(p => p.slug !== slug && (post ? p.category === post.category : true))
-    .slice(0, 3);
+    .filter(p => p.slug !== slug)
+    .sort((a, b) => {
+      if (post) {
+        const aMatch = a.category === post.category ? 1 : 0;
+        const bMatch = b.category === post.category ? 1 : 0;
+        return bMatch - aMatch;
+      }
+      return 0;
+    });
+
+  const scroll = (direction: 'left' | 'right') => {
+    if (scrollContainerRef.current) {
+      const scrollAmount = 320;
+      scrollContainerRef.current.scrollBy({
+        left: direction === 'left' ? -scrollAmount : scrollAmount,
+        behavior: 'smooth'
+      });
+    }
+  };
 
   if (!post) {
     return (
@@ -418,31 +489,52 @@ const BlogDetail = () => {
           </div>
         </div>
 
-        {/* Article Content */}
-        <article className="container-blog max-w-3xl mx-auto px-6">
+        {/* Article Content - 70% width */}
+        <article className="max-w-[70%] mx-auto px-6 lg:px-0">
           <div 
             className="prose prose-lg max-w-none
-              prose-headings:text-foreground prose-headings:font-bold prose-headings:mt-12 prose-headings:mb-4
+              prose-headings:text-foreground prose-headings:font-bold prose-headings:mt-14 prose-headings:mb-6
               prose-h2:text-2xl prose-h2:md:text-3xl
-              prose-p:text-muted-foreground prose-p:leading-relaxed prose-p:mb-6 prose-p:text-lg
-              prose-ul:text-muted-foreground prose-ul:mb-6
-              prose-li:text-muted-foreground prose-li:mb-2 prose-li:text-lg
+              prose-p:text-muted-foreground prose-p:leading-[1.9] prose-p:mb-8 prose-p:text-lg
+              prose-ul:text-muted-foreground prose-ul:mb-8 prose-ul:space-y-3
+              prose-li:text-muted-foreground prose-li:mb-3 prose-li:text-lg prose-li:leading-relaxed
               prose-strong:text-foreground
-              [&_.lead]:text-xl [&_.lead]:md:text-2xl [&_.lead]:text-foreground [&_.lead]:font-normal [&_.lead]:leading-relaxed [&_.lead]:mb-8"
+              [&_.lead]:text-xl [&_.lead]:md:text-2xl [&_.lead]:text-foreground [&_.lead]:font-normal [&_.lead]:leading-[1.8] [&_.lead]:mb-10"
             dangerouslySetInnerHTML={{ __html: post.content }}
           />
+
+          {/* Inline callouts */}
+          {post.callouts && post.callouts.length > 0 && (
+            <div className="mt-12 space-y-8">
+              {post.callouts.map((callout, index) => (
+                <Callout key={index} type={callout.type}>
+                  {callout.text}
+                </Callout>
+              ))}
+            </div>
+          )}
+
+          {/* Inline images */}
+          {post.inlineImages && post.inlineImages.length > 0 && (
+            <div className="mt-8">
+              {post.inlineImages.map((img, index) => (
+                <InlineImage key={index} src={img.src} alt={img.alt} caption={img.caption} />
+              ))}
+            </div>
+          )}
         </article>
 
         {/* Author Bio Section */}
-        <section className="container-blog max-w-3xl mx-auto px-6 mt-16 pt-8 border-t border-border">
-          <div className="flex flex-col sm:flex-row gap-6 items-start">
+        <section className="max-w-[70%] mx-auto px-6 lg:px-0 mt-16 pt-10 border-t border-border">
+          <div className="flex flex-col sm:flex-row gap-6 items-start bg-secondary/30 rounded-2xl p-6">
             <img 
               src={omHeadshot} 
               alt={post.author}
-              className="w-20 h-20 rounded-full object-cover border-2 border-border flex-shrink-0"
+              className="w-24 h-24 rounded-full object-cover border-4 border-background shadow-lg flex-shrink-0"
             />
             <div>
-              <h3 className="text-lg font-bold text-foreground mb-2">Written by {post.author}</h3>
+              <p className="text-sm text-primary font-medium mb-1">Written by</p>
+              <h3 className="text-xl font-bold text-foreground mb-3">{post.author}</h3>
               <p className="text-muted-foreground leading-relaxed">
                 Om Mahajan is a digital transformation specialist in urban governance and a fiction author. 
                 He modernizes city systems through initiatives such as the NMMC Property Tax module and 
@@ -452,35 +544,73 @@ const BlogDetail = () => {
           </div>
         </section>
 
-        {/* Related Posts */}
+        {/* Related Articles Section with Scroller */}
         {relatedPosts.length > 0 && (
-          <section className="container-blog max-w-5xl mx-auto px-6 mt-16">
-            <h2 className="text-2xl font-bold text-foreground mb-8">Related Articles</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {relatedPosts.map((relatedPost) => (
-                <Link
-                  key={relatedPost.slug}
-                  to={`/blog/${relatedPost.slug}`}
-                  className="group bg-card rounded-xl overflow-hidden border border-border hover:border-primary/30 transition-all duration-300 hover:shadow-lg"
-                >
-                  <div className="aspect-[16/10] overflow-hidden">
-                    <img
-                      src={relatedPost.image}
-                      alt={relatedPost.title}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                  </div>
-                  <div className="p-4">
-                    <span className="inline-block text-xs font-medium text-primary mb-2">
-                      {relatedPost.category}
-                    </span>
-                    <h3 className="font-bold text-foreground line-clamp-2 group-hover:text-primary transition-colors">
-                      {relatedPost.title}
-                    </h3>
-                    <p className="text-sm text-muted-foreground mt-2">{relatedPost.date}</p>
-                  </div>
-                </Link>
-              ))}
+          <section className="mt-20 pb-8">
+            <div className="max-w-[90%] mx-auto px-6 lg:px-0">
+              <div className="flex items-center justify-between mb-8">
+                <div>
+                  <h2 className="text-2xl md:text-3xl font-bold text-foreground">Related Articles</h2>
+                  <p className="text-muted-foreground mt-1">Continue reading with these related posts</p>
+                </div>
+                <div className="hidden md:flex gap-2">
+                  <Button
+                    variant="outline"
+                    size="icon"
+                    onClick={() => scroll('left')}
+                    className="rounded-full"
+                  >
+                    <ChevronLeft className="w-5 h-5" />
+                  </Button>
+                  <Button
+                    variant="outline"
+                    size="icon"
+                    onClick={() => scroll('right')}
+                    className="rounded-full"
+                  >
+                    <ChevronRight className="w-5 h-5" />
+                  </Button>
+                </div>
+              </div>
+
+              {/* Scrollable container */}
+              <div 
+                ref={scrollContainerRef}
+                className="flex gap-6 overflow-x-auto pb-4 scrollbar-hide snap-x snap-mandatory"
+                style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+              >
+                {relatedPosts.map((relatedPost) => (
+                  <Link
+                    key={relatedPost.slug}
+                    to={`/blog/${relatedPost.slug}`}
+                    className="group flex-shrink-0 w-[280px] md:w-[300px] bg-card rounded-xl overflow-hidden border border-border hover:border-primary/30 transition-all duration-300 hover:shadow-xl snap-start"
+                  >
+                    <div className="aspect-[16/10] overflow-hidden">
+                      <img
+                        src={relatedPost.image}
+                        alt={relatedPost.title}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      />
+                    </div>
+                    <div className="p-5">
+                      <span className="inline-block text-xs font-semibold text-primary mb-2 uppercase tracking-wide">
+                        {relatedPost.category}
+                      </span>
+                      <h3 className="font-bold text-foreground line-clamp-2 group-hover:text-primary transition-colors leading-snug">
+                        {relatedPost.title}
+                      </h3>
+                      <p className="text-sm text-muted-foreground mt-3">{relatedPost.date}</p>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+
+              {/* Mobile scroll indicator */}
+              <div className="flex justify-center gap-1 mt-4 md:hidden">
+                <div className="w-8 h-1 bg-primary rounded-full"></div>
+                <div className="w-2 h-1 bg-muted rounded-full"></div>
+                <div className="w-2 h-1 bg-muted rounded-full"></div>
+              </div>
             </div>
           </section>
         )}
