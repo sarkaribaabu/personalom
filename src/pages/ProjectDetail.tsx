@@ -60,6 +60,7 @@ import pwdPothole from '@/assets/pwd-pothole.png';
 import nepalPolice from '@/assets/nepal-police.png';
 import nmmcDashboard from '@/assets/nmmc-dashboard.png';
 import bajajFinserv from '@/assets/bajaj-finserv.png';
+import guppaai from '@/assets/guppaai.png';
 
 // Tech stack icon mapping
 const techIcons: Record<string, React.ReactNode> = {
@@ -992,131 +993,152 @@ const projectsData: Record<string, {
     },
     gallery: [lifestylePost, techPost, businessPost, fashionPost, workLifestyle, fashionLifestyle]
   },
-  'guppa-ai': {
-    title: "Guppa.ai",
-    category: "AI/ML/CV",
-    image: techPost,
+  'guppaai': {
+    title: "GuppaAI",
+    category: "Conversational AI Platform | Owned Product",
+    image: guppaai,
     snapshot: {
-      client: "AI Startup",
-      industry: "Enterprise AI / Conversational AI",
-      role: "Technical Co-founder & Product Lead",
-      duration: "Ongoing",
-      techStack: ["Python", "React", "Node.js", "PostgreSQL", "OpenAI", "AWS"]
+      client: "Guppa.ai (Owned Product)",
+      industry: "Conversational AI | Intelligent Interfaces | Product Discovery",
+      role: "Researcher",
+      duration: "6+ months",
+      techStack: ["Python", "FastAPI", "LLM", "REST", "GraphQL", "SaaS"]
     },
     brief: {
-      problem: "Enterprises struggle to adopt conversational AI due to high customization costs, integration complexity, and concerns about accuracy and security.",
-      context: "Building a no-code platform that enables enterprises to deploy customized AI assistants without extensive AI expertise or development resources.",
+      problem: "Most digital products still rely on static interfaces: menus, filters, nested categories, and keyword-based search bars. Users are forced to translate intent into clicks and queries, creating friction and cognitive overload. This leads to 'search fatigue,' where the effort required to find a single item outweighs the motivation to continue, resulting in high abandonment and lost conversions.",
+      context: "User expectations have shifted. People now expect instant, personalized responses that understand intent rather than syntax. Guppa.ai was conceived to bridge this gap by replacing static navigation with a natural language, intent-driven conversational layer.",
       constraints: [
-        "Enterprise-grade security and compliance",
-        "No-code/low-code accessibility",
-        "Integration with diverse enterprise systems",
-        "Accuracy requirements for business use cases"
+        "Intent detection and contextual clarification",
+        "Real-time reasoning over structured and unstructured data",
+        "Seamless handoff to existing workflows",
+        "Designed for impatient users expecting instant relevance",
+        "Enterprise- and government-ready security"
       ]
     },
     contextReality: {
-      environment: "Enterprises have tried chatbots before with mixed results. Skepticism is high, and expectations for accuracy are even higher.",
+      environment: "Businesses remain constrained by rigid UI paradigms that separate user intent from system behavior. Guppa.ai reimagines how users interact with applications—instead of navigating interfaces, users simply express what they want.",
       existingSystems: [
-        "Various CRM and ticketing systems",
-        "Knowledge bases in multiple formats",
-        "Legacy enterprise applications"
+        "Traditional menus, filters, and search bars",
+        "Static navigation patterns",
+        "Keyword-based discovery systems"
       ],
       constraints: [
-        "Data privacy concerns",
-        "Need for human oversight",
-        "Integration complexity"
+        "Natural language interaction replacing menus and filters",
+        "Intent detection and contextual clarification",
+        "Real-time reasoning over structured and unstructured data",
+        "Seamless handoff to existing workflows (search, booking, purchase, support)"
       ]
     },
     approach: {
       principles: [
-        "Enterprise-grade reliability over experimental features",
-        "Human-in-the-loop for critical decisions",
-        "Privacy-first architecture"
+        "Intent matters more than keywords",
+        "Fewer questions, better questions",
+        "Conversation should shorten journeys, not extend them",
+        "Trust and control are prerequisites for AI adoption"
       ],
       strategicDecisions: [
-        "Built on proven LLM foundations with custom fine-tuning",
-        "Implemented RAG architecture for knowledge grounding",
-        "Created no-code flow builder for customization"
+        "Backend-first, integration-friendly platform design",
+        "LLM-driven reasoning layer with strict guardrails",
+        "Stateless conversational orchestration",
+        "Horizontal scalability based on MAU demand"
       ],
       tradeoffs: [
-        "Chose accuracy over speed in response generation",
-        "Prioritized enterprise features over consumer-friendly UI"
+        "Intent-first design over free-form conversation",
+        "Minimal clarification strategy for fast convergence",
+        "Guardrail-based reasoning for predictable behavior"
       ]
     },
     execution: {
-      architecture: "Microservices architecture with RAG-based AI engine, vector database for knowledge retrieval, and modular integration framework.",
+      architecture: "Guppa.ai was designed as a backend-first, integration-friendly platform with asynchronous microservices-based backend, LLM-driven reasoning layer with strict guardrails, stateless conversational orchestration, REST and GraphQL integration with host applications, and horizontal scalability based on MAU demand.",
       keyModules: [
-        "No-Code AI Assistant Builder",
-        "Knowledge Base Ingestion Engine",
-        "Multi-Channel Deployment",
-        "Analytics & Insights Dashboard",
-        "Human Handoff Workflows",
-        "Enterprise Integration Hub"
+        "Natural language interaction engine",
+        "Intent detection and clarification system",
+        "Real-time reasoning layer",
+        "Workflow handoff integration",
+        "Security and governance framework"
       ],
       integrations: [
-        "Slack, Teams, Web Chat",
-        "Salesforce, Zendesk, Freshdesk",
-        "SharePoint, Confluence, Notion",
-        "Custom API integrations"
+        "LLM providers and ML services",
+        "Email, SMS, WhatsApp",
+        "External systems via REST / GraphQL APIs"
       ],
       considerations: [
-        "SOC 2 compliance architecture",
-        "Data residency options",
-        "Role-based access control"
+        "Backend-only AI key management",
+        "Encrypted data exchange end-to-end",
+        "Tenant-level isolation",
+        "Read-only access by default",
+        "No client data used for model training",
+        "Compliance-ready architecture",
+        "Auditable interaction flows"
       ]
     },
     challengesThatMattered: [
       {
-        title: "Ensuring Accuracy for Business-Critical Use Cases",
-        description: "Unlike consumer chatbots, enterprise AI assistants cannot afford to hallucinate or provide incorrect information.",
-        impact: "Implemented multi-stage verification, source attribution, and confidence scoring for all responses."
+        title: "Preventing 'Chatty' or Aimless Conversations",
+        description: "Many conversational systems over-engage without delivering outcomes.",
+        impact: "Intent-first design with minimal clarification strategy and fast convergence to results. Conversations stayed purposeful and outcome-driven."
       },
       {
-        title: "Making AI Accessible to Non-Technical Users",
-        description: "Business users needed to customize AI behavior without coding or AI expertise.",
-        impact: "Built intuitive visual flow builder with natural language prompt refinement."
+        title: "Balancing AI Flexibility with Enterprise Control",
+        description: "Free-form AI responses risk inconsistency and compliance issues.",
+        impact: "Guardrail-based reasoning with controlled response scopes and read-only default interactions. Predictable, safe behavior without killing usefulness."
+      },
+      {
+        title: "Making It Deployable Across Environments",
+        description: "Different clients required different deployment and data control models.",
+        impact: "Modular deployment architecture with tenant isolation and hybrid/on-prem support. Adoption-ready across startups, enterprises, and regulated environments."
       }
     ],
     solutions: [
       {
-        problem: "AI responses lacking accuracy for domain-specific queries",
-        decision: "Implement RAG with source verification",
-        intervention: "Built knowledge ingestion pipeline with automatic chunking and relevance scoring",
-        result: "95% accuracy on domain-specific queries with source attribution"
+        problem: "Preventing 'Chatty' or Aimless Conversations",
+        decision: "Intent-first design",
+        intervention: "Minimal clarification strategy with fast convergence to results",
+        result: "Conversations stayed purposeful and outcome-driven"
       },
       {
-        problem: "Enterprises hesitant due to security concerns",
-        decision: "Build enterprise-grade security from ground up",
-        intervention: "Implemented data isolation, encryption, and audit logging with SOC 2 compliance",
-        result: "Successfully onboarded Fortune 500 clients with strict security requirements"
+        problem: "Balancing AI Flexibility with Enterprise Control",
+        decision: "Guardrail-based reasoning",
+        intervention: "Controlled response scopes with read-only default interactions",
+        result: "Predictable, safe behavior without killing usefulness"
+      },
+      {
+        problem: "Making It Deployable Across Environments",
+        decision: "Modular deployment architecture",
+        intervention: "Tenant isolation and hybrid/on-prem support",
+        result: "Adoption-ready across startups, enterprises, and regulated environments"
       }
     ],
     outcomes: {
       quantitative: [
-        "95% accuracy on domain queries (vs 70% industry average)",
-        "60% reduction in support ticket volume for clients",
-        "10x faster deployment than custom AI development",
-        "Multiple enterprise clients onboarded"
+        "Reduced search fatigue for users",
+        "Faster discovery and decision-making",
+        "More natural interaction with complex systems"
       ],
       qualitative: [
-        "Positioned as enterprise-grade alternative to consumer AI tools",
-        "Strong product-market fit with mid-enterprise segment",
-        "Growing partner ecosystem"
+        "Lower drop-off during discovery",
+        "Higher engagement with existing platforms",
+        "Reduced dependency on heavy UI redesigns",
+        "Demonstrated a shift from interface-driven to intent-driven design",
+        "Positioned Guppa.ai as a conversational layer, not a replacement system",
+        "Created a foundation for AI-native product experiences"
       ],
-      impact: "Enabling enterprises to adopt AI at scale without compromising on security, accuracy, or customization."
+      impact: "Guppa.ai reimagines how users interact with applications—enabling intent-driven discovery and decision-making that reduces search fatigue and drives higher engagement across digital products."
     },
     learnings: {
       keyLearnings: [
-        "Enterprise AI adoption is blocked more by trust than technology",
-        "No-code tools must not sacrifice capability for simplicity"
+        "Intent matters more than keywords in conversational AI",
+        "Fewer, better questions lead to faster user outcomes",
+        "Guardrails enable enterprise adoption without sacrificing usefulness"
       ],
       improvements: [
-        "Would have invested in partner ecosystem earlier"
+        "Continue expanding deployment models for regulated industries"
       ],
       insights: [
-        "The AI platform winner will be the one enterprises trust with their data"
+        "The future of product interaction is conversational, not navigational"
       ]
     },
-    gallery: [techPost, businessPost, fashionPost, lifestylePost, workLifestyle, fashionLifestyle]
+    gallery: [guppaai]
   },
   'mhada-app': {
     title: "MHADA Housing Lottery & Verification Platform",
