@@ -4,12 +4,10 @@ import { BookOpen, Code, Terminal } from 'lucide-react';
 import heroImage from '@/assets/om-headshot.png';
 
 const roles = [
-  "IT Professional",
-  "Published Author",
-  "Cloud Architect",
-  "Technical Writer",
-  "Solution Designer",
-  "Storyteller"
+  "e-Governance Innovator",
+  "Urban Tech Researcher",
+  "Published Novelist",
+  "The Rusty Rider"
 ];
 
 const HeroSection = () => {
