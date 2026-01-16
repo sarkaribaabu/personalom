@@ -11,6 +11,7 @@ import workLifestyle from '@/assets/work-lifestyle.jpg';
 import fashionLifestyle from '@/assets/fashion-lifestyle.jpg';
 import nmmcEgovernance from '@/assets/nmmc-egovernance.png';
 import pcmcEgovernance from '@/assets/pcmc-egovernance.png';
+import nmPoliceBi from '@/assets/nm-police-bi.png';
 
 const categories = ['All', 'Web Apps', 'Mobile Apps', 'AI/ML/CV', 'eGovernance', 'eCommerce', 'BI Dashboards'];
 
@@ -268,8 +269,8 @@ const projects = [
     title: "Navi Mumbai Police",
     category: "eGovernance",
     date: "2025",
-    excerpt: "Modern policing solution with analytics and citizen engagement features.",
-    image: images[0],
+    excerpt: "Integrated Command & Analytics Platform enabling data-driven policing with predictive insights.",
+    image: nmPoliceBi,
     height: "tall"
   },
   {
