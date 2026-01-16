@@ -285,7 +285,7 @@ const Hobbies = () => {
             behind-the-scenes moments, and spontaneous adventures.
           </p>
           <a
-            href="https://youtube.com/@ommahajan"
+            href="https://www.youtube.com/@RustyRidersPune"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-8 py-4 bg-red-600 hover:bg-red-700 text-white rounded-full transition-all font-medium shadow-lg shadow-red-600/25 hover:shadow-xl hover:shadow-red-600/30 hover:-translate-y-0.5"
