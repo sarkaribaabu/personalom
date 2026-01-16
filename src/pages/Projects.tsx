@@ -9,6 +9,7 @@ import fashionPost from '@/assets/fashion-post.jpg';
 import lifestylePost from '@/assets/lifestyle-post.jpg';
 import workLifestyle from '@/assets/work-lifestyle.jpg';
 import fashionLifestyle from '@/assets/fashion-lifestyle.jpg';
+import nmmcEgovernance from '@/assets/nmmc-egovernance.png';
 
 const categories = ['All', 'Web Apps', 'Mobile Apps', 'AI/ML/CV', 'eGovernance', 'eCommerce', 'BI Dashboards'];
 
@@ -28,8 +29,8 @@ const projects = [
     title: "NMMC Portal",
     category: "Web Apps",
     date: "2024",
-    excerpt: "Navi Mumbai Municipal Corporation citizen services portal with integrated payment systems.",
-    image: images[1],
+    excerpt: "Enterprise ERP platform for Navi Mumbai Municipal Corporation with 21 integrated modules.",
+    image: nmmcEgovernance,
     height: "medium"
   },
   {
@@ -226,8 +227,8 @@ const projects = [
     title: "NMMC eGovernance",
     category: "eGovernance",
     date: "2024",
-    excerpt: "Comprehensive e-governance solution for Navi Mumbai Municipal Corporation.",
-    image: images[1],
+    excerpt: "Comprehensive ERP solution with 21 modules serving 52+ citizen services for NMMC.",
+    image: nmmcEgovernance,
     height: "tall"
   },
   {
