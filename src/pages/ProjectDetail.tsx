@@ -1210,48 +1210,107 @@ const ProjectDetail = () => {
 
             <Separator />
 
-            {/* Context & Reality Check */}
+            {/* Context, Systems & Architecture (Merged) */}
             <div>
               <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-3">
                 <div className="p-2 rounded-lg bg-primary/10">
                   <Layers className="w-5 h-5 text-primary" />
                 </div>
-                Context & Reality Check
+                Context & Technical Landscape
               </h2>
-              <div className="prose prose-lg dark:prose-invert max-w-none">
-                <p className="text-foreground/90 leading-relaxed mb-6">
-                  {project.contextReality.environment}
-                </p>
-                
-                <div className="grid md:grid-cols-2 gap-6">
-                  <Card className="bg-muted/30">
-                    <CardContent className="p-5">
-                      <h4 className="font-semibold text-foreground mb-3">Existing Systems</h4>
-                      <ul className="space-y-2">
-                        {project.contextReality.existingSystems.map((system, index) => (
-                          <li key={index} className="text-sm text-foreground/80 flex items-start gap-2">
-                            <Server className="w-4 h-4 text-muted-foreground mt-0.5 shrink-0" />
-                            {system}
-                          </li>
-                        ))}
-                      </ul>
-                    </CardContent>
-                  </Card>
-                  <Card className="bg-muted/30">
-                    <CardContent className="p-5">
-                      <h4 className="font-semibold text-foreground mb-3">Real-World Constraints</h4>
-                      <ul className="space-y-2">
-                        {project.contextReality.constraints.map((constraint, index) => (
-                          <li key={index} className="text-sm text-foreground/80 flex items-start gap-2">
-                            <AlertTriangle className="w-4 h-4 text-amber-500 mt-0.5 shrink-0" />
-                            {constraint}
-                          </li>
-                        ))}
-                      </ul>
-                    </CardContent>
-                  </Card>
-                </div>
+              
+              {/* Environment Overview */}
+              <p className="text-foreground/90 leading-relaxed mb-8">
+                {project.contextReality.environment}
+              </p>
+
+              {/* Three Column Grid: Existing Systems, Constraints, Architecture */}
+              <div className="grid md:grid-cols-3 gap-4 mb-8">
+                <Card className="bg-muted/30 border-muted">
+                  <CardContent className="p-5">
+                    <div className="flex items-center gap-2 mb-4">
+                      <Server className="w-5 h-5 text-muted-foreground" />
+                      <h4 className="font-semibold text-foreground">Legacy Systems</h4>
+                    </div>
+                    <ul className="space-y-2">
+                      {project.contextReality.existingSystems.map((system, index) => (
+                        <li key={index} className="text-sm text-foreground/80 flex items-start gap-2">
+                          <span className="w-1.5 h-1.5 rounded-full bg-muted-foreground mt-2 shrink-0" />
+                          {system}
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </Card>
+
+                <Card className="bg-muted/30 border-muted">
+                  <CardContent className="p-5">
+                    <div className="flex items-center gap-2 mb-4">
+                      <AlertTriangle className="w-5 h-5 text-amber-500" />
+                      <h4 className="font-semibold text-foreground">Constraints</h4>
+                    </div>
+                    <ul className="space-y-2">
+                      {project.contextReality.constraints.map((constraint, index) => (
+                        <li key={index} className="text-sm text-foreground/80 flex items-start gap-2">
+                          <span className="w-1.5 h-1.5 rounded-full bg-amber-500 mt-2 shrink-0" />
+                          {constraint}
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </Card>
+
+                <Card className="bg-muted/30 border-muted">
+                  <CardContent className="p-5">
+                    <div className="flex items-center gap-2 mb-4">
+                      <Cpu className="w-5 h-5 text-primary" />
+                      <h4 className="font-semibold text-foreground">Key Modules</h4>
+                    </div>
+                    <ul className="space-y-2">
+                      {project.execution.keyModules.slice(0, 5).map((module, index) => (
+                        <li key={index} className="text-sm text-foreground/80 flex items-start gap-2">
+                          <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0" />
+                          {module}
+                        </li>
+                      ))}
+                      {project.execution.keyModules.length > 5 && (
+                        <li className="text-sm text-muted-foreground">
+                          +{project.execution.keyModules.length - 5} more
+                        </li>
+                      )}
+                    </ul>
+                  </CardContent>
+                </Card>
               </div>
+
+              {/* Architecture Description */}
+              <Card className="bg-gradient-to-br from-muted/50 to-muted/20 border-muted">
+                <CardContent className="p-6">
+                  <h4 className="font-semibold text-foreground mb-3 flex items-center gap-2">
+                    <Globe className="w-4 h-4 text-primary" />
+                    Solution Architecture
+                  </h4>
+                  <p className="text-foreground/80 mb-4">{project.execution.architecture}</p>
+                  
+                  <div className="flex flex-wrap gap-2 mt-4 pt-4 border-t border-border">
+                    <span className="text-xs text-muted-foreground mr-2">Integrations:</span>
+                    {project.execution.integrations.map((integration, index) => (
+                      <Badge key={index} variant="outline" className="text-xs">
+                        {integration}
+                      </Badge>
+                    ))}
+                  </div>
+
+                  <div className="flex flex-wrap gap-2 mt-3">
+                    <span className="text-xs text-muted-foreground mr-2">Considerations:</span>
+                    {project.execution.considerations.map((consideration, index) => (
+                      <Badge key={index} variant="secondary" className="text-xs">
+                        {consideration}
+                      </Badge>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
             </div>
 
             <Separator />
@@ -1264,160 +1323,136 @@ const ProjectDetail = () => {
                 </div>
                 My Approach
               </h2>
-              <div className="space-y-6">
-                <div>
-                  <h4 className="font-semibold text-foreground mb-3">Guiding Principles</h4>
-                  <ul className="space-y-2">
-                    {project.approach.principles.map((principle, index) => (
-                      <li key={index} className="flex items-start gap-3 text-foreground/80">
-                        <CheckCircle2 className="w-5 h-5 text-green-500 mt-0.5 shrink-0" />
-                        {principle}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+              <div className="grid md:grid-cols-3 gap-6">
+                <Card className="bg-card">
+                  <CardContent className="p-5">
+                    <h4 className="font-semibold text-foreground mb-3 flex items-center gap-2">
+                      <CheckCircle2 className="w-4 h-4 text-green-500" />
+                      Guiding Principles
+                    </h4>
+                    <ul className="space-y-2">
+                      {project.approach.principles.map((principle, index) => (
+                        <li key={index} className="text-sm text-foreground/80">
+                          {principle}
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </Card>
                 
-                <div>
-                  <h4 className="font-semibold text-foreground mb-3">Strategic Decisions</h4>
-                  <ul className="space-y-2">
-                    {project.approach.strategicDecisions.map((decision, index) => (
-                      <li key={index} className="flex items-start gap-3 text-foreground/80">
-                        <Target className="w-5 h-5 text-primary mt-0.5 shrink-0" />
-                        {decision}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                <Card className="bg-card">
+                  <CardContent className="p-5">
+                    <h4 className="font-semibold text-foreground mb-3 flex items-center gap-2">
+                      <Target className="w-4 h-4 text-primary" />
+                      Strategic Decisions
+                    </h4>
+                    <ul className="space-y-2">
+                      {project.approach.strategicDecisions.map((decision, index) => (
+                        <li key={index} className="text-sm text-foreground/80">
+                          {decision}
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </Card>
 
-                <div>
-                  <h4 className="font-semibold text-foreground mb-3">Trade-offs Made</h4>
-                  <ul className="space-y-2">
-                    {project.approach.tradeoffs.map((tradeoff, index) => (
-                      <li key={index} className="flex items-start gap-3 text-foreground/80">
-                        <Zap className="w-5 h-5 text-amber-500 mt-0.5 shrink-0" />
-                        {tradeoff}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                <Card className="bg-card">
+                  <CardContent className="p-5">
+                    <h4 className="font-semibold text-foreground mb-3 flex items-center gap-2">
+                      <Zap className="w-4 h-4 text-amber-500" />
+                      Trade-offs Made
+                    </h4>
+                    <ul className="space-y-2">
+                      {project.approach.tradeoffs.map((tradeoff, index) => (
+                        <li key={index} className="text-sm text-foreground/80">
+                          {tradeoff}
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </Card>
               </div>
             </div>
 
             <Separator />
 
-            {/* Execution & Architecture */}
+            {/* Challenges & Solutions (Merged) */}
             <div>
               <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-3">
-                <div className="p-2 rounded-lg bg-primary/10">
-                  <Cpu className="w-5 h-5 text-primary" />
+                <div className="p-2 rounded-lg bg-gradient-to-br from-amber-500/10 to-green-500/10">
+                  <Zap className="w-5 h-5 text-primary" />
                 </div>
-                Execution & Architecture
+                Challenges & How We Solved Them
               </h2>
-              <div className="space-y-6">
-                <p className="text-foreground/90 leading-relaxed">
-                  {project.execution.architecture}
-                </p>
-                
-                <div className="grid md:grid-cols-2 gap-6">
-                  <Card className="bg-muted/30">
-                    <CardContent className="p-5">
-                      <h4 className="font-semibold text-foreground mb-3">Key Modules</h4>
-                      <ul className="space-y-2">
-                        {project.execution.keyModules.map((module, index) => (
-                          <li key={index} className="text-sm text-foreground/80 flex items-start gap-2">
-                            <Layers className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                            {module}
-                          </li>
-                        ))}
-                      </ul>
-                    </CardContent>
-                  </Card>
-                  <Card className="bg-muted/30">
-                    <CardContent className="p-5">
-                      <h4 className="font-semibold text-foreground mb-3">Integrations</h4>
-                      <ul className="space-y-2">
-                        {project.execution.integrations.map((integration, index) => (
-                          <li key={index} className="text-sm text-foreground/80 flex items-start gap-2">
-                            <Zap className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                            {integration}
-                          </li>
-                        ))}
-                      </ul>
-                    </CardContent>
-                  </Card>
-                </div>
-
-                <div>
-                  <h4 className="font-semibold text-foreground mb-3">Key Considerations</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {project.execution.considerations.map((consideration, index) => (
-                      <Badge key={index} variant="secondary" className="px-3 py-1">
-                        {consideration}
-                      </Badge>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <Separator />
-
-            {/* Challenges That Mattered */}
-            <div>
-              <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-3">
-                <div className="p-2 rounded-lg bg-amber-500/10">
-                  <AlertTriangle className="w-5 h-5 text-amber-500" />
-                </div>
-                Challenges That Mattered
-              </h2>
-              <div className="space-y-6">
-                {project.challengesThatMattered.map((challenge, index) => (
-                  <Card key={index} className="bg-card border-l-4 border-l-amber-500">
-                    <CardContent className="p-6">
-                      <h4 className="font-semibold text-foreground text-lg mb-2">{challenge.title}</h4>
-                      <p className="text-foreground/80 mb-3">{challenge.description}</p>
-                      <p className="text-sm text-muted-foreground italic">{challenge.impact}</p>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
-            </div>
-
-            <Separator />
-
-            {/* Solutions & Interventions */}
-            <div>
-              <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-3">
-                <div className="p-2 rounded-lg bg-green-500/10">
-                  <CheckCircle2 className="w-5 h-5 text-green-500" />
-                </div>
-                Solutions & Interventions
-              </h2>
-              <div className="space-y-6">
-                {project.solutions.map((solution, index) => (
-                  <Card key={index} className="bg-card">
-                    <CardContent className="p-6">
-                      <div className="grid md:grid-cols-2 gap-4">
-                        <div>
-                          <p className="text-xs font-medium text-muted-foreground uppercase tracking-wider mb-1">Problem</p>
-                          <p className="text-foreground/90 font-medium">{solution.problem}</p>
+              
+              <div className="space-y-4">
+                {/* Map challenges with their corresponding solutions */}
+                {project.challengesThatMattered.map((challenge, index) => {
+                  const relatedSolution = project.solutions[index];
+                  return (
+                    <Card key={index} className="bg-card overflow-hidden">
+                      <div className="grid md:grid-cols-2">
+                        {/* Challenge Side */}
+                        <div className="p-6 bg-amber-500/5 border-r border-border">
+                          <div className="flex items-start gap-3 mb-3">
+                            <div className="p-1.5 rounded bg-amber-500/20 shrink-0">
+                              <AlertTriangle className="w-4 h-4 text-amber-600 dark:text-amber-400" />
+                            </div>
+                            <div>
+                              <p className="text-xs font-medium text-amber-600 dark:text-amber-400 uppercase tracking-wider mb-1">Challenge</p>
+                              <h4 className="font-semibold text-foreground">{challenge.title}</h4>
+                            </div>
+                          </div>
+                          <p className="text-sm text-foreground/80 mb-2">{challenge.description}</p>
+                          <p className="text-xs text-muted-foreground italic">{challenge.impact}</p>
                         </div>
-                        <div>
-                          <p className="text-xs font-medium text-muted-foreground uppercase tracking-wider mb-1">Decision</p>
-                          <p className="text-foreground/90">{solution.decision}</p>
-                        </div>
-                        <div>
-                          <p className="text-xs font-medium text-muted-foreground uppercase tracking-wider mb-1">Intervention</p>
-                          <p className="text-foreground/90">{solution.intervention}</p>
-                        </div>
-                        <div>
-                          <p className="text-xs font-medium text-green-600 dark:text-green-400 uppercase tracking-wider mb-1">Result</p>
-                          <p className="text-foreground font-medium">{solution.result}</p>
-                        </div>
+
+                        {/* Solution Side */}
+                        {relatedSolution && (
+                          <div className="p-6 bg-green-500/5">
+                            <div className="flex items-start gap-3 mb-3">
+                              <div className="p-1.5 rounded bg-green-500/20 shrink-0">
+                                <CheckCircle2 className="w-4 h-4 text-green-600 dark:text-green-400" />
+                              </div>
+                              <div>
+                                <p className="text-xs font-medium text-green-600 dark:text-green-400 uppercase tracking-wider mb-1">Solution</p>
+                                <h4 className="font-semibold text-foreground">{relatedSolution.decision}</h4>
+                              </div>
+                            </div>
+                            <p className="text-sm text-foreground/80 mb-3">{relatedSolution.intervention}</p>
+                            <div className="flex items-center gap-2 text-sm">
+                              <TrendingUp className="w-4 h-4 text-green-600 dark:text-green-400" />
+                              <span className="font-medium text-green-700 dark:text-green-300">{relatedSolution.result}</span>
+                            </div>
+                          </div>
+                        )}
                       </div>
-                    </CardContent>
-                  </Card>
-                ))}
+                    </Card>
+                  );
+                })}
+
+                {/* Additional solutions without paired challenges */}
+                {project.solutions.length > project.challengesThatMattered.length && (
+                  <div className="mt-6">
+                    <h4 className="text-sm font-medium text-muted-foreground mb-4">Additional Interventions</h4>
+                    <div className="grid md:grid-cols-2 gap-4">
+                      {project.solutions.slice(project.challengesThatMattered.length).map((solution, index) => (
+                        <Card key={index} className="bg-green-500/5 border-green-500/20">
+                          <CardContent className="p-5">
+                            <p className="text-xs font-medium text-muted-foreground uppercase tracking-wider mb-1">Problem</p>
+                            <p className="text-sm text-foreground/90 font-medium mb-2">{solution.problem}</p>
+                            <p className="text-xs font-medium text-muted-foreground uppercase tracking-wider mb-1">Intervention</p>
+                            <p className="text-sm text-foreground/80 mb-3">{solution.intervention}</p>
+                            <div className="flex items-center gap-2 text-sm pt-2 border-t border-border">
+                              <CheckCircle2 className="w-4 h-4 text-green-500" />
+                              <span className="font-medium text-foreground">{solution.result}</span>
+                            </div>
+                          </CardContent>
+                        </Card>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
 
@@ -1462,55 +1497,6 @@ const ProjectDetail = () => {
                   </div>
                 </CardContent>
               </Card>
-            </div>
-
-            <Separator />
-
-            {/* Learnings & Reflections */}
-            <div>
-              <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-3">
-                <div className="p-2 rounded-lg bg-primary/10">
-                  <BookOpen className="w-5 h-5 text-primary" />
-                </div>
-                Learnings & Reflections
-              </h2>
-              <div className="space-y-6">
-                <div>
-                  <h4 className="font-semibold text-foreground mb-3">Key Learnings</h4>
-                  <ul className="space-y-2">
-                    {project.learnings.keyLearnings.map((learning, index) => (
-                      <li key={index} className="flex items-start gap-3 text-foreground/80">
-                        <Lightbulb className="w-5 h-5 text-amber-500 mt-0.5 shrink-0" />
-                        {learning}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                
-                <div>
-                  <h4 className="font-semibold text-foreground mb-3">What Could Have Been Better</h4>
-                  <ul className="space-y-2">
-                    {project.learnings.improvements.map((improvement, index) => (
-                      <li key={index} className="flex items-start gap-3 text-foreground/80">
-                        <Target className="w-5 h-5 text-muted-foreground mt-0.5 shrink-0" />
-                        {improvement}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div>
-                  <h4 className="font-semibold text-foreground mb-3">Insights for Future Work</h4>
-                  <ul className="space-y-2">
-                    {project.learnings.insights.map((insight, index) => (
-                      <li key={index} className="flex items-start gap-3 text-foreground/80 italic">
-                        <BookOpen className="w-5 h-5 text-primary mt-0.5 shrink-0" />
-                        "{insight}"
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
             </div>
 
             {/* Project Gallery */}
