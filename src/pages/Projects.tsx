@@ -19,6 +19,7 @@ import bmcPothole from '@/assets/bmc-pothole.png';
 import pwdPothole from '@/assets/pwd-pothole.png';
 import nepalPolice from '@/assets/nepal-police.png';
 import nmmcDashboard from '@/assets/nmmc-dashboard.png';
+import bajajFinserv from '@/assets/bajaj-finserv.png';
 
 const categories = ['All', 'Web Apps', 'Mobile Apps', 'AI/ML/CV', 'eGovernance', 'eCommerce', 'BI Dashboards'];
 
@@ -373,12 +374,12 @@ const projects = [
     height: "medium"
   },
   {
-    title: "Bajaj Finance",
+    title: "Bajaj Finserv",
     category: "BI Dashboards",
     date: "2020",
-    excerpt: "Financial analytics dashboard with portfolio and risk management insights.",
-    image: images[3],
-    height: "short"
+    excerpt: "Nationwide Vendor & Service Analytics Platform with centralized visibility across 10+ vendors.",
+    image: bajajFinserv,
+    height: "medium"
   },
   {
     title: "Gurukul Schools",

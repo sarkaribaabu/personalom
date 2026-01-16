@@ -59,6 +59,7 @@ import bmcPothole from '@/assets/bmc-pothole.png';
 import pwdPothole from '@/assets/pwd-pothole.png';
 import nepalPolice from '@/assets/nepal-police.png';
 import nmmcDashboard from '@/assets/nmmc-dashboard.png';
+import bajajFinserv from '@/assets/bajaj-finserv.png';
 
 // Tech stack icon mapping
 const techIcons: Record<string, React.ReactNode> = {
@@ -2134,6 +2135,142 @@ const projectsData: Record<string, {
       insights: []
     },
     gallery: [nmmcDashboard]
+  },
+  'bajaj-finserv': {
+    title: "Bajaj Finserv – Vendor Operations Dashboards",
+    category: "Nationwide Vendor & Service Analytics Platform | BFSI",
+    image: bajajFinserv,
+    snapshot: {
+      client: "Bajaj Finserv",
+      industry: "Private | BFSI | Facilities & Vendor Operations",
+      role: "Data Analyst",
+      duration: "5+ months",
+      techStack: ["PHP", "Laravel", "React", "MySQL"]
+    },
+    brief: {
+      problem: "Bajaj Finserv relied on multiple vendors across India for critical office infrastructure and safety services. Data related to purchase, delivery, installation, maintenance, breakdowns, drills, and AMC was spread across vendor-specific systems and spreadsheets. Management lacked a unified view to assess service status, compliance, and vendor performance at a national level.",
+      context: "Given the scale of operations and regulatory sensitivity in BFSI, Bajaj Finserv required centralized visibility into vendor-driven services across offices. The objective was to replace fragmented reporting with a single analytical layer that enabled leadership to monitor execution, risks, and service SLAs across the country.",
+      constraints: [
+        "10+ vendors with independent systems",
+        "High geographic spread across India",
+        "Diverse service types and SLAs",
+        "Strict access controls by office and region",
+        "Need for reliable, near-real-time reporting"
+      ]
+    },
+    contextReality: {
+      environment: "Vendor data was exchanged through emails, Google Sheets, and periodic reports. Consolidation was manual and time-consuming, making it difficult to spot delays, risks, or non-compliance early.",
+      existingSystems: [
+        "No centralized view of vendor performance",
+        "Inconsistent data formats across vendors",
+        "Delayed identification of breakdowns and overdue maintenance",
+        "Limited accountability and escalation visibility"
+      ],
+      constraints: [
+        "Purchase and order status",
+        "Delivery and installation tracking",
+        "Preventive maintenance and AMC coverage",
+        "Breakdown and incident handling",
+        "Fire drills and safety compliance",
+        "Vendor-wise and location-wise SLA performance"
+      ]
+    },
+    approach: {
+      principles: [
+        "One national view, multiple local lenses",
+        "Exceptions matter more than averages",
+        "Data consistency before visualization",
+        "Access control aligned with organizational structure"
+      ],
+      strategicDecisions: [
+        "Centralized data aggregation from all vendor systems",
+        "Normalized data models for consistent reporting",
+        "React-based dashboards for interactive analysis",
+        "Hierarchical, role-based access control"
+      ],
+      tradeoffs: [
+        "Prioritized data consistency over real-time updates",
+        "Focused on exception-based reporting for leadership"
+      ]
+    },
+    execution: {
+      architecture: "The solution was designed as a data aggregation and visualization layer on top of vendor systems.",
+      keyModules: [
+        "Vendor-wise data ingestion pipelines",
+        "Normalized data models for consistent reporting",
+        "React-based dashboards for interactive analysis",
+        "Hierarchical, role-based access control",
+        "Office-wise and region-wise drill-down"
+      ],
+      integrations: [
+        "Vendor systems via Google Sheets and structured imports",
+        "Email, SMS, and WhatsApp for notifications and alerts"
+      ],
+      considerations: [
+        "Data validation and quality checks during ingestion",
+        "Scalable architecture for onboarding new vendors",
+        "Secure access patterns aligned with corporate policies"
+      ]
+    },
+    challengesThatMattered: [
+      {
+        title: "Normalizing Multi-Vendor Data",
+        description: "Each vendor used different data structures and reporting formats.",
+        impact: "Defined a common data schema. Built transformation logic during ingestion. Result: Comparable and reliable vendor performance metrics."
+      },
+      {
+        title: "Enabling Hierarchical Visibility",
+        description: "Different offices required visibility limited to their jurisdiction.",
+        impact: "Implemented office- and region-based access controls. Designed dashboards that adjusted automatically by login. Result: Clear accountability without data leakage."
+      },
+      {
+        title: "Driving Management Adoption",
+        description: "Leadership needed quick insights, not detailed operational logs.",
+        impact: "KPI-focused overview dashboards. Drill-down for exception analysis. Result: Dashboards became the primary review tool for vendor operations."
+      }
+    ],
+    solutions: [
+      {
+        problem: "Normalizing Multi-Vendor Data",
+        decision: "Define a common data schema",
+        intervention: "Built transformation logic during ingestion from each vendor system",
+        result: "Comparable and reliable vendor performance metrics"
+      },
+      {
+        problem: "Enabling Hierarchical Visibility",
+        decision: "Implement office- and region-based access controls",
+        intervention: "Designed dashboards that adjusted automatically by login",
+        result: "Clear accountability without data leakage"
+      },
+      {
+        problem: "Driving Management Adoption",
+        decision: "Create KPI-focused overview dashboards",
+        intervention: "Built drill-down for exception analysis",
+        result: "Dashboards became the primary review tool for vendor operations"
+      }
+    ],
+    outcomes: {
+      quantitative: [
+        "Centralized visibility across 10+ vendors nationwide",
+        "Faster identification of service gaps and delays",
+        "Improved SLA compliance tracking"
+      ],
+      qualitative: [
+        "Single dashboard for nationwide vendor oversight",
+        "Reduced manual reporting and follow-ups",
+        "Better-informed decisions on vendor performance",
+        "Data-driven approach to facilities and safety operations",
+        "Scalable framework for onboarding new vendors",
+        "Reduced operational risk across offices"
+      ],
+      impact: "The centralized dashboard platform transformed vendor operations from fragmented, manual tracking to a unified analytical layer providing nationwide visibility and data-driven vendor performance management."
+    },
+    learnings: {
+      keyLearnings: [],
+      improvements: [],
+      insights: []
+    },
+    gallery: [bajajFinserv]
   }
 };
 
