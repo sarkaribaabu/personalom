@@ -36,9 +36,9 @@ const Hobbies = () => {
       tagline: 'Raw roads, rusted tales',
       gradient: 'from-orange-500 to-amber-600',
       shorts: [
-        { id: 'Ibsr4GFKrd4', title: 'First Cold Start of the Season', views: '12K', uploadedAt: '2 weeks ago', description: 'Waking up the beast after months.' },
-        { id: 'dQw4w9WgXcQ', title: 'Rain Ride Therapy', views: '8.5K', uploadedAt: '1 month ago', description: 'When the weather tests your spirit.' },
-        { id: 'dQw4w9WgXcQ', title: 'Night City Cruise', views: '15K', uploadedAt: '3 months ago', description: 'Mumbai lights from two wheels.' },
+        { id: 'zYkXb1VnLzg', title: 'First Cold Start of the Season', views: '12K', uploadedAt: '2 weeks ago', description: 'Waking up the beast after months.' },
+        { id: '9gXvX1JrPnQ', title: 'Rain Ride Therapy', views: '8.5K', uploadedAt: '1 month ago', description: 'When the weather tests your spirit.' },
+        { id: 'Kj5TL1l5MFc', title: 'Night City Cruise', views: '15K', uploadedAt: '3 months ago', description: 'Mumbai lights from two wheels.' },
       ]
     },
     {
@@ -48,8 +48,8 @@ const Hobbies = () => {
       tagline: 'The G310RR chronicles',
       gradient: 'from-slate-100 to-zinc-300',
       shorts: [
-        { id: 'dQw4w9WgXcQ', title: 'Full Circle Moment', views: '25K', uploadedAt: '1 week ago', description: 'Reclaiming what I once sacrificed.' },
-        { id: 'dQw4w9WgXcQ', title: 'First 1000km Service', views: '18K', uploadedAt: '2 months ago', description: 'Breaking in the new machine.' },
+        { id: 'mMwP0Xh5Xzw', title: 'Full Circle Moment', views: '25K', uploadedAt: '1 week ago', description: 'Reclaiming what I once sacrificed.' },
+        { id: 'Q5dU6serXkg', title: 'First 1000km Service', views: '18K', uploadedAt: '2 months ago', description: 'Breaking in the new machine.' },
       ]
     },
     {
@@ -59,10 +59,10 @@ const Hobbies = () => {
       tagline: 'Beyond the horizon',
       gradient: 'from-emerald-500 to-teal-600',
       shorts: [
-        { id: 'dQw4w9WgXcQ', title: 'Sunrise at Lonavala', views: '42K', uploadedAt: '3 days ago', description: 'Chasing the golden hour.' },
-        { id: 'dQw4w9WgXcQ', title: 'Coastal Highway Run', views: '31K', uploadedAt: '2 weeks ago', description: 'Konkan on two wheels.' },
-        { id: 'dQw4w9WgXcQ', title: 'Monsoon Madness', views: '22K', uploadedAt: '1 month ago', description: 'When nature shows its fury.' },
-        { id: 'dQw4w9WgXcQ', title: 'Western Ghats Trail', views: '19K', uploadedAt: '6 weeks ago', description: 'Green valleys and winding roads.' },
+        { id: 'LxYfGtXpRpA', title: 'Sunrise at Lonavala', views: '42K', uploadedAt: '3 days ago', description: 'Chasing the golden hour.' },
+        { id: 'qHGXKrPgbZs', title: 'Coastal Highway Run', views: '31K', uploadedAt: '2 weeks ago', description: 'Konkan on two wheels.' },
+        { id: 'JXgV1rXk9ns', title: 'Monsoon Madness', views: '22K', uploadedAt: '1 month ago', description: 'When nature shows its fury.' },
+        { id: 'R8N3TyQvLsE', title: 'Western Ghats Trail', views: '19K', uploadedAt: '6 weeks ago', description: 'Green valleys and winding roads.' },
       ]
     },
     {
@@ -72,8 +72,8 @@ const Hobbies = () => {
       tagline: 'Journey over destination',
       gradient: 'from-violet-500 to-purple-600',
       shorts: [
-        { id: 'dQw4w9WgXcQ', title: 'Weekend Breakfast Ride', views: '14K', uploadedAt: '5 days ago', description: 'Coffee, chaos, and comrades.' },
-        { id: 'dQw4w9WgXcQ', title: 'Midnight Express', views: '28K', uploadedAt: '3 weeks ago', description: 'When the city sleeps, we ride.' },
+        { id: 'VwXpKsL3qhY', title: 'Weekend Breakfast Ride', views: '14K', uploadedAt: '5 days ago', description: 'Coffee, chaos, and comrades.' },
+        { id: 'FhTnXkWv1Bc', title: 'Midnight Express', views: '28K', uploadedAt: '3 weeks ago', description: 'When the city sleeps, we ride.' },
       ]
     },
   ];
@@ -206,16 +206,21 @@ const Hobbies = () => {
                 <img
                   src={`https://img.youtube.com/vi/${short.id}/maxresdefault.jpg`}
                   alt={short.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-cover"
                 />
                 
-                {/* Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
-                
-                {/* Play Button */}
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                  <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center border border-white/30">
-                    <Play className="h-8 w-8 text-white ml-1" fill="currentColor" />
+                {/* Coming Soon Overlay - 60% opacity black */}
+                <div className="absolute inset-0 bg-black/60 flex flex-col items-center justify-center">
+                  <div className="relative">
+                    {/* Decorative lines */}
+                    <div className="absolute -left-8 top-1/2 w-6 h-px bg-white/50" />
+                    <div className="absolute -right-8 top-1/2 w-6 h-px bg-white/50" />
+                    
+                    {/* Coming Soon Text */}
+                    <div className="text-center">
+                      <span className="block text-[10px] uppercase tracking-[0.3em] text-white/70 mb-1">Stay Tuned</span>
+                      <span className="block text-lg font-serif font-light text-white tracking-wide">Coming Soon</span>
+                    </div>
                   </div>
                 </div>
 
