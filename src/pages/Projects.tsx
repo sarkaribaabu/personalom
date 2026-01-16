@@ -23,6 +23,7 @@ import bajajFinserv from '@/assets/bajaj-finserv.png';
 import guppaai from '@/assets/guppaai.png';
 import pngBrothers from '@/assets/png-brothers.png';
 import csJewellers from '@/assets/cs-jewellers.png';
+import lomAi from '@/assets/lom-ai.png';
 
 const categories = ['All', 'Web Apps', 'Mobile Apps', 'AI/ML/CV', 'eGovernance', 'eCommerce', 'BI Dashboards'];
 
@@ -211,11 +212,11 @@ const projects = [
 
   // AI/ML/CV (3 projects)
   {
-    title: "Laws of Motion AI",
+    title: "Laws of Motion",
     category: "AI/ML/CV",
     date: "2022",
-    excerpt: "AI-powered physics education platform with intelligent tutoring and adaptive learning.",
-    image: images[5],
+    excerpt: "AI-Driven Custom Apparel Platform with 1,260 microsizes and zero-waste on-demand manufacturing.",
+    image: lomAi,
     height: "tall"
   },
   {

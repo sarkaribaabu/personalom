@@ -63,6 +63,7 @@ import bajajFinserv from '@/assets/bajaj-finserv.png';
 import guppaai from '@/assets/guppaai.png';
 import pngBrothers from '@/assets/png-brothers.png';
 import csJewellers from '@/assets/cs-jewellers.png';
+import lomAi from '@/assets/lom-ai.png';
 
 // Tech stack icon mapping
 const techIcons: Record<string, React.ReactNode> = {
@@ -870,130 +871,155 @@ const projectsData: Record<string, {
     gallery: [fashionLifestyle, businessPost, techPost, lifestylePost, workLifestyle, fashionPost]
   },
   'laws-of-motion': {
-    title: "Laws Of Motion",
-    category: "Mobile Apps",
-    image: lifestylePost,
+    title: "Laws of Motion",
+    category: "AI-Driven Custom Apparel Platform | Private",
+    image: lomAi,
     snapshot: {
-      client: "EdTech Startup",
-      industry: "Education Technology",
-      role: "Product Lead & Technical Architect",
-      duration: "10 months",
-      techStack: ["React Native", "Node.js", "MongoDB", "Python", "TensorFlow", "AWS"]
+      client: "Laws of Motion",
+      industry: "Private | Fashion Technology | Sustainable Apparel",
+      role: "Business Analyst",
+      duration: "3+ years",
+      techStack: ["Python", "Computer Vision", "Machine Learning", "MySQL", "WhatsApp"]
     },
     brief: {
-      problem: "Physics education remains abstract for most students, with traditional methods failing to build intuitive understanding of fundamental concepts.",
-      context: "The startup wanted to create an interactive mobile learning experience that makes physics concepts tangible through simulations and AI-powered personalized learning.",
+      problem: "Standard apparel sizing systems are fundamentally broken. Rigid size charts fail to reflect the diversity of women's body shapes, forcing customers to compromise on fit or spend additional time and money on alterations. This mismatch drives frustration for consumers and inefficiency for brands. At an industry level, poor fit directly fuels massive environmental waste. High return rates, excess inventory, and unsold garments are structural outcomes of producing clothing that does not fit real bodies.",
+      context: "Laws of Motion set out to challenge the foundations of traditional fashion manufacturing. The goal was to build a tech-first, on-demand apparel system that solved fit at the individual level while eliminating inventory waste at the supply-chain level. The platform redefined clothing not as standardized SKUs, but as precision-manufactured products tailored to each individual body.",
       constraints: [
-        "Must work on low-end Android devices",
-        "Offline functionality for rural students",
-        "Curriculum alignment with CBSE and state boards",
-        "Engaging enough to compete with entertainment apps"
+        "Standard sizing systems fail women's body diversity",
+        "High return rates from poor fit",
+        "Environmental waste from deadstock and excess inventory",
+        "Traditional bulk production dependency",
+        "Customer trust in digital body measurement",
+        "On-demand manufacturing workflow requirements"
       ]
     },
     contextReality: {
-      environment: "Students access education apps on budget smartphones with limited storage and intermittent connectivity.",
+      environment: "Two principles guided the design: Fit should be mathematically precise, not approximated. Garments should be made only after demand is confirmed. The supply chain was redesigned around made-to-order production with no pre-produced inventory.",
       existingSystems: [
-        "Competing apps with video-based content",
-        "Traditional physics textbooks and guides",
-        "Classroom teaching methods"
+        "Conventional 10-12 apparel sizes",
+        "Traditional bulk production models",
+        "Pre-produced inventory systems",
+        "Standard size charts"
       ],
       constraints: [
-        "Low device specifications",
-        "Limited attention spans",
-        "Need for gamification"
+        "1,260 microsizes spanning sizes 00-40",
+        "AI-driven computer vision for body measurement",
+        "Two-photo body scan process",
+        "~99% accuracy in microsize matching",
+        "Zero-waste on-demand manufacturing",
+        "Digital cutting per confirmed microsize",
+        "Order-triggered production only"
       ]
     },
     approach: {
       principles: [
-        "Learning through exploration, not instruction",
-        "Personalization based on learning patterns",
-        "Gamification for sustained engagement"
+        "Accuracy beats speed, especially in fit",
+        "Fit problems are data problems",
+        "Sustainability must be structural, not cosmetic",
+        "Technology should reduce compromise, not shift it elsewhere"
       ],
       strategicDecisions: [
-        "Built physics simulation engine for interactive experiments",
-        "Implemented adaptive learning using ML",
-        "Created bite-sized lessons for mobile consumption"
+        "Computer vision pipeline for body measurement extraction",
+        "ML models for microsize classification",
+        "Order-driven production orchestration",
+        "Integration with digital cutting and manufacturing systems"
       ],
       tradeoffs: [
-        "Chose React Native for speed despite performance concerns",
-        "Prioritized key physics concepts over comprehensive coverage"
+        "Precision over speed in body measurement",
+        "Made-to-order vs bulk production efficiency",
+        "Education investment for new sizing paradigm"
       ]
     },
     execution: {
-      architecture: "React Native app with Python-based ML backend. Physics simulations using optimized JavaScript engine. Offline-first architecture with smart sync.",
+      architecture: "The platform combined AI, manufacturing logic, and ecommerce into a single workflow. Computer vision pipeline extracts body measurements from just two photos, ML models classify into 1,260 microsizes with ~99% accuracy, and order-driven production orchestration ensures garments are manufactured only after orders are placed.",
       keyModules: [
-        "Interactive Physics Simulations",
-        "AI-Powered Tutoring Assistant",
-        "Adaptive Learning Path",
-        "Gamified Challenges & Leaderboards",
-        "Progress Tracking Dashboard",
-        "Offline Learning Mode"
+        "Computer Vision Body Scan",
+        "ML Microsize Classification Engine",
+        "1,260 Microsize Database",
+        "Order-Driven Production System",
+        "Digital Cutting Integration",
+        "Customer Communication Layer"
       ],
       integrations: [
-        "Payment gateways for subscriptions",
-        "Analytics platforms",
-        "Push notification services",
-        "Cloud sync services"
+        "Payments: CCAvenue",
+        "Ecommerce: Shopify",
+        "AI & OCR services",
+        "Communication: Email, SMS, WhatsApp"
       ],
       considerations: [
-        "Optimized for low-end devices",
-        "Battery-efficient simulations",
-        "Data-light operation mode"
+        "Near-tailor-level accuracy without physical measurement",
+        "Zero inventory holding model",
+        "Minimal fabric waste through precise cutting",
+        "Customer education for new paradigm"
       ]
     },
     challengesThatMattered: [
       {
-        title: "Running Physics Simulations on Budget Phones",
-        description: "Interactive physics simulations are computationally intensive, but our target users had phones with 2GB RAM.",
-        impact: "Optimized simulation engine to run at 30fps on low-end devices through clever algorithmic shortcuts."
+        title: "Capturing Accurate Measurements Without Physical Trials",
+        description: "Replacing in-store fittings with a digital process using just two photos.",
+        impact: "Computer vision-based body scan with calibration and validation against real-world fit outcomes. Near-tailor-level accuracy without physical measurement."
       },
       {
-        title: "Making Learning Addictive Without Being Exploitative",
-        description: "Gamification can easily become manipulative. We needed engagement without dark patterns.",
-        impact: "Designed reward systems around learning achievements rather than time spent or streaks."
+        title: "Scaling Manufacturing Without Inventory",
+        description: "Traditional apparel supply chains depend on bulk production.",
+        impact: "Order-triggered manufacturing workflows with digitally controlled fabric cutting per microsize. Zero inventory holding and minimal fabric waste."
+      },
+      {
+        title: "Educating Users on a New Sizing Paradigm",
+        description: "Customers were accustomed to standard size labels.",
+        impact: "Fit-focused communication instead of size labels with confidence-building explanations during onboarding. Higher trust and acceptance of microsizing."
       }
     ],
     solutions: [
       {
-        problem: "Students dropping off after initial curiosity",
-        decision: "Implement personalized learning journeys based on interests",
-        intervention: "Built ML model to identify learning style and recommend content accordingly",
-        result: "Week-2 retention improved from 25% to 55%"
+        problem: "Capturing Accurate Measurements Without Physical Trials",
+        decision: "Computer vision-based body scan using just two photos",
+        intervention: "Calibration and validation against real-world fit outcomes",
+        result: "Near-tailor-level accuracy without physical measurement"
       },
       {
-        problem: "Simulations not running smoothly on target devices",
-        decision: "Build custom physics engine optimized for mobile",
-        intervention: "Created simplified physics models with pre-computed scenarios for common experiments",
-        result: "Smooth 30fps on devices with 2GB RAM"
+        problem: "Scaling Manufacturing Without Inventory",
+        decision: "Order-triggered manufacturing workflows",
+        intervention: "Digitally controlled fabric cutting per microsize",
+        result: "Zero inventory holding and minimal fabric waste"
+      },
+      {
+        problem: "Educating Users on a New Sizing Paradigm",
+        decision: "Fit-focused communication instead of size labels",
+        intervention: "Confidence-building explanations during onboarding",
+        result: "Higher trust and acceptance of microsizing"
       }
     ],
     outcomes: {
       quantitative: [
-        "200K+ downloads in first 6 months",
-        "4.5 star rating on Play Store",
-        "55% week-2 retention (vs 25% industry average)",
-        "30% improvement in physics scores for active users"
+        "1,260 microsizes spanning sizes 00-40",
+        "~99% accuracy in microsize matching",
+        "Near-zero deadstock",
+        "Significant reduction in fabric waste",
+        "Lower return rates"
       ],
       qualitative: [
-        "Students report 'finally understanding' physics concepts",
-        "Recognition from education ministry",
-        "Partnership interest from school chains"
+        "Consistently better-fitting garments",
+        "Reduced need for alterations",
+        "Increased confidence in online apparel purchases",
+        "Differentiated positioning in fashion-tech",
+        "Efficient, demand-driven production",
+        "Scalable foundation for expansion across styles and categories"
       ],
-      impact: "Demonstrated that quality educational technology can reach underserved students while maintaining engagement."
+      impact: "Laws of Motion successfully created a precision-fit, zero-waste apparel platform that challenges the foundations of traditional fashion manufacturing, proving that AI-driven microsizing can solve fit at the individual level while eliminating inventory waste at the supply-chain level."
     },
     learnings: {
       keyLearnings: [
-        "EdTech must design for the lowest common denominator in device capability",
-        "Learning outcomes matter more than engagement metrics"
+        "Fit problems are fundamentally data problems solvable with precision AI",
+        "Sustainability must be structural, not cosmetic",
+        "Technology should reduce compromise for consumers, not shift it"
       ],
-      improvements: [
-        "Would have included more teacher/parent visibility features earlier"
-      ],
+      improvements: [],
       insights: [
-        "The best educational apps make students feel smart, not entertained"
+        "Precision manufacturing combined with AI-driven fit creates sustainable competitive advantage in fashion"
       ]
     },
-    gallery: [lifestylePost, techPost, businessPost, fashionPost, workLifestyle, fashionLifestyle]
+    gallery: [lomAi]
   },
   'guppaai': {
     title: "GuppaAI",
