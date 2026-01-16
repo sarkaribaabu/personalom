@@ -15,6 +15,7 @@ import nmPoliceBi from '@/assets/nm-police-bi.png';
 import scLandrecords from '@/assets/sc-landrecords.png';
 import mhadaApp from '@/assets/mhada-app.png';
 import dmsApp from '@/assets/dms-app.png';
+import bmcPothole from '@/assets/bmc-pothole.png';
 
 const categories = ['All', 'Web Apps', 'Mobile Apps', 'AI/ML/CV', 'eGovernance', 'eCommerce', 'BI Dashboards'];
 
@@ -164,9 +165,9 @@ const projects = [
     title: "BMC Pothole",
     category: "Mobile Apps",
     date: "2022",
-    excerpt: "Brihanmumbai Municipal Corporation pothole complaint and resolution app.",
-    image: images[2],
-    height: "short"
+    excerpt: "Citizen Grievance & Field Operations Platform with GPS-based complaint registration and before-and-after photo verification.",
+    image: bmcPothole,
+    height: "tall"
   },
   {
     title: "Smith+Nephew's App",

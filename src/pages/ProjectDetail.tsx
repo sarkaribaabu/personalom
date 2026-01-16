@@ -55,6 +55,7 @@ import nmPoliceBi from '@/assets/nm-police-bi.png';
 import scLandrecords from '@/assets/sc-landrecords.png';
 import mhadaApp from '@/assets/mhada-app.png';
 import dmsApp from '@/assets/dms-app.png';
+import bmcPothole from '@/assets/bmc-pothole.png';
 
 // Tech stack icon mapping
 const techIcons: Record<string, React.ReactNode> = {
@@ -1398,6 +1399,148 @@ const projectsData: Record<string, {
       insights: []
     },
     gallery: [dmsApp]
+  },
+  'bmc-pothole': {
+    title: "BMC Pothole Management System",
+    category: "Citizen Grievance & Field Operations Platform | Web & Mobile Application",
+    image: bmcPothole,
+    snapshot: {
+      client: "Municipal Corporation of Greater Mumbai (BMC)",
+      industry: "Government | Urban Infrastructure | Civic Services",
+      role: "Business Analyst",
+      duration: "3+ years",
+      techStack: ["Java", "Angular", "PostgreSQL"]
+    },
+    brief: {
+      problem: "Potholes, especially during the monsoon season, were a major safety and public trust issue in Mumbai. Citizens were frustrated due to the lack of a simple reporting mechanism, slow response times, and no visibility into whether reported potholes were actually fixed.",
+      context: "BMC required a system that could convert citizen complaints into time-bound, accountable field actions. The objective was to enable easy reporting, ensure engineer-level ownership, create inspection-based validation, and generate long-term insights into road quality and maintenance efficiency.",
+      constraints: [
+        "Extremely high volume of complaints during monsoon",
+        "Field engineers operating across large geographic zones",
+        "Need for verifiable proof of repair",
+        "Citizen trust and transparency",
+        "Long-term analytics for infrastructure planning"
+      ]
+    },
+    contextReality: {
+      environment: "Earlier processes were largely manual or semi-digital. Complaints were logged through calls or visits and tracked loosely, making accountability difficult and response times unpredictable.",
+      existingSystems: [
+        "No standardized way for citizens to report potholes",
+        "Manual assignment and follow-ups",
+        "Lack of proof for work completion",
+        "No performance metrics for engineers or contractors"
+      ],
+      constraints: [
+        "Citizen mobile app to capture pothole photo and submit complaint",
+        "Automatic location capture using GPS",
+        "Intelligent assignment to the responsible Junior Engineer",
+        "Mobile notifications for field engineers",
+        "Time-bound resolution tracking",
+        "Inspection workflow by Deputy Engineer",
+        "Citizen confirmation with before-and-after photos"
+      ]
+    },
+    approach: {
+      principles: [
+        "Make reporting effortless for citizens",
+        "Build accountability into the workflow",
+        "Trust, but verify through evidence",
+        "Use data to improve infrastructure decisions"
+      ],
+      strategicDecisions: [
+        "GPS and image-based complaint registration",
+        "Role-based workflows for Junior Engineers and Deputy Engineers",
+        "Photo-based evidence capture at each stage",
+        "Centralized data store for historical and analytical use"
+      ],
+      tradeoffs: [
+        "Mobile-first approach for maximum citizen reach",
+        "Mandatory photo evidence over text-only complaints",
+        "Independent inspection over self-certification"
+      ]
+    },
+    execution: {
+      architecture: "The system was designed to ensure traceability from complaint to closure. GPS and image-based complaint registration with Google Maps integration for precise location tagging. Role-based workflows for Junior Engineers and Deputy Engineers with photo-based evidence capture at each stage.",
+      keyModules: [
+        "Citizen mobile app for complaint registration",
+        "GPS-based location capture",
+        "Photo evidence collection (before and after)",
+        "Intelligent assignment engine",
+        "Field engineer mobile app",
+        "Inspection and approval workflow",
+        "Analytics and reporting dashboard"
+      ],
+      integrations: [
+        "Google Maps for geo-location and visualization",
+        "Email and SMS alerts",
+        "WhatsApp notifications for status updates"
+      ],
+      considerations: [
+        "Time-bound resolution tracking",
+        "Photo-based evidence at each stage",
+        "Role-based access for different stakeholders",
+        "Geo-tagging for location verification"
+      ]
+    },
+    challengesThatMattered: [
+      {
+        title: "Handling Monsoon-Time Complaint Surges",
+        description: "Complaint volumes spiked dramatically during heavy rains.",
+        impact: "Streamlined one-click reporting with automated assignments based on location. Mobile-first workflows for faster turnaround. Result: Reduced backlog and improved response consistency."
+      },
+      {
+        title: "Ensuring Authentic Fixes",
+        description: "Verifying whether a pothole was genuinely fixed.",
+        impact: "Mandatory before-and-after photos with geo-tagging. Independent inspection by Deputy Engineer. Result: Higher trust and elimination of false closures."
+      },
+      {
+        title: "Measuring Road and Engineer Performance",
+        description: "No data existed to assess road durability or field efficiency.",
+        impact: "Captured resolution time, recurrence, and inspection outcomes. Built analytical dashboards for trend analysis. Result: Data-backed insights into road quality, contractor performance, and engineer responsiveness."
+      }
+    ],
+    solutions: [
+      {
+        problem: "Handling Monsoon-Time Complaint Surges",
+        decision: "Implement streamlined one-click reporting with automated assignments",
+        intervention: "Mobile-first workflows for faster turnaround with location-based engineer assignment",
+        result: "Reduced backlog and improved response consistency during peak monsoon season"
+      },
+      {
+        problem: "Ensuring Authentic Fixes",
+        decision: "Mandate before-and-after photos with geo-tagging",
+        intervention: "Independent inspection workflow by Deputy Engineer for verification",
+        result: "Higher trust and elimination of false closures"
+      },
+      {
+        problem: "Measuring Road and Engineer Performance",
+        decision: "Capture resolution time, recurrence, and inspection outcomes",
+        intervention: "Built analytical dashboards for trend analysis and performance tracking",
+        result: "Data-backed insights into road quality, contractor performance, and engineer responsiveness"
+      }
+    ],
+    outcomes: {
+      quantitative: [
+        "Simple, transparent pothole reporting for citizens",
+        "Clear visibility into action taken",
+        "Increased trust in municipal response",
+        "Faster identification and resolution of potholes"
+      ],
+      qualitative: [
+        "Clear accountability at engineer level",
+        "Recognition for timely and effective resolution",
+        "Long-term data to evaluate road repair effectiveness",
+        "Insights into recurring problem zones",
+        "Foundation for proactive road maintenance planning"
+      ],
+      impact: "The platform transformed pothole management from reactive complaint handling to data-driven infrastructure maintenance, establishing clear accountability and enabling proactive road maintenance planning across Mumbai."
+    },
+    learnings: {
+      keyLearnings: [],
+      improvements: [],
+      insights: []
+    },
+    gallery: [bmcPothole]
   }
 };
 
