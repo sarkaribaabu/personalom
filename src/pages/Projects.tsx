@@ -26,6 +26,7 @@ import csJewellers from '@/assets/cs-jewellers.png';
 import lomAi from '@/assets/lom-ai.png';
 import bmcDm from '@/assets/bmc-dm.png';
 import mobileGames from '@/assets/mobile-games.png';
+import vendimanMax from '@/assets/vendiman-max.png';
 
 const categories = ['All', 'Web Apps', 'Mobile Apps', 'AI/ML/CV', 'eGovernance', 'eCommerce', 'BI Dashboards'];
 
@@ -125,9 +126,9 @@ const projects = [
     title: "Vendiman",
     category: "Web Apps",
     date: "2024",
-    excerpt: "Vendor management platform with onboarding and performance analytics.",
-    image: images[5],
-    height: "short"
+    excerpt: "Autonomous Retail & Anti-Fraud Intelligence Platform with sensor fusion and real-time fraud prevention.",
+    image: vendimanMax,
+    height: "tall"
   },
 
   // Mobile Apps (10 projects)
