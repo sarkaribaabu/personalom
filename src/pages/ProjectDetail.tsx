@@ -54,6 +54,7 @@ import pcmcEgovernance from '@/assets/pcmc-egovernance.png';
 import nmPoliceBi from '@/assets/nm-police-bi.png';
 import scLandrecords from '@/assets/sc-landrecords.png';
 import mhadaApp from '@/assets/mhada-app.png';
+import dmsApp from '@/assets/dms-app.png';
 
 // Tech stack icon mapping
 const techIcons: Record<string, React.ReactNode> = {
@@ -1255,6 +1256,148 @@ const projectsData: Record<string, {
       insights: []
     },
     gallery: [mhadaApp]
+  },
+  'dms': {
+    title: "Dealer Management System",
+    category: "Unified Sales, Service & Operations Platform | Web Application",
+    image: dmsApp,
+    snapshot: {
+      client: "Private Enterprise (Multi-Brand Distributor & Franchise Network)",
+      industry: "Private | Distribution | Sales & Service Operations",
+      role: "Project Director",
+      duration: "8+ months",
+      techStack: ["PHP", "Laravel", "MySQL"]
+    },
+    brief: {
+      problem: "The client managed sales, installation, servicing, maintenance, and break-fix operations for multiple brands across India. Day-to-day operations were fragmented across Google Sheets, Jira, emails, and calls, with no integration, shared visibility, or process ownership. As scale increased, operational breakdowns became frequent and customer experience suffered.",
+      context: "The organization functioned as both distributor and service partner, handling everything from quotations to AMC renewals. The absence of a centralized system made it impossible to track activities end-to-end, manage dealer performance, or produce reliable operational reports.",
+      constraints: [
+        "Multi-brand, pan-India operations",
+        "High volume of service and support activities",
+        "No existing ERP or CRM foundation",
+        "Dependency on manual coordination",
+        "Need for rapid stabilization without disrupting live operations"
+      ]
+    },
+    contextReality: {
+      environment: "Operations relied heavily on spreadsheets for tracking and Jira for isolated issue management. Data duplication, version conflicts, and delayed updates were common.",
+      existingSystems: [
+        "No single view of sales, service, and delivery",
+        "Manual follow-ups for installations and breakdowns",
+        "Poor visibility into AMC obligations and renewals",
+        "Inconsistent dealer and technician accountability",
+        "Limited management insight into performance and bottlenecks"
+      ],
+      constraints: [
+        "Sales and Purchase Management",
+        "Quotations and Order Processing",
+        "Delivery and Installation Tracking",
+        "Service, Breakdown, and Ticket Management",
+        "Preventive Maintenance and AMC Tracking",
+        "Payout and Settlement Management",
+        "Role-based dashboards and MIS"
+      ]
+    },
+    approach: {
+      principles: [
+        "One system for sales, service, and support",
+        "Process clarity over tool complexity",
+        "Visibility for management, accountability for teams",
+        "Design for scale without overengineering"
+      ],
+      strategicDecisions: [
+        "Designed unified data model across sales, service, and finance",
+        "Implemented role-based access for management, dealers, service teams, and support staff",
+        "Built end-to-end traceability from lead to service closure",
+        "Created real-time dashboards for operational and business tracking"
+      ],
+      tradeoffs: [
+        "Gradual migration from spreadsheets to avoid operational disruption",
+        "Parallel run during transition period",
+        "Familiar interface design to ease adoption"
+      ]
+    },
+    execution: {
+      architecture: "The platform was built as a modular web application with centralized data, configurable workflows, and multi-level access control. Unified data model across sales, service, and finance with role-based access for different stakeholder groups.",
+      keyModules: [
+        "Sales and Purchase Management",
+        "Quotations and Order Processing",
+        "Delivery and Installation Tracking",
+        "Service, Breakdown, and Ticket Management",
+        "Preventive Maintenance and AMC Tracking",
+        "Payout and Settlement Management",
+        "Role-based dashboards and MIS"
+      ],
+      integrations: [
+        "Data ingestion via Excel / CSV imports",
+        "Email and SMS notifications",
+        "WhatsApp integration for service and status updates"
+      ],
+      considerations: [
+        "End-to-end traceability from lead to service closure",
+        "Real-time dashboards for operational and business tracking",
+        "Multi-level access control for different stakeholders"
+      ]
+    },
+    challengesThatMattered: [
+      {
+        title: "Moving Away from Spreadsheet-Driven Operations",
+        description: "Teams were deeply dependent on Google Sheets for daily work.",
+        impact: "Designed familiar, structured interfaces. Gradual migration of live data. Parallel run during transition. Result: Smooth adoption without operational disruption."
+      },
+      {
+        title: "Managing Complex Service Lifecycles",
+        description: "Breakdowns, preventive maintenance, and AMC commitments overlapped across clients and locations.",
+        impact: "Unified ticketing and service lifecycle management. AMC tracking with alerts and reminders. Result: Improved service predictability and fewer missed commitments."
+      },
+      {
+        title: "Enabling Management Visibility",
+        description: "Leadership lacked real-time insight into operations and performance.",
+        impact: "Role-specific dashboards. KPIs for sales, service efficiency, and turnaround times. Result: Data-driven decisions replaced reactive firefighting."
+      }
+    ],
+    solutions: [
+      {
+        problem: "Moving Away from Spreadsheet-Driven Operations",
+        decision: "Design familiar, structured interfaces with gradual migration",
+        intervention: "Parallel run during transition with live data migration in phases",
+        result: "Smooth adoption without operational disruption"
+      },
+      {
+        problem: "Managing Complex Service Lifecycles",
+        decision: "Unify ticketing and service lifecycle management",
+        intervention: "AMC tracking with automated alerts and reminders for renewals",
+        result: "Improved service predictability and fewer missed commitments"
+      },
+      {
+        problem: "Enabling Management Visibility",
+        decision: "Implement role-specific dashboards with real-time KPIs",
+        intervention: "KPIs for sales, service efficiency, and turnaround times",
+        result: "Data-driven decisions replaced reactive firefighting"
+      }
+    ],
+    outcomes: {
+      quantitative: [
+        "10% increase in overall business throughput",
+        "25% improvement in client satisfaction",
+        "Faster response and resolution times",
+        "Better control over sales and service pipelines"
+      ],
+      qualitative: [
+        "Improved dealer and technician productivity",
+        "Consistent service experience across regions",
+        "Transition from ad-hoc coordination to structured operations",
+        "Scalable platform supporting future growth",
+        "Reduced dependency on individual knowledge holders"
+      ],
+      impact: "The platform transformed operations from ad-hoc coordination to structured processes, enabling 10% business throughput increase and 25% improvement in client satisfaction across pan-India multi-brand operations."
+    },
+    learnings: {
+      keyLearnings: [],
+      improvements: [],
+      insights: []
+    },
+    gallery: [dmsApp]
   }
 };
 
