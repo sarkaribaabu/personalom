@@ -13,6 +13,7 @@ import nmmcEgovernance from '@/assets/nmmc-egovernance.png';
 import pcmcEgovernance from '@/assets/pcmc-egovernance.png';
 import nmPoliceBi from '@/assets/nm-police-bi.png';
 import scLandrecords from '@/assets/sc-landrecords.png';
+import mhadaApp from '@/assets/mhada-app.png';
 
 const categories = ['All', 'Web Apps', 'Mobile Apps', 'AI/ML/CV', 'eGovernance', 'eCommerce', 'BI Dashboards'];
 
@@ -146,9 +147,9 @@ const projects = [
     title: "MHADA App",
     category: "Mobile Apps",
     date: "2023",
-    excerpt: "Housing authority mobile app for lottery applications and housing services.",
-    image: images[0],
-    height: "short"
+    excerpt: "Digital Housing Lottery & Verification Platform with OCR-based document verification and Aadhaar-based uniqueness validation.",
+    image: mhadaApp,
+    height: "tall"
   },
   {
     title: "PWD Pothole",
