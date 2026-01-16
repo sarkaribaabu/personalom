@@ -52,6 +52,7 @@ import fashionLifestyle from '@/assets/fashion-lifestyle.jpg';
 import nmmcEgovernance from '@/assets/nmmc-egovernance.png';
 import pcmcEgovernance from '@/assets/pcmc-egovernance.png';
 import nmPoliceBi from '@/assets/nm-police-bi.png';
+import scLandrecords from '@/assets/sc-landrecords.png';
 
 // Tech stack icon mapping
 const techIcons: Record<string, React.ReactNode> = {
@@ -449,129 +450,146 @@ const projectsData: Record<string, {
     gallery: [pcmcEgovernance]
   },
   'sc-land-records': {
-    title: "SC Land Records",
-    category: "Web Apps",
-    image: businessPost,
+    title: "Settlement Commissioner – Land Records Integrated Portal",
+    category: "Unified Citizen Services Platform | Government (Land & Revenue)",
+    image: scLandrecords,
     snapshot: {
-      client: "Supreme Court of India",
-      industry: "Judiciary / Legal Tech",
-      role: "Technical Program Manager",
-      duration: "24 months",
-      techStack: [".NET", "SQL Server", "Angular", "Azure", "Docker"]
+      client: "Government of Maharashtra – Settlement Commissioner & Director of Land Records",
+      industry: "Government | Land Records | Revenue Administration",
+      role: "Project Director",
+      duration: "24+ months",
+      techStack: [".NET CORE", "HTML5", "MySQL"]
     },
     brief: {
-      problem: "Land dispute cases constitute a significant portion of Supreme Court matters, with judges struggling to access comprehensive land records during hearings, leading to multiple adjournments.",
-      context: "The Supreme Court needed a centralized system to access land records from all states during case proceedings, reducing dependency on physical records and state-level queries.",
+      problem: "Land record services were distributed across more than 30 independent web portals. Citizens had no clear understanding of which portal to use for which service, leading to confusion, repeated visits, dependency on intermediaries, and low trust in digital services.",
+      context: "The Settlement Commissioner's office delivers some of the most critical citizen services in Maharashtra, including Property Card, 7/12, name transfer, and various land-related certificates. The need was to create a single, authoritative digital entry point that simplified access while retaining departmental autonomy behind the scenes.",
       constraints: [
-        "Constitutional sensitivity of judicial proceedings",
-        "Data from 28 states with different formats",
-        "Highest security and confidentiality requirements",
-        "Integration with existing case management systems"
+        "30+ existing portals with different ownership and standards",
+        "High public dependency on services",
+        "Sensitive land and ownership data",
+        "Multiple payment and government integrations",
+        "Need for clarity, not complexity, in citizen-facing design"
       ]
     },
     contextReality: {
-      environment: "India's land records are maintained by state governments with varying degrees of digitization, different data schemas, and multiple languages.",
+      environment: "Over time, individual services had been digitized independently, resulting in fragmented user experiences. While services existed online, discoverability and usability were major barriers.",
       existingSystems: [
-        "State-level land record databases (DILRMP, Bhoomi, etc.)",
-        "Supreme Court case management system",
-        "Paper-based archive of historical records"
+        "Uncertainty about the correct portal for each service",
+        "Repeated form submissions across systems",
+        "Increased reliance on agents and middlemen",
+        "Poor feedback loop for service delivery quality"
       ],
       constraints: [
-        "Some states had minimal digital infrastructure",
-        "Historical records in vernacular languages",
-        "Constitutional limitations on data sharing across states"
+        "No consolidated view of service demand or bottlenecks",
+        "Limited ability to monitor adoption and performance",
+        "Delayed corrective action due to scattered reporting"
       ]
     },
     approach: {
       principles: [
-        "Judicial convenience as primary design driver",
-        "Federated architecture respecting state autonomy",
-        "Highest levels of data security and audit"
+        "One citizen, one portal, many services",
+        "Simplicity over feature density",
+        "Discoverability before digitization depth",
+        "Early feedback loops for continuous improvement"
       ],
       strategicDecisions: [
-        "Built API-based integration with state systems rather than data replication",
-        "Implemented role-based access for different judicial officers",
-        "Created offline mode for courtroom access"
+        "Designed a service orchestration layer",
+        "Standardized service discovery and categorization",
+        "Maintained backend system autonomy"
       ],
       tradeoffs: [
-        "Accepted some latency for real-time state queries over data replication",
-        "Prioritized major states for Phase 1"
+        "Integration over replacement approach",
+        "Citizen experience prioritized over departmental preferences",
+        "Phased rollout based on service criticality"
       ]
     },
     execution: {
-      architecture: "Hub and spoke model with Supreme Court as central hub, connecting to state land record systems through secure APIs. Local caching for frequently accessed records.",
+      architecture: "The solution was implemented as a unified presentation and orchestration layer, integrating existing service systems rather than replacing them.",
       keyModules: [
-        "Multi-state land record search",
-        "Case-linked record management",
-        "Historical record digitization",
-        "Judicial dashboard for bench access",
-        "Secure document sharing"
+        "One portal providing access to 70+ services",
+        "Citizen-first navigation based on intent, not department",
+        "Clear service categorization and guidance",
+        "Centralized dashboard for leadership oversight"
       ],
       integrations: [
-        "State revenue department databases",
-        "Supreme Court case management",
-        "e-Courts national grid",
-        "Digital signature infrastructure"
+        "Payment gateways: Bank of Baroda, BillDesk, BillCloud, HDFC",
+        "Government platforms: NIC services",
+        "Land systems: Bhulekh / Bhumi Abhilekh, e-Peek Pahani, e-Chavadi",
+        "Legal and compliance systems: e-QJCourt, e-Hakka",
+        "Data ingestion: Excel / CSV imports",
+        "Citizen communication: WhatsApp"
       ],
       considerations: [
-        "Air-gapped networks for sensitive data",
-        "Multi-factor authentication for all access",
-        "Complete audit trail for compliance"
+        "Scalable design to onboard future services",
+        "Seamless redirection and data exchange with backend systems",
+        "Centralized analytics and reporting"
       ]
     },
     challengesThatMattered: [
       {
-        title: "Harmonizing 28 Different Data Formats",
-        description: "Each state maintained land records in different formats, languages, and schemas. Some still relied on colonial-era record keeping practices.",
-        impact: "Built a semantic layer that could interpret and normalize diverse data formats into a unified view."
+        title: "Bringing 30+ Services Under One Roof",
+        description: "Each service had its own portal, rules, and technical dependencies.",
+        impact: "Designed a service orchestration layer. Standardized service discovery and categorization. Maintained backend system autonomy. Result: A single, coherent citizen experience without disrupting existing systems."
       },
       {
-        title: "Meeting Supreme Court Security Standards",
-        description: "The system handled constitutionally sensitive data with implications for major land disputes. Security could not be compromised.",
-        impact: "Implemented defense-in-depth security with multiple audit layers and obtained CERT-In certification."
+        title: "Designing for Trust and Adoption",
+        description: "Land services are high-stakes, and citizens are risk-averse.",
+        impact: "Clear language and step-by-step guidance. Transparent service flow and redirections. Feedback collection post-service. Result: Over 100 five-star reviews within the first month of launch."
+      },
+      {
+        title: "Enabling Early Administrative Intervention",
+        description: "Leadership lacked real-time visibility into service performance.",
+        impact: "Consolidated dashboards showing service demand and usage. Early-warning indicators for spikes and delays. Result: Faster corrective action and improved service reliability."
       }
     ],
     solutions: [
       {
-        problem: "Judges couldn't access land records during live hearings",
-        decision: "Build offline-capable judicial dashboard with pre-loaded case records",
-        intervention: "Created smart caching system that pre-fetches records linked to upcoming cases",
-        result: "95% of required records available instantly during hearings"
+        problem: "Citizens confused about which portal to use for which service",
+        decision: "Create unified entry point with intent-based navigation",
+        intervention: "Designed citizen-first service categorization and clear guidance",
+        result: "Single portal for all major land record services with reduced confusion"
       },
       {
-        problem: "Historical records in regional languages were inaccessible",
-        decision: "Implement multi-language OCR with judicial terminology training",
-        intervention: "Trained OCR models on legal terminology across 12 languages",
-        result: "Successfully digitized 2 lakh+ historical documents with 92% accuracy"
+        problem: "High dependency on intermediaries for land services",
+        decision: "Focus on trust-building through transparency",
+        intervention: "Clear language, step-by-step guidance, transparent service flows",
+        result: "Over 100 five-star reviews within first month of launch"
+      },
+      {
+        problem: "Leadership lacked visibility into service performance",
+        decision: "Build centralized monitoring and analytics",
+        intervention: "Consolidated dashboards with early-warning indicators",
+        result: "Faster corrective action and improved service reliability"
       }
     ],
     outcomes: {
       quantitative: [
-        "70% reduction in adjournments due to missing records",
-        "Connected to 22 state land record systems",
-        "2 lakh+ historical documents digitized",
-        "Average record retrieval time under 5 seconds"
+        "Single portal for all major land record services",
+        "Access to 70+ services through unified interface",
+        "Over 100 five-star reviews within first month",
+        "Unified visibility across all services for leadership"
       ],
       qualitative: [
-        "Significantly improved judicial efficiency for land cases",
-        "Set precedent for inter-state judicial data sharing",
-        "Reduced pendency in land-related matters"
+        "Reduced confusion and dependency on intermediaries",
+        "High satisfaction and trust in digital delivery",
+        "Data-backed decision-making for leadership",
+        "Improved monitoring and governance"
       ],
-      impact: "The system transformed how land dispute cases are handled in the Supreme Court, setting a model for judicial technology adoption."
+      impact: "Established a scalable digital foundation for land records. Set a benchmark for citizen-centric government portals. Demonstrated how integration can outperform replacement."
     },
     learnings: {
       keyLearnings: [
-        "Judicial technology requires extreme attention to constitutional and procedural correctness",
-        "Federated architectures work better for sovereign data sharing"
+        "Integration of existing systems can be more effective than replacement",
+        "Citizen-centric design requires simplifying complexity, not hiding it"
       ],
       improvements: [
-        "Would have engaged state IT teams earlier in the process"
+        "Earlier stakeholder alignment across departments would have accelerated adoption"
       ],
       insights: [
-        "Technology for judiciary must be invisible—judges should focus on justice, not systems"
+        "Trust in government digital services is built through transparency and simplicity"
       ]
     },
-    gallery: [businessPost, techPost, fashionPost, lifestylePost, workLifestyle, fashionLifestyle]
+    gallery: [scLandrecords]
   },
   'navi-mumbai-police': {
     title: "Navi Mumbai Police Commissionerate Dashboard",
