@@ -16,6 +16,7 @@ import scLandrecords from '@/assets/sc-landrecords.png';
 import mhadaApp from '@/assets/mhada-app.png';
 import dmsApp from '@/assets/dms-app.png';
 import bmcPothole from '@/assets/bmc-pothole.png';
+import pwdPothole from '@/assets/pwd-pothole.png';
 
 const categories = ['All', 'Web Apps', 'Mobile Apps', 'AI/ML/CV', 'eGovernance', 'eCommerce', 'BI Dashboards'];
 
@@ -157,9 +158,9 @@ const projects = [
     title: "PWD Pothole",
     category: "Mobile Apps",
     date: "2023",
-    excerpt: "Public Works Department pothole reporting and tracking application.",
-    image: images[1],
-    height: "medium"
+    excerpt: "State Highway & Road Maintenance Platform with statewide coverage and division-wise analytics.",
+    image: pwdPothole,
+    height: "tall"
   },
   {
     title: "BMC Pothole",

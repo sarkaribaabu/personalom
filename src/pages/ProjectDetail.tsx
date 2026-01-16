@@ -56,6 +56,7 @@ import scLandrecords from '@/assets/sc-landrecords.png';
 import mhadaApp from '@/assets/mhada-app.png';
 import dmsApp from '@/assets/dms-app.png';
 import bmcPothole from '@/assets/bmc-pothole.png';
+import pwdPothole from '@/assets/pwd-pothole.png';
 
 // Tech stack icon mapping
 const techIcons: Record<string, React.ReactNode> = {
@@ -1541,6 +1542,148 @@ const projectsData: Record<string, {
       insights: []
     },
     gallery: [bmcPothole]
+  },
+  'pwd-pothole': {
+    title: "PWD Pothole Management System",
+    category: "State Highway & Road Maintenance Platform | Web & Mobile Application",
+    image: pwdPothole,
+    snapshot: {
+      client: "Public Works Department (PWD), Government",
+      industry: "Government | Roads & Highways | Infrastructure Maintenance",
+      role: "Business Analyst",
+      duration: "1+ year",
+      techStack: ["Java", "Angular", "PostgreSQL"]
+    },
+    brief: {
+      problem: "PWD-managed roads, particularly highways and inter-city corridors, faced recurring pothole issues during monsoon seasons. Citizens had no structured way to report issues, and departments struggled to track complaints, prioritize fixes, and monitor field execution across large geographic spreads.",
+      context: "Unlike city roads, PWD roads span long distances, cross jurisdictions, and are maintained by distributed engineering teams. The need was for a system that could translate citizen-reported issues into accountable, time-bound actions while giving leadership visibility across regions.",
+      constraints: [
+        "Large geographic coverage beyond city limits",
+        "Distributed field engineers and contractors",
+        "Seasonal spikes in complaints",
+        "Requirement for proof-based closure",
+        "Need for performance tracking across divisions"
+      ]
+    },
+    contextReality: {
+      environment: "Earlier, pothole complaints were routed through calls, letters, or informal escalation channels. Tracking resolution status was manual, and historical data was almost non-existent.",
+      existingSystems: [
+        "Delayed complaint routing",
+        "Lack of ownership clarity at field level",
+        "No standardized closure or inspection mechanism",
+        "Inability to compare performance across regions"
+      ],
+      constraints: [
+        "Citizen mobile app for quick pothole reporting",
+        "Automatic GPS-based location tagging",
+        "Division-wise assignment to Junior Engineers",
+        "Mobile alerts for field action",
+        "SLA-driven resolution timelines",
+        "Inspection and validation by Deputy Engineers",
+        "Closure communication back to citizens"
+      ]
+    },
+    approach: {
+      principles: [
+        "Accountability must travel with the complaint",
+        "Geography is as important as volume",
+        "Proof of work is non-negotiable",
+        "Data should help prioritize, not just report"
+      ],
+      strategicDecisions: [
+        "GPS-based auto-routing of complaints",
+        "Division and sub-division mapping",
+        "Mandatory before-and-after photos",
+        "Independent inspection workflow"
+      ],
+      tradeoffs: [
+        "Statewide coverage over city-specific optimization",
+        "Division-wise assignment over centralized control",
+        "Proof-based closure over quick turnaround"
+      ]
+    },
+    execution: {
+      architecture: "The system emphasized geographic intelligence and operational accountability. Geo-tagged complaint lifecycle management with Google Maps integration for highway and route mapping. Role-based workflows across PWD hierarchy with mandatory photographic evidence at reporting and closure stages.",
+      keyModules: [
+        "Citizen mobile app for complaint registration",
+        "GPS-based location tagging",
+        "Division-wise assignment engine",
+        "Field engineer mobile app",
+        "Inspection and validation workflow",
+        "Photo evidence collection (before and after)",
+        "Cross-division analytics dashboard"
+      ],
+      integrations: [
+        "Google Maps for location capture and visualization",
+        "Email and SMS notifications",
+        "WhatsApp alerts for faster field communication"
+      ],
+      considerations: [
+        "SLA-driven resolution timelines",
+        "Geo-tagged complaint lifecycle management",
+        "Role-based workflows across PWD hierarchy",
+        "Centralized database for cross-division analysis"
+      ]
+    },
+    challengesThatMattered: [
+      {
+        title: "Managing Statewide Coverage",
+        description: "PWD roads span urban, semi-urban, and rural areas.",
+        impact: "GPS-based auto-routing of complaints with division and sub-division mapping. Result: Faster assignment and reduced misrouting."
+      },
+      {
+        title: "Ensuring Field Accountability",
+        description: "Lack of verifiable closure led to repeated complaints.",
+        impact: "Mandatory before-and-after photos with independent inspection workflow. Result: Higher closure quality and reduced recurrence."
+      },
+      {
+        title: "Creating Comparable Performance Metrics",
+        description: "Leadership could not assess which divisions were performing better.",
+        impact: "Dashboards comparing resolution time, recurrence, and volume. Region-wise and engineer-wise analytics. Result: Clear visibility into performance gaps and best practices."
+      }
+    ],
+    solutions: [
+      {
+        problem: "Managing Statewide Coverage",
+        decision: "Implement GPS-based auto-routing of complaints",
+        intervention: "Division and sub-division mapping for accurate assignment",
+        result: "Faster assignment and reduced misrouting across statewide coverage"
+      },
+      {
+        problem: "Ensuring Field Accountability",
+        decision: "Mandate before-and-after photos for every complaint",
+        intervention: "Independent inspection workflow by Deputy Engineers",
+        result: "Higher closure quality and reduced recurrence"
+      },
+      {
+        problem: "Creating Comparable Performance Metrics",
+        decision: "Build dashboards comparing resolution time, recurrence, and volume",
+        intervention: "Region-wise and engineer-wise analytics for leadership visibility",
+        result: "Clear visibility into performance gaps and best practices"
+      }
+    ],
+    outcomes: {
+      quantitative: [
+        "Simple mechanism to report road issues",
+        "Transparent status updates for citizens",
+        "Structured complaint handling across divisions",
+        "Faster resolution during peak monsoon periods"
+      ],
+      qualitative: [
+        "Improved confidence in PWD responsiveness",
+        "Clear ownership at engineer and division level",
+        "Data-driven insights into road durability and repair quality",
+        "Ability to identify chronic problem stretches",
+        "Foundation for preventive maintenance planning"
+      ],
+      impact: "The platform established structured complaint handling across PWD divisions statewide, enabling data-driven insights into road durability and creating a foundation for preventive maintenance planning across highways and inter-city corridors."
+    },
+    learnings: {
+      keyLearnings: [],
+      improvements: [],
+      insights: []
+    },
+    gallery: [pwdPothole]
   }
 };
 
