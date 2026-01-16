@@ -64,6 +64,7 @@ import guppaai from '@/assets/guppaai.png';
 import pngBrothers from '@/assets/png-brothers.png';
 import csJewellers from '@/assets/cs-jewellers.png';
 import lomAi from '@/assets/lom-ai.png';
+import bmcDm from '@/assets/bmc-dm.png';
 
 // Tech stack icon mapping
 const techIcons: Record<string, React.ReactNode> = {
@@ -2614,6 +2615,152 @@ const projectsData: Record<string, {
       ]
     },
     gallery: [csJewellers]
+  },
+  'bmc-disaster-management': {
+    title: "BMC Disaster Management System",
+    category: "City-Scale Weather Intelligence & Citizen Information Platform | Government",
+    image: bmcDm,
+    snapshot: {
+      client: "Brihanmumbai Municipal Corporation (BMC)",
+      industry: "Government | Disaster Management | Urban Resilience",
+      role: "Business Analyst",
+      duration: "18+ months",
+      techStack: ["Java", "Angular", "Ionic", "Oracle"]
+    },
+    brief: {
+      problem: "Mumbai is highly vulnerable to weather-driven disruptions, especially during the monsoon season. While the city had invested in advanced weather infrastructure, citizens lacked easy, localized access to real-time environmental data such as rainfall intensity, wind conditions, and humidity. This information gap limited preparedness and increased panic during extreme weather events.",
+      context: "Brihanmumbai Municipal Corporation deployed more than 50 automated weather stations across strategic locations in Mumbai, connected through high-speed dedicated leased lines. The objective was to convert this rich data into a reliable, citizen-facing digital platform that could support awareness, preparedness, and early response.",
+      constraints: [
+        "Making highly technical data accessible to the general public",
+        "Ensuring accuracy and reliability of real-time feeds",
+        "Handling city-wide scale and peak usage during extreme events",
+        "Delivering timely updates without overwhelming users",
+        "High availability during critical weather periods"
+      ]
+    },
+    contextReality: {
+      environment: "Although weather data was being collected continuously, its consumption was largely restricted to internal systems or technical stakeholders. There was no intuitive, location-aware interface for citizens to understand conditions affecting their immediate surroundings.",
+      existingSystems: [
+        "50+ automated weather stations deployed across Mumbai",
+        "High-speed dedicated leased line connectivity",
+        "Internal weather monitoring systems",
+        "Technical dashboards for stakeholders"
+      ],
+      constraints: [
+        "Real-time rainfall data by location",
+        "Temperature, humidity, wind speed, and wind direction indicators",
+        "Data sourced from 50+ automated weather stations",
+        "High availability during critical weather events",
+        "Mobile-first access for citizens across the city"
+      ]
+    },
+    approach: {
+      principles: [
+        "Accuracy builds trust during emergencies",
+        "Information must be local, not generic",
+        "Simplicity is critical in high-stress situations",
+        "Systems must perform when conditions are worst"
+      ],
+      strategicDecisions: [
+        "Continuous data ingestion from automated weather stations",
+        "Secure, leased-line connectivity for uninterrupted data flow",
+        "Backend processing to normalize and validate sensor readings",
+        "Scalable architecture to handle traffic surges during emergencies"
+      ],
+      tradeoffs: [
+        "Simplified indicators over complex meteorological data",
+        "Location-specific views over city-wide averages",
+        "Mobile-first approach for maximum reach"
+      ]
+    },
+    execution: {
+      architecture: "The platform was built to reliably ingest, process, and present sensor data at city scale. Continuous data ingestion from automated weather stations with secure leased-line connectivity, backend processing to normalize and validate sensor readings, and web and mobile applications for citizen access.",
+      keyModules: [
+        "Real-time Data Ingestion Layer",
+        "Sensor Data Normalization Engine",
+        "Location-aware Weather Display",
+        "Citizen Mobile Application",
+        "Web Portal for Weather Information",
+        "Alert and Notification System"
+      ],
+      integrations: [
+        "Automated Weather Stations",
+        "Rainfall Gauges",
+        "Email, SMS, and WhatsApp for alerts and notifications"
+      ],
+      considerations: [
+        "High-availability backend design",
+        "Dedicated leased-line connectivity",
+        "Scalable for traffic surges",
+        "Modular for future enhancements"
+      ]
+    },
+    challengesThatMattered: [
+      {
+        title: "Translating Sensor Data into Citizen-Friendly Information",
+        description: "Raw meteorological data can be difficult for citizens to interpret.",
+        impact: "Simplified indicators and visual representations with location-specific views instead of city-wide averages. Citizens could quickly understand conditions relevant to them."
+      },
+      {
+        title: "Ensuring Reliability During Extreme Weather",
+        description: "Peak usage coincides with the most challenging network and environmental conditions.",
+        impact: "High-availability backend design with dedicated leased-line connectivity from weather stations. Consistent data availability during critical periods."
+      },
+      {
+        title: "Building for Long-Term Evolution",
+        description: "Disaster management needs evolve over time.",
+        impact: "Modular architecture supporting future enhancements with planned rollout of upgraded application version. A future-ready platform capable of expanding beyond weather data."
+      }
+    ],
+    solutions: [
+      {
+        problem: "Translating Sensor Data into Citizen-Friendly Information",
+        decision: "Simplified indicators and visual representations",
+        intervention: "Location-specific views instead of city-wide averages",
+        result: "Citizens could quickly understand conditions relevant to them"
+      },
+      {
+        problem: "Ensuring Reliability During Extreme Weather",
+        decision: "High-availability backend design",
+        intervention: "Dedicated leased-line connectivity from weather stations",
+        result: "Consistent data availability during critical periods"
+      },
+      {
+        problem: "Building for Long-Term Evolution",
+        decision: "Modular architecture supporting future enhancements",
+        intervention: "Planned rollout of upgraded application version",
+        result: "A future-ready platform capable of expanding beyond weather data"
+      }
+    ],
+    outcomes: {
+      quantitative: [
+        "50+ automated weather stations integrated",
+        "City-wide coverage for real-time weather data",
+        "Reduced uncertainty during heavy rainfall",
+        "Improved personal preparedness for citizens"
+      ],
+      qualitative: [
+        "Easy access to accurate, location-specific weather information",
+        "Reduced panic during adverse weather conditions",
+        "Effective utilization of existing weather infrastructure",
+        "Strong foundation for early warning and alert systems",
+        "Improved communication between civic authorities and citizens",
+        "Strengthened Mumbai's disaster preparedness framework"
+      ],
+      impact: "BMC Disaster Management System successfully transformed complex weather station data into accessible, citizen-facing information, strengthening Mumbai's urban resilience and disaster preparedness during the critical monsoon season."
+    },
+    learnings: {
+      keyLearnings: [
+        "Accuracy builds trust during emergencies",
+        "Information must be local and personalized for impact",
+        "Systems must be designed to perform under worst conditions"
+      ],
+      improvements: [],
+      insights: [
+        "Open, citizen-facing data platforms create value from existing infrastructure investments"
+      ]
+    },
+    gallery: [bmcDm]
   }
 };
 
