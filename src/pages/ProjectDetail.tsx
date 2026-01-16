@@ -51,6 +51,7 @@ import workLifestyle from '@/assets/work-lifestyle.jpg';
 import fashionLifestyle from '@/assets/fashion-lifestyle.jpg';
 import nmmcEgovernance from '@/assets/nmmc-egovernance.png';
 import pcmcEgovernance from '@/assets/pcmc-egovernance.png';
+import nmPoliceBi from '@/assets/nm-police-bi.png';
 
 // Tech stack icon mapping
 const techIcons: Record<string, React.ReactNode> = {
@@ -573,131 +574,145 @@ const projectsData: Record<string, {
     gallery: [businessPost, techPost, fashionPost, lifestylePost, workLifestyle, fashionLifestyle]
   },
   'navi-mumbai-police': {
-    title: "Navi Mumbai Police",
-    category: "eGovernance",
-    image: businessPost,
+    title: "Navi Mumbai Police Commissionerate Dashboard",
+    category: "Integrated Command & Analytics Platform | Government (Law Enforcement)",
+    image: nmPoliceBi,
     snapshot: {
-      client: "Navi Mumbai Police Commissionerate",
-      industry: "Law Enforcement / Public Safety",
-      role: "Solution Architect & Technical Lead",
-      duration: "20 months",
-      techStack: [".NET", "SQL Server", "React", "Python", "Power BI", "Azure"]
+      client: "Maharashtra Government – Navi Mumbai Police Commissionerate",
+      industry: "Government | Law Enforcement | Public Safety",
+      role: "Project Director",
+      duration: "3+ months",
+      techStack: ["PHP", "React", "MySQL", "AI-driven analytics"]
     },
     brief: {
-      problem: "Crime data scattered across multiple stations with no unified view, hindering data-driven policing and resource allocation decisions.",
-      context: "Navi Mumbai Police needed a comprehensive digital platform to modernize operations, improve response times, and enable predictive policing using analytics.",
+      problem: "Senior police leadership faced difficulty accessing consolidated crime, traffic, and administrative intelligence. Data was spread across multiple systems with no unified dashboard, making analysis slow, fragmented, and reactive. This directly impacted the ability to respond effectively to rising crime trends.",
+      context: "The Commissioner required a single, authoritative view of policing operations across the city. The objective was to enable fast, data-backed decision-making through real-time visibility, historical analysis, and predictive insights, all aligned to the hierarchical structure of the police force.",
       constraints: [
-        "Sensitive law enforcement data requiring highest security",
-        "Real-time operations requiring 99.99% uptime",
-        "Integration with state and central crime databases",
-        "Field deployment challenges in patrol operations"
+        "Multiple independent data sources with no common reporting layer",
+        "Time-sensitive decision-making requirements",
+        "Strict role-based visibility across police ranks",
+        "Need for historical trend analysis and predictive insights",
+        "Very short delivery timeline"
       ]
     },
     contextReality: {
-      environment: "Police stations operated independently with paper-based FIR registration and manual crime tracking. No centralized view of crime patterns existed.",
+      environment: "Operational data existed across crime systems, traffic records, administrative reports, and social platforms. Most reviews depended on manual consolidation using spreadsheets, which limited depth of analysis and delayed corrective action.",
       existingSystems: [
-        "CCTNS (national crime database)",
-        "Manual station house registers",
-        "Disparate CCTV systems",
-        "Paper-based case diaries"
+        "No single source of truth for leadership reviews",
+        "Manual report preparation before review meetings",
+        "Limited ability to drill down from city-level to station-level data",
+        "Reactive policing due to lack of predictive insights"
       ],
       constraints: [
-        "24/7 operational requirements",
-        "Varying digital literacy among police personnel",
-        "Budget and procurement constraints"
+        "Crime vertical",
+        "Traffic vertical",
+        "Administration vertical",
+        "Special Branch vertical"
       ]
     },
     approach: {
       principles: [
-        "Officer safety and efficiency as primary drivers",
-        "Mobile-first for field operations",
-        "Analytics-driven resource deployment"
+        "One dashboard for leadership, not multiple reports",
+        "Insights over raw data",
+        "Drill-down capability without losing context",
+        "Predictive support for preventive policing"
       ],
       strategicDecisions: [
-        "Built unified crime data warehouse for analytics",
-        "Implemented mobile app for beat officers",
-        "Created real-time dashboards for command center"
+        "Vision definition and outcome alignment with police leadership",
+        "Translating operational policing needs into analytical requirements",
+        "Overseeing data consolidation and validation",
+        "Designing hierarchy-based access and dashboards",
+        "Driving rapid execution within tight timelines"
       ],
       tradeoffs: [
-        "Prioritized core policing workflows over administrative functions",
-        "Chose proven technologies over cutting-edge for reliability"
+        "Prioritized core analytics over comprehensive feature set",
+        "Focused on leadership adoption first",
+        "Rapid delivery over extensive customization"
       ]
     },
     execution: {
-      architecture: "Hybrid architecture with on-premise data center for sensitive data and cloud for analytics processing. Mobile apps with offline capability for field operations.",
+      architecture: "A centralized dashboard platform was developed with structured data ingestion, analytics, and visualization layers. The solution consolidated three years of historical data and enabled both retrospective and forward-looking analysis.",
       keyModules: [
-        "Crime Records Management System",
-        "Case Investigation Tracking",
-        "Beat Management & Patrolling",
-        "Command Center Dashboard",
-        "Crime Analytics & Hotspot Mapping",
-        "Citizen Complaint Portal"
+        "Unified data model across all verticals",
+        "Historical data ingestion for three years",
+        "AI-assisted trend and pattern identification",
+        "Interactive dashboards with drill-down charts and tabular reports",
+        "High-performance rendering for leadership review meetings",
+        "Role-based intelligence with hierarchy-aware data visibility"
       ],
       integrations: [
-        "CCTNS national database",
-        "State CID systems",
-        "CCTV network integration",
-        "Vehicle tracking systems"
+        "CCTNS",
+        "mPolice",
+        "Excel / CSV bulk imports",
+        "Social platforms: Facebook, Instagram, WhatsApp",
+        "CM Dashboards and other government reporting systems"
       ],
       considerations: [
-        "Multi-level access control",
-        "Encrypted communication",
-        "Disaster recovery across zones"
+        "Commissioner of Police (CP) level access",
+        "Joint CP, Additional CP, Deputy CP access layers",
+        "Assistant CP and Police Inspector visibility",
+        "Rank-specific operational scope and accountability"
       ]
     },
     challengesThatMattered: [
       {
-        title: "Ensuring Data Security for Sensitive Crime Data",
-        description: "Crime data is among the most sensitive government data, with potential for misuse if security is compromised.",
-        impact: "Implemented defense-in-depth security with audit trails, encryption at rest and transit, and role-based access."
+        title: "Data Consolidation Across Systems",
+        description: "Data existed in different formats, frequencies, and structures across systems.",
+        impact: "Designed standardized ingestion pipelines. Cleaned and normalized historical datasets. Validated data with department owners. Result: Reliable, comparable data across all verticals."
       },
       {
-        title: "Driving Adoption Among Field Officers",
-        description: "Beat officers were accustomed to paper registers and faced challenges adapting to mobile-first workflows.",
-        impact: "Designed intuitive mobile app with voice input and minimal typing, plus extensive field training."
+        title: "Enabling Predictive and Preventive Analysis",
+        description: "Leadership needed more than past data; they needed early signals.",
+        impact: "Applied AI models to identify trends, spikes, and repeat patterns. Enabled time-based and geography-based comparisons. Result: Shift from reactive reporting to preventive and predictive decision-making."
+      },
+      {
+        title: "Supporting High-Pressure Review Environments",
+        description: "Dashboards had to perform flawlessly during review meetings.",
+        impact: "Optimized queries and caching. Simplified navigation with intuitive visual hierarchies. Result: Fast, interruption-free reviews with focused discussions."
       }
     ],
     solutions: [
       {
-        problem: "Crime hotspots identified too late for preventive action",
-        decision: "Build real-time analytics with predictive modeling",
-        intervention: "Implemented ML-based crime pattern analysis with auto-generated beat patrol recommendations",
-        result: "15% reduction in preventable crimes in identified hotspots"
+        problem: "Data Consolidation Across Systems",
+        decision: "Design standardized ingestion pipelines",
+        intervention: "Cleaned and normalized historical datasets. Validated data with department owners.",
+        result: "Reliable, comparable data across all verticals"
       },
       {
-        problem: "FIR registration taking 45+ minutes per case",
-        decision: "Streamline registration with templates and voice input",
-        intervention: "Built smart FIR wizard with auto-fill for common crimes and voice-to-text",
-        result: "Average FIR registration time reduced to 15 minutes"
+        problem: "Enabling Predictive and Preventive Analysis",
+        decision: "Apply AI models to identify trends, spikes, and repeat patterns",
+        intervention: "Enabled time-based and geography-based comparisons for proactive insights.",
+        result: "Shift from reactive reporting to preventive and predictive decision-making"
+      },
+      {
+        problem: "Supporting High-Pressure Review Environments",
+        decision: "Optimize queries and caching for performance",
+        intervention: "Simplified navigation with intuitive visual hierarchies for leadership use.",
+        result: "Fast, interruption-free reviews with focused discussions"
       }
     ],
     outcomes: {
       quantitative: [
-        "40% improvement in case resolution rate",
-        "60% reduction in FIR registration time",
-        "15% reduction in preventable crimes",
-        "Real-time visibility across 100+ beats"
+        "Single command dashboard for city-wide policing",
+        "Faster interpretation of crime and traffic trends",
+        "Improved coordination across verticals",
+        "Reduced dependence on manual reporting"
       ],
       qualitative: [
-        "Data-driven resource allocation across commissionerate",
-        "Improved public trust through faster response",
-        "Foundation for smart city integration"
+        "Enabled preventive policing through predictive insights",
+        "Strengthened leadership control and situational awareness",
+        "Appreciated by senior police leadership, including the Deputy Director General of Police, Maharashtra",
+        "Established a repeatable analytics framework for policing",
+        "Created a foundation for future expansion across districts"
       ],
-      impact: "Transformed Navi Mumbai Police into a data-driven modern police force, becoming a model for other police commissionerates."
+      impact: "The dashboard transformed police leadership's ability to make data-driven decisions, enabling preventive policing and earning recognition from the Deputy Director General of Police, Maharashtra."
     },
     learnings: {
-      keyLearnings: [
-        "Law enforcement technology must be designed with field realities in mind",
-        "Analytics value is realized only when insights reach frontline officers"
-      ],
-      improvements: [
-        "Would have invested more in command center infrastructure from start"
-      ],
-      insights: [
-        "Technology adoption in police forces succeeds when officers see it helping their daily work"
-      ]
+      keyLearnings: [],
+      improvements: [],
+      insights: []
     },
-    gallery: [businessPost, techPost, fashionPost, lifestylePost, workLifestyle, fashionLifestyle]
+    gallery: [nmPoliceBi]
   },
   'vendiman': {
     title: "Vendiman",
