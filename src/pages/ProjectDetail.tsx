@@ -50,6 +50,7 @@ import lifestylePost from '@/assets/lifestyle-post.jpg';
 import workLifestyle from '@/assets/work-lifestyle.jpg';
 import fashionLifestyle from '@/assets/fashion-lifestyle.jpg';
 import nmmcEgovernance from '@/assets/nmmc-egovernance.png';
+import pcmcEgovernance from '@/assets/pcmc-egovernance.png';
 
 // Tech stack icon mapping
 const techIcons: Record<string, React.ReactNode> = {
@@ -297,131 +298,154 @@ const projectsData: Record<string, {
     gallery: [nmmcEgovernance]
   },
   'pcmc-portal': {
-    title: "PCMC Portal",
-    category: "Web Apps",
-    image: fashionPost,
+    title: "PCMC ERP Suite",
+    category: "Enterprise ERP & GIS Platform | e-Governance",
+    image: pcmcEgovernance,
     snapshot: {
-      client: "Pimpri Chinchwad Municipal Corporation",
-      industry: "Government / e-Governance",
-      role: "Solution Architect & Technical Lead",
-      duration: "14 months",
-      techStack: [".NET", "SQL Server", "Angular", "Azure", "Elasticsearch"]
+      client: "Pimpri Chinchwad Municipal Corporation (PCMC)",
+      industry: "Government | e-Governance | Smart City",
+      role: "Business Analyst",
+      duration: "18+ months",
+      techStack: ["Java", "React", "Flutter", "PostgreSQL", "AI", "GIS"]
     },
     brief: {
-      problem: "PCMC, serving a rapidly growing industrial hub with 2+ million citizens, struggled with citizen service delivery due to disconnected departmental systems and manual processes.",
-      context: "As one of the richest municipal corporations in Asia, PCMC needed a world-class digital platform to match its industrial significance and serve its diverse population of industrial workers, businessmen, and residents.",
+      problem: "Citizens interacted with PCMC through multiple disconnected legacy systems, resulting in long queues, delayed service delivery, and limited transparency. Internally, municipal staff operated across several applications with different logins, most of which were accessible only via intranet, restricting mobility and cross-department coordination.",
+      context: "PCMC, a rapidly growing urban corporation, required a unified ERP suite that could consolidate departmental operations, integrate spatial intelligence through GIS, and provide a single digital interface for both citizens and officials. The objective was operational efficiency, data-driven governance, and scalable service delivery under the Smart City mission.",
       constraints: [
-        "High transaction volumes due to industrial area",
-        "Integration with industrial licensing systems",
-        "Bilingual mandatory (Marathi and English)",
-        "Strict compliance with Smart City guidelines"
+        "Multiple legacy systems across departments",
+        "Intranet-only applications needing secure internet exposure",
+        "Role-based access for diverse municipal hierarchies",
+        "GIS integration for planning, assets, and infrastructure",
+        "High transaction volumes across finance, services, and utilities",
+        "Compliance with government security and audit standards"
       ]
     },
     contextReality: {
-      environment: "PCMC operates in one of India's largest industrial zones with unique requirements around industrial licensing, environmental clearances, and worker welfare.",
+      environment: "PCMC's digital ecosystem had evolved department by department, leading to fragmented data silos and manual reconciliation. Decision-making lacked real-time insights, especially where geographic context was critical.",
       existingSystems: [
-        "SAP-based financial management system",
-        "Legacy industrial licensing database",
-        "Separate property and water tax systems",
-        "Manual building permission process"
+        "No unified view of financial, asset, and service data",
+        "Manual and error-prone workflows",
+        "Limited analytical and MIS capabilities",
+        "Inefficient payment processing and document handling",
+        "Restricted accessibility for officers outside municipal buildings"
       ],
       constraints: [
-        "Industrial stakeholders demanded fast processing",
-        "High volume of commercial transactions",
-        "Multiple ward offices with varying IT infrastructure"
+        "Financial Management",
+        "HR & Payroll",
+        "Asset and Inventory Management",
+        "Procurement and Project Management",
+        "Property Tax and Water Billing",
+        "Grievance Management",
+        "Citizen Services Portal",
+        "Disaster and Infrastructure Management",
+        "Business Intelligence Dashboards"
       ]
     },
     approach: {
       principles: [
-        "Speed and efficiency for industrial stakeholders",
-        "Paperless workflow implementation",
-        "Mobile-first for field operations"
+        "Process standardization without breaking statutory rules",
+        "Data consistency across departments",
+        "GIS as a decision-support tool, not just visualization",
+        "Ease of use for both citizens and internal users"
       ],
       strategicDecisions: [
-        "Prioritized industrial services for Phase 1",
-        "Built comprehensive search and tracking system",
-        "Implemented document management with OCR"
+        "Designed workflows adaptable to departmental variations",
+        "Emphasized SSO and access control early to reduce resistance",
+        "Prioritized BI dashboards for leadership adoption"
       ],
       tradeoffs: [
-        "Chose rapid deployment over comprehensive features",
-        "Accepted some manual processes to meet timeline"
+        "Phased rollout for risk mitigation",
+        "Balanced feature depth with usability",
+        "GIS integration prioritized over some secondary modules"
       ]
     },
     execution: {
-      architecture: "Service-oriented architecture with enterprise service bus for inter-system communication. Elasticsearch for fast document and application search.",
+      architecture: "A web-based, cloud-enabled ERP architecture was implemented with GIS as a foundational layer rather than an add-on. Business data and spatial data were tightly integrated to support planning, monitoring, and operational decision-making.",
       keyModules: [
-        "Industrial Licensing Portal",
-        "Trade License Management",
-        "Property Tax & Assessment",
-        "Building Permission System",
-        "Birth & Death Registration",
-        "E-Tendering Platform"
+        "Single Sign-On across modules",
+        "Central authentication with role-based authorization",
+        "Modular ERP design with shared services",
+        "GIS integration for assets, utilities, and urban planning",
+        "Mobile applications for field-level operations",
+        "BI layer for dashboards and drill-down reporting"
       ],
       integrations: [
-        "SAP financial system",
-        "State pollution control board",
-        "RERA compliance system",
-        "Multiple payment gateways"
+        "Payment gateways: CCAvenue, Bank of Baroda, EaseBuzz, BillDesk, BBPS, HDFC, POS",
+        "Citizen communication: WhatsApp notifications",
+        "Government platforms: Aaple Sarkar, CM Dashboards",
+        "Spatial systems: GIS",
+        "External service and infrastructure integrations"
       ],
       considerations: [
-        "High availability for industrial services",
-        "Bulk processing for large enterprises",
-        "API-first for third-party integrations"
+        "Scalability for Smart City initiatives",
+        "Data security and audit compliance",
+        "Accessibility for diverse user groups"
       ]
     },
     challengesThatMattered: [
       {
-        title: "Managing Industrial Stakeholder Expectations",
-        description: "Large industries expected the same service levels as private enterprise platforms, with zero tolerance for delays or downtime.",
-        impact: "Required building enterprise-grade SLAs and dedicated support channels."
+        title: "Integrating ERP with GIS at Scale",
+        description: "Municipal data needed to be analysed alongside spatial information for planning, assets, and disaster response.",
+        impact: "Defined common identifiers between ERP and GIS layers. Enabled spatial tagging of assets, properties, and infrastructure. Validated GIS-backed reports and dashboards."
       },
       {
-        title: "Integrating with SAP Financial Systems",
-        description: "PCMC's SAP implementation had extensive customizations making standard integrations impossible.",
-        impact: "Built custom SAP connectors with thorough testing across all financial workflows."
+        title: "High Transaction Volumes Across Departments",
+        description: "The system had to support millions of transactions annually across finance, citizen services, utilities, and assets.",
+        impact: "Streamlined workflows and reduced manual touchpoints. Standardized data structures across modules. Ensured reporting performance through optimized queries and BI tooling."
+      },
+      {
+        title: "Adoption Across Diverse User Groups",
+        description: "Users ranged from senior administrators to field staff and citizens with varying digital literacy.",
+        impact: "Simplified interfaces and role-specific screens. Structured training and phased rollouts. Feedback-driven refinements during implementation."
       }
     ],
     solutions: [
       {
-        problem: "Industrial license applications taking 30+ days",
-        decision: "Implement parallel processing workflow with automated routing",
-        intervention: "Built multi-department concurrent review system with SLA tracking",
-        result: "Reduced average processing time to 7 days for standard applications"
+        problem: "Integrating ERP with GIS at Scale",
+        decision: "Define common identifiers between ERP and GIS layers",
+        intervention: "Enabled spatial tagging of assets, properties, and infrastructure. Validated GIS-backed reports and dashboards.",
+        result: "Improved planning accuracy and faster response during infrastructure and disaster-related scenarios."
       },
       {
-        problem: "Document search taking hours in legacy systems",
-        decision: "Implement Elasticsearch-based document repository",
-        intervention: "Migrated 10+ years of documents with OCR indexing",
-        result: "Document retrieval now takes under 3 seconds"
+        problem: "High Transaction Volumes Across Departments",
+        decision: "Streamline workflows and standardize data structures",
+        intervention: "Reduced manual touchpoints and ensured reporting performance through optimized queries and BI tooling.",
+        result: "More reliable reporting, faster processing cycles, and improved audit readiness."
+      },
+      {
+        problem: "Adoption Across Diverse User Groups",
+        decision: "Simplify interfaces with role-specific screens",
+        intervention: "Structured training, phased rollouts, and feedback-driven refinements during implementation.",
+        result: "Improved adoption and reduced dependency on parallel manual processes."
       }
     ],
     outcomes: {
       quantitative: [
-        "75% reduction in industrial license processing time",
-        "₹50 Cr+ online transactions in first year",
-        "90% paperless operations achieved",
-        "50,000+ applications processed monthly"
+        "Unified digital platform replacing fragmented applications",
+        "Improved efficiency in finance, procurement, and asset tracking",
+        "GIS-enabled insights for urban planning and infrastructure management",
+        "Stronger audit trails and accountability"
       ],
       qualitative: [
-        "Recognized as Smart City best practice",
-        "Improved industrial stakeholder relationships",
-        "Set benchmark for other industrial city portals"
+        "Single portal for multiple municipal services",
+        "Online payments with multiple gateway options",
+        "Improved grievance visibility and turnaround times"
       ],
-      impact: "PCMC portal became a model for industrial city e-governance, demonstrating that government services can match private sector efficiency."
+      impact: "Data-driven decision-making through BI dashboards. Foundation for scalable Smart City initiatives. Shift from department-centric systems to an integrated governance platform."
     },
     learnings: {
       keyLearnings: [
-        "Industrial stakeholders drive adoption through economic incentives",
-        "Document digitization ROI is immediate and substantial"
+        "GIS integration transforms ERP from a transaction system to a decision-support platform",
+        "Early focus on SSO and access control accelerates adoption"
       ],
       improvements: [
-        "Would have invested more in mobile app from day one"
+        "Would have invested more in mobile-first design for field staff from day one"
       ],
       insights: [
-        "When businesses see time savings, they become the strongest advocates for digital adoption"
+        "When spatial context is added to municipal data, decision-making becomes significantly more effective"
       ]
     },
-    gallery: [fashionPost, techPost, businessPost, lifestylePost, workLifestyle, fashionLifestyle]
+    gallery: [pcmcEgovernance]
   },
   'sc-land-records': {
     title: "SC Land Records",

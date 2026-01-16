@@ -10,6 +10,7 @@ import lifestylePost from '@/assets/lifestyle-post.jpg';
 import workLifestyle from '@/assets/work-lifestyle.jpg';
 import fashionLifestyle from '@/assets/fashion-lifestyle.jpg';
 import nmmcEgovernance from '@/assets/nmmc-egovernance.png';
+import pcmcEgovernance from '@/assets/pcmc-egovernance.png';
 
 const categories = ['All', 'Web Apps', 'Mobile Apps', 'AI/ML/CV', 'eGovernance', 'eCommerce', 'BI Dashboards'];
 
@@ -37,8 +38,8 @@ const projects = [
     title: "PCMC Portal",
     category: "Web Apps",
     date: "2024",
-    excerpt: "Pimpri Chinchwad Municipal Corporation web portal for citizen services and grievance redressal.",
-    image: images[2],
+    excerpt: "Enterprise ERP & GIS platform for Pimpri Chinchwad Municipal Corporation under Smart City mission.",
+    image: pcmcEgovernance,
     height: "medium"
   },
   {
@@ -235,8 +236,8 @@ const projects = [
     title: "PCMC eGovernance",
     category: "eGovernance",
     date: "2024",
-    excerpt: "Digital governance platform for Pimpri Chinchwad Municipal Corporation.",
-    image: images[2],
+    excerpt: "Enterprise ERP & GIS platform with integrated modules serving PCMC Smart City initiatives.",
+    image: pcmcEgovernance,
     height: "medium"
   },
   {
