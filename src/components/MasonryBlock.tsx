@@ -1,71 +1,79 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import businessPost from '@/assets/business-post.jpg';
-import techPost from '@/assets/tech-post.jpg';
-import fashionPost from '@/assets/fashion-post.jpg';
-import lifestylePost from '@/assets/lifestyle-post.jpg';
-import workLifestyle from '@/assets/work-lifestyle.jpg';
-import fashionLifestyle from '@/assets/fashion-lifestyle.jpg';
+import vendimanMax from '@/assets/vendiman-max.png';
+import mhPolice from '@/assets/mh-police.png';
+import mobileGames from '@/assets/mobile-games.png';
+import nmmcEgovernance from '@/assets/nmmc-egovernance.png';
+import guppaai from '@/assets/guppaai.png';
+import nepalPolice from '@/assets/nepal-police.png';
+import bmcPothole from '@/assets/bmc-pothole.png';
 
 const categories = ['All', 'Web Apps', 'Mobile Apps', 'AI/ML/CV', 'eGovernance'];
 
 const masonryPosts = [
   {
+    title: "Vendiman",
+    category: "AI/ML/CV",
+    date: "2024",
+    excerpt: "Autonomous Retail & Anti-Fraud Intelligence Platform with sensor fusion and real-time fraud prevention.",
+    image: vendimanMax,
+    height: "tall",
+    slug: "vendiman"
+  },
+  {
+    title: "Maharashtra Police - Dial 100",
+    category: "eGovernance",
+    date: "2019",
+    excerpt: "Real-Time Command & Control Platform unifying call handling, dispatch, and field execution.",
+    image: mhPolice,
+    height: "tall",
+    slug: "maharashtra-police-dial-100"
+  },
+  {
+    title: "Mobile Games Development",
+    category: "Mobile Apps",
+    date: "2020",
+    excerpt: "Simulation Games & Game Production Collaboration with Cypher Gamez.",
+    image: mobileGames,
+    height: "medium",
+    slug: "mobile-games-development"
+  },
+  {
     title: "Guppa.ai",
     category: "AI/ML/CV",
     date: "2025",
     excerpt: "Conversational AI platform with natural language processing capabilities.",
-    image: businessPost,
-    height: "tall"
-  },
-  {
-    title: "Cipla",
-    category: "Web Apps",
-    date: "2025",
-    excerpt: "Pharmaceutical industry web application for operations and compliance management.",
-    image: techPost,
-    height: "medium"
-  },
-  {
-    title: "Navi Mumbai Police",
-    category: "eGovernance",
-    date: "2025",
-    excerpt: "Modern policing solution with analytics and citizen engagement features.",
-    image: fashionPost,
-    height: "medium"
+    image: guppaai,
+    height: "medium",
+    slug: "guppa-ai"
   },
   {
     title: "NMMC Portal",
     category: "Web Apps",
     date: "2024",
-    excerpt: "Navi Mumbai Municipal Corporation citizen services portal with integrated payment systems.",
-    image: lifestylePost,
-    height: "short"
-  },
-  {
-    title: "Smith+Nephew's App",
-    category: "Mobile Apps",
-    date: "2025",
-    excerpt: "Medical devices field service mobile application for technicians.",
-    image: workLifestyle,
-    height: "medium"
+    excerpt: "Enterprise ERP platform for Navi Mumbai Municipal Corporation with 21 integrated modules.",
+    image: nmmcEgovernance,
+    height: "medium",
+    slug: "nmmc-portal"
   },
   {
     title: "Nepal Police",
     category: "eGovernance",
     date: "2024",
     excerpt: "International police modernization project with comprehensive digital systems.",
-    image: fashionLifestyle,
-    height: "short"
+    image: nepalPolice,
+    height: "short",
+    slug: "nepal-police"
   },
   {
-    title: "Clairity",
-    category: "AI/ML/CV",
-    date: "2024",
-    excerpt: "Computer vision solution for clarity assessment and image analysis.",
-    image: businessPost,
-    height: "medium"
+    title: "BMC Pothole",
+    category: "Mobile Apps",
+    date: "2022",
+    excerpt: "Citizen Grievance & Field Operations Platform with GPS-based complaint registration.",
+    image: bmcPothole,
+    height: "medium",
+    slug: "bmc-pothole"
   }
 ];
 
@@ -115,7 +123,7 @@ const MasonryBlock = () => {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 auto-rows-[180px]" style={{ gridAutoFlow: 'row dense' }}>
         {displayPosts.map((post, index) => {
-          const projectSlug = post.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+          const projectSlug = post.slug || post.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
           return (
             <Link
               key={index}
