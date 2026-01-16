@@ -1,12 +1,14 @@
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useRef } from 'react';
+import { Link } from 'react-router-dom';
 import businessPost from '@/assets/business-post.jpg';
 import techPost from '@/assets/tech-post.jpg';
 import fashionPost from '@/assets/fashion-post.jpg';
 import lifestylePost from '@/assets/lifestyle-post.jpg';
 import workLifestyle from '@/assets/work-lifestyle.jpg';
 import fashionLifestyle from '@/assets/fashion-lifestyle.jpg';
+import vendorManagementCover from '@/assets/vendor-management-cover.jpg';
 
 interface PickItem {
   id: string;
@@ -15,6 +17,7 @@ interface PickItem {
   date: string;
   excerpt: string;
   image: string;
+  slug: string;
 }
 
 const EditorsPick = () => {
@@ -23,51 +26,57 @@ const EditorsPick = () => {
   const picks: PickItem[] = [
     {
       id: '1',
-      title: 'Editor Pick Title — Featured Content Description',
-      category: 'CATEGORY',
-      date: 'DATE',
-      excerpt: 'Editor pick excerpt — Brief preview of the featured article content.',
-      image: fashionLifestyle,
+      title: 'Vendor Management: Where Governance Meets Execution',
+      category: 'EGOVERNANCE',
+      date: 'January 16, 2026',
+      excerpt: 'In government, policies are framed internally, but execution often happens through vendors.',
+      image: vendorManagementCover,
+      slug: 'vendor-management-governance-execution',
     },
     {
       id: '2',
-      title: 'Featured Article — Content Summary',
-      category: 'CATEGORY',
-      date: 'DATE',
-      excerpt: 'Article excerpt — Short description of what this featured content covers.',
+      title: 'Digital Transformation in Urban Governance',
+      category: 'TECHNOLOGY',
+      date: 'January 10, 2026',
+      excerpt: 'Exploring how smart city initiatives are reshaping municipal operations and citizen services.',
       image: techPost,
+      slug: 'digital-transformation-urban-governance',
     },
     {
       id: '3',
-      title: 'Pick Title — Article Preview',
-      category: 'CATEGORY',
-      date: 'DATE',
-      excerpt: 'Content preview — Description of the article topic and main points.',
-      image: lifestylePost,
+      title: 'Building Resilient e-Governance Systems',
+      category: 'TECHNOLOGY',
+      date: 'December 28, 2025',
+      excerpt: 'Key considerations for designing government digital infrastructure that scales.',
+      image: workLifestyle,
+      slug: 'resilient-egovernance-systems',
     },
     {
       id: '4',
-      title: 'Selected Content — Featured Description',
-      category: 'CATEGORY',
-      date: 'DATE',
-      excerpt: 'Featured excerpt — Summary of the highlighted article content.',
-      image: workLifestyle,
+      title: 'Smart City Strategies for Developing Nations',
+      category: 'TECHNOLOGY',
+      date: 'December 15, 2025',
+      excerpt: 'Practical approaches to implementing smart city solutions with limited resources.',
+      image: lifestylePost,
+      slug: 'smart-city-developing-nations',
     },
     {
       id: '5',
-      title: 'Editor Choice — Content Overview',
-      category: 'CATEGORY',
-      date: 'DATE',
-      excerpt: 'Choice excerpt — Brief overview of this specially selected content.',
+      title: 'Property Tax Digitization: Lessons Learned',
+      category: 'TECHNOLOGY',
+      date: 'December 5, 2025',
+      excerpt: 'Insights from implementing digital property tax systems for municipal corporations.',
       image: businessPost,
+      slug: 'property-tax-digitization',
     },
     {
       id: '6',
-      title: 'Top Pick — Article Highlight',
-      category: 'CATEGORY',
-      date: 'DATE',
-      excerpt: 'Highlight excerpt — Preview of this top recommended article.',
+      title: 'User Experience in Government Applications',
+      category: 'TECHNOLOGY',
+      date: 'November 20, 2025',
+      excerpt: 'Why citizen-centric design matters in public sector digital services.',
       image: fashionPost,
+      slug: 'ux-government-applications',
     },
   ];
 
@@ -120,8 +129,8 @@ const EditorsPick = () => {
             key={pick.id}
             className="flex-shrink-0 w-80 bg-card rounded-lg overflow-hidden hover:shadow-md transition-shadow duration-200"
           >
-            <a
-              href={`/article/${pick.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '')}`}
+            <Link
+              to={`/blog/${pick.slug}`}
               className="block focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-lg"
               aria-label={`Read article: ${pick.title}`}
             >
@@ -153,7 +162,7 @@ const EditorsPick = () => {
                   READ MORE
                 </Button>
               </div>
-            </a>
+            </Link>
           </article>
         ))}
       </div>
