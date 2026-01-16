@@ -58,6 +58,7 @@ import dmsApp from '@/assets/dms-app.png';
 import bmcPothole from '@/assets/bmc-pothole.png';
 import pwdPothole from '@/assets/pwd-pothole.png';
 import nepalPolice from '@/assets/nepal-police.png';
+import nmmcDashboard from '@/assets/nmmc-dashboard.png';
 
 // Tech stack icon mapping
 const techIcons: Record<string, React.ReactNode> = {
@@ -1975,6 +1976,164 @@ const projectsData: Record<string, {
       insights: []
     },
     gallery: [nepalPolice]
+  },
+  'nmmc-dashboard': {
+    title: "NMMC Integrated Dashboards",
+    category: "Commissionerate-Level Decision Intelligence | Power BI Analytics Platform",
+    image: nmmcDashboard,
+    snapshot: {
+      client: "Navi Mumbai Municipal Corporation (NMMC)",
+      industry: "Government | Urban Governance | Decision Intelligence",
+      role: "Project Director",
+      duration: "18+ months",
+      techStack: ["Power BI", "Java", "Angular", "PostgreSQL"]
+    },
+    brief: {
+      problem: "NMMC operated multiple mission-critical systems delivered by different vendors, each with its own dashboards. For commissionerate-level reviews, leadership had to log into several applications to understand performance, revenue, operations, and compliance. This fragmented view slowed decision-making and limited the ability to take early corrective or preventive action.",
+      context: "The Municipal Commissioner required a single, authoritative dashboard that consolidated operational, financial, and administrative intelligence across departments. The objective was to move from isolated, retrospective reporting to progressive, predictive, and preventive governance.",
+      constraints: [
+        "Multiple vendors and heterogeneous systems",
+        "No common data model across departments",
+        "High expectations from senior leadership",
+        "Requirement for drill-down without losing context",
+        "Need for predictive and preventive indicators"
+      ]
+    },
+    contextReality: {
+      environment: "Each department had invested in its own application and reporting layer. While dashboards existed, they were siloed and inconsistent in structure and interpretation.",
+      existingSystems: [
+        "Multiple logins for routine reviews",
+        "Manual consolidation before review meetings",
+        "No unified view of city-wide performance",
+        "Reactive decision-making driven by lagging indicators"
+      ],
+      constraints: [
+        "Water SCADA",
+        "Property Tax Revenue",
+        "Water Tax Revenue",
+        "RTS and Other Municipal Collections",
+        "Grievance Management",
+        "Vendor Payments and Liabilities",
+        "Vehicle Fleet and Utilization",
+        "Staff Salary and Attendance",
+        "School Attendance and Mid-Day Meal Monitoring",
+        "Teacher Attendance",
+        "Pension, Retirement, PF, GPF",
+        "Home and Vehicle Loans",
+        "Solid Waste Management",
+        "Sweeper Machine Management",
+        "Electric Pole Management",
+        "Garden and Asset Management"
+      ]
+    },
+    approach: {
+      principles: [
+        "One dashboard for leadership, many views underneath",
+        "Insights over numbers",
+        "Prevention is more valuable than correction",
+        "Consistency in interpretation across departments"
+      ],
+      strategicDecisions: [
+        "Centralized data models aligned to commissioner-level KPIs",
+        "Power BI dashboards with role-based views",
+        "Drill-down from city-level to department-level metrics",
+        "Time-series analysis for trend identification",
+        "Predictive indicators for early warning scenarios"
+      ],
+      tradeoffs: [
+        "Federated data aggregation from multiple systems",
+        "Prioritized leadership adoption over comprehensive coverage",
+        "Focused on high-impact KPIs first"
+      ]
+    },
+    execution: {
+      architecture: "The solution followed a federated data aggregation model, pulling data from multiple systems into a unified analytics layer. Business data from various departmental systems was consolidated using centralized data models aligned to commissioner-level KPIs.",
+      keyModules: [
+        "Water SCADA monitoring",
+        "Property and Water Tax Revenue tracking",
+        "RTS and Municipal Collections",
+        "Grievance Management analytics",
+        "Vendor Payments and Liabilities",
+        "Vehicle Fleet and Utilization",
+        "Staff Salary and Attendance",
+        "School and Teacher Attendance monitoring",
+        "Mid-Day Meal Monitoring",
+        "Pension, Retirement, PF, GPF tracking",
+        "Solid Waste Management",
+        "Electric Pole and Garden Management"
+      ],
+      integrations: [
+        "Source systems across finance, utilities, HR, education, and operations",
+        "Power BI analytics engine",
+        "AI / BI / ML components for trend and anomaly detection",
+        "Email, SMS, and WhatsApp for alerts and summaries"
+      ],
+      considerations: [
+        "Role-based views for different leadership levels",
+        "Drill-down capability without losing context",
+        "Time-series analysis for trend identification",
+        "Predictive indicators for early warning"
+      ]
+    },
+    challengesThatMattered: [
+      {
+        title: "Consolidating Vendor-Owned Systems",
+        description: "Each system exposed data differently, with inconsistent definitions.",
+        impact: "Defined a canonical data model. Standardized metrics and reporting periods. Implemented validation checkpoints. Result: Comparable and trustworthy metrics across departments."
+      },
+      {
+        title: "Balancing Depth with Simplicity",
+        description: "Leadership needed clarity, not data overload.",
+        impact: "Tiered dashboards: overview, drill-down, detail. Visual prioritization of exceptions and trends. Result: Faster comprehension during high-level review meetings."
+      },
+      {
+        title: "Enabling Predictive and Preventive Governance",
+        description: "Dashboards were historically backward-looking.",
+        impact: "Added trend-based projections. Implemented anomaly and threshold-based indicators. Result: Early signals for revenue slippage, service delays, and operational risks."
+      }
+    ],
+    solutions: [
+      {
+        problem: "Consolidating Vendor-Owned Systems",
+        decision: "Define a canonical data model with standardized metrics",
+        intervention: "Standardized metrics and reporting periods across all vendor systems. Implemented validation checkpoints for data quality.",
+        result: "Comparable and trustworthy metrics across departments"
+      },
+      {
+        problem: "Balancing Depth with Simplicity",
+        decision: "Create tiered dashboards with visual prioritization",
+        intervention: "Built overview, drill-down, and detail layers with visual prioritization of exceptions and trends.",
+        result: "Faster comprehension during high-level review meetings"
+      },
+      {
+        problem: "Enabling Predictive and Preventive Governance",
+        decision: "Add trend-based projections and anomaly detection",
+        intervention: "Implemented anomaly and threshold-based indicators for early warning scenarios.",
+        result: "Early signals for revenue slippage, service delays, and operational risks"
+      }
+    ],
+    outcomes: {
+      quantitative: [
+        "Single source of truth for commissionerate reviews",
+        "Reduced dependency on manual consolidation",
+        "Faster, more confident decision-making"
+      ],
+      qualitative: [
+        "Improved inter-department coordination",
+        "Early identification of underperforming areas",
+        "Better vendor and resource management",
+        "Shift from reactive reporting to preventive governance",
+        "Data-driven culture at the top of the organization",
+        "Scalable analytics foundation for future initiatives"
+      ],
+      impact: "The integrated dashboard platform transformed commissionerate-level reviews from fragmented, manual consolidation to a single source of truth, enabling predictive and preventive governance across 15+ municipal departments."
+    },
+    learnings: {
+      keyLearnings: [],
+      improvements: [],
+      insights: []
+    },
+    gallery: [nmmcDashboard]
   }
 };
 
