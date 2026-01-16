@@ -67,6 +67,7 @@ import lomAi from '@/assets/lom-ai.png';
 import bmcDm from '@/assets/bmc-dm.png';
 import mobileGames from '@/assets/mobile-games.png';
 import vendimanMax from '@/assets/vendiman-max.png';
+import mhPolice from '@/assets/mh-police.png';
 
 // Tech stack icon mapping
 const techIcons: Record<string, React.ReactNode> = {
@@ -2927,6 +2928,158 @@ const projectsData: Record<string, {
       ]
     },
     gallery: [vendimanMax]
+  },
+  'maharashtra-police-dial-100': {
+    title: "Dial 100 – Unified Emergency Response System",
+    category: "Real-Time Command & Control Platform | Government (Law Enforcement)",
+    image: mhPolice,
+    snapshot: {
+      client: "Nagpur, Thane, Chandrapur, Ahilyanagar, Pune, Vardha Police",
+      industry: "Government | Law Enforcement | Emergency Response",
+      role: "Project Director",
+      duration: "12+ months",
+      techStack: ["Embedded Systems", ".NET Core", "HTML5", "MS SQL Server"]
+    },
+    brief: {
+      problem: "Emergency response operations suffered from operational latency and fragmented workflows. Call intake, location identification, and vehicle dispatch were handled as separate manual steps, creating delays at precisely the moments when seconds matter. Supervisors lacked real-time visibility into which vehicles were actually available and fit for duty, whether the nearest patrol was dispatched, and whether the incident was genuinely resolved.",
+      context: "Dial 100 is the frontline of police response. The mandate was to build a zero-latency, closed-loop emergency response system that unified call handling, dispatch, field execution, and post-incident verification into a single digital workflow.",
+      constraints: [
+        "Multiple police districts with varying infrastructure",
+        "Real-time coordination between call takers and dispatchers",
+        "Integration with VoIP, GPS, and communication systems",
+        "Vehicle tracking and fitness status management",
+        "Audit trail requirements for legal and compliance",
+        "High-availability requirements for emergency operations"
+      ]
+    },
+    contextReality: {
+      environment: "Traditional control rooms relied heavily on manual call logging, verbal coordination, and paper or loosely connected digital records. This fragmentation created blind spots, accountability gaps, and slower response times, directly impacting public safety.",
+      existingSystems: [
+        "Delay between call receipt and vehicle dispatch",
+        "Guesswork in identifying the nearest patrol vehicle",
+        "No unified audit trail linking calls, dispatch, and field action",
+        "Limited supervisory control and quality assurance",
+        "Manual and error-prone coordination"
+      ],
+      constraints: [
+        "Call Taker Module",
+        "Dispatcher Module (Zero-Latency)",
+        "GIS-Driven Resource Allocation",
+        "Vehicle & Asset Monitoring",
+        "Supervisor Module",
+        "Voice & Data Logging",
+        "Audit Trail System"
+      ]
+    },
+    approach: {
+      principles: [
+        "Seconds are non-negotiable",
+        "Automation must reduce thinking, not add steps",
+        "Visibility equals accountability",
+        "Every incident must leave a digital footprint"
+      ],
+      strategicDecisions: [
+        "Direct module integration for sub-second data propagation",
+        "Live GIS mapping with fit/unfit vehicle status enforcement",
+        "Automated voice and data logging for accountability",
+        "Supervisor-led validation without operational friction"
+      ],
+      tradeoffs: [
+        "Real-time performance over feature complexity",
+        "Reliability under peak emergency load",
+        "Integration depth with existing police communication systems"
+      ]
+    },
+    execution: {
+      architecture: "A Unified Command & Control System designed to automate the entire lifecycle of an emergency incident. From the first ring to case closure, every step became digitally connected, time-stamped, and traceable.",
+      keyModules: [
+        "Call Taker Module: Captures caller details and incident information, creates digital 'Challan' in real time",
+        "Dispatcher Module: Instant synchronization with sub-second Challan propagation, eliminates manual handovers",
+        "GIS-Driven Resource Allocation: Live city map with GPS-enabled patrol vehicles, automatic nearest vehicle identification",
+        "Vehicle & Asset Monitoring: Real-time fit/unfit status, prevents assignment of non-operational assets",
+        "Supervisor Module: Post-incident verification, direct victim callback for response quality validation",
+        "Voice & Data Logging: Softphone calls auto-recorded, walkie-talkie communications captured, tagged to specific Challan"
+      ],
+      integrations: [
+        "VoIP systems (softphone integration)",
+        "GPS for vehicle tracking",
+        "IP Cameras",
+        "Walkie-Talkie communication systems",
+        "Vehicle Tracking System (VTS)"
+      ],
+      considerations: [
+        "Closed-loop accountability framework",
+        "Complete, immutable incident history",
+        "Support for legal review, internal audits, and training"
+      ]
+    },
+    challengesThatMattered: [
+      {
+        title: "Eliminating Dispatch Delays",
+        description: "Manual transfer between call taking and dispatch caused critical time loss during emergencies.",
+        impact: "Direct module integration with sub-second data propagation achieved near-instant dispatch readiness."
+      },
+      {
+        title: "Removing Guesswork from Vehicle Assignment",
+        description: "Dispatchers often relied on assumptions about vehicle location and readiness.",
+        impact: "Live GIS mapping and fit/unfit vehicle status enforcement enabled faster and more reliable dispatch decisions."
+      },
+      {
+        title: "Ensuring Accountability Without Micromanagement",
+        description: "Lack of verifiable closure data reduced trust and learning opportunities.",
+        impact: "Automated voice and data logging with supervisor-led validation achieved accountability without operational friction."
+      }
+    ],
+    solutions: [
+      {
+        problem: "Operational latency in emergency response",
+        decision: "Design zero-latency closed-loop system",
+        intervention: "Direct module integration with sub-second data propagation between call taker and dispatcher",
+        result: "Near-instant dispatch readiness, elimination of manual relay gaps"
+      },
+      {
+        problem: "Unreliable vehicle assignment",
+        decision: "Implement GIS-driven resource allocation",
+        intervention: "Live city map with GPS-enabled patrol vehicles and automatic nearest vehicle identification",
+        result: "Dispatch based on proximity and fitness status, not assumption"
+      },
+      {
+        problem: "Lack of accountability and audit trail",
+        decision: "Build closed-loop accountability framework",
+        intervention: "Automated voice and data logging, supervisor-led victim validation, complete incident history",
+        result: "Reliable audit trail for legal and compliance needs"
+      }
+    ],
+    outcomes: {
+      quantitative: [
+        "Significant reduction in emergency response time",
+        "Elimination of manual relay gaps",
+        "Better utilization of patrol vehicles",
+        "Complete audit trail for every incident"
+      ],
+      qualitative: [
+        "Real-time visibility into operations for leadership",
+        "Objective verification of field response",
+        "Data-backed performance review capabilities",
+        "Shift from reactive to controlled emergency response",
+        "Scalable foundation for future smart policing initiatives"
+      ],
+      impact: "Dial 100 is not just a software system. It is an operational nervous system for public safety. It demonstrates the ability to design systems where latency kills, failure is not an option, and human behavior, technology, and governance must align perfectly."
+    },
+    learnings: {
+      keyLearnings: [
+        "Emergency systems require zero-latency by design, not optimization",
+        "Accountability must be built into the system, not added later",
+        "Prevention must happen in real time, not post-analysis"
+      ],
+      improvements: [],
+      insights: [
+        "Visibility equals accountability in command and control systems",
+        "Automation should reduce cognitive load, not add decision points",
+        "Every incident must leave an immutable digital footprint"
+      ]
+    },
+    gallery: [mhPolice]
   }
 };
 
