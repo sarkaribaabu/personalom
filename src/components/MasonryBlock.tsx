@@ -5,52 +5,57 @@ import vendimanMax from '@/assets/vendiman-max.png';
 import mhPolice from '@/assets/mh-police.png';
 import mobileGames from '@/assets/mobile-games.png';
 import nmmcEgovernance from '@/assets/nmmc-egovernance.png';
-import guppaai from '@/assets/guppaai.png';
+import pcmcEgovernance from '@/assets/pcmc-egovernance.png';
 import nepalPolice from '@/assets/nepal-police.png';
-import bmcPothole from '@/assets/bmc-pothole.png';
+import scLandrecords from '@/assets/sc-landrecords.png';
+import mhadaApp from '@/assets/mhada-app.png';
+import dmsApp from '@/assets/dms-app.png';
+import bajajFinserv from '@/assets/bajaj-finserv.png';
+import nmmcDashboard from '@/assets/nmmc-dashboard.png';
+import lomAi from '@/assets/lom-ai.png';
 
-const categories = ['All', 'Web Apps', 'Mobile Apps', 'AI/ML/CV', 'eGovernance'];
+const categories = ['All', 'Web Apps', 'Mobile Apps', 'AI/ML/CV', 'eGovernance', 'BI Dashboards'];
 
 const masonryPosts = [
   {
-    title: "Vendiman",
-    category: "AI/ML/CV",
-    date: "2024",
-    excerpt: "Autonomous Retail & Anti-Fraud Intelligence Platform with sensor fusion and real-time fraud prevention.",
-    image: vendimanMax,
-    height: "tall",
-    slug: "vendiman"
-  },
-  {
-    title: "Maharashtra Police - Dial 100",
-    category: "eGovernance",
-    date: "2019",
-    excerpt: "Real-Time Command & Control Platform unifying call handling, dispatch, and field execution.",
-    image: mhPolice,
-    height: "tall",
-    slug: "maharashtra-police-dial-100"
-  },
-  {
-    title: "Mobile Games Development",
-    category: "Mobile Apps",
-    date: "2020",
-    excerpt: "Simulation Games & Game Production Collaboration with Cypher Gamez.",
-    image: mobileGames,
-    height: "medium",
-    slug: "mobile-games-development"
-  },
-  {
-    title: "Guppa.ai",
-    category: "AI/ML/CV",
+    title: "DMS",
+    category: "Web Apps",
     date: "2025",
-    excerpt: "Conversational AI platform with natural language processing capabilities.",
-    image: guppaai,
+    excerpt: "Unified Sales, Service & Operations Platform for multi-brand distributor with 10% business throughput increase.",
+    image: dmsApp,
+    height: "tall",
+    slug: "dms"
+  },
+  {
+    title: "SC Land Records",
+    category: "Web Apps",
+    date: "2022",
+    excerpt: "Unified Citizen Services Platform providing access to 70+ land record services for Maharashtra citizens.",
+    image: scLandrecords,
+    height: "tall",
+    slug: "sc-land-records"
+  },
+  {
+    title: "MHADA App",
+    category: "Mobile Apps",
+    date: "2023",
+    excerpt: "Digital Housing Lottery & Verification Platform with OCR-based document verification.",
+    image: mhadaApp,
     height: "medium",
-    slug: "guppa-ai"
+    slug: "mhada-app"
+  },
+  {
+    title: "PCMC Portal",
+    category: "eGovernance",
+    date: "2024",
+    excerpt: "Enterprise ERP & GIS platform for Pimpri Chinchwad Municipal Corporation under Smart City mission.",
+    image: pcmcEgovernance,
+    height: "medium",
+    slug: "pcmc-portal"
   },
   {
     title: "NMMC Portal",
-    category: "Web Apps",
+    category: "eGovernance",
     date: "2024",
     excerpt: "Enterprise ERP platform for Navi Mumbai Municipal Corporation with 21 integrated modules.",
     image: nmmcEgovernance,
@@ -58,22 +63,40 @@ const masonryPosts = [
     slug: "nmmc-portal"
   },
   {
-    title: "Nepal Police",
-    category: "eGovernance",
+    title: "Nepal Police Dashboard",
+    category: "BI Dashboards",
     date: "2024",
-    excerpt: "International police modernization project with comprehensive digital systems.",
+    excerpt: "Police analytics and performance monitoring dashboard for Nepal Police modernization.",
     image: nepalPolice,
-    height: "short",
+    height: "medium",
     slug: "nepal-police"
   },
   {
-    title: "BMC Pothole",
-    category: "Mobile Apps",
-    date: "2022",
-    excerpt: "Citizen Grievance & Field Operations Platform with GPS-based complaint registration.",
-    image: bmcPothole,
+    title: "Bajaj Finserv",
+    category: "BI Dashboards",
+    date: "2023",
+    excerpt: "Financial services analytics dashboard for business intelligence and performance tracking.",
+    image: bajajFinserv,
+    height: "short",
+    slug: "bajaj-finserv"
+  },
+  {
+    title: "NMMC Dashboards",
+    category: "BI Dashboards",
+    date: "2024",
+    excerpt: "Municipal analytics and MIS dashboards for senior leadership decision-making.",
+    image: nmmcDashboard,
     height: "medium",
-    slug: "bmc-pothole"
+    slug: "nmmc-dashboards"
+  },
+  {
+    title: "Laws of Motion",
+    category: "AI/ML/CV",
+    date: "2022",
+    excerpt: "Interactive physics learning app with simulations and AI-powered tutoring.",
+    image: lomAi,
+    height: "tall",
+    slug: "laws-of-motion"
   }
 ];
 
