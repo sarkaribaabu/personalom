@@ -345,8 +345,8 @@ const projects = [
     title: "Navi Mumbai Police BI",
     category: "BI Dashboards",
     date: "2025",
-    excerpt: "Crime analytics and operational intelligence dashboard for law enforcement.",
-    image: images[0],
+    excerpt: "Integrated Command & Analytics Platform enabling data-driven policing with predictive insights.",
+    image: nmPoliceBi,
     height: "tall"
   },
   {
