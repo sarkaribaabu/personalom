@@ -4,9 +4,10 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
-import { Mail, Send, MapPin, Clock, Linkedin, Facebook, Instagram, Youtube, ArrowRight } from 'lucide-react';
+import { Mail, Send, MapPin, Clock, Linkedin, Facebook, Instagram, Youtube, ArrowRight, Phone, Loader2 } from 'lucide-react';
 import { useState } from 'react';
 import { useToast } from '@/hooks/use-toast';
+import { supabase } from '@/integrations/supabase/client';
 
 const contactReasons = [
   { id: 'consulting', label: 'Consulting & Advisory', icon: '💼' },
@@ -19,22 +20,48 @@ const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    mobile: '',
     reason: '',
     message: ''
   });
   const [selectedReason, setSelectedReason] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    toast({
-      title: "Message sent!",
-      description: "Thank you for reaching out. I'll get back to you soon.",
-    });
-    
-    setFormData({ name: '', email: '', reason: '', message: '' });
-    setSelectedReason('');
+    setIsSubmitting(true);
+
+    try {
+      const { data, error } = await supabase.functions.invoke('send-contact-email', {
+        body: {
+          name: formData.name,
+          email: formData.email,
+          mobile: formData.mobile,
+          reason: formData.reason,
+          message: formData.message,
+        },
+      });
+
+      if (error) throw error;
+
+      toast({
+        title: "Message sent!",
+        description: "Thank you for reaching out. I'll get back to you soon.",
+      });
+      
+      setFormData({ name: '', email: '', mobile: '', reason: '', message: '' });
+      setSelectedReason('');
+    } catch (error) {
+      console.error('Error sending message:', error);
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again or email directly.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -255,6 +282,23 @@ const Contact = () => {
                       />
                     </div>
                   </div>
+
+                  {/* Mobile Number */}
+                  <div className="space-y-2">
+                    <Label htmlFor="mobile">Mobile Number <span className="text-muted-foreground text-xs">(Optional)</span></Label>
+                    <div className="relative">
+                      <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                      <Input
+                        id="mobile"
+                        name="mobile"
+                        type="tel"
+                        placeholder="+91 98765 43210"
+                        value={formData.mobile}
+                        onChange={handleChange}
+                        className="h-12 rounded-xl pl-11"
+                      />
+                    </div>
+                  </div>
                   
                   {/* Message */}
                   <div className="space-y-2">
@@ -271,9 +315,23 @@ const Contact = () => {
                     />
                   </div>
                   
-                  <Button type="submit" size="lg" className="w-full h-12 rounded-xl gap-2">
-                    Send Message
-                    <ArrowRight className="w-4 h-4" />
+                  <Button 
+                    type="submit" 
+                    size="lg" 
+                    className="w-full h-12 rounded-xl gap-2"
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 className="w-4 h-4 animate-spin" />
+                        Sending...
+                      </>
+                    ) : (
+                      <>
+                        Send Message
+                        <ArrowRight className="w-4 h-4" />
+                      </>
+                    )}
                   </Button>
                 </form>
               </div>
