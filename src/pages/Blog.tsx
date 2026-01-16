@@ -127,8 +127,29 @@ const Blog = () => {
   const listPosts = blogPosts.slice(5);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background relative">
       <Header />
+      
+      {/* Coming Soon Overlay */}
+      <div className="fixed inset-0 z-40 bg-background/80 backdrop-blur-sm flex items-center justify-center">
+        <div className="text-center p-8 max-w-md">
+          <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-primary/10 flex items-center justify-center">
+            <svg className="w-10 h-10 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Coming Soon</h2>
+          <p className="text-muted-foreground text-lg mb-6">
+            We're working hard to bring you amazing content. Stay tuned for updates!
+          </p>
+          <a 
+            href="/" 
+            className="inline-flex items-center px-6 py-3 bg-primary text-primary-foreground rounded-full font-medium hover:bg-primary/90 transition-colors"
+          >
+            Back to Home
+          </a>
+        </div>
+      </div>
       
       <main id="main-content" className="container-blog py-8 md:py-12">
         {/* Hero Section - Featured + Grid */}
