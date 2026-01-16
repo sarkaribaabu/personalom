@@ -17,6 +17,7 @@ import mhadaApp from '@/assets/mhada-app.png';
 import dmsApp from '@/assets/dms-app.png';
 import bmcPothole from '@/assets/bmc-pothole.png';
 import pwdPothole from '@/assets/pwd-pothole.png';
+import nepalPolice from '@/assets/nepal-police.png';
 
 const categories = ['All', 'Web Apps', 'Mobile Apps', 'AI/ML/CV', 'eGovernance', 'eCommerce', 'BI Dashboards'];
 
@@ -290,8 +291,8 @@ const projects = [
     title: "Nepal Police",
     category: "eGovernance",
     date: "2024",
-    excerpt: "International police modernization project with comprehensive digital systems.",
-    image: images[2],
+    excerpt: "National Policing Analytics Platform enabling data-driven policing with AI-powered predictive insights.",
+    image: nepalPolice,
     height: "medium"
   },
   {
@@ -366,8 +367,8 @@ const projects = [
     title: "Nepal Police Dashboard",
     category: "BI Dashboards",
     date: "2024",
-    excerpt: "International law enforcement analytics and reporting platform.",
-    image: images[2],
+    excerpt: "National Policing Analytics Platform with AI-powered predictive insights and crime heatmaps.",
+    image: nepalPolice,
     height: "medium"
   },
   {

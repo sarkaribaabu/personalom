@@ -57,6 +57,7 @@ import mhadaApp from '@/assets/mhada-app.png';
 import dmsApp from '@/assets/dms-app.png';
 import bmcPothole from '@/assets/bmc-pothole.png';
 import pwdPothole from '@/assets/pwd-pothole.png';
+import nepalPolice from '@/assets/nepal-police.png';
 
 // Tech stack icon mapping
 const techIcons: Record<string, React.ReactNode> = {
@@ -1684,6 +1685,296 @@ const projectsData: Record<string, {
       insights: []
     },
     gallery: [pwdPothole]
+  },
+  'nepal-police': {
+    title: "Nepal Police AI / BI Dashboard",
+    category: "National Policing Analytics Platform | Government (Law Enforcement)",
+    image: nepalPolice,
+    snapshot: {
+      client: "Nepal Police",
+      industry: "Government | Law Enforcement | Public Safety & Intelligence",
+      role: "Project Coordinator",
+      duration: "11+ months",
+      techStack: ["SMARTEN Analytics", "Angular", "Oracle"]
+    },
+    brief: {
+      problem: "Nepal Police lacked centralized, real-time visibility into crime data, personnel records, inventory, and operational performance. Data existed across multiple departmental systems, making it difficult for senior leadership to identify crime trends, hotspots, or emerging risks. Decision-making was largely reactive, with limited predictive or anomaly-detection capabilities.",
+      context: "Nepal Police aimed to build a national-level analytics platform that could consolidate crime, HR, inventory, and operational data into intuitive dashboards. The objective was to enable faster interventions, data-driven policing strategies, and proactive crime prevention through AI and predictive analytics.",
+      constraints: [
+        "Highly sensitive and confidential data",
+        "Multiple heterogeneous data sources",
+        "Limited analytical maturity among end users",
+        "Need for role-based access for senior leadership",
+        "Requirement for predictive and anomaly-based insights"
+      ]
+    },
+    contextReality: {
+      environment: "Prior to this initiative, reporting relied on manual compilation and static reports. There was no unified analytical layer connecting crime statistics, personnel data, inventory, and regional performance.",
+      existingSystems: [
+        "No real-time situational awareness for leadership",
+        "Difficulty identifying crime patterns across time and geography",
+        "Manual HR tracking for training, leave, and disciplinary actions",
+        "Limited insight into inventory and weapon distribution",
+        "Absence of forecasting or early-warning mechanisms"
+      ],
+      constraints: [
+        "Crime analytics across regions, time periods, and crime types",
+        "HR analytics covering personnel, training, awards, punishments, and leave",
+        "Inventory and weapons tracking",
+        "KPI dashboards for daily and monthly performance",
+        "Geographic crime heatmaps",
+        "Predictive and anomaly detection analytics"
+      ]
+    },
+    approach: {
+      principles: [
+        "Insights must be consumable by non-technical leadership",
+        "Visualization over raw data",
+        "Proactive intelligence over retrospective reporting",
+        "Security and confidentiality by design"
+      ],
+      strategicDecisions: [
+        "Data ingestion from multiple police systems",
+        "Data transformation and enrichment for analytics readiness",
+        "Dashboard authoring and publishing via SMARTEN",
+        "Web and mobile access for authorized users",
+        "Role-based access control for different leadership levels"
+      ],
+      tradeoffs: [
+        "Layered analytics architecture for separation of concerns",
+        "Prioritized leadership adoption over comprehensive coverage",
+        "Focused on high-impact KPIs first"
+      ]
+    },
+    execution: {
+      architecture: "The solution followed a layered analytics architecture, separating data ingestion, preparation, analytics, and consumption. Business data from multiple police systems was transformed and enriched for analytics readiness.",
+      keyModules: [
+        "Crime analytics across regions and time periods",
+        "HR analytics for personnel management",
+        "Inventory and weapons tracking",
+        "KPI dashboards for performance monitoring",
+        "Geographic crime heatmaps",
+        "Predictive and anomaly detection analytics",
+        "Snapshot and anomaly detection for crime spikes",
+        "Clickless analytics using NLP for plain language queries"
+      ],
+      integrations: [
+        "SMARTEN Analytics platform",
+        "AI / BI / ML engines",
+        "Google Analytics",
+        "Email, SMS, and WhatsApp for alerts and communication"
+      ],
+      considerations: [
+        "Web and mobile access for authorized users",
+        "Role-based access control for leadership levels",
+        "Data security and confidentiality",
+        "Scalability for future analytical use cases"
+      ]
+    },
+    challengesThatMattered: [
+      {
+        title: "Consolidating Disparate Police Data",
+        description: "Crime, HR, and inventory data were stored in separate systems with different formats.",
+        impact: "Standardized datasets during data preparation. Defined common dimensions for time, region, and units. Result: A unified analytical view across departments."
+      },
+      {
+        title: "Enabling Predictive and Proactive Policing",
+        description: "Leadership needed foresight, not just historical reports.",
+        impact: "Implemented predictive models and anomaly alerts. Enabled geo-spatial visualization of crime hotspots. Result: Early warning signals and better-prepared field interventions."
+      },
+      {
+        title: "Making Analytics Accessible to Senior Officers",
+        description: "Senior users required intuitive, low-effort interaction with data.",
+        impact: "KPI-driven dashboards. NLP-based clickless analytics. Pre-built views for common decision scenarios. Result: Faster interpretation and higher adoption among leadership."
+      }
+    ],
+    solutions: [
+      {
+        problem: "Consolidating Disparate Police Data",
+        decision: "Standardize datasets during data preparation",
+        intervention: "Defined common dimensions for time, region, and units across all data sources.",
+        result: "A unified analytical view across departments"
+      },
+      {
+        problem: "Enabling Predictive and Proactive Policing",
+        decision: "Implement predictive models and anomaly alerts",
+        intervention: "Enabled geo-spatial visualization of crime hotspots with early warning capabilities.",
+        result: "Early warning signals and better-prepared field interventions"
+      },
+      {
+        problem: "Making Analytics Accessible to Senior Officers",
+        decision: "Build KPI-driven dashboards with NLP-based interaction",
+        intervention: "Created clickless analytics and pre-built views for common decision scenarios.",
+        result: "Faster interpretation and higher adoption among leadership"
+      }
+    ],
+    outcomes: {
+      quantitative: [
+        "Centralized situational awareness for Nepal Police leadership",
+        "Reduced dependence on manual reporting",
+        "Faster identification of crime trends and hotspots"
+      ],
+      qualitative: [
+        "Proactive policing enabled through forecasting and anomaly detection",
+        "Improved resource allocation based on data-driven insights",
+        "Greater transparency across crime, HR, and inventory dimensions",
+        "Established a national analytics foundation for policing",
+        "Improved confidence in data-backed decisions",
+        "Scalable platform supporting future analytical use cases"
+      ],
+      impact: "The platform established a national analytics foundation for Nepal Police, enabling proactive policing through forecasting and anomaly detection, and transforming decision-making from reactive to data-driven across all operational dimensions."
+    },
+    learnings: {
+      keyLearnings: [],
+      improvements: [],
+      insights: []
+    },
+    gallery: [nepalPolice]
+  },
+  'nepal-police-dashboard': {
+    title: "Nepal Police AI / BI Dashboard",
+    category: "National Policing Analytics Platform | Government (Law Enforcement)",
+    image: nepalPolice,
+    snapshot: {
+      client: "Nepal Police",
+      industry: "Government | Law Enforcement | Public Safety & Intelligence",
+      role: "Project Coordinator",
+      duration: "11+ months",
+      techStack: ["SMARTEN Analytics", "Angular", "Oracle"]
+    },
+    brief: {
+      problem: "Nepal Police lacked centralized, real-time visibility into crime data, personnel records, inventory, and operational performance. Data existed across multiple departmental systems, making it difficult for senior leadership to identify crime trends, hotspots, or emerging risks. Decision-making was largely reactive, with limited predictive or anomaly-detection capabilities.",
+      context: "Nepal Police aimed to build a national-level analytics platform that could consolidate crime, HR, inventory, and operational data into intuitive dashboards. The objective was to enable faster interventions, data-driven policing strategies, and proactive crime prevention through AI and predictive analytics.",
+      constraints: [
+        "Highly sensitive and confidential data",
+        "Multiple heterogeneous data sources",
+        "Limited analytical maturity among end users",
+        "Need for role-based access for senior leadership",
+        "Requirement for predictive and anomaly-based insights"
+      ]
+    },
+    contextReality: {
+      environment: "Prior to this initiative, reporting relied on manual compilation and static reports. There was no unified analytical layer connecting crime statistics, personnel data, inventory, and regional performance.",
+      existingSystems: [
+        "No real-time situational awareness for leadership",
+        "Difficulty identifying crime patterns across time and geography",
+        "Manual HR tracking for training, leave, and disciplinary actions",
+        "Limited insight into inventory and weapon distribution",
+        "Absence of forecasting or early-warning mechanisms"
+      ],
+      constraints: [
+        "Crime analytics across regions, time periods, and crime types",
+        "HR analytics covering personnel, training, awards, punishments, and leave",
+        "Inventory and weapons tracking",
+        "KPI dashboards for daily and monthly performance",
+        "Geographic crime heatmaps",
+        "Predictive and anomaly detection analytics"
+      ]
+    },
+    approach: {
+      principles: [
+        "Insights must be consumable by non-technical leadership",
+        "Visualization over raw data",
+        "Proactive intelligence over retrospective reporting",
+        "Security and confidentiality by design"
+      ],
+      strategicDecisions: [
+        "Data ingestion from multiple police systems",
+        "Data transformation and enrichment for analytics readiness",
+        "Dashboard authoring and publishing via SMARTEN",
+        "Web and mobile access for authorized users",
+        "Role-based access control for different leadership levels"
+      ],
+      tradeoffs: [
+        "Layered analytics architecture for separation of concerns",
+        "Prioritized leadership adoption over comprehensive coverage",
+        "Focused on high-impact KPIs first"
+      ]
+    },
+    execution: {
+      architecture: "The solution followed a layered analytics architecture, separating data ingestion, preparation, analytics, and consumption. Business data from multiple police systems was transformed and enriched for analytics readiness.",
+      keyModules: [
+        "Crime analytics across regions and time periods",
+        "HR analytics for personnel management",
+        "Inventory and weapons tracking",
+        "KPI dashboards for performance monitoring",
+        "Geographic crime heatmaps",
+        "Predictive and anomaly detection analytics",
+        "Snapshot and anomaly detection for crime spikes",
+        "Clickless analytics using NLP for plain language queries"
+      ],
+      integrations: [
+        "SMARTEN Analytics platform",
+        "AI / BI / ML engines",
+        "Google Analytics",
+        "Email, SMS, and WhatsApp for alerts and communication"
+      ],
+      considerations: [
+        "Web and mobile access for authorized users",
+        "Role-based access control for leadership levels",
+        "Data security and confidentiality",
+        "Scalability for future analytical use cases"
+      ]
+    },
+    challengesThatMattered: [
+      {
+        title: "Consolidating Disparate Police Data",
+        description: "Crime, HR, and inventory data were stored in separate systems with different formats.",
+        impact: "Standardized datasets during data preparation. Defined common dimensions for time, region, and units. Result: A unified analytical view across departments."
+      },
+      {
+        title: "Enabling Predictive and Proactive Policing",
+        description: "Leadership needed foresight, not just historical reports.",
+        impact: "Implemented predictive models and anomaly alerts. Enabled geo-spatial visualization of crime hotspots. Result: Early warning signals and better-prepared field interventions."
+      },
+      {
+        title: "Making Analytics Accessible to Senior Officers",
+        description: "Senior users required intuitive, low-effort interaction with data.",
+        impact: "KPI-driven dashboards. NLP-based clickless analytics. Pre-built views for common decision scenarios. Result: Faster interpretation and higher adoption among leadership."
+      }
+    ],
+    solutions: [
+      {
+        problem: "Consolidating Disparate Police Data",
+        decision: "Standardize datasets during data preparation",
+        intervention: "Defined common dimensions for time, region, and units across all data sources.",
+        result: "A unified analytical view across departments"
+      },
+      {
+        problem: "Enabling Predictive and Proactive Policing",
+        decision: "Implement predictive models and anomaly alerts",
+        intervention: "Enabled geo-spatial visualization of crime hotspots with early warning capabilities.",
+        result: "Early warning signals and better-prepared field interventions"
+      },
+      {
+        problem: "Making Analytics Accessible to Senior Officers",
+        decision: "Build KPI-driven dashboards with NLP-based interaction",
+        intervention: "Created clickless analytics and pre-built views for common decision scenarios.",
+        result: "Faster interpretation and higher adoption among leadership"
+      }
+    ],
+    outcomes: {
+      quantitative: [
+        "Centralized situational awareness for Nepal Police leadership",
+        "Reduced dependence on manual reporting",
+        "Faster identification of crime trends and hotspots"
+      ],
+      qualitative: [
+        "Proactive policing enabled through forecasting and anomaly detection",
+        "Improved resource allocation based on data-driven insights",
+        "Greater transparency across crime, HR, and inventory dimensions",
+        "Established a national analytics foundation for policing",
+        "Improved confidence in data-backed decisions",
+        "Scalable platform supporting future analytical use cases"
+      ],
+      impact: "The platform established a national analytics foundation for Nepal Police, enabling proactive policing through forecasting and anomaly detection, and transforming decision-making from reactive to data-driven across all operational dimensions."
+    },
+    learnings: {
+      keyLearnings: [],
+      improvements: [],
+      insights: []
+    },
+    gallery: [nepalPolice]
   }
 };
 
