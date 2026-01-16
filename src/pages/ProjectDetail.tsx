@@ -49,6 +49,7 @@ import fashionPost from '@/assets/fashion-post.jpg';
 import lifestylePost from '@/assets/lifestyle-post.jpg';
 import workLifestyle from '@/assets/work-lifestyle.jpg';
 import fashionLifestyle from '@/assets/fashion-lifestyle.jpg';
+import nmmcEgovernance from '@/assets/nmmc-egovernance.png';
 
 // Tech stack icon mapping
 const techIcons: Record<string, React.ReactNode> = {
@@ -137,152 +138,163 @@ const projectsData: Record<string, {
   gallery: string[];
 }> = {
   'nmmc-portal': {
-    title: "NMMC Portal",
-    category: "Web Apps",
-    image: techPost,
+    title: "NMMC ERP SUIT",
+    category: "Enterprise ERP Platform | e-Governance",
+    image: nmmcEgovernance,
     snapshot: {
-      client: "Navi Mumbai Municipal Corporation",
-      industry: "Government / e-Governance",
-      role: "Technical Project Manager & Solution Architect",
-      duration: "18 months",
-      techStack: [".NET", "SQL Server", "Angular", "Azure", "Redis"]
+      client: "Navi Mumbai Municipal Corporation (NMMC)",
+      industry: "Government | e-Governance",
+      role: "Project Manager (Techno-Functional / Business Analyst)",
+      duration: "18+ months",
+      techStack: ["Java", "Angular", "Flutter", "PostgreSQL", "AI-enabled components"]
     },
     brief: {
-      problem: "Citizens faced fragmented access to municipal services across multiple legacy systems, leading to long queues, delayed responses, and poor transparency in service delivery.",
-      context: "NMMC serves 1.5+ million citizens and needed a unified digital platform to transform citizen services, improve operational efficiency, and establish transparency in governance.",
+      problem: "Citizens and municipal staff were operating across dozens of disconnected systems. Citizens experienced long queues, delayed services, and limited visibility into application status. Internally, NMMC staff had to manage multiple logins, inconsistent workflows, and systems restricted to intranet access within municipal buildings.",
+      context: "NMMC required a unified ERP platform that could bring all municipal departments onto a single digital backbone. The goal was not just digitization, but operational unification: one login, standardized workflows, controlled access, and availability beyond physical office boundaries.",
       constraints: [
-        "Integration with 15+ existing legacy systems",
-        "24/7 availability mandate for critical services",
-        "Multilingual support (Marathi, Hindi, English)",
-        "Strict government security and audit requirements",
-        "Phased rollout across all municipal departments"
+        "21 functional modules across diverse municipal domains",
+        "Legacy applications with overlapping responsibilities",
+        "Intranet-bound systems needing controlled internet exposure",
+        "Role-based access across hundreds of designations",
+        "Government security, audit, and compliance requirements",
+        "Continuous operations during migration"
       ]
     },
     contextReality: {
-      environment: "The existing infrastructure comprised multiple standalone applications built over two decades, each with its own database and user management. No single source of truth for citizen data existed.",
+      environment: "Over time, NMMC had implemented multiple department-specific applications, each solving a narrow problem in isolation. These systems evolved independently, leading to fragmented data, duplicated effort, and inconsistent reporting.",
       existingSystems: [
-        "Legacy property tax system (15+ years old)",
-        "Water billing on separate mainframe",
-        "Manual grievance tracking through registers",
-        "Paper-based building permission workflows"
+        "Multiple credentials per user across systems",
+        "Manual data reconciliation between departments",
+        "No consolidated MIS or decision-support view",
+        "Limited remote access for officers and field staff",
+        "Heavy dependency on physical files despite partial digitization"
       ],
       constraints: [
-        "Limited IT literacy among senior municipal staff",
-        "Political pressure for quick visible results",
-        "Budget constraints typical of government projects",
-        "Union resistance to process automation"
+        "Core Module",
+        "Financial Management",
+        "HR & Payroll Management",
+        "Property Tax Management",
+        "Water Tax Management",
+        "Grievance Management",
+        "Works Management System",
+        "Asset Management",
+        "Material Management",
+        "Solid Waste Management",
+        "Land & Estate Management",
+        "Municipal Secretary Module",
+        "Central Workshop Module",
+        "CFC System",
+        "Enterprise Workflow Management",
+        "Business Intelligence Module",
+        "Disaster Management",
+        "Survey Database Creation",
+        "Content Management System",
+        "Online Services (52 citizen services)",
+        "Web Portal and Mobile Application"
       ]
     },
     approach: {
       principles: [
-        "Citizen-first design with minimal learning curve",
-        "Unified login with single-window clearance concept",
-        "Mobile-first responsive approach",
-        "Transparency through real-time status tracking"
+        "One system, one login, one source of truth",
+        "Minimal disruption to ongoing municipal operations",
+        "Strong alignment with existing government processes",
+        "Scalability across departments and future services"
       ],
       strategicDecisions: [
-        "Built middleware layer to connect legacy systems rather than replacing them",
-        "Implemented workflow engine for configurable approval processes",
-        "Chose progressive disclosure over feature-heavy interfaces"
+        "Designed ERP around a strong core module to enforce consistency",
+        "Standardized workflows while allowing department-specific extensions",
+        "Enabled controlled internet access instead of full intranet isolation",
+        "Prioritized MIS and dashboards for senior leadership adoption"
       ],
       tradeoffs: [
-        "Accepted slower initial rollout to ensure department buy-in",
-        "Prioritized stability over cutting-edge technology",
-        "Chose hybrid hosting over full cloud due to data sovereignty concerns"
+        "Phased rollout instead of big-bang implementation",
+        "Conservative technology choices to ensure long-term maintainability",
+        "More time invested upfront in role and permission modeling"
       ]
     },
     execution: {
-      architecture: "Microservices-based architecture with API gateway, supporting gradual migration from monolithic legacy systems. Event-driven integration layer for real-time sync.",
+      architecture: "A web-based, cloud-enabled ERP architecture was implemented with a centralized authentication and authorization layer. The platform supported both internal users and citizens through controlled role-based access.",
       keyModules: [
-        "Unified Citizen Portal with SSO",
-        "Property Tax Assessment & Payment",
-        "Water & Sewerage Bill Management",
-        "Building Permission Workflow",
-        "Grievance Management System",
-        "Online Payment Gateway Integration"
+        "Single Sign-On across all modules",
+        "Centralized role and permission engine",
+        "Web and mobile access for field and supervisory staff",
+        "Configurable workflows aligned with government rules",
+        "Department-wise data segregation with centralized reporting"
       ],
       integrations: [
-        "HDFC, SBI, ICICI payment gateways",
-        "Aadhaar-based eKYC verification",
-        "SMS gateway for notifications",
-        "Email service integration",
-        "GIS mapping for property location"
+        "Payment systems: BillDesk, BBPS, ICICI, IDBI, HDFC, POS",
+        "Citizen communication: WhatsApp notifications",
+        "Government platforms: Aaple Sarkar, CM Dashboards",
+        "Infrastructure systems: SCADA",
+        "External and vendor systems: TATA and other service providers"
       ],
       considerations: [
-        "99.9% uptime SLA with automatic failover",
-        "End-to-end encryption for sensitive data",
-        "Role-based access control across 50+ user types",
-        "Audit trail for all transactions"
+        "Single Sign-On across all modules",
+        "Centralized role and permission engine",
+        "Configurable workflows aligned with government rules",
+        "Department-wise data segregation with centralized reporting"
       ]
     },
     challengesThatMattered: [
       {
-        title: "Legacy System Integration Without Disruption",
-        description: "Connecting 15+ legacy systems with different data formats and protocols while ensuring existing operations continued uninterrupted during the 18-month transition.",
-        impact: "Required building custom adapters and implementing eventual consistency patterns to handle data synchronization across systems."
+        title: "Unifying Disparate Departments Under One ERP",
+        description: "Each department functioned with its own processes, data definitions, and reporting expectations.",
+        impact: "Conducted detailed AS-IS and TO-BE process mapping. Defined common master data and approval hierarchies. Implemented a configurable workflow engine. Result: Cross-department workflows became traceable, auditable, and measurable."
       },
       {
-        title: "Change Management Across Departments",
-        description: "Overcoming resistance from municipal staff accustomed to manual processes and paper-based workflows. Some departments had used the same processes for 20+ years.",
-        impact: "Invested 30% of project timeline in training, handholding, and building department champions to drive adoption."
+        title: "Managing Access, Security, and Remote Availability",
+        description: "Systems were previously restricted to intranet access, limiting flexibility while still requiring high security.",
+        impact: "Role-based access control with fine-grained permissions. Secure internet access with audit trails and logging. Separate access layers for citizens, staff, and administrators. Result: Improved accessibility without compromising compliance or security."
       },
       {
-        title: "Ensuring Adoption Among Diverse Citizen Demographics",
-        description: "The platform needed to serve everyone from tech-savvy professionals to senior citizens with limited digital literacy.",
-        impact: "Implemented multilingual interface, visual workflow guidance, and hybrid online-offline service model."
+        title: "Change Management at Scale",
+        description: "Hundreds of users across departments with varying levels of digital comfort.",
+        impact: "Role-specific training programs. Pilot rollouts before full deployment. Continuous feedback loops with department coordinators. Result: Smoother adoption and reduced operational resistance during rollout."
       }
     ],
     solutions: [
       {
-        problem: "Legacy systems couldn't handle real-time data sync",
-        decision: "Implement event-driven architecture with message queuing",
-        intervention: "Built custom middleware with Redis-backed queue and retry mechanisms",
-        result: "Achieved 99.7% sync accuracy with max 2-minute lag across all integrated systems"
+        problem: "Unifying Disparate Departments Under One ERP",
+        decision: "Conduct detailed AS-IS and TO-BE process mapping",
+        intervention: "Defined common master data and approval hierarchies. Implemented a configurable workflow engine.",
+        result: "Cross-department workflows became traceable, auditable, and measurable"
       },
       {
-        problem: "Staff resistance to new digital workflows",
-        decision: "Create department champions and gamified adoption program",
-        intervention: "Identified and trained 50+ power users, implemented performance dashboards with recognition",
-        result: "85% voluntary adoption within 6 months, reduced training escalations by 60%"
+        problem: "Managing Access, Security, and Remote Availability",
+        decision: "Implement role-based access control with fine-grained permissions",
+        intervention: "Secure internet access with audit trails and logging. Separate access layers for citizens, staff, and administrators.",
+        result: "Improved accessibility without compromising compliance or security"
       },
       {
-        problem: "Citizens struggling with complex application processes",
-        decision: "Redesign forms with progressive disclosure and contextual help",
-        intervention: "Broke 50-field forms into 5-step wizards with validation and save-as-draft",
-        result: "Application completion rate improved from 45% to 87%"
+        problem: "Change Management at Scale",
+        decision: "Role-specific training programs with pilot rollouts",
+        intervention: "Continuous feedback loops with department coordinators before full deployment",
+        result: "Smoother adoption and reduced operational resistance during rollout"
       }
     ],
     outcomes: {
       quantitative: [
-        "60% reduction in average service delivery time",
-        "₹15 Cr+ annual revenue through online property tax collection",
-        "85% citizen satisfaction rating (up from 42%)",
-        "40% reduction in counter footfall",
-        "3 lakh+ registered citizens within first year"
+        "Significant reduction in manual file movement",
+        "Faster inter-department coordination",
+        "Unified MIS for senior officers and leadership",
+        "Improved accountability through workflow visibility"
       ],
       qualitative: [
-        "Established NMMC as a model for other municipal corporations",
-        "Significantly improved transparency with real-time status tracking",
-        "Reduced corruption touchpoints through digital workflows",
-        "Foundation laid for future smart city initiatives"
+        "Single platform for accessing 52 municipal services",
+        "Online payments and status tracking",
+        "Reduced dependency on physical visits to offices",
+        "Established a long-term digital foundation for NMMC",
+        "Enabled future integrations and smart-city initiatives",
+        "Shifted municipal operations from department-centric to process-centric"
       ],
-      impact: "The portal transformed NMMC's citizen engagement model and became a reference implementation for other municipal corporations in Maharashtra."
+      impact: "The ERP platform unified all municipal departments onto a single digital backbone, transforming NMMC's operations from fragmented, department-centric systems to a cohesive, process-centric organization serving 52+ citizen services."
     },
     learnings: {
-      keyLearnings: [
-        "Government digital transformation requires equal investment in change management and technology",
-        "Building trust with bureaucracy takes time but is essential for sustainable adoption"
-      ],
-      improvements: [
-        "Would have started citizen awareness campaigns 3 months before launch",
-        "Earlier involvement of front-desk staff in UX design decisions"
-      ],
-      insights: [
-        "Success in e-governance is measured not by features shipped but by citizens served",
-        "The best technology is invisible to the end user"
-      ]
+      keyLearnings: [],
+      improvements: [],
+      insights: []
     },
-    gallery: [techPost, businessPost, fashionPost, lifestylePost, workLifestyle, fashionLifestyle]
+    gallery: [nmmcEgovernance]
   },
   'pcmc-portal': {
     title: "PCMC Portal",
