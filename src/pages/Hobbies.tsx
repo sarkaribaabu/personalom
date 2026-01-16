@@ -193,66 +193,82 @@ const Hobbies = () => {
           </div>
         )}
 
-        {/* Shorts Grid - Vertical/Portrait Layout */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-          {filteredShorts.map((short, index) => (
-            <div 
-              key={`${short.category}-${index}`}
-              className="group cursor-pointer"
-              onClick={() => setSelectedShort(short)}
-            >
-              {/* Short Thumbnail - 9:16 Aspect Ratio */}
-              <div className="relative aspect-[9/16] rounded-2xl overflow-hidden bg-muted shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:-translate-y-1">
-                <img
-                  src={`https://img.youtube.com/vi/${short.id}/maxresdefault.jpg`}
-                  alt={short.title}
-                  className="w-full h-full object-cover"
-                />
-                
-                {/* Coming Soon Overlay - 60% opacity black */}
-                <div className="absolute inset-0 bg-black/60 flex flex-col items-center justify-center">
-                  <div className="relative">
-                    {/* Decorative lines */}
-                    <div className="absolute -left-8 top-1/2 w-6 h-px bg-white/50" />
-                    <div className="absolute -right-8 top-1/2 w-6 h-px bg-white/50" />
-                    
-                    {/* Coming Soon Text */}
-                    <div className="text-center">
-                      <span className="block text-[10px] uppercase tracking-[0.3em] text-white/70 mb-1">Stay Tuned</span>
-                      <span className="block text-lg font-serif font-light text-white tracking-wide">Coming Soon</span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Category Badge */}
-                <div className={`absolute top-3 left-3 px-2.5 py-1 rounded-full bg-gradient-to-r ${short.gradient} text-white text-[10px] font-semibold uppercase tracking-wider`}>
-                  {short.categoryTitle}
-                </div>
-
-                {/* Shorts Badge */}
-                <div className="absolute top-3 right-3 px-2 py-1 rounded bg-red-600 text-white text-[10px] font-bold flex items-center gap-1">
-                  <Play className="w-2.5 h-2.5" fill="currentColor" />
-                  SHORTS
-                </div>
-
-                {/* Bottom Content */}
-                <div className="absolute bottom-0 left-0 right-0 p-4">
-                  <h3 className="font-medium text-white text-sm leading-tight line-clamp-2 mb-2">
-                    {short.title}
-                  </h3>
+        {/* Shorts Grid Container with Overall Overlay */}
+        <div className="relative">
+          {/* Shorts Grid - Vertical/Portrait Layout */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+            {filteredShorts.map((short, index) => (
+              <div 
+                key={`${short.category}-${index}`}
+                className="group"
+              >
+                {/* Short Thumbnail - 9:16 Aspect Ratio */}
+                <div className="relative aspect-[9/16] rounded-2xl overflow-hidden bg-muted shadow-lg">
+                  <img
+                    src={`https://img.youtube.com/vi/${short.id}/maxresdefault.jpg`}
+                    alt={short.title}
+                    className="w-full h-full object-cover"
+                  />
                   
-                  <div className="flex items-center gap-2 text-[11px] text-white/70">
-                    <div className="flex items-center gap-1">
-                      <Eye className="w-3 h-3" />
-                      <span>{short.views}</span>
+                  {/* Gradient Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
+
+                  {/* Category Badge */}
+                  <div className={`absolute top-3 left-3 px-2.5 py-1 rounded-full bg-gradient-to-r ${short.gradient} text-white text-[10px] font-semibold uppercase tracking-wider`}>
+                    {short.categoryTitle}
+                  </div>
+
+                  {/* Shorts Badge */}
+                  <div className="absolute top-3 right-3 px-2 py-1 rounded bg-red-600 text-white text-[10px] font-bold flex items-center gap-1">
+                    <Play className="w-2.5 h-2.5" fill="currentColor" />
+                    SHORTS
+                  </div>
+
+                  {/* Bottom Content */}
+                  <div className="absolute bottom-0 left-0 right-0 p-4">
+                    <h3 className="font-medium text-white text-sm leading-tight line-clamp-2 mb-2">
+                      {short.title}
+                    </h3>
+                    
+                    <div className="flex items-center gap-2 text-[11px] text-white/70">
+                      <div className="flex items-center gap-1">
+                        <Eye className="w-3 h-3" />
+                        <span>{short.views}</span>
+                      </div>
+                      <span>•</span>
+                      <span>{short.uploadedAt}</span>
                     </div>
-                    <span>•</span>
-                    <span>{short.uploadedAt}</span>
                   </div>
                 </div>
               </div>
+            ))}
+          </div>
+
+          {/* Full Page Coming Soon Overlay - 60% opacity */}
+          <div className="absolute inset-0 bg-black/60 backdrop-blur-[2px] rounded-3xl flex items-center justify-center">
+            <div className="text-center">
+              {/* Decorative top line */}
+              <div className="flex items-center justify-center gap-4 mb-6">
+                <div className="w-16 h-px bg-white/30" />
+                <Bike className="w-6 h-6 text-white/50" />
+                <div className="w-16 h-px bg-white/30" />
+              </div>
+              
+              {/* Coming Soon Text */}
+              <span className="block text-sm uppercase tracking-[0.4em] text-white/60 mb-3">Stay Tuned</span>
+              <h2 className="text-4xl md:text-6xl font-serif font-light text-white tracking-wide mb-4">
+                Coming Soon
+              </h2>
+              <p className="text-white/70 max-w-md mx-auto text-lg">
+                Exciting motorcycle content is on its way. Subscribe to get notified!
+              </p>
+              
+              {/* Decorative bottom line */}
+              <div className="flex items-center justify-center gap-4 mt-8">
+                <div className="w-24 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent" />
+              </div>
             </div>
-          ))}
+          </div>
         </div>
 
         {/* CTA Section */}
