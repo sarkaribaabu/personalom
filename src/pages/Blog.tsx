@@ -8,9 +8,19 @@ import lifestylePost from '@/assets/lifestyle-post.jpg';
 import fashionLifestyle from '@/assets/fashion-lifestyle.jpg';
 import workLifestyle from '@/assets/work-lifestyle.jpg';
 import omHeadshot from '@/assets/om-headshot.png';
+import vendorManagementCover from '@/assets/vendor-management-cover.jpg';
 
 // Blog posts data
 const blogPosts = [
+  {
+    title: "Vendor Management: Where Governance Meets Execution",
+    category: "EGOVERNANCE",
+    date: "January 16, 2026",
+    excerpt: "In government, policies are framed internally, but execution often happens through vendors - contractors, service providers, system integrators, suppliers.",
+    image: vendorManagementCover,
+    slug: "vendor-management-governance-execution",
+    author: "Om Mahajan"
+  },
   {
     title: "Digital Transformation in Urban Governance: A Case Study",
     category: "TECHNOLOGY",
@@ -104,6 +114,7 @@ const blogPosts = [
 ];
 
 const categories = [
+  { name: "eGovernance", image: vendorManagementCover, slug: "egovernance" },
   { name: "Technology", image: techPost, slug: "technology" },
   { name: "Writing", image: businessPost, slug: "writing" },
   { name: "Lifestyle", image: lifestylePost, slug: "lifestyle" },
