@@ -61,6 +61,7 @@ import nepalPolice from '@/assets/nepal-police.png';
 import nmmcDashboard from '@/assets/nmmc-dashboard.png';
 import bajajFinserv from '@/assets/bajaj-finserv.png';
 import guppaai from '@/assets/guppaai.png';
+import pngBrothers from '@/assets/png-brothers.png';
 
 // Tech stack icon mapping
 const techIcons: Record<string, React.ReactNode> = {
@@ -2293,6 +2294,148 @@ const projectsData: Record<string, {
       insights: []
     },
     gallery: [bajajFinserv]
+  },
+  'png-brothers': {
+    title: "PNG Brothers",
+    category: "Phygital Jewelry Ecommerce Platform | Web Portal",
+    image: pngBrothers,
+    snapshot: {
+      client: "PNG Brothers (Private Jewelry Retailer)",
+      industry: "Private | Ecommerce | Jewelry & Retail",
+      role: "Project Manager",
+      duration: "12+ months",
+      techStack: ["PHP", "Laravel", "MySQL", "WhatsApp"]
+    },
+    brief: {
+      problem: "Buying high-value precious jewelry online creates natural anxiety for customers. Concerns around gold purity, diamond authenticity, daily price fluctuations, and making charges make it difficult for buyers to trust purely digital storefronts. The absence of physical interaction further widens the sensory gap, causing hesitation and abandoned purchases.",
+      context: "PNG Brothers is a traditional, trust-driven family jeweler. The challenge was not just to sell jewelry online, but to replicate the reassurance, transparency, and confidence of an in-store experience within a digital environment. The objective was to design a phygital ecommerce experience that combined the convenience of online shopping with the credibility of a physical jeweler.",
+      constraints: [
+        "High-value purchase anxiety",
+        "Gold and diamond price volatility",
+        "Trust barriers in online jewelry buying",
+        "Sensory gap without physical interaction",
+        "Need for transparent pricing and authenticity"
+      ]
+    },
+    contextReality: {
+      environment: "The platform was designed around trust first, transaction second. Rather than pushing quick conversions, the focus was on educating customers, making pricing transparent, and enabling real-time human assistance at decision points.",
+      existingSystems: [
+        "Traditional in-store jewelry retail",
+        "Manual pricing calculations",
+        "Phone-based customer support"
+      ],
+      constraints: [
+        "Real-time gold and diamond rate display",
+        "Transparent breakup of metal value, making charges, and taxes",
+        "Product authenticity and purity assurance indicators",
+        "Assisted buying via WhatsApp and voice support",
+        "Store-linked fulfillment for reassurance and accountability"
+      ]
+    },
+    approach: {
+      principles: [
+        "Transparency builds trust faster than discounts",
+        "Human support must be visible, not hidden",
+        "Price clarity reduces hesitation",
+        "Digital should amplify, not replace, physical credibility"
+      ],
+      strategicDecisions: [
+        "Trust-first, transaction-second design philosophy",
+        "Real-time price transparency at every step",
+        "Integrated human assistance at decision points",
+        "Store-linked fulfillment for accountability"
+      ],
+      tradeoffs: [
+        "Education over quick conversion",
+        "Transparency over simplified pricing",
+        "Human touch over full automation"
+      ]
+    },
+    execution: {
+      architecture: "The ecommerce portal was built as a robust, scalable web platform with strong integration into communication and payment systems. Features include secure product catalog and pricing engine, dynamic price calculation based on live metal rates, order lifecycle management from selection to delivery, and integrated communication layer for assisted commerce.",
+      keyModules: [
+        "Secure product catalog and pricing engine",
+        "Dynamic price calculation based on live metal rates",
+        "Order lifecycle management",
+        "Integrated communication layer for assisted commerce",
+        "Real-time gold and diamond rate display"
+      ],
+      integrations: [
+        "Payment gateways: CCAvenue, ICICI",
+        "Communication: WhatsApp, Email, SMS",
+        "VoIP systems for assisted customer calls"
+      ],
+      considerations: [
+        "Price transparency at checkout",
+        "Authenticity and purity assurance",
+        "Store-linked fulfillment",
+        "Multi-channel customer support"
+      ]
+    },
+    challengesThatMattered: [
+      {
+        title: "Overcoming Trust Barriers in High-Value Purchases",
+        description: "Customers hesitated to purchase expensive jewelry online.",
+        impact: "Clear purity and authenticity disclosures, transparent pricing breakup, and easy access to human assistance. Higher confidence during browsing and checkout."
+      },
+      {
+        title: "Bridging the Sensory Gap",
+        description: "Jewelry is traditionally a tactile purchase.",
+        impact: "High-quality visuals and detailed descriptions, assisted consultations via WhatsApp and voice, store-backed fulfillment assurances. Digital interactions felt closer to an in-store experience."
+      },
+      {
+        title: "Managing Price Volatility",
+        description: "Gold prices fluctuate daily.",
+        impact: "Dynamic rate updates with real-time price recalculation at checkout. Pricing credibility and reduced post-order disputes."
+      }
+    ],
+    solutions: [
+      {
+        problem: "Overcoming Trust Barriers in High-Value Purchases",
+        decision: "Clear purity and authenticity disclosures",
+        intervention: "Transparent pricing breakup with easy access to human assistance",
+        result: "Higher confidence during browsing and checkout"
+      },
+      {
+        problem: "Bridging the Sensory Gap",
+        decision: "High-quality visuals and detailed descriptions",
+        intervention: "Assisted consultations via WhatsApp and voice with store-backed fulfillment assurances",
+        result: "Digital interactions felt closer to an in-store experience"
+      },
+      {
+        problem: "Managing Price Volatility",
+        decision: "Dynamic rate updates",
+        intervention: "Real-time price recalculation at checkout",
+        result: "Pricing credibility and reduced post-order disputes"
+      }
+    ],
+    outcomes: {
+      quantitative: [
+        "Increased trust in online jewelry purchasing",
+        "Clear understanding of pricing and value",
+        "Confidence comparable to visiting a physical store"
+      ],
+      qualitative: [
+        "Successful digital extension of a traditional retail brand",
+        "Reduced dependency on in-store visits",
+        "Strong foundation for omni-channel growth",
+        "Demonstrated viability of phygital commerce for high-value goods",
+        "Created a repeatable model for traditional retailers entering ecommerce"
+      ],
+      impact: "PNG Brothers successfully transitioned from a traditional jeweler to a phygital commerce brand, proving that trust-first design can enable high-value purchases online while maintaining the credibility of a family-owned jewelry business."
+    },
+    learnings: {
+      keyLearnings: [
+        "Transparency builds trust faster than discounts in high-value purchases",
+        "Human support visibility is critical for complex buying decisions",
+        "Price clarity at every step reduces hesitation and disputes"
+      ],
+      improvements: [],
+      insights: [
+        "Phygital commerce is the future for traditional high-value retailers"
+      ]
+    },
+    gallery: [pngBrothers]
   }
 };
 

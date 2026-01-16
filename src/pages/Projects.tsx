@@ -21,6 +21,7 @@ import nepalPolice from '@/assets/nepal-police.png';
 import nmmcDashboard from '@/assets/nmmc-dashboard.png';
 import bajajFinserv from '@/assets/bajaj-finserv.png';
 import guppaai from '@/assets/guppaai.png';
+import pngBrothers from '@/assets/png-brothers.png';
 
 const categories = ['All', 'Web Apps', 'Mobile Apps', 'AI/ML/CV', 'eGovernance', 'eCommerce', 'BI Dashboards'];
 
@@ -328,8 +329,8 @@ const projects = [
     title: "PNG Brothers",
     category: "eCommerce",
     date: "2022",
-    excerpt: "Jewelry eCommerce platform with virtual try-on and certification features.",
-    image: images[3],
+    excerpt: "Phygital Jewelry Ecommerce Platform combining online convenience with in-store credibility and trust.",
+    image: pngBrothers,
     height: "tall"
   },
   {
