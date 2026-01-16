@@ -66,6 +66,7 @@ import csJewellers from '@/assets/cs-jewellers.png';
 import lomAi from '@/assets/lom-ai.png';
 import bmcDm from '@/assets/bmc-dm.png';
 import mobileGames from '@/assets/mobile-games.png';
+import vendimanMax from '@/assets/vendiman-max.png';
 
 // Tech stack icon mapping
 const techIcons: Record<string, React.ReactNode> = {
@@ -2910,6 +2911,149 @@ const projectsData: Record<string, {
       ]
     },
     gallery: [mobileGames]
+  },
+  'vendiman': {
+    title: "Vendiman",
+    category: "Autonomous Retail & Anti-Fraud Intelligence Platform | Private",
+    image: vendimanMax,
+    snapshot: {
+      client: "Vendiman",
+      industry: "Private | Unsupervised Retail | Embedded Systems & AI",
+      role: "Project Manager",
+      duration: "8+ months",
+      techStack: ["Embedded Systems", "Python", "Computer Vision", "PostgreSQL", "Angular"]
+    },
+    brief: {
+      problem: "The original objective was straightforward: enable manless retail through automated vending and checkout. However, real-world deployment revealed a far more complex and critical issue: inventory shrinkage driven by behavioral exploitation. In the Indian market, users quickly learned to game the system. While QR-based payments secured the initial transaction, customers exploited weaknesses in return and exchange verification by placing empty packaging back into the machine. Visual confirmation alone could not distinguish between a genuine product and a worthless wrapper, leading to fraud, inventory mismatch, and revenue loss. This exposed a fundamental flaw: automation without behavioral intelligence is financially unsustainable.",
+      context: "Traditional vending logic assumes honest behavior or simple visual verification. That assumption failed under real usage. Observed failure modes included empty wrappers returned instead of actual products, visual confirmation falsely validating fraudulent returns, inventory counts drifting despite successful transactions, and refund loops being exploited repeatedly. This wasn't a technical bug—it was a human behavior problem.",
+      constraints: [
+        "Real-world fraud patterns in unsupervised retail",
+        "Visual verification alone insufficient for fraud prevention",
+        "High-volume transaction processing requirements",
+        "Integration of hardware sensors with AI decision engine",
+        "Maintaining user experience while preventing fraud"
+      ]
+    },
+    contextReality: {
+      environment: "The system had to evolve from passive observation to active, multi-signal verification. The key insight was simple: Vision alone can be fooled. Physics cannot.",
+      existingSystems: [
+        "QR-based payment system (securing initial transactions)",
+        "Camera-based visual monitoring",
+        "Basic inventory tracking"
+      ],
+      constraints: [
+        "Computer Vision (CV) for hand movement and item placement detection",
+        "IoT Weight Telemetry with sensitive sensors on trays and crates",
+        "Cross-Validation Engine correlating visual events with weight deltas",
+        "Real-Time Decisioning for instant fraud blocking"
+      ]
+    },
+    approach: {
+      principles: [
+        "Assume adversarial behavior in unsupervised systems",
+        "Trust signals must be multi-dimensional",
+        "Every refund is a risk surface",
+        "Prevention must happen in real time, not post-analysis"
+      ],
+      strategicDecisions: [
+        "Implemented sensor fusion combining visual intelligence with physical telemetry",
+        "Designed SKU-level weight signature mapping for validation",
+        "Built cross-validation engine correlating CV events with weight changes",
+        "Created real-time decisioning capable of blocking invalid transactions instantly"
+      ],
+      tradeoffs: [
+        "Balanced anti-fraud mechanisms with user experience",
+        "Silent validation approach intervening only on anomalies",
+        "Hardware integration complexity vs. fraud prevention accuracy"
+      ]
+    },
+    execution: {
+      architecture: "The platform combined embedded controllers for real-time sensor ingestion, Python-based decision engine, CV pipelines synchronized with weight telemetry, centralized SKU intelligence database, and Angular-based admin and monitoring dashboards.",
+      keyModules: [
+        "Computer Vision detecting hand movement, item placement, and tray interactions",
+        "IoT Weight Telemetry with trays instrumented with sensitive weight sensors",
+        "Cross-Validation Engine correlating visual events with weight deltas in real time",
+        "Real-Time Decisioning blocking invalid refund attempts instantly",
+        "Admin Dashboard for monitoring and analytics"
+      ],
+      integrations: [
+        "Payment: CCAvenue, PayU",
+        "Commerce: Shopify",
+        "Hardware: IP Cameras, Digital Weighing Machines"
+      ],
+      considerations: [
+        "Synchronizing camera events with sensor telemetry in real time",
+        "Event correlation logic with tolerance thresholds per SKU",
+        "Accurate transaction validation without latency"
+      ]
+    },
+    challengesThatMattered: [
+      {
+        title: "Fraud That Looked Legitimate",
+        description: "The system was being fooled while appearing operationally 'correct'. Empty wrappers (~5g) vs actual products (~50g) could pass visual verification.",
+        impact: "Introduced physical verification via weight sensors and enforced SKU-level validation, making visual deception ineffective."
+      },
+      {
+        title: "Aligning AI With Hardware Constraints",
+        description: "Synchronizing camera events with sensor telemetry in real time required precise coordination between multiple systems.",
+        impact: "Implemented event correlation logic with tolerance thresholds per SKU, achieving accurate transaction validation without latency."
+      },
+      {
+        title: "Preserving User Experience",
+        description: "Anti-fraud mechanisms often degrade UX, potentially driving away honest customers.",
+        impact: "Designed silent validation approach that only intervenes on anomalies, allowing honest users to experience frictionless operation."
+      }
+    ],
+    solutions: [
+      {
+        problem: "Fraud That Looked Legitimate",
+        decision: "Implement sensor fusion with multi-modal verification",
+        intervention: "Combined Computer Vision with IoT weight telemetry. Each SKU mapped to expected weight signature. Cross-validation engine correlates visual events with weight deltas.",
+        result: "Visual deception became ineffective—empty wrapper (~5g) vs actual product (~50g) now detectable"
+      },
+      {
+        problem: "Real-Time Synchronization Challenges",
+        decision: "Event correlation logic with tolerance thresholds",
+        intervention: "Built synchronization layer between camera events and sensor telemetry with per-SKU tolerance configuration.",
+        result: "Accurate transaction validation without perceptible latency"
+      },
+      {
+        problem: "User Experience vs Security Trade-off",
+        decision: "Silent validation with anomaly-only intervention",
+        intervention: "Designed system to validate silently in background, only blocking or alerting on detected anomalies.",
+        result: "Honest users experience frictionless operation while fraud is prevented"
+      }
+    ],
+    outcomes: {
+      quantitative: [
+        "Significant reduction in inventory shrinkage",
+        "Automated fraud prevention without manual oversight",
+        "Reliable SKU-level inventory accuracy",
+        "Reduced refund abuse"
+      ],
+      qualitative: [
+        "Made manless retail economically viable",
+        "Improved investor and operator confidence",
+        "Shifted Vendiman from 'vending machine' to intelligent retail system",
+        "Demonstrated that behavioral intelligence is as critical as payment security",
+        "Created a reusable fraud-prevention architecture for unsupervised commerce"
+      ],
+      impact: "Vendiman is a strong example of systems thinking under real-world pressure. It shows the difference between building software that works in theory and systems that survive real human behavior."
+    },
+    learnings: {
+      keyLearnings: [
+        "Automation without behavioral intelligence is financially unsustainable",
+        "Vision alone can be fooled; physics cannot",
+        "Trust signals must be multi-dimensional in unsupervised systems"
+      ],
+      improvements: [],
+      insights: [
+        "Real-world deployment reveals problems theory cannot predict",
+        "Fraud prevention must happen in real time, not post-analysis",
+        "The difference between working software and surviving systems lies in anticipating human behavior"
+      ]
+    },
+    gallery: [vendimanMax]
   }
 };
 
