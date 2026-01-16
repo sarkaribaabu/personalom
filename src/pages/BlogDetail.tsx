@@ -11,6 +11,8 @@ import lifestylePost from '@/assets/lifestyle-post.jpg';
 import workLifestyle from '@/assets/work-lifestyle.jpg';
 import fashionLifestyle from '@/assets/fashion-lifestyle.jpg';
 import fashionPost from '@/assets/fashion-post.jpg';
+import vendorManagementCover from '@/assets/vendor-management-cover.jpg';
+import vendorPerformanceDashboard from '@/assets/vendor-performance-dashboard.png';
 import { ArrowLeft, ChevronLeft, ChevronRight, Quote, Lightbulb, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
@@ -64,6 +66,50 @@ const blogPosts: Record<string, {
   inlineImages?: { src: string; alt: string; caption?: string; afterParagraph: number }[];
   callouts?: { type: 'quote' | 'insight' | 'key'; text: string; afterParagraph: number }[];
 }> = {
+  "vendor-management-governance-execution": {
+    title: "Vendor Management: Where Governance Meets Execution",
+    category: "EGOVERNANCE",
+    date: "January 16, 2026",
+    readTime: "5 min read",
+    author: "Om Mahajan",
+    heroImage: vendorManagementCover,
+    inlineImages: [
+      { src: vendorPerformanceDashboard, alt: "Vendor performance tracking dashboard", caption: "A digital vendor management system enables centralized tracking and evaluation", afterParagraph: 2 }
+    ],
+    callouts: [
+      { type: 'key', text: "Should vendor performance history be shared across departments to prevent repeat failures?", afterParagraph: 3 }
+    ],
+    content: `
+      <p class="lead">In government, policies are framed internally, but execution often happens through vendors - contractors, service providers, system integrators, suppliers. When vendor management is weak, even the best policies fail on the ground.</p>
+      
+      <p>Common symptoms are familiar:</p>
+      
+      <ul>
+        <li>Delays without clarity.</li>
+        <li>Cost overruns without ownership.</li>
+        <li>Quality disputes without evidence.</li>
+        <li>Blacklisting after damage is already done.</li>
+      </ul>
+      
+      <p>Strong vendor management changes this by bringing structure, transparency, and accountability into every stage of engagement.</p>
+      
+      <p>A digital vendor management system enables:</p>
+      
+      <ul>
+        <li>Centralized vendor onboarding and credential verification.</li>
+        <li>Performance tracking against SLAs and milestones.</li>
+        <li>Transparent payment linkage to deliverables.</li>
+        <li>Historical performance records across projects and departments.</li>
+        <li>Objective evaluation instead of memory-based decisions.</li>
+      </ul>
+      
+      <p>The real shift is cultural. Vendor management moves governance from reactive firefighting to contractual discipline.</p>
+      
+      <p>When vendors know that timelines, quality, and compliance are continuously measured - not occasionally reviewed - behavior changes. Execution improves. Disputes reduce. Public money is better protected.</p>
+      
+      <p>Vendor management is not about control for its own sake. It's about ensuring that public intent translates into public outcomes.</p>
+    `
+  },
   "digital-transformation-urban-governance": {
     title: "Digital Transformation in Urban Governance: A Case Study",
     category: "TECHNOLOGY",
