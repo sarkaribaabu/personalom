@@ -20,6 +20,7 @@ import pwdPothole from '@/assets/pwd-pothole.png';
 import nepalPolice from '@/assets/nepal-police.png';
 import nmmcDashboard from '@/assets/nmmc-dashboard.png';
 import bajajFinserv from '@/assets/bajaj-finserv.png';
+import guppaai from '@/assets/guppaai.png';
 
 const categories = ['All', 'Web Apps', 'Mobile Apps', 'AI/ML/CV', 'eGovernance', 'eCommerce', 'BI Dashboards'];
 
@@ -224,11 +225,11 @@ const projects = [
     height: "medium"
   },
   {
-    title: "Guppa.ai",
+    title: "GuppaAI",
     category: "AI/ML/CV",
     date: "2025",
-    excerpt: "Conversational AI platform with natural language processing capabilities.",
-    image: images[1],
+    excerpt: "Conversational AI Platform enabling intent-driven discovery and decision-making with natural language interaction.",
+    image: guppaai,
     height: "medium"
   },
 
