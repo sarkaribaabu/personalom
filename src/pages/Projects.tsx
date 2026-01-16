@@ -27,6 +27,7 @@ import lomAi from '@/assets/lom-ai.png';
 import bmcDm from '@/assets/bmc-dm.png';
 import mobileGames from '@/assets/mobile-games.png';
 import vendimanMax from '@/assets/vendiman-max.png';
+import mhPolice from '@/assets/mh-police.png';
 
 const categories = ['All', 'Web Apps', 'Mobile Apps', 'AI/ML/CV', 'eGovernance', 'eCommerce', 'BI Dashboards'];
 
@@ -265,12 +266,12 @@ const projects = [
     height: "medium"
   },
   {
-    title: "Thane Police",
+    title: "Maharashtra Police - Dial 100",
     category: "eGovernance",
     date: "2019",
-    excerpt: "Police department digitization with case management and citizen portal.",
-    image: images[4],
-    height: "short"
+    excerpt: "Real-Time Command & Control Platform unifying call handling, dispatch, field execution, and post-incident verification.",
+    image: mhPolice,
+    height: "tall"
   },
   {
     title: "Chandrapur Police",
