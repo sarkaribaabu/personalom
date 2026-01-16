@@ -53,6 +53,7 @@ import nmmcEgovernance from '@/assets/nmmc-egovernance.png';
 import pcmcEgovernance from '@/assets/pcmc-egovernance.png';
 import nmPoliceBi from '@/assets/nm-police-bi.png';
 import scLandrecords from '@/assets/sc-landrecords.png';
+import mhadaApp from '@/assets/mhada-app.png';
 
 // Tech stack icon mapping
 const techIcons: Record<string, React.ReactNode> = {
@@ -1110,6 +1111,150 @@ const projectsData: Record<string, {
       ]
     },
     gallery: [techPost, businessPost, fashionPost, lifestylePost, workLifestyle, fashionLifestyle]
+  },
+  'mhada-app': {
+    title: "MHADA Housing Lottery & Verification Platform",
+    category: "Digital Housing Allocation System | Government (Housing & Urban Development)",
+    image: mhadaApp,
+    snapshot: {
+      client: "Government of Maharashtra – Maharashtra Housing and Area Development Authority (MHADA)",
+      industry: "Government | Housing | Urban Development",
+      role: "Project / Product Manager",
+      duration: "10+ months",
+      techStack: ["Python", "Java", "Angular", "Oracle", "Ionic", "Flutter"]
+    },
+    brief: {
+      problem: "The MHADA housing lottery process relied on partial online registration followed by physical document submission. Document verification happened only after lottery winners were declared. If ineligible or tampered documents were discovered, the entire lottery process had to be repeated, leaving housing units unallotted and significantly delaying possession.",
+      context: "MHADA lotteries attract extremely high citizen participation and public scrutiny. The process needed to be fair, transparent, tamper-proof, and time-bound. The objective was to eliminate post-lottery failures by ensuring complete eligibility and document verification before a citizen even entered the lottery pool.",
+      constraints: [
+        "Very high applicant volumes",
+        "Multiple identity and eligibility documents",
+        "Dependence on state and central issuing authorities",
+        "Zero tolerance for fraud or duplication",
+        "Tight timelines driven by public and political expectations"
+      ]
+    },
+    contextReality: {
+      environment: "While application submission was partially digital, the backend process was still document-heavy and manual. Verification bottlenecks surfaced only after lottery completion, creating systemic delays.",
+      existingSystems: [
+        "Manual scrutiny of documents after lottery",
+        "Repeated lotteries due to post-selection disqualifications",
+        "Long waiting periods for final allotment",
+        "High administrative overhead and citizen dissatisfaction"
+      ],
+      constraints: [
+        "Mobile application for registration and document upload",
+        "Acceptance of scanned copies and PDFs instead of physical documents",
+        "OCR-based extraction of identification numbers",
+        "Cross-verification with issuing authorities",
+        "Aadhaar-based uniqueness validation via DigiLocker",
+        "End-to-end digital eligibility verification before lottery entry"
+      ]
+    },
+    approach: {
+      principles: [
+        "Verify before selection, not after",
+        "Digital trust over manual scrutiny",
+        "Eliminate duplication at source",
+        "Design for auditability and fairness"
+      ],
+      strategicDecisions: [
+        "Made document verification mandatory before lottery eligibility",
+        "Used Aadhaar as the uniqueness anchor via DigiLocker",
+        "Automated rejection for ineligible applicants upfront",
+        "Mobile-first approach to maximize reach and ease"
+      ],
+      tradeoffs: [
+        "Upfront verification over traditional post-lottery scrutiny",
+        "Strict eligibility enforcement over flexible applicant pool",
+        "Digital-only verification over hybrid physical processes"
+      ]
+    },
+    execution: {
+      architecture: "The system was built as a verification-led workflow rather than a lottery-led workflow. OCR engine extracts key identifiers from uploaded documents, automated verification calls to issuing authorities, Aadhaar-based uniqueness enforcement, and a scalable backend to handle peak lottery traffic.",
+      keyModules: [
+        "Mobile application for registration and document upload",
+        "OCR engine for identifier extraction",
+        "Automated verification workflows",
+        "Aadhaar-based uniqueness enforcement",
+        "Digital-only applicant lifecycle management",
+        "Scalable backend for peak traffic handling"
+      ],
+      integrations: [
+        "Payment gateway: PayU",
+        "Identity and document verification: DigiLocker, Signzy",
+        "Government authorities: PAN, UIDAI, UDID, MahaIT, RTO",
+        "State platforms: Aaple Sarkar",
+        "Data ingestion: Excel / CSV imports",
+        "Citizen communication: WhatsApp"
+      ],
+      considerations: [
+        "High-throughput verification without manual bottlenecks",
+        "Automated eligibility scoring",
+        "Parallel verification workflows",
+        "OCR-driven data extraction"
+      ]
+    },
+    challengesThatMattered: [
+      {
+        title: "Preventing Duplicate and Fraudulent Applications",
+        description: "Applicants could previously submit multiple or manipulated applications.",
+        impact: "Aadhaar-based uniqueness enforcement and cross-verification with issuing authorities eliminated duplicate and fraudulent entries before lottery execution."
+      },
+      {
+        title: "Managing Verification at Scale",
+        description: "Thousands of applications with multiple documents each needed to be verified efficiently.",
+        impact: "OCR-driven data extraction, parallel verification workflows, and automated eligibility scoring enabled high-throughput verification without manual bottlenecks."
+      },
+      {
+        title: "Reducing End-to-End Allotment Time",
+        description: "Allotment previously took 90–120 days post-lottery.",
+        impact: "Front-loaded verification and digitized approval workflows reduced end-to-end process to approximately 45 days, from registration to final allotment."
+      }
+    ],
+    solutions: [
+      {
+        problem: "Preventing Duplicate and Fraudulent Applications",
+        decision: "Implement Aadhaar-based uniqueness enforcement",
+        intervention: "Cross-verification with issuing authorities to validate all identity documents.",
+        result: "Eliminated duplicate and fraudulent entries before lottery execution"
+      },
+      {
+        problem: "Managing Verification at Scale",
+        decision: "Build OCR-driven data extraction with parallel verification",
+        intervention: "Automated eligibility scoring with parallel verification workflows.",
+        result: "High-throughput verification without manual bottlenecks"
+      },
+      {
+        problem: "Reducing End-to-End Allotment Time",
+        decision: "Front-load verification before lottery entry",
+        intervention: "Digitized approval and allotment workflows to eliminate post-lottery delays.",
+        result: "End-to-end process reduced from 90-120 days to approximately 45 days"
+      }
+    ],
+    outcomes: {
+      quantitative: [
+        "End-to-end process reduced from 90-120 days to ~45 days",
+        "Eliminated duplicate and fraudulent applications",
+        "No post-lottery verification failures",
+        "Significant reduction in rework and legal risk"
+      ],
+      qualitative: [
+        "Fully digital, transparent application process",
+        "Faster and predictable allotment timelines",
+        "Reduced uncertainty and repeat lotteries",
+        "Simplified audit and compliance processes",
+        "Established a new benchmark for government lottery systems",
+        "Created a scalable foundation for future MHADA housing schemes"
+      ],
+      impact: "The platform demonstrated how verification-first design improves fairness and speed, establishing a new benchmark for government housing lottery systems and eliminating post-lottery failures entirely."
+    },
+    learnings: {
+      keyLearnings: [],
+      improvements: [],
+      insights: []
+    },
+    gallery: [mhadaApp]
   }
 };
 
