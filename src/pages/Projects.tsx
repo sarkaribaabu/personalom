@@ -14,6 +14,7 @@ import pcmcEgovernance from '@/assets/pcmc-egovernance.png';
 import nmPoliceBi from '@/assets/nm-police-bi.png';
 import scLandrecords from '@/assets/sc-landrecords.png';
 import mhadaApp from '@/assets/mhada-app.png';
+import dmsApp from '@/assets/dms-app.png';
 
 const categories = ['All', 'Web Apps', 'Mobile Apps', 'AI/ML/CV', 'eGovernance', 'eCommerce', 'BI Dashboards'];
 
@@ -57,8 +58,8 @@ const projects = [
     title: "DMS",
     category: "Web Apps",
     date: "2025",
-    excerpt: "Document Management System with advanced search, versioning, and workflow automation.",
-    image: images[4],
+    excerpt: "Unified Sales, Service & Operations Platform for multi-brand distributor with 10% business throughput increase.",
+    image: dmsApp,
     height: "medium"
   },
   {
