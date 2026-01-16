@@ -31,7 +31,17 @@ import {
   Target,
   TrendingUp,
   BookOpen,
-  ImageIcon
+  ImageIcon,
+  Briefcase,
+  Clock,
+  Cpu,
+  Server,
+  Database,
+  Cloud,
+  Smartphone,
+  Globe,
+  Shield,
+  Zap
 } from 'lucide-react';
 import businessPost from '@/assets/business-post.jpg';
 import techPost from '@/assets/tech-post.jpg';
@@ -40,7 +50,37 @@ import lifestylePost from '@/assets/lifestyle-post.jpg';
 import workLifestyle from '@/assets/work-lifestyle.jpg';
 import fashionLifestyle from '@/assets/fashion-lifestyle.jpg';
 
-// Project data with full details
+// Tech stack icon mapping
+const techIcons: Record<string, React.ReactNode> = {
+  'React': <Globe className="w-4 h-4" />,
+  'React Native': <Smartphone className="w-4 h-4" />,
+  'Node.js': <Server className="w-4 h-4" />,
+  'Python': <Cpu className="w-4 h-4" />,
+  'PostgreSQL': <Database className="w-4 h-4" />,
+  'MongoDB': <Database className="w-4 h-4" />,
+  'AWS': <Cloud className="w-4 h-4" />,
+  'Azure': <Cloud className="w-4 h-4" />,
+  'Docker': <Layers className="w-4 h-4" />,
+  'Kubernetes': <Layers className="w-4 h-4" />,
+  'TensorFlow': <Cpu className="w-4 h-4" />,
+  'Firebase': <Cloud className="w-4 h-4" />,
+  '.NET': <Server className="w-4 h-4" />,
+  'SQL Server': <Database className="w-4 h-4" />,
+  'Angular': <Globe className="w-4 h-4" />,
+  'TypeScript': <Cpu className="w-4 h-4" />,
+  'Java': <Server className="w-4 h-4" />,
+  'Spring Boot': <Server className="w-4 h-4" />,
+  'Flutter': <Smartphone className="w-4 h-4" />,
+  'Ionic': <Smartphone className="w-4 h-4" />,
+  'Power BI': <TrendingUp className="w-4 h-4" />,
+  'Tableau': <TrendingUp className="w-4 h-4" />,
+  'Redis': <Zap className="w-4 h-4" />,
+  'Elasticsearch': <Database className="w-4 h-4" />,
+  'OpenCV': <Cpu className="w-4 h-4" />,
+  'Stripe': <Shield className="w-4 h-4" />,
+};
+
+// Project data with full details mapped to correct slugs
 const projectsData: Record<string, {
   title: string;
   category: string;
@@ -57,20 +97,37 @@ const projectsData: Record<string, {
     context: string;
     constraints: string[];
   };
-  contextAndApproach: {
+  contextReality: {
     environment: string;
-    challenges: string[];
+    existingSystems: string[];
+    constraints: string[];
+  };
+  approach: {
     principles: string[];
-    decisions: string[];
+    strategicDecisions: string[];
+    tradeoffs: string[];
+  };
+  execution: {
+    architecture: string;
+    keyModules: string[];
+    integrations: string[];
+    considerations: string[];
   };
   challengesThatMattered: {
     title: string;
     description: string;
+    impact: string;
   }[];
-  solutionsSummary: string;
+  solutions: {
+    problem: string;
+    decision: string;
+    intervention: string;
+    result: string;
+  }[];
   outcomes: {
     quantitative: string[];
     qualitative: string[];
+    impact: string;
   };
   learnings: {
     keyLearnings: string[];
@@ -79,603 +136,932 @@ const projectsData: Record<string, {
   };
   gallery: string[];
 }> = {
-  'featured-story-main-content': {
-    title: "Featured Story — Main Content",
-    category: "Web Development",
-    image: businessPost,
+  'nmmc-portal': {
+    title: "NMMC Portal",
+    category: "Web Apps",
+    image: techPost,
     snapshot: {
-      client: "Enterprise Financial Services",
-      industry: "Banking & Finance",
-      role: "Lead Product Manager",
+      client: "Navi Mumbai Municipal Corporation",
+      industry: "Government / e-Governance",
+      role: "Technical Project Manager & Solution Architect",
       duration: "18 months",
-      techStack: ["React", "Node.js", "PostgreSQL", "AWS", "Docker"]
+      techStack: [".NET", "SQL Server", "Angular", "Azure", "Redis"]
     },
     brief: {
-      problem: "Legacy core banking system was hindering digital transformation initiatives, causing significant delays in product launches and customer onboarding processes.",
-      context: "The organization needed to modernize their customer-facing applications while maintaining regulatory compliance and ensuring zero downtime during the transition.",
+      problem: "Citizens faced fragmented access to municipal services across multiple legacy systems, leading to long queues, delayed responses, and poor transparency in service delivery.",
+      context: "NMMC serves 1.5+ million citizens and needed a unified digital platform to transform citizen services, improve operational efficiency, and establish transparency in governance.",
       constraints: [
-        "Strict regulatory compliance requirements (RBI guidelines)",
-        "24/7 availability mandate with 99.99% uptime SLA",
-        "Integration with 15+ legacy systems",
-        "Phased rollout across 500+ branches"
+        "Integration with 15+ existing legacy systems",
+        "24/7 availability mandate for critical services",
+        "Multilingual support (Marathi, Hindi, English)",
+        "Strict government security and audit requirements",
+        "Phased rollout across all municipal departments"
       ]
     },
-    contextAndApproach: {
-      environment: "The existing infrastructure comprised decades-old COBOL-based systems with limited API capabilities. Multiple teams operated in silos with varying levels of technical maturity.",
-      challenges: [
-        "Fragmented data across multiple legacy databases",
-        "Resistance to change from traditional banking operations teams",
-        "Regulatory audits scheduled during the implementation phase",
-        "Limited documentation of existing business logic"
+    contextReality: {
+      environment: "The existing infrastructure comprised multiple standalone applications built over two decades, each with its own database and user management. No single source of truth for citizen data existed.",
+      existingSystems: [
+        "Legacy property tax system (15+ years old)",
+        "Water billing on separate mainframe",
+        "Manual grievance tracking through registers",
+        "Paper-based building permission workflows"
       ],
+      constraints: [
+        "Limited IT literacy among senior municipal staff",
+        "Political pressure for quick visible results",
+        "Budget constraints typical of government projects",
+        "Union resistance to process automation"
+      ]
+    },
+    approach: {
       principles: [
-        "Incremental modernization over big-bang replacement",
-        "API-first architecture to enable future flexibility",
-        "Security and compliance as foundational requirements",
-        "User-centric design with continuous feedback loops"
+        "Citizen-first design with minimal learning curve",
+        "Unified login with single-window clearance concept",
+        "Mobile-first responsive approach",
+        "Transparency through real-time status tracking"
       ],
-      decisions: [
-        "Chose strangler fig pattern for gradual legacy replacement",
-        "Implemented event-driven architecture for real-time processing",
-        "Established cross-functional pods over traditional team structures"
+      strategicDecisions: [
+        "Built middleware layer to connect legacy systems rather than replacing them",
+        "Implemented workflow engine for configurable approval processes",
+        "Chose progressive disclosure over feature-heavy interfaces"
+      ],
+      tradeoffs: [
+        "Accepted slower initial rollout to ensure department buy-in",
+        "Prioritized stability over cutting-edge technology",
+        "Chose hybrid hosting over full cloud due to data sovereignty concerns"
+      ]
+    },
+    execution: {
+      architecture: "Microservices-based architecture with API gateway, supporting gradual migration from monolithic legacy systems. Event-driven integration layer for real-time sync.",
+      keyModules: [
+        "Unified Citizen Portal with SSO",
+        "Property Tax Assessment & Payment",
+        "Water & Sewerage Bill Management",
+        "Building Permission Workflow",
+        "Grievance Management System",
+        "Online Payment Gateway Integration"
+      ],
+      integrations: [
+        "HDFC, SBI, ICICI payment gateways",
+        "Aadhaar-based eKYC verification",
+        "SMS gateway for notifications",
+        "Email service integration",
+        "GIS mapping for property location"
+      ],
+      considerations: [
+        "99.9% uptime SLA with automatic failover",
+        "End-to-end encryption for sensitive data",
+        "Role-based access control across 50+ user types",
+        "Audit trail for all transactions"
       ]
     },
     challengesThatMattered: [
       {
-        title: "Data Migration Without Downtime",
-        description: "Migrating 10+ years of transactional data while ensuring zero impact on daily operations required innovative dual-write patterns and careful orchestration."
+        title: "Legacy System Integration Without Disruption",
+        description: "Connecting 15+ legacy systems with different data formats and protocols while ensuring existing operations continued uninterrupted during the 18-month transition.",
+        impact: "Required building custom adapters and implementing eventual consistency patterns to handle data synchronization across systems."
       },
       {
-        title: "Regulatory Compliance During Transition",
-        description: "Maintaining audit trails and compliance reporting across both old and new systems during the 18-month transition period required building temporary bridge solutions."
+        title: "Change Management Across Departments",
+        description: "Overcoming resistance from municipal staff accustomed to manual processes and paper-based workflows. Some departments had used the same processes for 20+ years.",
+        impact: "Invested 30% of project timeline in training, handholding, and building department champions to drive adoption."
+      },
+      {
+        title: "Ensuring Adoption Among Diverse Citizen Demographics",
+        description: "The platform needed to serve everyone from tech-savvy professionals to senior citizens with limited digital literacy.",
+        impact: "Implemented multilingual interface, visual workflow guidance, and hybrid online-offline service model."
       }
     ],
-    solutionsSummary: "To address legacy system limitations, we implemented a Redis-based caching layer with eventual consistency guarantees, reducing response times from 8 seconds to 200ms. For team capability gaps, we established an internal academy with hands-on workshops, achieving 90% cloud-native certification within 6 months.",
+    solutions: [
+      {
+        problem: "Legacy systems couldn't handle real-time data sync",
+        decision: "Implement event-driven architecture with message queuing",
+        intervention: "Built custom middleware with Redis-backed queue and retry mechanisms",
+        result: "Achieved 99.7% sync accuracy with max 2-minute lag across all integrated systems"
+      },
+      {
+        problem: "Staff resistance to new digital workflows",
+        decision: "Create department champions and gamified adoption program",
+        intervention: "Identified and trained 50+ power users, implemented performance dashboards with recognition",
+        result: "85% voluntary adoption within 6 months, reduced training escalations by 60%"
+      },
+      {
+        problem: "Citizens struggling with complex application processes",
+        decision: "Redesign forms with progressive disclosure and contextual help",
+        intervention: "Broke 50-field forms into 5-step wizards with validation and save-as-draft",
+        result: "Application completion rate improved from 45% to 87%"
+      }
+    ],
     outcomes: {
       quantitative: [
-        "60% reduction in customer onboarding time",
-        "99.97% system uptime achieved",
-        "40% decrease in operational costs",
-        "3x improvement in transaction processing speed"
+        "60% reduction in average service delivery time",
+        "₹15 Cr+ annual revenue through online property tax collection",
+        "85% citizen satisfaction rating (up from 42%)",
+        "40% reduction in counter footfall",
+        "3 lakh+ registered citizens within first year"
       ],
       qualitative: [
-        "Significantly improved developer experience and productivity",
-        "Enhanced regulatory confidence with real-time compliance dashboards",
-        "Established foundation for future digital banking initiatives"
-      ]
+        "Established NMMC as a model for other municipal corporations",
+        "Significantly improved transparency with real-time status tracking",
+        "Reduced corruption touchpoints through digital workflows",
+        "Foundation laid for future smart city initiatives"
+      ],
+      impact: "The portal transformed NMMC's citizen engagement model and became a reference implementation for other municipal corporations in Maharashtra."
     },
     learnings: {
       keyLearnings: [
-        "Early stakeholder alignment prevents costly mid-project pivots",
-        "Technical debt should be addressed incrementally, not deferred indefinitely"
+        "Government digital transformation requires equal investment in change management and technology",
+        "Building trust with bureaucracy takes time but is essential for sustainable adoption"
       ],
       improvements: [
-        "Would have invested more in automated testing from day one",
-        "Earlier involvement of operations team in design decisions"
+        "Would have started citizen awareness campaigns 3 months before launch",
+        "Earlier involvement of front-desk staff in UX design decisions"
       ],
       insights: [
-        "Change management is as critical as technical excellence in enterprise transformations"
+        "Success in e-governance is measured not by features shipped but by citizens served",
+        "The best technology is invisible to the end user"
+      ]
+    },
+    gallery: [techPost, businessPost, fashionPost, lifestylePost, workLifestyle, fashionLifestyle]
+  },
+  'pcmc-portal': {
+    title: "PCMC Portal",
+    category: "Web Apps",
+    image: fashionPost,
+    snapshot: {
+      client: "Pimpri Chinchwad Municipal Corporation",
+      industry: "Government / e-Governance",
+      role: "Solution Architect & Technical Lead",
+      duration: "14 months",
+      techStack: [".NET", "SQL Server", "Angular", "Azure", "Elasticsearch"]
+    },
+    brief: {
+      problem: "PCMC, serving a rapidly growing industrial hub with 2+ million citizens, struggled with citizen service delivery due to disconnected departmental systems and manual processes.",
+      context: "As one of the richest municipal corporations in Asia, PCMC needed a world-class digital platform to match its industrial significance and serve its diverse population of industrial workers, businessmen, and residents.",
+      constraints: [
+        "High transaction volumes due to industrial area",
+        "Integration with industrial licensing systems",
+        "Bilingual mandatory (Marathi and English)",
+        "Strict compliance with Smart City guidelines"
+      ]
+    },
+    contextReality: {
+      environment: "PCMC operates in one of India's largest industrial zones with unique requirements around industrial licensing, environmental clearances, and worker welfare.",
+      existingSystems: [
+        "SAP-based financial management system",
+        "Legacy industrial licensing database",
+        "Separate property and water tax systems",
+        "Manual building permission process"
+      ],
+      constraints: [
+        "Industrial stakeholders demanded fast processing",
+        "High volume of commercial transactions",
+        "Multiple ward offices with varying IT infrastructure"
+      ]
+    },
+    approach: {
+      principles: [
+        "Speed and efficiency for industrial stakeholders",
+        "Paperless workflow implementation",
+        "Mobile-first for field operations"
+      ],
+      strategicDecisions: [
+        "Prioritized industrial services for Phase 1",
+        "Built comprehensive search and tracking system",
+        "Implemented document management with OCR"
+      ],
+      tradeoffs: [
+        "Chose rapid deployment over comprehensive features",
+        "Accepted some manual processes to meet timeline"
+      ]
+    },
+    execution: {
+      architecture: "Service-oriented architecture with enterprise service bus for inter-system communication. Elasticsearch for fast document and application search.",
+      keyModules: [
+        "Industrial Licensing Portal",
+        "Trade License Management",
+        "Property Tax & Assessment",
+        "Building Permission System",
+        "Birth & Death Registration",
+        "E-Tendering Platform"
+      ],
+      integrations: [
+        "SAP financial system",
+        "State pollution control board",
+        "RERA compliance system",
+        "Multiple payment gateways"
+      ],
+      considerations: [
+        "High availability for industrial services",
+        "Bulk processing for large enterprises",
+        "API-first for third-party integrations"
+      ]
+    },
+    challengesThatMattered: [
+      {
+        title: "Managing Industrial Stakeholder Expectations",
+        description: "Large industries expected the same service levels as private enterprise platforms, with zero tolerance for delays or downtime.",
+        impact: "Required building enterprise-grade SLAs and dedicated support channels."
+      },
+      {
+        title: "Integrating with SAP Financial Systems",
+        description: "PCMC's SAP implementation had extensive customizations making standard integrations impossible.",
+        impact: "Built custom SAP connectors with thorough testing across all financial workflows."
+      }
+    ],
+    solutions: [
+      {
+        problem: "Industrial license applications taking 30+ days",
+        decision: "Implement parallel processing workflow with automated routing",
+        intervention: "Built multi-department concurrent review system with SLA tracking",
+        result: "Reduced average processing time to 7 days for standard applications"
+      },
+      {
+        problem: "Document search taking hours in legacy systems",
+        decision: "Implement Elasticsearch-based document repository",
+        intervention: "Migrated 10+ years of documents with OCR indexing",
+        result: "Document retrieval now takes under 3 seconds"
+      }
+    ],
+    outcomes: {
+      quantitative: [
+        "75% reduction in industrial license processing time",
+        "₹50 Cr+ online transactions in first year",
+        "90% paperless operations achieved",
+        "50,000+ applications processed monthly"
+      ],
+      qualitative: [
+        "Recognized as Smart City best practice",
+        "Improved industrial stakeholder relationships",
+        "Set benchmark for other industrial city portals"
+      ],
+      impact: "PCMC portal became a model for industrial city e-governance, demonstrating that government services can match private sector efficiency."
+    },
+    learnings: {
+      keyLearnings: [
+        "Industrial stakeholders drive adoption through economic incentives",
+        "Document digitization ROI is immediate and substantial"
+      ],
+      improvements: [
+        "Would have invested more in mobile app from day one"
+      ],
+      insights: [
+        "When businesses see time savings, they become the strongest advocates for digital adoption"
+      ]
+    },
+    gallery: [fashionPost, techPost, businessPost, lifestylePost, workLifestyle, fashionLifestyle]
+  },
+  'sc-land-records': {
+    title: "SC Land Records",
+    category: "Web Apps",
+    image: businessPost,
+    snapshot: {
+      client: "Supreme Court of India",
+      industry: "Judiciary / Legal Tech",
+      role: "Technical Program Manager",
+      duration: "24 months",
+      techStack: [".NET", "SQL Server", "Angular", "Azure", "Docker"]
+    },
+    brief: {
+      problem: "Land dispute cases constitute a significant portion of Supreme Court matters, with judges struggling to access comprehensive land records during hearings, leading to multiple adjournments.",
+      context: "The Supreme Court needed a centralized system to access land records from all states during case proceedings, reducing dependency on physical records and state-level queries.",
+      constraints: [
+        "Constitutional sensitivity of judicial proceedings",
+        "Data from 28 states with different formats",
+        "Highest security and confidentiality requirements",
+        "Integration with existing case management systems"
+      ]
+    },
+    contextReality: {
+      environment: "India's land records are maintained by state governments with varying degrees of digitization, different data schemas, and multiple languages.",
+      existingSystems: [
+        "State-level land record databases (DILRMP, Bhoomi, etc.)",
+        "Supreme Court case management system",
+        "Paper-based archive of historical records"
+      ],
+      constraints: [
+        "Some states had minimal digital infrastructure",
+        "Historical records in vernacular languages",
+        "Constitutional limitations on data sharing across states"
+      ]
+    },
+    approach: {
+      principles: [
+        "Judicial convenience as primary design driver",
+        "Federated architecture respecting state autonomy",
+        "Highest levels of data security and audit"
+      ],
+      strategicDecisions: [
+        "Built API-based integration with state systems rather than data replication",
+        "Implemented role-based access for different judicial officers",
+        "Created offline mode for courtroom access"
+      ],
+      tradeoffs: [
+        "Accepted some latency for real-time state queries over data replication",
+        "Prioritized major states for Phase 1"
+      ]
+    },
+    execution: {
+      architecture: "Hub and spoke model with Supreme Court as central hub, connecting to state land record systems through secure APIs. Local caching for frequently accessed records.",
+      keyModules: [
+        "Multi-state land record search",
+        "Case-linked record management",
+        "Historical record digitization",
+        "Judicial dashboard for bench access",
+        "Secure document sharing"
+      ],
+      integrations: [
+        "State revenue department databases",
+        "Supreme Court case management",
+        "e-Courts national grid",
+        "Digital signature infrastructure"
+      ],
+      considerations: [
+        "Air-gapped networks for sensitive data",
+        "Multi-factor authentication for all access",
+        "Complete audit trail for compliance"
+      ]
+    },
+    challengesThatMattered: [
+      {
+        title: "Harmonizing 28 Different Data Formats",
+        description: "Each state maintained land records in different formats, languages, and schemas. Some still relied on colonial-era record keeping practices.",
+        impact: "Built a semantic layer that could interpret and normalize diverse data formats into a unified view."
+      },
+      {
+        title: "Meeting Supreme Court Security Standards",
+        description: "The system handled constitutionally sensitive data with implications for major land disputes. Security could not be compromised.",
+        impact: "Implemented defense-in-depth security with multiple audit layers and obtained CERT-In certification."
+      }
+    ],
+    solutions: [
+      {
+        problem: "Judges couldn't access land records during live hearings",
+        decision: "Build offline-capable judicial dashboard with pre-loaded case records",
+        intervention: "Created smart caching system that pre-fetches records linked to upcoming cases",
+        result: "95% of required records available instantly during hearings"
+      },
+      {
+        problem: "Historical records in regional languages were inaccessible",
+        decision: "Implement multi-language OCR with judicial terminology training",
+        intervention: "Trained OCR models on legal terminology across 12 languages",
+        result: "Successfully digitized 2 lakh+ historical documents with 92% accuracy"
+      }
+    ],
+    outcomes: {
+      quantitative: [
+        "70% reduction in adjournments due to missing records",
+        "Connected to 22 state land record systems",
+        "2 lakh+ historical documents digitized",
+        "Average record retrieval time under 5 seconds"
+      ],
+      qualitative: [
+        "Significantly improved judicial efficiency for land cases",
+        "Set precedent for inter-state judicial data sharing",
+        "Reduced pendency in land-related matters"
+      ],
+      impact: "The system transformed how land dispute cases are handled in the Supreme Court, setting a model for judicial technology adoption."
+    },
+    learnings: {
+      keyLearnings: [
+        "Judicial technology requires extreme attention to constitutional and procedural correctness",
+        "Federated architectures work better for sovereign data sharing"
+      ],
+      improvements: [
+        "Would have engaged state IT teams earlier in the process"
+      ],
+      insights: [
+        "Technology for judiciary must be invisible—judges should focus on justice, not systems"
       ]
     },
     gallery: [businessPost, techPost, fashionPost, lifestylePost, workLifestyle, fashionLifestyle]
   },
-  'story-title-content-preview': {
-    title: "Story Title — Content Preview",
-    category: "AI/ML",
-    image: techPost,
+  'navi-mumbai-police': {
+    title: "Navi Mumbai Police",
+    category: "eGovernance",
+    image: businessPost,
     snapshot: {
-      client: "Government Department",
-      industry: "Public Sector / e-Governance",
-      role: "Technical Program Manager",
-      duration: "12 months",
-      techStack: ["Python", "TensorFlow", "Azure ML", "PostgreSQL", "React"]
+      client: "Navi Mumbai Police Commissionerate",
+      industry: "Law Enforcement / Public Safety",
+      role: "Solution Architect & Technical Lead",
+      duration: "20 months",
+      techStack: [".NET", "SQL Server", "React", "Python", "Power BI", "Azure"]
     },
     brief: {
-      problem: "Manual document processing for citizen services was causing 45-day average turnaround times, leading to citizen dissatisfaction and operational backlogs.",
-      context: "The department needed to automate document verification and classification while maintaining accuracy standards required for government records.",
+      problem: "Crime data scattered across multiple stations with no unified view, hindering data-driven policing and resource allocation decisions.",
+      context: "Navi Mumbai Police needed a comprehensive digital platform to modernize operations, improve response times, and enable predictive policing using analytics.",
       constraints: [
-        "Multilingual document support (12 regional languages)",
-        "Strict data privacy and sovereignty requirements",
-        "Integration with existing e-governance portals",
-        "Budget constraints typical of government projects"
+        "Sensitive law enforcement data requiring highest security",
+        "Real-time operations requiring 99.99% uptime",
+        "Integration with state and central crime databases",
+        "Field deployment challenges in patrol operations"
       ]
     },
-    contextAndApproach: {
-      environment: "Existing workflow involved manual verification by multiple officers across different departments. Document formats varied significantly across districts.",
-      challenges: [
-        "Inconsistent document quality from rural submission centers",
-        "Limited training data for regional language documents",
-        "Resistance from staff concerned about automation",
-        "Complex approval hierarchies across departments"
+    contextReality: {
+      environment: "Police stations operated independently with paper-based FIR registration and manual crime tracking. No centralized view of crime patterns existed.",
+      existingSystems: [
+        "CCTNS (national crime database)",
+        "Manual station house registers",
+        "Disparate CCTV systems",
+        "Paper-based case diaries"
       ],
+      constraints: [
+        "24/7 operational requirements",
+        "Varying digital literacy among police personnel",
+        "Budget and procurement constraints"
+      ]
+    },
+    approach: {
       principles: [
-        "Augment human capability, not replace",
-        "Build for the lowest common denominator in terms of document quality",
-        "Transparency in AI decision-making for audit purposes"
+        "Officer safety and efficiency as primary drivers",
+        "Mobile-first for field operations",
+        "Analytics-driven resource deployment"
       ],
-      decisions: [
-        "Hybrid model combining ML classification with human verification for edge cases",
-        "Invested in building proprietary training dataset for regional languages",
-        "Designed explainable AI outputs for officer review"
+      strategicDecisions: [
+        "Built unified crime data warehouse for analytics",
+        "Implemented mobile app for beat officers",
+        "Created real-time dashboards for command center"
+      ],
+      tradeoffs: [
+        "Prioritized core policing workflows over administrative functions",
+        "Chose proven technologies over cutting-edge for reliability"
+      ]
+    },
+    execution: {
+      architecture: "Hybrid architecture with on-premise data center for sensitive data and cloud for analytics processing. Mobile apps with offline capability for field operations.",
+      keyModules: [
+        "Crime Records Management System",
+        "Case Investigation Tracking",
+        "Beat Management & Patrolling",
+        "Command Center Dashboard",
+        "Crime Analytics & Hotspot Mapping",
+        "Citizen Complaint Portal"
+      ],
+      integrations: [
+        "CCTNS national database",
+        "State CID systems",
+        "CCTV network integration",
+        "Vehicle tracking systems"
+      ],
+      considerations: [
+        "Multi-level access control",
+        "Encrypted communication",
+        "Disaster recovery across zones"
       ]
     },
     challengesThatMattered: [
       {
-        title: "Regional Language Accuracy",
-        description: "Achieving acceptable accuracy for handwritten documents in 12 regional languages required building custom training datasets and models."
+        title: "Ensuring Data Security for Sensitive Crime Data",
+        description: "Crime data is among the most sensitive government data, with potential for misuse if security is compromised.",
+        impact: "Implemented defense-in-depth security with audit trails, encryption at rest and transit, and role-based access."
       },
       {
-        title: "Change Management Across Districts",
-        description: "Rolling out AI-assisted processing across 38 districts with varying levels of digital literacy required extensive training and support."
+        title: "Driving Adoption Among Field Officers",
+        description: "Beat officers were accustomed to paper registers and faced challenges adapting to mobile-first workflows.",
+        impact: "Designed intuitive mobile app with voice input and minimal typing, plus extensive field training."
       }
     ],
-    solutionsSummary: "We engaged 50+ language specialists for annotation over 3 months to build custom training datasets, achieving 94% accuracy across all supported languages. The 'AI Buddy' program paired officers with the system, resulting in 85% positive feedback from staff after 6 months.",
-    outcomes: {
-      quantitative: [
-        "Reduced average processing time from 45 days to 7 days",
-        "85% of documents auto-classified correctly",
-        "30% reduction in processing errors",
-        "₹2.4 Cr annual savings in operational costs"
-      ],
-      qualitative: [
-        "Improved citizen satisfaction scores by 40%",
-        "Staff freed for higher-value citizen interaction",
-        "Model for replication across other government departments"
-      ]
-    },
-    learnings: {
-      keyLearnings: [
-        "Government projects require extensive stakeholder management across hierarchies",
-        "AI accuracy must be near-perfect for citizen-facing applications"
-      ],
-      improvements: [
-        "Would have started change management activities earlier",
-        "More extensive pilot before full rollout"
-      ],
-      insights: [
-        "Success in government AI projects depends more on adoption than technology"
-      ]
-    },
-    gallery: [techPost, businessPost, fashionPost, lifestylePost, workLifestyle, fashionLifestyle]
-  },
-  'post-title-summary': {
-    title: "Post Title — Summary",
-    category: "Mobile Apps",
-    image: fashionPost,
-    snapshot: {
-      client: "Retail Chain (Confidential)",
-      industry: "Retail & E-commerce",
-      role: "Product Manager",
-      duration: "8 months",
-      techStack: ["React Native", "Node.js", "MongoDB", "Firebase", "Stripe"]
-    },
-    brief: {
-      problem: "Disconnected offline and online customer experiences were causing cart abandonment and missed upsell opportunities.",
-      context: "The retail chain needed a unified mobile experience that worked seamlessly across their 200+ stores while integrating with their existing POS and inventory systems.",
-      constraints: [
-        "Must work in low-connectivity store environments",
-        "Integration with 3 different POS systems across locations",
-        "Strict timeline aligned with festive season launch",
-        "Limited in-store staff for app promotion"
-      ]
-    },
-    contextAndApproach: {
-      environment: "Stores operated on different technology stacks based on when they were set up. Inventory synchronization was batch-based with significant delays.",
-      challenges: [
-        "Varying network quality across store locations",
-        "Multiple POS vendors with different integration capabilities",
-        "Staff unfamiliarity with mobile-first customer service"
-      ],
-      principles: [
-        "Offline-first architecture for reliable in-store experience",
-        "Progressive feature rollout based on store readiness",
-        "Self-service design to minimize staff dependency"
-      ],
-      decisions: [
-        "Built offline sync engine for core functionality",
-        "Created abstraction layer for POS integrations",
-        "Prioritized store pickup over delivery for initial launch"
-      ]
-    },
-    challengesThatMattered: [
+    solutions: [
       {
-        title: "Real-time Inventory Accuracy",
-        description: "Achieving accurate stock visibility when underlying systems had batch updates required building predictive inventory models."
-      }
-    ],
-    solutionsSummary: "We built a predictive stock model using ML that predicted inventory based on sales velocity and batch data, achieving 97% inventory accuracy for in-app display despite underlying systems having 4-6 hour data staleness.",
-    outcomes: {
-      quantitative: [
-        "25% increase in store pickup orders",
-        "18% higher average order value for app users",
-        "4.6 star rating on app stores",
-        "500K+ downloads in first 3 months"
-      ],
-      qualitative: [
-        "Unified brand experience across channels",
-        "Foundation for future omnichannel initiatives"
-      ]
-    },
-    learnings: {
-      keyLearnings: [
-        "Offline-first is essential for retail mobile apps",
-        "Integration complexity often exceeds feature development effort"
-      ],
-      improvements: [
-        "Would have pushed harder for real-time inventory APIs from POS vendors"
-      ],
-      insights: [
-        "Retail apps succeed when they add value to both customers and store staff"
-      ]
-    },
-    gallery: [fashionPost, businessPost, techPost, lifestylePost, workLifestyle, fashionLifestyle]
-  },
-  'article-title-overview': {
-    title: "Article Title — Overview",
-    category: "Design",
-    image: lifestylePost,
-    snapshot: {
-      client: "Healthcare Startup",
-      industry: "Healthcare / MedTech",
-      role: "Product Strategy Lead",
-      duration: "10 months",
-      techStack: ["Figma", "React", "TypeScript", "Node.js", "HL7 FHIR"]
-    },
-    brief: {
-      problem: "Fragmented patient data across multiple healthcare providers was leading to redundant tests, medication errors, and poor care coordination.",
-      context: "The startup aimed to create a unified patient health record platform that could aggregate data from multiple sources while maintaining privacy and regulatory compliance.",
-      constraints: [
-        "HIPAA and Indian healthcare data protection compliance",
-        "Integration with 50+ different EMR systems",
-        "Patient consent management requirements",
-        "Adoption by both tech-savvy and elderly patients"
-      ]
-    },
-    contextAndApproach: {
-      environment: "Healthcare providers used different data standards, making interoperability extremely challenging. Many small clinics still used paper records.",
-      challenges: [
-        "Lack of standardized health data formats across providers",
-        "Trust issues around sharing patient data",
-        "Varying digital literacy among patient demographics"
-      ],
-      principles: [
-        "Patient as the owner and controller of their data",
-        "Universal design for accessibility across age groups",
-        "Privacy by design in every feature"
-      ],
-      decisions: [
-        "Adopted FHIR standards for data interoperability",
-        "Built consent management as core platform feature",
-        "Designed for 'digital proxy' scenarios for elderly patients"
-      ]
-    },
-    challengesThatMattered: [
+        problem: "Crime hotspots identified too late for preventive action",
+        decision: "Build real-time analytics with predictive modeling",
+        intervention: "Implemented ML-based crime pattern analysis with auto-generated beat patrol recommendations",
+        result: "15% reduction in preventable crimes in identified hotspots"
+      },
       {
-        title: "Designing for Elderly Users",
-        description: "Creating an interface that worked for both tech-savvy millennials and 70+ year old patients with limited smartphone experience."
+        problem: "FIR registration taking 45+ minutes per case",
+        decision: "Streamline registration with templates and voice input",
+        intervention: "Built smart FIR wizard with auto-fill for common crimes and voice-to-text",
+        result: "Average FIR registration time reduced to 15 minutes"
       }
     ],
-    solutionsSummary: "We conducted extensive user research with 200+ patients across age groups, implementing large touch targets, voice-guided navigation, and a 'family caregiver' mode. For interoperability, we built 50+ EMR connectors using FHIR adapters, enabling seamless data aggregation.",
     outcomes: {
       quantitative: [
-        "40% reduction in redundant diagnostic tests",
-        "30% improvement in medication adherence",
-        "85% patient satisfaction score"
+        "40% improvement in case resolution rate",
+        "60% reduction in FIR registration time",
+        "15% reduction in preventable crimes",
+        "Real-time visibility across 100+ beats"
       ],
       qualitative: [
-        "First platform to achieve both HIPAA and Indian compliance",
-        "Partnership with major hospital chains"
-      ]
+        "Data-driven resource allocation across commissionerate",
+        "Improved public trust through faster response",
+        "Foundation for smart city integration"
+      ],
+      impact: "Transformed Navi Mumbai Police into a data-driven modern police force, becoming a model for other police commissionerates."
     },
     learnings: {
       keyLearnings: [
-        "Healthcare UX requires extensive real-world validation",
-        "Compliance should be built-in, not bolted-on"
+        "Law enforcement technology must be designed with field realities in mind",
+        "Analytics value is realized only when insights reach frontline officers"
       ],
       improvements: [
-        "Would have engaged regulatory consultants earlier in design"
+        "Would have invested more in command center infrastructure from start"
       ],
       insights: [
-        "In healthcare, trust is earned through transparency and control"
+        "Technology adoption in police forces succeeds when officers see it helping their daily work"
       ]
     },
-    gallery: [lifestylePost, businessPost, techPost, fashionPost, workLifestyle, fashionLifestyle]
+    gallery: [businessPost, techPost, fashionPost, lifestylePost, workLifestyle, fashionLifestyle]
   },
-  'featured-content-piece': {
-    title: "Featured Content Piece",
-    category: "Cloud",
-    image: workLifestyle,
-    snapshot: {
-      client: "Manufacturing Conglomerate",
-      industry: "Manufacturing / Industrial",
-      role: "Cloud Transformation Lead",
-      duration: "24 months",
-      techStack: ["AWS", "Kubernetes", "Terraform", "Python", "IoT Hub"]
-    },
-    brief: {
-      problem: "Disparate on-premise systems across 12 manufacturing units were causing visibility gaps, delayed reporting, and inability to implement predictive maintenance.",
-      context: "The conglomerate needed a unified cloud platform to connect all manufacturing units while ensuring minimal disruption to 24/7 production operations.",
-      constraints: [
-        "Zero tolerance for production downtime",
-        "Legacy OT systems with limited connectivity options",
-        "Compliance with industrial safety standards",
-        "Workforce with limited cloud technology exposure"
-      ]
-    },
-    contextAndApproach: {
-      environment: "Manufacturing units operated independently with varying levels of automation. Some units had modern PLCs while others relied on decades-old equipment.",
-      challenges: [
-        "Connecting OT and IT networks securely",
-        "Handling intermittent connectivity at remote plant locations",
-        "Resistance from plant managers concerned about centralized control"
-      ],
-      principles: [
-        "Edge-first architecture for resilience",
-        "Security as non-negotiable foundation",
-        "Federated model respecting plant autonomy"
-      ],
-      decisions: [
-        "Deployed edge gateways at each plant for local processing",
-        "Implemented zero-trust security model",
-        "Created plant-level dashboards before central visibility"
-      ]
-    },
-    challengesThatMattered: [
-      {
-        title: "OT-IT Convergence",
-        description: "Bridging decades-old operational technology with modern cloud infrastructure required custom integration solutions and extensive security considerations."
-      }
-    ],
-    solutionsSummary: "We designed custom edge gateway solutions with local processing capabilities, ensuring plants could operate independently during connectivity issues. A zero-trust security model with network segmentation addressed OT-IT convergence concerns, enabling secure data flow without exposing critical systems.",
-    outcomes: {
-      quantitative: [
-        "23% reduction in unplanned downtime through predictive maintenance",
-        "15% improvement in overall equipment effectiveness",
-        "₹12 Cr annual savings in operational costs"
-      ],
-      qualitative: [
-        "Real-time visibility across all manufacturing units",
-        "Foundation for AI-driven production optimization"
-      ]
-    },
-    learnings: {
-      keyLearnings: [
-        "Industrial digital transformation requires patience and trust-building",
-        "Edge computing is essential for mission-critical OT environments"
-      ],
-      improvements: [
-        "Would have involved plant managers as design partners from day one"
-      ],
-      insights: [
-        "Manufacturing transformation succeeds when it empowers plant teams, not just headquarters"
-      ]
-    },
-    gallery: [workLifestyle, businessPost, techPost, fashionPost, lifestylePost, fashionLifestyle]
-  },
-  'latest-design-showcase': {
-    title: "Latest Design Showcase",
-    category: "Design",
+  'vendiman': {
+    title: "Vendiman",
+    category: "Web Apps",
     image: fashionLifestyle,
     snapshot: {
-      client: "EdTech Platform",
-      industry: "Education Technology",
-      role: "UX Strategy Lead",
-      duration: "6 months",
-      techStack: ["Figma", "React", "Next.js", "Tailwind CSS", "Framer Motion"]
+      client: "Enterprise Manufacturing Client (Confidential)",
+      industry: "Manufacturing / Supply Chain",
+      role: "Product Manager & Solution Architect",
+      duration: "12 months",
+      techStack: ["React", "Node.js", "PostgreSQL", "AWS", "Python"]
     },
     brief: {
-      problem: "Low course completion rates and declining user engagement were threatening the platform's growth and learner outcomes.",
-      context: "The platform needed a complete UX overhaul to make learning more engaging while maintaining content quality and learning effectiveness.",
+      problem: "Managing 500+ vendors across multiple categories with no standardized processes led to quality inconsistencies, payment delays, and compliance gaps.",
+      context: "The client needed a comprehensive vendor management platform to streamline onboarding, performance tracking, and compliance management across their manufacturing operations.",
       constraints: [
-        "Must maintain backward compatibility with existing content",
-        "Mobile-first for primary user base",
-        "Accessibility requirements for diverse learner base",
-        "Limited engineering bandwidth for implementation"
+        "Integration with SAP procurement module",
+        "Multi-location vendor base across India",
+        "Strict quality and compliance requirements",
+        "Real-time inventory visibility needs"
       ]
     },
-    contextAndApproach: {
-      environment: "Learners accessed the platform on a variety of devices, primarily mobile, often with intermittent connectivity.",
-      challenges: [
-        "Attention span challenges for long-form content",
-        "Limited interactivity in existing course formats",
-        "Instructor content creation bottlenecks"
+    contextReality: {
+      environment: "Vendor management was handled through spreadsheets and emails, with different locations following different processes.",
+      existingSystems: [
+        "SAP for procurement and payments",
+        "Excel-based vendor tracking",
+        "Manual quality inspection records",
+        "Email-based communication"
       ],
+      constraints: [
+        "Vendors with varying technical capabilities",
+        "Multiple approval hierarchies",
+        "Audit and compliance requirements"
+      ]
+    },
+    approach: {
       principles: [
-        "Mobile-first, bite-sized learning",
-        "Gamification without gimmicks",
-        "Community as a learning accelerator"
+        "Self-service for vendors to reduce administrative burden",
+        "Performance transparency to drive vendor improvement",
+        "Compliance as a built-in feature"
       ],
-      decisions: [
-        "Restructured courses into 10-minute micro-lessons",
-        "Implemented peer learning features",
-        "Created simplified content authoring tools"
+      strategicDecisions: [
+        "Built vendor portal for self-service onboarding",
+        "Implemented automated performance scoring",
+        "Created compliance calendar with auto-reminders"
+      ],
+      tradeoffs: [
+        "Prioritized procurement integration over other modules",
+        "Accepted phased rollout to manage change"
+      ]
+    },
+    execution: {
+      architecture: "Cloud-native microservices architecture on AWS with event-driven integration to SAP. Vendor portal as separate frontend for external users.",
+      keyModules: [
+        "Vendor Self-Service Portal",
+        "Onboarding & Qualification Workflow",
+        "Performance Scorecard & Analytics",
+        "Contract & Compliance Management",
+        "Payment Tracking & Reconciliation",
+        "Quality Audit Management"
+      ],
+      integrations: [
+        "SAP procurement and payment modules",
+        "Quality management system",
+        "Document management system",
+        "Email and SMS notifications"
+      ],
+      considerations: [
+        "Secure vendor data handling",
+        "Mobile-responsive for vendor access",
+        "Multi-language support for regional vendors"
       ]
     },
     challengesThatMattered: [
       {
-        title: "Content Migration",
-        description: "Converting 500+ hours of existing long-form content into micro-learning format while maintaining coherence."
-      }
-    ],
-    solutionsSummary: "We built an AI-assisted content chunking tool that suggested optimal break points and created summaries, enabling content migration to complete 3x faster than a manual approach. The gamification system focused on learning milestones rather than superficial metrics.",
-    outcomes: {
-      quantitative: [
-        "Course completion rates improved from 12% to 47%",
-        "Daily active users increased by 85%",
-        "Average session duration increased by 40%"
-      ],
-      qualitative: [
-        "Learner NPS improved from 23 to 61",
-        "Platform featured in EdTech industry publications"
-      ]
-    },
-    learnings: {
-      keyLearnings: [
-        "Engagement features must align with learning outcomes, not distract from them"
-      ],
-      improvements: [
-        "Would have conducted more extensive A/B testing on gamification elements"
-      ],
-      insights: [
-        "EdTech success is about behavior change, not just content delivery"
-      ]
-    },
-    gallery: [fashionLifestyle, businessPost, techPost, fashionPost, lifestylePost, workLifestyle]
-  },
-  'another-web-project': {
-    title: "Another Web Project",
-    category: "Web Development",
-    image: techPost,
-    snapshot: {
-      client: "Logistics Company",
-      industry: "Supply Chain & Logistics",
-      role: "Technical Product Manager",
-      duration: "16 months",
-      techStack: ["Vue.js", "Python", "PostgreSQL", "Redis", "Google Maps API"]
-    },
-    brief: {
-      problem: "Inefficient route planning and lack of real-time visibility were causing delays and high fuel costs across the fleet.",
-      context: "The company needed a modern fleet management platform to optimize operations and provide real-time tracking to customers.",
-      constraints: [
-        "Integration with 5 different GPS tracking vendors",
-        "Multi-tenant architecture for B2B customers",
-        "Real-time updates at scale (10,000+ vehicles)"
-      ]
-    },
-    contextAndApproach: {
-      environment: "Fleet operated across diverse geographies with varying road conditions and connectivity. Drivers had different levels of smartphone proficiency.",
-      challenges: [
-        "GPS data quality varied significantly across vendors",
-        "Driver adoption of new mobile app",
-        "Scaling real-time tracking for thousands of simultaneous vehicles"
-      ],
-      principles: [
-        "Driver experience as critical as operations experience",
-        "Graceful degradation for connectivity issues",
-        "Data-driven route optimization"
-      ],
-      decisions: [
-        "Built unified GPS abstraction layer",
-        "Implemented predictive ETA algorithms",
-        "Designed offline-capable driver app"
-      ]
-    },
-    challengesThatMattered: [
+        title: "Driving Vendor Adoption Across Technology Gaps",
+        description: "Vendors ranged from large corporations with IT teams to small-scale units with no computers.",
+        impact: "Built mobile-first portal with offline capability and provided training and support for smaller vendors."
+      },
       {
-        title: "Real-time at Scale",
-        description: "Processing and broadcasting location updates for 10,000+ vehicles every 30 seconds required careful architecture."
+        title: "Implementing Objective Performance Metrics",
+        description: "Moving from subjective vendor assessments to objective metrics required organizational buy-in.",
+        impact: "Worked with procurement team to define fair, measurable KPIs and implemented transparent scoring."
       }
     ],
-    solutionsSummary: "We implemented a geo-partitioned Redis-based pub/sub system that efficiently broadcast updates to thousands of dashboard users, achieving sub-second update latency at 10K vehicle scale. The unified GPS abstraction layer normalized data quality across vendors.",
+    solutions: [
+      {
+        problem: "Vendor onboarding taking 30+ days",
+        decision: "Automate document verification and parallel processing",
+        intervention: "Built OCR-based document verification with automated compliance checks",
+        result: "Average onboarding reduced to 5 days for compliant vendors"
+      },
+      {
+        problem: "Payment disputes causing vendor dissatisfaction",
+        decision: "Provide real-time payment visibility to vendors",
+        intervention: "Built vendor payment portal with invoice status tracking and SAP sync",
+        result: "80% reduction in payment-related queries"
+      }
+    ],
     outcomes: {
       quantitative: [
-        "18% reduction in fuel costs through route optimization",
-        "25% improvement in on-time deliveries",
-        "Customer complaint reduction of 40%"
+        "85% reduction in vendor onboarding time",
+        "30% improvement in vendor performance scores",
+        "80% reduction in payment queries",
+        "100% compliance visibility achieved"
       ],
       qualitative: [
-        "Transformed company's technology reputation in the industry",
-        "Platform became a competitive differentiator"
-      ]
+        "Improved vendor relationships through transparency",
+        "Standardized processes across all locations",
+        "Foundation for strategic vendor partnerships"
+      ],
+      impact: "Transformed vendor management from administrative overhead to strategic capability, improving supply chain reliability."
     },
     learnings: {
       keyLearnings: [
-        "Real-time systems require careful capacity planning from day one"
+        "Vendor portals succeed when they solve vendor problems, not just internal problems",
+        "Performance metrics must be fair and transparent to drive improvement"
       ],
       improvements: [
-        "Would have invested more in driver training and feedback"
+        "Would have involved vendor representatives in design earlier"
       ],
       insights: [
-        "Logistics technology succeeds when it makes drivers' jobs easier"
+        "Supply chain digital transformation requires bringing external partners along"
       ]
     },
-    gallery: [techPost, businessPost, fashionPost, lifestylePost, workLifestyle, fashionLifestyle]
+    gallery: [fashionLifestyle, businessPost, techPost, lifestylePost, workLifestyle, fashionPost]
   },
-  'mobile-app-design': {
-    title: "Mobile App Design",
+  'laws-of-motion': {
+    title: "Laws Of Motion",
     category: "Mobile Apps",
     image: lifestylePost,
     snapshot: {
-      client: "Fintech Startup",
-      industry: "Financial Services / Fintech",
-      role: "Product Owner",
-      duration: "9 months",
-      techStack: ["Flutter", "Go", "PostgreSQL", "AWS", "Plaid API"]
+      client: "EdTech Startup",
+      industry: "Education Technology",
+      role: "Product Lead & Technical Architect",
+      duration: "10 months",
+      techStack: ["React Native", "Node.js", "MongoDB", "Python", "TensorFlow", "AWS"]
     },
     brief: {
-      problem: "Traditional expense tracking apps were tedious, leading to incomplete financial pictures and poor money management habits.",
-      context: "The startup aimed to create an intelligent expense management app that minimized user effort while providing actionable financial insights.",
+      problem: "Physics education remains abstract for most students, with traditional methods failing to build intuitive understanding of fundamental concepts.",
+      context: "The startup wanted to create an interactive mobile learning experience that makes physics concepts tangible through simulations and AI-powered personalized learning.",
       constraints: [
-        "Bank-grade security requirements",
-        "Integration with major Indian banks",
-        "Must work for both salaried and self-employed users"
+        "Must work on low-end Android devices",
+        "Offline functionality for rural students",
+        "Curriculum alignment with CBSE and state boards",
+        "Engaging enough to compete with entertainment apps"
       ]
     },
-    contextAndApproach: {
-      environment: "Users had varying financial literacy levels. Bank API availability was inconsistent, and many transactions were still cash-based.",
-      challenges: [
-        "Incomplete transaction data from bank feeds",
-        "Cash transaction categorization",
-        "Building user trust for financial data access"
+    contextReality: {
+      environment: "Students access education apps on budget smartphones with limited storage and intermittent connectivity.",
+      existingSystems: [
+        "Competing apps with video-based content",
+        "Traditional physics textbooks and guides",
+        "Classroom teaching methods"
       ],
+      constraints: [
+        "Low device specifications",
+        "Limited attention spans",
+        "Need for gamification"
+      ]
+    },
+    approach: {
       principles: [
-        "Minimum effort for maximum insight",
-        "Trust through transparency",
-        "Personalized, not generic advice"
+        "Learning through exploration, not instruction",
+        "Personalization based on learning patterns",
+        "Gamification for sustained engagement"
       ],
-      decisions: [
-        "Built smart categorization with manual override learning",
-        "Implemented receipt scanning for cash transactions",
-        "Created explainable AI for financial recommendations"
+      strategicDecisions: [
+        "Built physics simulation engine for interactive experiments",
+        "Implemented adaptive learning using ML",
+        "Created bite-sized lessons for mobile consumption"
+      ],
+      tradeoffs: [
+        "Chose React Native for speed despite performance concerns",
+        "Prioritized key physics concepts over comprehensive coverage"
+      ]
+    },
+    execution: {
+      architecture: "React Native app with Python-based ML backend. Physics simulations using optimized JavaScript engine. Offline-first architecture with smart sync.",
+      keyModules: [
+        "Interactive Physics Simulations",
+        "AI-Powered Tutoring Assistant",
+        "Adaptive Learning Path",
+        "Gamified Challenges & Leaderboards",
+        "Progress Tracking Dashboard",
+        "Offline Learning Mode"
+      ],
+      integrations: [
+        "Payment gateways for subscriptions",
+        "Analytics platforms",
+        "Push notification services",
+        "Cloud sync services"
+      ],
+      considerations: [
+        "Optimized for low-end devices",
+        "Battery-efficient simulations",
+        "Data-light operation mode"
       ]
     },
     challengesThatMattered: [
       {
-        title: "Cash Transaction Tracking",
-        description: "India's cash-heavy economy meant bank feeds only told part of the story. Making cash tracking effortless was crucial."
+        title: "Running Physics Simulations on Budget Phones",
+        description: "Interactive physics simulations are computationally intensive, but our target users had phones with 2GB RAM.",
+        impact: "Optimized simulation engine to run at 30fps on low-end devices through clever algorithmic shortcuts."
+      },
+      {
+        title: "Making Learning Addictive Without Being Exploitative",
+        description: "Gamification can easily become manipulative. We needed engagement without dark patterns.",
+        impact: "Designed reward systems around learning achievements rather than time spent or streaks."
       }
     ],
-    solutionsSummary: "We built an AI-powered receipt OCR with one-tap logging, increasing cash transaction capture by 300%. Smart categorization learned from user corrections, improving accuracy over time while maintaining transparency about how recommendations were generated.",
+    solutions: [
+      {
+        problem: "Students dropping off after initial curiosity",
+        decision: "Implement personalized learning journeys based on interests",
+        intervention: "Built ML model to identify learning style and recommend content accordingly",
+        result: "Week-2 retention improved from 25% to 55%"
+      },
+      {
+        problem: "Simulations not running smoothly on target devices",
+        decision: "Build custom physics engine optimized for mobile",
+        intervention: "Created simplified physics models with pre-computed scenarios for common experiments",
+        result: "Smooth 30fps on devices with 2GB RAM"
+      }
+    ],
     outcomes: {
       quantitative: [
-        "User savings rate increased by average 15%",
-        "4.7 star rating on app stores",
-        "Monthly active user retention of 65%"
+        "200K+ downloads in first 6 months",
+        "4.5 star rating on Play Store",
+        "55% week-2 retention (vs 25% industry average)",
+        "30% improvement in physics scores for active users"
       ],
       qualitative: [
-        "Featured by Apple in Finance category",
-        "Strong word-of-mouth growth"
-      ]
+        "Students report 'finally understanding' physics concepts",
+        "Recognition from education ministry",
+        "Partnership interest from school chains"
+      ],
+      impact: "Demonstrated that quality educational technology can reach underserved students while maintaining engagement."
     },
     learnings: {
       keyLearnings: [
-        "Fintech success depends on reducing friction to near-zero"
+        "EdTech must design for the lowest common denominator in device capability",
+        "Learning outcomes matter more than engagement metrics"
       ],
       improvements: [
-        "Would have built community features for social accountability earlier"
+        "Would have included more teacher/parent visibility features earlier"
       ],
       insights: [
-        "Financial apps must balance automation with user sense of control"
+        "The best educational apps make students feel smart, not entertained"
       ]
     },
-    gallery: [lifestylePost, businessPost, techPost, fashionPost, workLifestyle, fashionLifestyle]
+    gallery: [lifestylePost, techPost, businessPost, fashionPost, workLifestyle, fashionLifestyle]
+  },
+  'guppa-ai': {
+    title: "Guppa.ai",
+    category: "AI/ML/CV",
+    image: techPost,
+    snapshot: {
+      client: "AI Startup",
+      industry: "Enterprise AI / Conversational AI",
+      role: "Technical Co-founder & Product Lead",
+      duration: "Ongoing",
+      techStack: ["Python", "React", "Node.js", "PostgreSQL", "OpenAI", "AWS"]
+    },
+    brief: {
+      problem: "Enterprises struggle to adopt conversational AI due to high customization costs, integration complexity, and concerns about accuracy and security.",
+      context: "Building a no-code platform that enables enterprises to deploy customized AI assistants without extensive AI expertise or development resources.",
+      constraints: [
+        "Enterprise-grade security and compliance",
+        "No-code/low-code accessibility",
+        "Integration with diverse enterprise systems",
+        "Accuracy requirements for business use cases"
+      ]
+    },
+    contextReality: {
+      environment: "Enterprises have tried chatbots before with mixed results. Skepticism is high, and expectations for accuracy are even higher.",
+      existingSystems: [
+        "Various CRM and ticketing systems",
+        "Knowledge bases in multiple formats",
+        "Legacy enterprise applications"
+      ],
+      constraints: [
+        "Data privacy concerns",
+        "Need for human oversight",
+        "Integration complexity"
+      ]
+    },
+    approach: {
+      principles: [
+        "Enterprise-grade reliability over experimental features",
+        "Human-in-the-loop for critical decisions",
+        "Privacy-first architecture"
+      ],
+      strategicDecisions: [
+        "Built on proven LLM foundations with custom fine-tuning",
+        "Implemented RAG architecture for knowledge grounding",
+        "Created no-code flow builder for customization"
+      ],
+      tradeoffs: [
+        "Chose accuracy over speed in response generation",
+        "Prioritized enterprise features over consumer-friendly UI"
+      ]
+    },
+    execution: {
+      architecture: "Microservices architecture with RAG-based AI engine, vector database for knowledge retrieval, and modular integration framework.",
+      keyModules: [
+        "No-Code AI Assistant Builder",
+        "Knowledge Base Ingestion Engine",
+        "Multi-Channel Deployment",
+        "Analytics & Insights Dashboard",
+        "Human Handoff Workflows",
+        "Enterprise Integration Hub"
+      ],
+      integrations: [
+        "Slack, Teams, Web Chat",
+        "Salesforce, Zendesk, Freshdesk",
+        "SharePoint, Confluence, Notion",
+        "Custom API integrations"
+      ],
+      considerations: [
+        "SOC 2 compliance architecture",
+        "Data residency options",
+        "Role-based access control"
+      ]
+    },
+    challengesThatMattered: [
+      {
+        title: "Ensuring Accuracy for Business-Critical Use Cases",
+        description: "Unlike consumer chatbots, enterprise AI assistants cannot afford to hallucinate or provide incorrect information.",
+        impact: "Implemented multi-stage verification, source attribution, and confidence scoring for all responses."
+      },
+      {
+        title: "Making AI Accessible to Non-Technical Users",
+        description: "Business users needed to customize AI behavior without coding or AI expertise.",
+        impact: "Built intuitive visual flow builder with natural language prompt refinement."
+      }
+    ],
+    solutions: [
+      {
+        problem: "AI responses lacking accuracy for domain-specific queries",
+        decision: "Implement RAG with source verification",
+        intervention: "Built knowledge ingestion pipeline with automatic chunking and relevance scoring",
+        result: "95% accuracy on domain-specific queries with source attribution"
+      },
+      {
+        problem: "Enterprises hesitant due to security concerns",
+        decision: "Build enterprise-grade security from ground up",
+        intervention: "Implemented data isolation, encryption, and audit logging with SOC 2 compliance",
+        result: "Successfully onboarded Fortune 500 clients with strict security requirements"
+      }
+    ],
+    outcomes: {
+      quantitative: [
+        "95% accuracy on domain queries (vs 70% industry average)",
+        "60% reduction in support ticket volume for clients",
+        "10x faster deployment than custom AI development",
+        "Multiple enterprise clients onboarded"
+      ],
+      qualitative: [
+        "Positioned as enterprise-grade alternative to consumer AI tools",
+        "Strong product-market fit with mid-enterprise segment",
+        "Growing partner ecosystem"
+      ],
+      impact: "Enabling enterprises to adopt AI at scale without compromising on security, accuracy, or customization."
+    },
+    learnings: {
+      keyLearnings: [
+        "Enterprise AI adoption is blocked more by trust than technology",
+        "No-code tools must not sacrifice capability for simplicity"
+      ],
+      improvements: [
+        "Would have invested in partner ecosystem earlier"
+      ],
+      insights: [
+        "The AI platform winner will be the one enterprises trust with their data"
+      ]
+    },
+    gallery: [techPost, businessPost, fashionPost, lifestylePost, workLifestyle, fashionLifestyle]
   }
 };
 
 const ProjectDetail = () => {
   const { projectId } = useParams<{ projectId: string }>();
-  const project = projectId ? projectsData[projectId] : null;
+  const project = projectId ? projectsData[projectId] : undefined;
 
   if (!project) {
     return (
       <>
         <Header />
-        <main className="min-h-screen bg-background flex items-center justify-center">
-          <div className="text-center">
-            <h1 className="text-2xl font-bold mb-4">Project Not Found</h1>
-            <Link to="/projects" className="text-primary hover:underline">
-              ← Back to Projects
-            </Link>
+        <main className="min-h-screen bg-background pt-24">
+          <div className="container-blog py-16">
+            <div className="text-center">
+              <h1 className="text-3xl font-bold text-foreground mb-4">Project Not Found</h1>
+              <p className="text-muted-foreground mb-8">The project you're looking for doesn't have detailed information yet.</p>
+              <Link to="/projects" className="inline-flex items-center gap-2 text-primary hover:underline">
+                <ArrowLeft className="w-4 h-4" />
+                Back to Projects
+              </Link>
+            </div>
           </div>
         </main>
         <Footer />
@@ -688,330 +1074,484 @@ const ProjectDetail = () => {
       <Header />
       
       <main id="main-content" className="min-h-screen bg-background">
-        {/* Breadcrumb */}
-        <div className="container-blog pt-8">
-          <Breadcrumb>
-            <BreadcrumbList>
-              <BreadcrumbItem>
-                <BreadcrumbLink asChild>
-                  <Link to="/">Home</Link>
-                </BreadcrumbLink>
-              </BreadcrumbItem>
-              <BreadcrumbSeparator />
-              <BreadcrumbItem>
-                <BreadcrumbLink asChild>
-                  <Link to="/projects">Projects</Link>
-                </BreadcrumbLink>
-              </BreadcrumbItem>
-              <BreadcrumbSeparator />
-              <BreadcrumbItem>
-                <BreadcrumbPage>{project.title}</BreadcrumbPage>
-              </BreadcrumbItem>
-            </BreadcrumbList>
-          </Breadcrumb>
-        </div>
+        {/* Hero Section */}
+        <section className="relative pt-24 pb-12 bg-gradient-to-b from-muted/50 to-background">
+          <div className="container-blog">
+            {/* Breadcrumb */}
+            <Breadcrumb className="mb-6">
+              <BreadcrumbList>
+                <BreadcrumbItem>
+                  <BreadcrumbLink asChild>
+                    <Link to="/">Home</Link>
+                  </BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbSeparator />
+                <BreadcrumbItem>
+                  <BreadcrumbLink asChild>
+                    <Link to="/projects">Projects</Link>
+                  </BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbSeparator />
+                <BreadcrumbItem>
+                  <BreadcrumbPage>{project.title}</BreadcrumbPage>
+                </BreadcrumbItem>
+              </BreadcrumbList>
+            </Breadcrumb>
 
-        {/* Title Section */}
-        <div className="container-blog py-8">
-          <Badge className="mb-4">{project.category}</Badge>
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">{project.title}</h1>
-        </div>
+            {/* Back Link */}
+            <Link to="/projects" className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors mb-6">
+              <ArrowLeft className="w-4 h-4" />
+              Back to Projects
+            </Link>
 
-        <div className="container-blog pb-16">
-          {/* 1. Project Snapshot */}
-          <section className="mb-12">
-            <Card className="bg-muted/30 border-primary/20">
+            {/* Title and Category */}
+            <div className="mb-8">
+              <Badge variant="secondary" className="mb-4">{project.category}</Badge>
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
+                {project.title}
+              </h1>
+            </div>
+
+            {/* Project Snapshot - Executive Summary Card */}
+            <Card className="bg-card/80 backdrop-blur border-border shadow-lg">
               <CardContent className="p-6 md:p-8">
-                <h2 className="text-xl font-semibold mb-6 flex items-center gap-2">
-                  <Target className="h-5 w-5 text-primary" />
+                <h2 className="text-lg font-semibold text-foreground mb-6 flex items-center gap-2">
+                  <Target className="w-5 h-5 text-primary" />
                   Project Snapshot
                 </h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                   <div className="flex items-start gap-3">
-                    <Building2 className="h-5 w-5 text-muted-foreground mt-0.5" />
+                    <div className="p-2 rounded-lg bg-primary/10">
+                      <Building2 className="w-5 h-5 text-primary" />
+                    </div>
                     <div>
-                      <p className="text-xs text-muted-foreground uppercase tracking-wide">Client</p>
-                      <p className="font-medium">{project.snapshot.client}</p>
+                      <p className="text-sm text-muted-foreground">Client / Organization</p>
+                      <p className="font-medium text-foreground">{project.snapshot.client}</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <Layers className="h-5 w-5 text-muted-foreground mt-0.5" />
+                    <div className="p-2 rounded-lg bg-primary/10">
+                      <Briefcase className="w-5 h-5 text-primary" />
+                    </div>
                     <div>
-                      <p className="text-xs text-muted-foreground uppercase tracking-wide">Industry</p>
-                      <p className="font-medium">{project.snapshot.industry}</p>
+                      <p className="text-sm text-muted-foreground">Industry / Domain</p>
+                      <p className="font-medium text-foreground">{project.snapshot.industry}</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <User className="h-5 w-5 text-muted-foreground mt-0.5" />
+                    <div className="p-2 rounded-lg bg-primary/10">
+                      <User className="w-5 h-5 text-primary" />
+                    </div>
                     <div>
-                      <p className="text-xs text-muted-foreground uppercase tracking-wide">Role</p>
-                      <p className="font-medium">{project.snapshot.role}</p>
+                      <p className="text-sm text-muted-foreground">Role Played</p>
+                      <p className="font-medium text-foreground">{project.snapshot.role}</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <Calendar className="h-5 w-5 text-muted-foreground mt-0.5" />
+                    <div className="p-2 rounded-lg bg-primary/10">
+                      <Clock className="w-5 h-5 text-primary" />
+                    </div>
                     <div>
-                      <p className="text-xs text-muted-foreground uppercase tracking-wide">Duration</p>
-                      <p className="font-medium">{project.snapshot.duration}</p>
+                      <p className="text-sm text-muted-foreground">Project Duration</p>
+                      <p className="font-medium text-foreground">{project.snapshot.duration}</p>
                     </div>
                   </div>
-                  <div className="lg:col-span-1">
-                    <p className="text-xs text-muted-foreground uppercase tracking-wide mb-2">Tech Stack</p>
-                    <div className="flex flex-wrap gap-1.5">
-                      {project.snapshot.techStack.map((tech, i) => (
-                        <Badge key={i} variant="secondary" className="text-xs">{tech}</Badge>
-                      ))}
-                    </div>
+                </div>
+                
+                {/* Tech Stack */}
+                <div className="mt-6 pt-6 border-t border-border">
+                  <p className="text-sm text-muted-foreground mb-3">Technology Stack</p>
+                  <div className="flex flex-wrap gap-2">
+                    {project.snapshot.techStack.map((tech, index) => (
+                      <Badge key={index} variant="outline" className="flex items-center gap-1.5 px-3 py-1">
+                        {techIcons[tech] || <Cpu className="w-4 h-4" />}
+                        {tech}
+                      </Badge>
+                    ))}
                   </div>
                 </div>
               </CardContent>
             </Card>
-          </section>
+          </div>
+        </section>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            <div className="lg:col-span-2 space-y-12">
-              {/* 2. The Brief */}
-              <section>
-                <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">
-                  <BookOpen className="h-5 w-5 text-primary" />
-                  The Brief
-                </h2>
-                <div className="prose prose-neutral dark:prose-invert max-w-none">
-                  <p className="text-muted-foreground leading-relaxed mb-4">{project.brief.problem}</p>
-                  <p className="text-muted-foreground leading-relaxed mb-4">{project.brief.context}</p>
-                  <div className="mt-4">
-                    <h4 className="text-sm font-medium mb-2">Key Constraints</h4>
-                    <ul className="space-y-1">
-                      {project.brief.constraints.map((constraint, i) => (
-                        <li key={i} className="text-sm text-muted-foreground flex items-start gap-2">
-                          <span className="text-primary mt-1.5">•</span>
-                          {constraint}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+        {/* Main Content */}
+        <section className="container-blog py-12">
+          <div className="max-w-4xl mx-auto space-y-16">
+            
+            {/* The Brief */}
+            <div>
+              <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-3">
+                <div className="p-2 rounded-lg bg-primary/10">
+                  <Target className="w-5 h-5 text-primary" />
                 </div>
-              </section>
-
-              <Separator />
-
-              {/* 3. Context & Approach (Merged) */}
-              <section>
-                <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">
-                  <Lightbulb className="h-5 w-5 text-primary" />
-                  Context & Approach
-                </h2>
-                <p className="text-muted-foreground leading-relaxed mb-6">{project.contextAndApproach.environment}</p>
-                
-                <div className="overflow-x-auto">
-                  <table className="w-full border-collapse">
-                    <thead>
-                      <tr className="border-b border-border">
-                        <th className="text-left py-3 px-4 text-sm font-semibold text-primary bg-muted/50">Challenges Faced</th>
-                        <th className="text-left py-3 px-4 text-sm font-semibold text-primary bg-muted/50">Guiding Principles</th>
-                        <th className="text-left py-3 px-4 text-sm font-semibold text-primary bg-muted/50">Strategic Decisions</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {Array.from({ length: Math.max(
-                        project.contextAndApproach.challenges.length,
-                        project.contextAndApproach.principles.length,
-                        project.contextAndApproach.decisions.length
-                      ) }).map((_, i) => (
-                        <tr key={i} className="border-b border-border/50">
-                          <td className="py-3 px-4 text-sm text-muted-foreground align-top">
-                            {project.contextAndApproach.challenges[i] && (
-                              <span className="flex items-start gap-2">
-                                <AlertTriangle className="h-4 w-4 text-amber-500 mt-0.5 shrink-0" />
-                                {project.contextAndApproach.challenges[i]}
-                              </span>
-                            )}
-                          </td>
-                          <td className="py-3 px-4 text-sm text-muted-foreground align-top">
-                            {project.contextAndApproach.principles[i] && (
-                              <span className="flex items-start gap-2">
-                                <span className="w-5 h-5 rounded-full bg-primary/10 text-primary text-xs flex items-center justify-center font-medium shrink-0">{i + 1}</span>
-                                {project.contextAndApproach.principles[i]}
-                              </span>
-                            )}
-                          </td>
-                          <td className="py-3 px-4 text-sm text-muted-foreground align-top">
-                            {project.contextAndApproach.decisions[i] && (
-                              <span className="flex items-start gap-2">
-                                <CheckCircle2 className="h-4 w-4 text-green-500 mt-0.5 shrink-0" />
-                                {project.contextAndApproach.decisions[i]}
-                              </span>
-                            )}
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
+                The Brief
+              </h2>
+              <div className="prose prose-lg dark:prose-invert max-w-none">
+                <p className="text-foreground/90 leading-relaxed mb-4">
+                  <strong>The Problem:</strong> {project.brief.problem}
+                </p>
+                <p className="text-foreground/90 leading-relaxed mb-4">
+                  <strong>Context:</strong> {project.brief.context}
+                </p>
+                <div className="mt-6">
+                  <p className="text-sm font-medium text-muted-foreground mb-3">Key Constraints:</p>
+                  <ul className="space-y-2">
+                    {project.brief.constraints.map((constraint, index) => (
+                      <li key={index} className="flex items-start gap-2 text-foreground/80">
+                        <AlertTriangle className="w-4 h-4 text-amber-500 mt-1 shrink-0" />
+                        {constraint}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-              </section>
-
-              <Separator />
-
-              {/* 4. Challenges That Mattered */}
-              <section>
-                <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">
-                  <AlertTriangle className="h-5 w-5 text-primary" />
-                  Challenges That Mattered
-                </h2>
-                <div className="space-y-4">
-                  {project.challengesThatMattered.map((challenge, i) => (
-                    <Card key={i} className="border-l-4 border-l-amber-500">
-                      <CardContent className="p-4">
-                        <h4 className="font-medium mb-2">{challenge.title}</h4>
-                        <p className="text-sm text-muted-foreground">{challenge.description}</p>
-                      </CardContent>
-                    </Card>
-                  ))}
-                </div>
-              </section>
-
-              <Separator />
-
-              {/* 5. Solutions & Interventions (Simplified) */}
-              <section>
-                <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">
-                  <CheckCircle2 className="h-5 w-5 text-primary" />
-                  Solutions & Interventions
-                </h2>
-                <p className="text-muted-foreground leading-relaxed">{project.solutionsSummary}</p>
-              </section>
-
-              <Separator />
-
-              {/* 6. Learnings & Reflections */}
-              <section>
-                <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">
-                  <BookOpen className="h-5 w-5 text-primary" />
-                  Learnings & Reflections
-                </h2>
-                <div className="grid gap-6">
-                  <div>
-                    <h4 className="text-sm font-medium mb-3">Key Learnings</h4>
-                    <ul className="space-y-2">
-                      {project.learnings.keyLearnings.map((learning, i) => (
-                        <li key={i} className="text-sm text-muted-foreground flex items-start gap-2">
-                          <Lightbulb className="h-4 w-4 text-amber-500 mt-0.5 shrink-0" />
-                          {learning}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  <div>
-                    <h4 className="text-sm font-medium mb-3">What Could Have Been Different</h4>
-                    <ul className="space-y-2">
-                      {project.learnings.improvements.map((item, i) => (
-                        <li key={i} className="text-sm text-muted-foreground flex items-start gap-2">
-                          <span className="text-primary">↻</span>
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  <div>
-                    <h4 className="text-sm font-medium mb-3">Forward Insights</h4>
-                    <ul className="space-y-2">
-                      {project.learnings.insights.map((insight, i) => (
-                        <li key={i} className="text-sm italic text-muted-foreground">
-                          "{insight}"
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              </section>
-            </div>
-
-            {/* Sidebar - Outcomes */}
-            <div className="lg:col-span-1">
-              <div className="sticky top-24 space-y-6">
-                {/* Outcomes & Impact */}
-                <Card className="bg-gradient-to-br from-primary/5 to-primary/10 border-primary/20">
-                  <CardContent className="p-6">
-                    <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">
-                      <TrendingUp className="h-5 w-5 text-primary" />
-                      Outcomes & Impact
-                    </h2>
-                    
-                    <div className="space-y-6">
-                      <div>
-                        <h4 className="text-sm font-medium mb-3 text-primary">Quantitative Results</h4>
-                        <div className="space-y-3">
-                          {project.outcomes.quantitative.map((outcome, i) => (
-                            <div key={i} className="flex items-start gap-2">
-                              <CheckCircle2 className="h-4 w-4 text-green-500 mt-0.5 shrink-0" />
-                              <span className="text-sm font-medium">{outcome}</span>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                      
-                      <Separator />
-                      
-                      <div>
-                        <h4 className="text-sm font-medium mb-3 text-primary">Qualitative Impact</h4>
-                        <ul className="space-y-2">
-                          {project.outcomes.qualitative.map((outcome, i) => (
-                            <li key={i} className="text-sm text-muted-foreground flex items-start gap-2">
-                              <span className="text-primary">•</span>
-                              {outcome}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-
-                {/* Back to Projects */}
-                <Link 
-                  to="/projects"
-                  className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  <ArrowLeft className="h-4 w-4" />
-                  Back to All Projects
-                </Link>
               </div>
             </div>
-          </div>
 
-          {/* Project Gallery Carousel */}
-          <section className="mt-16">
-            <h2 className="text-xl font-semibold mb-6 flex items-center gap-2">
-              <ImageIcon className="h-5 w-5 text-primary" />
-              Project Gallery
-            </h2>
-            <div className="px-12">
-              <Carousel opts={{ align: "start", loop: true }}>
-                <CarouselContent>
-                  {project.gallery.map((image, i) => (
-                    <CarouselItem key={i} className="md:basis-1/2 lg:basis-1/3">
-                      <div className="p-1">
-                        <Card className="overflow-hidden">
-                          <CardContent className="p-0">
-                            <img 
-                              src={image} 
-                              alt={`${project.title} - Image ${i + 1}`}
-                              className="w-full aspect-[4/3] object-cover hover:scale-105 transition-transform duration-300"
-                            />
-                          </CardContent>
-                        </Card>
-                      </div>
-                    </CarouselItem>
-                  ))}
-                </CarouselContent>
-                <CarouselPrevious />
-                <CarouselNext />
-              </Carousel>
+            <Separator />
+
+            {/* Context & Reality Check */}
+            <div>
+              <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-3">
+                <div className="p-2 rounded-lg bg-primary/10">
+                  <Layers className="w-5 h-5 text-primary" />
+                </div>
+                Context & Reality Check
+              </h2>
+              <div className="prose prose-lg dark:prose-invert max-w-none">
+                <p className="text-foreground/90 leading-relaxed mb-6">
+                  {project.contextReality.environment}
+                </p>
+                
+                <div className="grid md:grid-cols-2 gap-6">
+                  <Card className="bg-muted/30">
+                    <CardContent className="p-5">
+                      <h4 className="font-semibold text-foreground mb-3">Existing Systems</h4>
+                      <ul className="space-y-2">
+                        {project.contextReality.existingSystems.map((system, index) => (
+                          <li key={index} className="text-sm text-foreground/80 flex items-start gap-2">
+                            <Server className="w-4 h-4 text-muted-foreground mt-0.5 shrink-0" />
+                            {system}
+                          </li>
+                        ))}
+                      </ul>
+                    </CardContent>
+                  </Card>
+                  <Card className="bg-muted/30">
+                    <CardContent className="p-5">
+                      <h4 className="font-semibold text-foreground mb-3">Real-World Constraints</h4>
+                      <ul className="space-y-2">
+                        {project.contextReality.constraints.map((constraint, index) => (
+                          <li key={index} className="text-sm text-foreground/80 flex items-start gap-2">
+                            <AlertTriangle className="w-4 h-4 text-amber-500 mt-0.5 shrink-0" />
+                            {constraint}
+                          </li>
+                        ))}
+                      </ul>
+                    </CardContent>
+                  </Card>
+                </div>
+              </div>
             </div>
-          </section>
-        </div>
+
+            <Separator />
+
+            {/* My Approach */}
+            <div>
+              <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-3">
+                <div className="p-2 rounded-lg bg-primary/10">
+                  <Lightbulb className="w-5 h-5 text-primary" />
+                </div>
+                My Approach
+              </h2>
+              <div className="space-y-6">
+                <div>
+                  <h4 className="font-semibold text-foreground mb-3">Guiding Principles</h4>
+                  <ul className="space-y-2">
+                    {project.approach.principles.map((principle, index) => (
+                      <li key={index} className="flex items-start gap-3 text-foreground/80">
+                        <CheckCircle2 className="w-5 h-5 text-green-500 mt-0.5 shrink-0" />
+                        {principle}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                
+                <div>
+                  <h4 className="font-semibold text-foreground mb-3">Strategic Decisions</h4>
+                  <ul className="space-y-2">
+                    {project.approach.strategicDecisions.map((decision, index) => (
+                      <li key={index} className="flex items-start gap-3 text-foreground/80">
+                        <Target className="w-5 h-5 text-primary mt-0.5 shrink-0" />
+                        {decision}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div>
+                  <h4 className="font-semibold text-foreground mb-3">Trade-offs Made</h4>
+                  <ul className="space-y-2">
+                    {project.approach.tradeoffs.map((tradeoff, index) => (
+                      <li key={index} className="flex items-start gap-3 text-foreground/80">
+                        <Zap className="w-5 h-5 text-amber-500 mt-0.5 shrink-0" />
+                        {tradeoff}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <Separator />
+
+            {/* Execution & Architecture */}
+            <div>
+              <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-3">
+                <div className="p-2 rounded-lg bg-primary/10">
+                  <Cpu className="w-5 h-5 text-primary" />
+                </div>
+                Execution & Architecture
+              </h2>
+              <div className="space-y-6">
+                <p className="text-foreground/90 leading-relaxed">
+                  {project.execution.architecture}
+                </p>
+                
+                <div className="grid md:grid-cols-2 gap-6">
+                  <Card className="bg-muted/30">
+                    <CardContent className="p-5">
+                      <h4 className="font-semibold text-foreground mb-3">Key Modules</h4>
+                      <ul className="space-y-2">
+                        {project.execution.keyModules.map((module, index) => (
+                          <li key={index} className="text-sm text-foreground/80 flex items-start gap-2">
+                            <Layers className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+                            {module}
+                          </li>
+                        ))}
+                      </ul>
+                    </CardContent>
+                  </Card>
+                  <Card className="bg-muted/30">
+                    <CardContent className="p-5">
+                      <h4 className="font-semibold text-foreground mb-3">Integrations</h4>
+                      <ul className="space-y-2">
+                        {project.execution.integrations.map((integration, index) => (
+                          <li key={index} className="text-sm text-foreground/80 flex items-start gap-2">
+                            <Zap className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+                            {integration}
+                          </li>
+                        ))}
+                      </ul>
+                    </CardContent>
+                  </Card>
+                </div>
+
+                <div>
+                  <h4 className="font-semibold text-foreground mb-3">Key Considerations</h4>
+                  <div className="flex flex-wrap gap-2">
+                    {project.execution.considerations.map((consideration, index) => (
+                      <Badge key={index} variant="secondary" className="px-3 py-1">
+                        {consideration}
+                      </Badge>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <Separator />
+
+            {/* Challenges That Mattered */}
+            <div>
+              <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-3">
+                <div className="p-2 rounded-lg bg-amber-500/10">
+                  <AlertTriangle className="w-5 h-5 text-amber-500" />
+                </div>
+                Challenges That Mattered
+              </h2>
+              <div className="space-y-6">
+                {project.challengesThatMattered.map((challenge, index) => (
+                  <Card key={index} className="bg-card border-l-4 border-l-amber-500">
+                    <CardContent className="p-6">
+                      <h4 className="font-semibold text-foreground text-lg mb-2">{challenge.title}</h4>
+                      <p className="text-foreground/80 mb-3">{challenge.description}</p>
+                      <p className="text-sm text-muted-foreground italic">{challenge.impact}</p>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </div>
+
+            <Separator />
+
+            {/* Solutions & Interventions */}
+            <div>
+              <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-3">
+                <div className="p-2 rounded-lg bg-green-500/10">
+                  <CheckCircle2 className="w-5 h-5 text-green-500" />
+                </div>
+                Solutions & Interventions
+              </h2>
+              <div className="space-y-6">
+                {project.solutions.map((solution, index) => (
+                  <Card key={index} className="bg-card">
+                    <CardContent className="p-6">
+                      <div className="grid md:grid-cols-2 gap-4">
+                        <div>
+                          <p className="text-xs font-medium text-muted-foreground uppercase tracking-wider mb-1">Problem</p>
+                          <p className="text-foreground/90 font-medium">{solution.problem}</p>
+                        </div>
+                        <div>
+                          <p className="text-xs font-medium text-muted-foreground uppercase tracking-wider mb-1">Decision</p>
+                          <p className="text-foreground/90">{solution.decision}</p>
+                        </div>
+                        <div>
+                          <p className="text-xs font-medium text-muted-foreground uppercase tracking-wider mb-1">Intervention</p>
+                          <p className="text-foreground/90">{solution.intervention}</p>
+                        </div>
+                        <div>
+                          <p className="text-xs font-medium text-green-600 dark:text-green-400 uppercase tracking-wider mb-1">Result</p>
+                          <p className="text-foreground font-medium">{solution.result}</p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </div>
+
+            <Separator />
+
+            {/* Outcomes & Impact */}
+            <div>
+              <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-3">
+                <div className="p-2 rounded-lg bg-primary/10">
+                  <TrendingUp className="w-5 h-5 text-primary" />
+                </div>
+                Outcomes & Impact
+              </h2>
+              <Card className="bg-gradient-to-br from-primary/5 to-accent/5 border-primary/20">
+                <CardContent className="p-6 md:p-8">
+                  <div className="grid md:grid-cols-2 gap-8">
+                    <div>
+                      <h4 className="font-semibold text-foreground mb-4">Quantitative Results</h4>
+                      <ul className="space-y-3">
+                        {project.outcomes.quantitative.map((outcome, index) => (
+                          <li key={index} className="flex items-start gap-3">
+                            <CheckCircle2 className="w-5 h-5 text-green-500 mt-0.5 shrink-0" />
+                            <span className="text-foreground font-medium">{outcome}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-foreground mb-4">Qualitative Impact</h4>
+                      <ul className="space-y-3">
+                        {project.outcomes.qualitative.map((outcome, index) => (
+                          <li key={index} className="flex items-start gap-3">
+                            <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 shrink-0" />
+                            <span className="text-foreground/80">{outcome}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                  <div className="mt-6 pt-6 border-t border-primary/10">
+                    <p className="text-foreground/90 italic">{project.outcomes.impact}</p>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+
+            <Separator />
+
+            {/* Learnings & Reflections */}
+            <div>
+              <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-3">
+                <div className="p-2 rounded-lg bg-primary/10">
+                  <BookOpen className="w-5 h-5 text-primary" />
+                </div>
+                Learnings & Reflections
+              </h2>
+              <div className="space-y-6">
+                <div>
+                  <h4 className="font-semibold text-foreground mb-3">Key Learnings</h4>
+                  <ul className="space-y-2">
+                    {project.learnings.keyLearnings.map((learning, index) => (
+                      <li key={index} className="flex items-start gap-3 text-foreground/80">
+                        <Lightbulb className="w-5 h-5 text-amber-500 mt-0.5 shrink-0" />
+                        {learning}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                
+                <div>
+                  <h4 className="font-semibold text-foreground mb-3">What Could Have Been Better</h4>
+                  <ul className="space-y-2">
+                    {project.learnings.improvements.map((improvement, index) => (
+                      <li key={index} className="flex items-start gap-3 text-foreground/80">
+                        <Target className="w-5 h-5 text-muted-foreground mt-0.5 shrink-0" />
+                        {improvement}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div>
+                  <h4 className="font-semibold text-foreground mb-3">Insights for Future Work</h4>
+                  <ul className="space-y-2">
+                    {project.learnings.insights.map((insight, index) => (
+                      <li key={index} className="flex items-start gap-3 text-foreground/80 italic">
+                        <BookOpen className="w-5 h-5 text-primary mt-0.5 shrink-0" />
+                        "{insight}"
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            {/* Project Gallery */}
+            {project.gallery && project.gallery.length > 0 && (
+              <>
+                <Separator />
+                <div>
+                  <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-3">
+                    <div className="p-2 rounded-lg bg-primary/10">
+                      <ImageIcon className="w-5 h-5 text-primary" />
+                    </div>
+                    Project Gallery
+                  </h2>
+                  <Carousel className="w-full">
+                    <CarouselContent>
+                      {project.gallery.map((image, index) => (
+                        <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                          <div className="p-1">
+                            <Card className="overflow-hidden">
+                              <CardContent className="p-0">
+                                <img
+                                  src={image}
+                                  alt={`${project.title} gallery image ${index + 1}`}
+                                  className="w-full h-48 object-cover"
+                                />
+                              </CardContent>
+                            </Card>
+                          </div>
+                        </CarouselItem>
+                      ))}
+                    </CarouselContent>
+                    <CarouselPrevious />
+                    <CarouselNext />
+                  </Carousel>
+                </div>
+              </>
+            )}
+          </div>
+        </section>
       </main>
-      
+
       <Footer />
     </>
   );
