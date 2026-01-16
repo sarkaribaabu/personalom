@@ -12,6 +12,7 @@ import fashionLifestyle from '@/assets/fashion-lifestyle.jpg';
 import nmmcEgovernance from '@/assets/nmmc-egovernance.png';
 import pcmcEgovernance from '@/assets/pcmc-egovernance.png';
 import nmPoliceBi from '@/assets/nm-police-bi.png';
+import scLandrecords from '@/assets/sc-landrecords.png';
 
 const categories = ['All', 'Web Apps', 'Mobile Apps', 'AI/ML/CV', 'eGovernance', 'eCommerce', 'BI Dashboards'];
 
@@ -22,9 +23,9 @@ const projects = [
   {
     title: "SC Land Records",
     category: "Web Apps",
-    date: "2020",
-    excerpt: "Digital land records management system for Supreme Court with comprehensive document tracking.",
-    image: images[0],
+    date: "2022",
+    excerpt: "Unified Citizen Services Platform providing access to 70+ land record services for Maharashtra citizens.",
+    image: scLandrecords,
     height: "tall"
   },
   {
@@ -293,8 +294,8 @@ const projects = [
     title: "SC Land Records eGov",
     category: "eGovernance",
     date: "2022",
-    excerpt: "Supreme Court land records digitization with governance workflows.",
-    image: images[3],
+    excerpt: "Unified Citizen Services Platform providing access to 70+ land record services for Maharashtra citizens.",
+    image: scLandrecords,
     height: "short"
   },
   {
