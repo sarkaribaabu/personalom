@@ -24,6 +24,7 @@ import guppaai from '@/assets/guppaai.png';
 import pngBrothers from '@/assets/png-brothers.png';
 import csJewellers from '@/assets/cs-jewellers.png';
 import lomAi from '@/assets/lom-ai.png';
+import bmcDm from '@/assets/bmc-dm.png';
 
 const categories = ['All', 'Web Apps', 'Mobile Apps', 'AI/ML/CV', 'eGovernance', 'eCommerce', 'BI Dashboards'];
 
@@ -197,8 +198,8 @@ const projects = [
     title: "BMC Disaster Management",
     category: "Mobile Apps",
     date: "2021",
-    excerpt: "Emergency response and disaster management mobile application for BMC.",
-    image: images[5],
+    excerpt: "City-Scale Weather Intelligence & Citizen Information Platform with 50+ automated weather stations.",
+    image: bmcDm,
     height: "medium"
   },
   {
