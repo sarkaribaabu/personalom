@@ -18,6 +18,7 @@ import dmsApp from '@/assets/dms-app.png';
 import bmcPothole from '@/assets/bmc-pothole.png';
 import pwdPothole from '@/assets/pwd-pothole.png';
 import nepalPolice from '@/assets/nepal-police.png';
+import nmmcDashboard from '@/assets/nmmc-dashboard.png';
 
 const categories = ['All', 'Web Apps', 'Mobile Apps', 'AI/ML/CV', 'eGovernance', 'eCommerce', 'BI Dashboards'];
 
@@ -359,8 +360,8 @@ const projects = [
     title: "NMMC Dashboard",
     category: "BI Dashboards",
     date: "2024",
-    excerpt: "Municipal performance analytics with KPI tracking and citizen metrics.",
-    image: images[1],
+    excerpt: "Commissionerate-Level Decision Intelligence with unified Power BI analytics across 15+ departments.",
+    image: nmmcDashboard,
     height: "medium"
   },
   {
