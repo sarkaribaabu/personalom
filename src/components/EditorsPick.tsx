@@ -1,7 +1,6 @@
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useRef } from 'react';
-import { Link } from 'react-router-dom';
 import businessPost from '@/assets/business-post.jpg';
 import techPost from '@/assets/tech-post.jpg';
 import fashionPost from '@/assets/fashion-post.jpg';
@@ -129,16 +128,15 @@ const EditorsPick = () => {
             key={pick.id}
             className="flex-shrink-0 w-80 bg-card rounded-lg overflow-hidden hover:shadow-md transition-shadow duration-200"
           >
-            <Link
-              to={`/blog/${pick.slug}`}
-              className="block focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-lg"
-              aria-label={`Read article: ${pick.title}`}
+            <div
+              className="block focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-lg cursor-default"
+              aria-label={`Article: ${pick.title}`}
             >
               <div className="aspect-[4/3] overflow-hidden">
                 <img
                   src={pick.image}
                   alt={`Editor's pick article: ${pick.title} - A professional image related to ${pick.category.toLowerCase()}`}
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                  className="w-full h-full object-cover"
                   loading="lazy"
                 />
               </div>
@@ -158,11 +156,11 @@ const EditorsPick = () => {
                   {pick.excerpt}
                 </p>
                 
-                <Button variant="outline" size="sm" className="text-xs font-medium">
-                  READ MORE
-                </Button>
+                <span className="inline-flex items-center px-3 py-1.5 text-xs font-medium text-muted-foreground bg-muted rounded-md">
+                  COMING SOON
+                </span>
               </div>
-            </Link>
+            </div>
           </article>
         ))}
       </div>
