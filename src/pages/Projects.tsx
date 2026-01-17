@@ -28,6 +28,7 @@ import bmcDm from '@/assets/bmc-dm.png';
 import mobileGames from '@/assets/mobile-games.png';
 import vendimanMax from '@/assets/vendiman-max.png';
 import mhPolice from '@/assets/mh-police.png';
+import smithNephew from '@/assets/smith-nephew.png';
 
 const categories = ['All', 'Web Apps', 'Mobile Apps', 'AI/ML/CV', 'eGovernance', 'eCommerce', 'BI Dashboards'];
 
@@ -76,12 +77,12 @@ const projects = [
     height: "short"
   },
   {
-    title: "Smith+Nephew's Portal",
+    title: "Smith+Nephew Surgical Planner",
     category: "Web Apps",
-    date: "2024",
-    excerpt: "Medical devices company portal for inventory and distribution management.",
-    image: images[3],
-    height: "medium"
+    date: "2025",
+    excerpt: "AI-powered pre-operative surgical planning platform with interactive visualization and parameter-based simulation for surgeons.",
+    image: smithNephew,
+    height: "tall"
   },
   {
     title: "Vendiman",
@@ -118,12 +119,12 @@ const projects = [
     height: "tall"
   },
   {
-    title: "Smith+Nephew's App",
+    title: "Smith+Nephew Surgical Planner",
     category: "Mobile Apps",
     date: "2025",
-    excerpt: "Medical devices field service mobile application for technicians.",
-    image: images[3],
-    height: "medium"
+    excerpt: "Cross-platform surgical planning mobile app with AI/ML-assisted recommendations and high-fidelity anatomical visualization.",
+    image: smithNephew,
+    height: "tall"
   },
   {
     title: "BMC Disaster Management",
