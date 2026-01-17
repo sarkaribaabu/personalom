@@ -131,6 +131,20 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground font-sans;
+    text-align: justify;
+    text-justify: inter-word;
+  }
+
+  /* Ensure headings, buttons, and navigation remain left-aligned for readability */
+  h1, h2, h3, h4, h5, h6,
+  button, a, nav, .nav-link,
+  label, input, select, textarea {
+    text-align: left;
+  }
+
+  /* Center-aligned elements should stay centered */
+  .text-center {
+    text-align: center !important;
   }
 }
 
