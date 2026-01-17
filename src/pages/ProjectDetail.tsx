@@ -68,6 +68,7 @@ import bmcDm from '@/assets/bmc-dm.png';
 import mobileGames from '@/assets/mobile-games.png';
 import vendimanMax from '@/assets/vendiman-max.png';
 import mhPolice from '@/assets/mh-police.png';
+import smithNephew from '@/assets/smith-nephew.png';
 
 // Tech stack icon mapping
 const techIcons: Record<string, React.ReactNode> = {
@@ -3080,6 +3081,145 @@ const projectsData: Record<string, {
       ]
     },
     gallery: [mhPolice]
+  },
+  'smith-nephew-surgical-planner': {
+    title: "Smith+Nephew Surgical Planner",
+    category: "Healthcare (Medical Devices)",
+    image: smithNephew,
+    snapshot: {
+      client: "Smith+Nephew (Private Healthcare & Medical Devices)",
+      industry: "Healthcare | Medical Devices | Surgical Planning",
+      role: "Project / Product Manager",
+      duration: "9+ months",
+      techStack: ["Java", "React", "Flutter", "AI", "ML"]
+    },
+    brief: {
+      problem: "Surgeons relied heavily on experience-driven judgment and static references to plan complex surgical procedures. There was no reliable digital tool to visualize patient-specific anatomy, simulate procedural steps, or validate surgical parameters before entering the operating room. This resulted in higher variability in outcomes, limited predictability, and minimal ability to rehearse procedure-specific scenarios pre-operatively.",
+      context: "Modern surgeries demand precision, repeatability, and data-backed decision-making. With increasing procedural complexity and patient-specific variability, surgeons needed a digital companion that could assist in planning, visualization, and validation before surgery. The objective was to reduce uncertainty during procedures by shifting critical decision-making to the pre-operative stage.",
+      constraints: [
+        "High accuracy requirements for surgical visualization",
+        "Surgeon trust and adoption critical for success",
+        "Need for patient-specific, anatomy-driven planning",
+        "Support for multiple procedure types and parameters",
+        "Performance consistency across devices (tablet and mobile)",
+        "Regulatory and clinical safety considerations"
+      ]
+    },
+    contextReality: {
+      environment: "Pre-operative planning was largely manual or mentally simulated by surgeons using experience, printed guides, or generic references. Existing tools lacked interactivity, personalization, and procedural simulation capabilities.",
+      existingSystems: [
+        "Experience-based surgical planning",
+        "Limited or static visual references",
+        "No procedural simulation or parameter validation",
+        "High dependency on intra-operative judgment"
+      ],
+      constraints: [
+        "Mobile-first usage inside clinical environments",
+        "High-fidelity visualization without latency",
+        "Secure handling of clinical and patient data",
+        "Intuitive UX for surgeons under time pressure"
+      ]
+    },
+    approach: {
+      principles: [
+        "Plan before incision, not during surgery",
+        "Reduce variability through visualization and simulation",
+        "Support surgeon judgment, do not replace it",
+        "Precision, clarity, and trust over automation"
+      ],
+      strategicDecisions: [
+        "Focused on pre-operative planning rather than intra-operative tools",
+        "Designed workflows aligned with surgeon mental models",
+        "Used AI/ML for assistance, not autonomous decision-making",
+        "Prioritized intuitive interaction over dense clinical data"
+      ],
+      tradeoffs: [
+        "Depth of planning over breadth of procedure coverage",
+        "Simulation accuracy over visual embellishments",
+        "Surgeon usability over generalized healthcare features"
+      ]
+    },
+    execution: {
+      architecture: "The platform was designed as a planning-first surgical companion rather than a passive reference tool. Surgeons could visualize anatomical structures, simulate procedural steps, and validate parameters pre-operatively using an interactive and data-driven interface. AI and ML models assisted in recommending optimal parameters and identifying potential risks based on procedure context.",
+      keyModules: [
+        "Interactive surgical visualization engine",
+        "Pre-operative procedure planning workflows",
+        "Parameter-based simulation and validation",
+        "AI/ML-assisted recommendations",
+        "Cross-platform mobile and tablet support",
+        "Surgeon-specific planning templates"
+      ],
+      integrations: [
+        "AI/ML models for parameter optimization",
+        "High-performance rendering for anatomical visualization",
+        "Secure data storage and access controls",
+        "Cross-platform delivery via Flutter",
+        "React-based interfaces for advanced interactions"
+      ],
+      considerations: [
+        "Surgeon confidence and usability over feature overload",
+        "Clinical accuracy over visual complexity",
+        "Predictable performance in operating-room conditions",
+        "Auditability and traceability of planning decisions"
+      ]
+    },
+    challengesThatMattered: [
+      {
+        title: "Gaining Surgeon Trust and Adoption",
+        description: "Surgeons are cautious about adopting tools that interfere with established workflows.",
+        impact: "Designed the platform to complement existing practices, offering optional planning assistance rather than enforced workflows. Visuals and simulations mirrored real surgical thinking."
+      },
+      {
+        title: "Ensuring Accurate and Responsive Visualization",
+        description: "High-fidelity anatomical rendering needed to remain smooth on mobile devices.",
+        impact: "Optimized rendering pipelines and leveraged lightweight visualization techniques to ensure consistent performance without compromising accuracy."
+      },
+      {
+        title: "Balancing AI Assistance with Clinical Control",
+        description: "Over-automation risked reducing surgeon confidence.",
+        impact: "AI/ML insights were positioned as recommendations with full surgeon control, ensuring clinical authority always remained with the practitioner."
+      }
+    ],
+    solutions: [
+      {
+        problem: "Gaining Surgeon Trust and Adoption",
+        decision: "Design platform to complement existing practices",
+        intervention: "Offered optional planning assistance rather than enforced workflows. Visuals and simulations mirrored real surgical thinking.",
+        result: "Improved surgeon adoption and confidence in the platform"
+      },
+      {
+        problem: "Ensuring Accurate and Responsive Visualization",
+        decision: "Optimize rendering for mobile devices",
+        intervention: "Optimized rendering pipelines and leveraged lightweight visualization techniques.",
+        result: "Consistent performance without compromising accuracy"
+      },
+      {
+        problem: "Balancing AI Assistance with Clinical Control",
+        decision: "Position AI as recommendations, not decisions",
+        intervention: "AI/ML insights were positioned with full surgeon control, ensuring clinical authority remained with the practitioner.",
+        result: "Maintained surgeon confidence while providing valuable AI assistance"
+      }
+    ],
+    outcomes: {
+      quantitative: [
+        "Improved pre-operative preparedness among surgeons",
+        "Reduced variability in procedure planning",
+        "Faster and more confident surgical decision-making"
+      ],
+      qualitative: [
+        "Enabled data-backed surgical planning",
+        "Improved surgeon confidence before procedures",
+        "Reduced reliance on experience-only judgment",
+        "Established a scalable digital foundation for future surgical planning tools"
+      ],
+      impact: "The Surgical Planner demonstrated how visualization-first and planning-driven design can enhance surgical precision without disrupting clinical autonomy. It positioned digital planning as an essential pre-operative step, not an optional aid, setting a strong foundation for the future of surgeon-centric healthcare tools."
+    },
+    learnings: {
+      keyLearnings: [],
+      improvements: [],
+      insights: []
+    },
+    gallery: [smithNephew]
   }
 };
 
