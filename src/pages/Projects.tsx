@@ -34,7 +34,7 @@ const categories = ['All', 'Web Apps', 'Mobile Apps', 'AI/ML/CV', 'eGovernance',
 const images = [businessPost, techPost, fashionPost, lifestylePost, workLifestyle, fashionLifestyle];
 
 const projects = [
-  // Web Apps (12 projects)
+  // Web Apps (7 projects)
   {
     title: "SC Land Records",
     category: "Web Apps",
@@ -60,14 +60,6 @@ const projects = [
     height: "medium"
   },
   {
-    title: "MHADA Portal",
-    category: "Web Apps",
-    date: "2023",
-    excerpt: "Maharashtra Housing and Area Development Authority housing management system.",
-    image: images[3],
-    height: "short"
-  },
-  {
     title: "DMS",
     category: "Web Apps",
     date: "2025",
@@ -84,43 +76,11 @@ const projects = [
     height: "short"
   },
   {
-    title: "L&T Defense",
-    category: "Web Apps",
-    date: "2020",
-    excerpt: "Defense sector application for project management and resource allocation.",
-    image: images[0],
-    height: "medium"
-  },
-  {
-    title: "Cipla",
-    category: "Web Apps",
-    date: "2025",
-    excerpt: "Pharmaceutical industry web application for operations and compliance management.",
-    image: images[1],
-    height: "tall"
-  },
-  {
-    title: "Glasban",
-    category: "Web Apps",
-    date: "2025",
-    excerpt: "Enterprise web application for business process automation and management.",
-    image: images[2],
-    height: "short"
-  },
-  {
     title: "Smith+Nephew's Portal",
     category: "Web Apps",
     date: "2024",
     excerpt: "Medical devices company portal for inventory and distribution management.",
     image: images[3],
-    height: "medium"
-  },
-  {
-    title: "Dr. Reddy's Lab",
-    category: "Web Apps",
-    date: "2024",
-    excerpt: "Pharmaceutical laboratory management system with compliance tracking.",
-    image: images[4],
     height: "medium"
   },
   {
@@ -132,31 +92,7 @@ const projects = [
     height: "tall"
   },
 
-  // Mobile Apps (10 projects)
-  {
-    title: "eTechSchool",
-    category: "Mobile Apps",
-    date: "2019",
-    excerpt: "Educational mobile app with interactive learning modules and progress tracking.",
-    image: images[3],
-    height: "tall"
-  },
-  {
-    title: "NMMC App",
-    category: "Mobile Apps",
-    date: "2024",
-    excerpt: "Navi Mumbai Municipal Corporation mobile app for citizen services on-the-go.",
-    image: images[4],
-    height: "medium"
-  },
-  {
-    title: "PCMC App",
-    category: "Mobile Apps",
-    date: "2024",
-    excerpt: "Pimpri Chinchwad Municipal Corporation mobile application for civic services.",
-    image: images[5],
-    height: "medium"
-  },
+  // Mobile Apps (6 projects)
   {
     title: "MHADA App",
     category: "Mobile Apps",
@@ -190,14 +126,6 @@ const projects = [
     height: "medium"
   },
   {
-    title: "Laws Of Motion",
-    category: "Mobile Apps",
-    date: "2022",
-    excerpt: "Interactive physics learning app with simulations and AI-powered tutoring.",
-    image: images[4],
-    height: "tall"
-  },
-  {
     title: "BMC Disaster Management",
     category: "Mobile Apps",
     date: "2021",
@@ -214,7 +142,7 @@ const projects = [
     height: "tall"
   },
 
-  // AI/ML/CV (3 projects)
+  // AI/ML/CV (2 projects)
   {
     title: "Laws of Motion",
     category: "AI/ML/CV",
@@ -222,14 +150,6 @@ const projects = [
     excerpt: "AI-Driven Custom Apparel Platform with 1,260 microsizes and zero-waste on-demand manufacturing.",
     image: lomAi,
     height: "tall"
-  },
-  {
-    title: "Clairity",
-    category: "AI/ML/CV",
-    date: "2024",
-    excerpt: "Computer vision solution for clarity assessment and image analysis.",
-    image: images[0],
-    height: "medium"
   },
   {
     title: "GuppaAI",
@@ -240,7 +160,7 @@ const projects = [
     height: "medium"
   },
 
-  // eGovernance (11 projects)
+  // eGovernance (6 projects)
   {
     title: "NMMC eGovernance",
     category: "eGovernance",
@@ -258,14 +178,6 @@ const projects = [
     height: "medium"
   },
   {
-    title: "BMC eGovernance",
-    category: "eGovernance",
-    date: "2022",
-    excerpt: "Brihanmumbai Municipal Corporation e-governance and citizen services platform.",
-    image: images[3],
-    height: "medium"
-  },
-  {
     title: "Maharashtra Police - Dial 100",
     category: "eGovernance",
     date: "2019",
@@ -274,28 +186,12 @@ const projects = [
     height: "tall"
   },
   {
-    title: "Chandrapur Police",
-    category: "eGovernance",
-    date: "2019",
-    excerpt: "Law enforcement digital platform for Chandrapur district police.",
-    image: images[5],
-    height: "medium"
-  },
-  {
     title: "Navi Mumbai Police",
     category: "eGovernance",
     date: "2025",
     excerpt: "Integrated Command & Analytics Platform enabling data-driven policing with predictive insights.",
     image: nmPoliceBi,
     height: "tall"
-  },
-  {
-    title: "Ahilyanagar Police",
-    category: "eGovernance",
-    date: "2019",
-    excerpt: "District police digital transformation with integrated systems.",
-    image: images[1],
-    height: "short"
   },
   {
     title: "Nepal Police",
@@ -319,14 +215,6 @@ const projects = [
     date: "2018",
     excerpt: "International e-governance implementation for island territory government.",
     image: images[4],
-    height: "medium"
-  },
-  {
-    title: "DRDO",
-    category: "eGovernance",
-    date: "2020",
-    excerpt: "Defense Research and Development Organisation project management system.",
-    image: images[5],
     height: "medium"
   },
 
@@ -356,7 +244,7 @@ const projects = [
     height: "medium"
   },
 
-  // BI Dashboards (6 projects)
+  // BI Dashboards (4 projects)
   {
     title: "Navi Mumbai Police BI",
     category: "BI Dashboards",
@@ -387,14 +275,6 @@ const projects = [
     date: "2020",
     excerpt: "Nationwide Vendor & Service Analytics Platform with centralized visibility across 10+ vendors.",
     image: bajajFinserv,
-    height: "medium"
-  },
-  {
-    title: "Gurukul Schools",
-    category: "BI Dashboards",
-    date: "2019",
-    excerpt: "Educational institution analytics with student performance and enrollment tracking.",
-    image: images[4],
     height: "medium"
   }
 ];
