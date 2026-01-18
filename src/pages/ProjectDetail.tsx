@@ -69,6 +69,7 @@ import mobileGames from '@/assets/mobile-games.png';
 import vendimanMax from '@/assets/vendiman-max.png';
 import mhPolice from '@/assets/mh-police.png';
 import smithNephew from '@/assets/smith-nephew.png';
+import tcIsland from '@/assets/t-c-island.png';
 
 // Tech stack icon mapping
 const techIcons: Record<string, React.ReactNode> = {
@@ -3220,6 +3221,147 @@ const projectsData: Record<string, {
       insights: []
     },
     gallery: [smithNephew]
+  },
+  'turks-caicos-island': {
+    title: "Turks and Caicos Islands Financial Services Commission",
+    category: "Government (Financial Regulation)",
+    image: tcIsland,
+    snapshot: {
+      client: "Turks and Caicos Islands Financial Services Commission",
+      industry: "Government | Financial Regulation | Corporate Registry | AML / CFT Compliance",
+      role: "Project / Product Manager",
+      duration: "Multi-phase implementation (production rollout with statutory deadlines)",
+      techStack: ["Java", "MySQL"]
+    },
+    brief: {
+      problem: "Prior to KRegistry, the Commission faced serious operational and regulatory risks. Entity registration and statutory filings were manual or fragmented across semi-digital systems, resulting in long processing timelines, high administrative overhead, and inconsistent records. Simultaneously, the jurisdiction was under international pressure from global bodies such as the G20 and FATF to strengthen Anti-Money Laundering (AML) and Countering the Financing of Terrorism (CFT) controls. The absence of a centralized, self-service digital registry threatened regulatory credibility, ease of doing business, and compliance with international standards.",
+      context: "As an international financial center, the Turks and Caicos Islands required a modern, transparent, and auditable commercial registry. The objective was to transform the Commission from an over-the-counter, paper-heavy regulator into a digital-first supervisory authority, while ensuring full compliance with Regulation 31 of TCI financial laws and related ordinances.",
+      constraints: [
+        "Mandatory compliance with AML and CFT regulations",
+        "International scrutiny and reputational risk",
+        "Multiple ordinances (Companies, Partnerships, Trademarks)",
+        "Statutory deadlines for entity registration",
+        "Need for 24/7 availability for global stakeholders",
+        "Zero tolerance for data inconsistency or record loss"
+      ]
+    },
+    contextReality: {
+      environment: "The registry ecosystem was fragmented across ordinances and departments. Most submissions required physical presence or email-based coordination, placing heavy dependency on staff and limiting scalability.",
+      existingSystems: [
+        "Manual or semi-digital entity registration",
+        "Over-the-counter document submissions",
+        "Disconnected record-keeping across ordinances",
+        "Limited audit trails and reporting capabilities"
+      ],
+      constraints: [
+        "Secure digital identity verification",
+        "Legal validity of digitally signed documents",
+        "Centralized, searchable commercial registry",
+        "Revenue reconciliation for statutory fees"
+      ]
+    },
+    approach: {
+      principles: [
+        "Digitize regulation, not just registration",
+        "Compliance by design, not after-the-fact",
+        "Single source of truth over departmental silos",
+        "Transparency, auditability, and global credibility"
+      ],
+      strategicDecisions: [
+        "Made digital registration the default and mandatory pathway",
+        "Centralized all ordinances into a unified commercial registry",
+        "Automated compliance checks to reduce manual oversight",
+        "Enabled self-service for PSPs and public users to reduce staff dependency"
+      ],
+      tradeoffs: [
+        "Strict statutory enforcement over flexible onboarding timelines",
+        "Fully digital workflows over hybrid physical processes",
+        "Regulatory rigor over rapid but uncontrolled business formation"
+      ]
+    },
+    execution: {
+      architecture: "The solution was designed as an end-to-end digital registry platform (KRegistry), serving as the single source of truth for all commercial entities in the jurisdiction. The platform enabled full online onboarding, automated compliance checks, and centralized record management across multiple ordinances.",
+      keyModules: [
+        "Public user and Corporate Service Provider (PSP) onboarding",
+        "Digital entity registration and lifecycle management",
+        "Statutory filing and annual declaration workflows",
+        "Digital document signing and verification",
+        "Centralized commercial registry search",
+        "Payment and revenue management integration"
+      ],
+      integrations: [
+        "Digital identity and credential verification",
+        "Secure electronic document signing",
+        "Online payment gateway for application and filing fees",
+        "Automated regulatory workflows aligned with Regulation 31",
+        "Centralized database for all registered entities"
+      ],
+      considerations: [
+        "Regulatory enforceability over convenience",
+        "Auditability and traceability of every transaction",
+        "Scalability to handle jurisdiction-wide mandatory registration",
+        "High availability for international users across time zones"
+      ]
+    },
+    challengesThatMattered: [
+      {
+        title: "Closing AML and CFT Compliance Gaps",
+        description: "International bodies required demonstrable, enforceable controls.",
+        impact: "Implemented automated identity verification, digital document signing, and Regulation 31–aligned workflows to ensure compliance was embedded at onboarding."
+      },
+      {
+        title: "Eliminating Manual and Fragmented Processes",
+        description: "Over-the-counter submissions created bottlenecks and data inconsistencies.",
+        impact: "Introduced a unified digital portal for all entity interactions, eliminating physical submissions and centralizing records."
+      },
+      {
+        title: "Jurisdiction-Wide Mandatory Registration",
+        description: "Thousands of existing entities needed to be brought into compliance within statutory deadlines.",
+        impact: "Designed a scalable architecture supporting automatic registration workflows, ensuring full coverage of all legal entities within mandated timelines."
+      }
+    ],
+    solutions: [
+      {
+        problem: "Closing AML and CFT Compliance Gaps",
+        decision: "Implement automated identity verification and digital document signing",
+        intervention: "Regulation 31–aligned workflows ensured compliance was embedded at onboarding.",
+        result: "Strengthened AML and CFT compliance posture with demonstrable controls"
+      },
+      {
+        problem: "Eliminating Manual and Fragmented Processes",
+        decision: "Introduce a unified digital portal for all entity interactions",
+        intervention: "Eliminated physical submissions and centralized records across ordinances.",
+        result: "Significant reduction in processing timelines and administrative overhead"
+      },
+      {
+        problem: "Jurisdiction-Wide Mandatory Registration",
+        decision: "Design scalable architecture for automatic registration workflows",
+        intervention: "Ensured full coverage of all legal entities within mandated timelines.",
+        result: "Complete compliance with statutory deadlines for entity registration"
+      }
+    ],
+    outcomes: {
+      quantitative: [
+        "Significant reduction in entity registration and filing turnaround times",
+        "Centralized records across all ordinances",
+        "Improved revenue tracking through integrated payments",
+        "Reduced administrative overhead for the Commission"
+      ],
+      qualitative: [
+        "Strengthened AML and CFT compliance posture",
+        "Improved global regulatory credibility",
+        "24/7 self-service access for international stakeholders",
+        "Simplified audits and regulatory reporting",
+        "Established a modern digital foundation for future regulatory expansion"
+      ],
+      impact: "KRegistry transformed the Commission from a paper-driven registry into a digitally empowered regulatory authority. By embedding compliance, automation, and transparency at the core, the platform safeguarded the jurisdiction's global standing while significantly improving ease of doing business and regulatory effectiveness."
+    },
+    learnings: {
+      keyLearnings: [],
+      improvements: [],
+      insights: []
+    },
+    gallery: [tcIsland]
   }
 };
 

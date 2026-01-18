@@ -29,6 +29,7 @@ import mobileGames from '@/assets/mobile-games.png';
 import vendimanMax from '@/assets/vendiman-max.png';
 import mhPolice from '@/assets/mh-police.png';
 import smithNephew from '@/assets/smith-nephew.png';
+import tcIsland from '@/assets/t-c-island.png';
 
 const categories = ['All', 'Web Apps', 'Mobile Apps', 'AI/ML/CV', 'eGovernance', 'eCommerce', 'BI Dashboards'];
 
@@ -214,9 +215,9 @@ const projects = [
     title: "Turks & Caicos Island",
     category: "eGovernance",
     date: "2018",
-    excerpt: "International e-governance implementation for island territory government.",
-    image: images[4],
-    height: "medium"
+    excerpt: "KRegistry – Commercial Registry & Regulatory Compliance Platform for AML/CFT compliance and digital entity registration.",
+    image: tcIsland,
+    height: "tall"
   },
 
   // eCommerce (3 projects)
