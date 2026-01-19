@@ -30,6 +30,7 @@ import vendimanMax from '@/assets/vendiman-max.png';
 import mhPolice from '@/assets/mh-police.png';
 import smithNephew from '@/assets/smith-nephew.png';
 import tcIsland from '@/assets/t-c-island.png';
+import mrugrae from '@/assets/mrugrae.png';
 
 const categories = ['All', 'Web Apps', 'Mobile Apps', 'AI/ML/CV', 'eGovernance', 'eCommerce', 'BI Dashboards'];
 
@@ -241,8 +242,8 @@ const projects = [
     title: "Mrugrae",
     category: "eCommerce",
     date: "2024",
-    excerpt: "Fashion and lifestyle eCommerce platform with modern shopping experience.",
-    image: images[5],
+    excerpt: "Premium Ayurvedic skincare D2C e-commerce platform with cold-processed soaps, eco-friendly packaging, and secure payment integration.",
+    image: mrugrae,
     height: "medium"
   },
 
