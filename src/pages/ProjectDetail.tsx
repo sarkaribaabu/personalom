@@ -70,6 +70,7 @@ import vendimanMax from '@/assets/vendiman-max.png';
 import mhPolice from '@/assets/mh-police.png';
 import smithNephew from '@/assets/smith-nephew.png';
 import tcIsland from '@/assets/t-c-island.png';
+import mrugrae from '@/assets/mrugrae.png';
 
 // Tech stack icon mapping
 const techIcons: Record<string, React.ReactNode> = {
@@ -3362,6 +3363,143 @@ const projectsData: Record<string, {
       insights: []
     },
     gallery: [tcIsland]
+  },
+  'mrugrae': {
+    title: "Mrugrae",
+    category: "Consumer Goods | Skincare | Ayurveda | D2C",
+    image: mrugrae,
+    snapshot: {
+      client: "Mrugrae",
+      industry: "Consumer Goods | Skincare | Ayurveda | Direct-to-Consumer (D2C)",
+      role: "Project / Product Manager",
+      duration: "6+ months",
+      techStack: ["PHP", "Laravel", "MySQL"]
+    },
+    brief: {
+      problem: "Discerning skincare consumers lacked direct access to authentic, cold-processed Ayurvedic soaps that were both eco-friendly and dermatologically tested. The market was dominated by chemical-heavy alternatives with aggressive marketing but limited transparency. As a result, conscious consumers struggled to discover trustworthy products, while a premium brand like Mrugrae faced constrained digital reach and limited market penetration.",
+      context: "Ayurvedic skincare carries deep heritage value, but modern consumers expect seamless discovery, trust signals, and reliable home delivery. The objective was to build a high-end e-commerce platform that could translate Mrugrae's artisanal philosophy into a digital experience, without diluting authenticity or quality perception.",
+      constraints: [
+        "Preserving premium and heritage brand positioning",
+        "Educating consumers on cold-processed Ayurvedic benefits",
+        "Building trust for first-time digital buyers",
+        "Ensuring reliable fulfillment and payment security",
+        "Competing with mass-market FMCG skincare brands"
+      ]
+    },
+    contextReality: {
+      environment: "The brand's presence was limited to offline or fragmented digital touchpoints. There was no unified platform to manage product discovery, ordering, payments, and customer communication.",
+      existingSystems: [
+        "Limited digital visibility and discoverability",
+        "No direct-to-consumer sales channel",
+        "Manual or ad-hoc order handling",
+        "Minimal customer engagement post-purchase"
+      ],
+      constraints: [
+        "Mobile-first shopping experience",
+        "Secure and familiar payment options",
+        "Real-time order and customer notifications",
+        "Scalable backend for growing demand"
+      ]
+    },
+    approach: {
+      principles: [
+        "Brand authenticity drives conversion",
+        "Trust precedes transactions in skincare",
+        "Simplicity over excessive personalization",
+        "Digital should amplify heritage, not replace it"
+      ],
+      strategicDecisions: [
+        "Built a clean, premium UI aligned with Ayurvedic positioning",
+        "Highlighted product purity, process, and testing credentials",
+        "Integrated real-time customer communication for reassurance",
+        "Focused on frictionless checkout and payment reliability"
+      ],
+      tradeoffs: [
+        "Depth of brand storytelling over large product catalogs",
+        "Premium positioning over discount-led growth",
+        "Operational clarity over complex marketing automation"
+      ]
+    },
+    execution: {
+      architecture: "The solution was designed as a brand-first e-commerce platform, combining premium visual storytelling with a reliable transactional backbone. The portal emphasized product authenticity, ingredient transparency, and smooth checkout, while ensuring operational reliability from order placement to delivery.",
+      keyModules: [
+        "Product catalog with detailed ingredient storytelling",
+        "Secure checkout and payment processing",
+        "Order management and fulfillment workflows",
+        "Customer notification and engagement engine",
+        "Mobile-optimized user experience",
+        "Backend administration for inventory and orders"
+      ],
+      integrations: [
+        "CCAvenue for secure online payments",
+        "SMS and WhatsApp for order confirmations and updates",
+        "Laravel-based backend for scalability and maintainability",
+        "Centralized product, order, and customer management"
+      ],
+      considerations: [
+        "Brand trust over aggressive conversion tactics",
+        "Simplicity and clarity over feature overload",
+        "Performance consistency across mobile devices",
+        "Secure handling of customer and payment data"
+      ]
+    },
+    challengesThatMattered: [
+      {
+        title: "Building Trust for a Premium Ayurvedic Brand Online",
+        description: "Consumers were cautious about authenticity and quality claims.",
+        impact: "Designed content-led product pages emphasizing ingredients, cold-processing methods, and dermatological testing, reinforcing credibility at every step."
+      },
+      {
+        title: "Ensuring Reliable Order-to-Delivery Experience",
+        description: "Any fulfillment failure could damage brand perception.",
+        impact: "Implemented structured order workflows with automated SMS and WhatsApp notifications to keep customers informed and confident."
+      },
+      {
+        title: "Balancing Aesthetic with Performance",
+        description: "Premium visuals risked slowing the shopping experience.",
+        impact: "Optimized frontend assets and backend performance to maintain fast load times without compromising visual quality."
+      }
+    ],
+    solutions: [
+      {
+        problem: "Building Trust for a Premium Ayurvedic Brand Online",
+        decision: "Design content-led product pages emphasizing ingredients and processes",
+        intervention: "Highlighted cold-processing methods, dermatological testing, and eco-friendly credentials throughout the customer journey.",
+        result: "Reinforced credibility and built consumer confidence at every step"
+      },
+      {
+        problem: "Ensuring Reliable Order-to-Delivery Experience",
+        decision: "Implement structured order workflows with automated notifications",
+        intervention: "Integrated SMS and WhatsApp notifications for order confirmations, shipping updates, and delivery alerts.",
+        result: "Kept customers informed and confident throughout the fulfillment process"
+      },
+      {
+        problem: "Balancing Aesthetic with Performance",
+        decision: "Optimize frontend assets while maintaining premium visuals",
+        intervention: "Implemented performance optimizations on both frontend and backend without compromising visual quality.",
+        result: "Maintained fast load times while preserving the premium brand experience"
+      }
+    ],
+    outcomes: {
+      quantitative: [
+        "Enabled direct-to-consumer sales channel",
+        "Improved order processing efficiency",
+        "Reduced manual intervention in customer communication"
+      ],
+      qualitative: [
+        "Strengthened brand credibility in the digital space",
+        "Improved customer confidence in Ayurvedic skincare purchases",
+        "Established a scalable foundation for future product expansion",
+        "Positioned Mrugrae as a modern yet authentic premium skincare brand"
+      ],
+      impact: "The Mrugrae e-commerce platform demonstrated how heritage-led brands can scale digitally without losing authenticity. By combining thoughtful storytelling with dependable commerce infrastructure, the platform bridged traditional Ayurveda and modern consumer expectations in a credible, sustainable way."
+    },
+    learnings: {
+      keyLearnings: [],
+      improvements: [],
+      insights: []
+    },
+    gallery: [mrugrae]
   }
 };
 
