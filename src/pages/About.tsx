@@ -3,6 +3,7 @@ import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { Mail, Linkedin, Twitter, Briefcase, Building2, ArrowRight } from 'lucide-react';
+import aboutImage from '@/assets/about.png';
 
 // Experience highlights for About page
 const experienceHighlights = [
@@ -86,14 +87,11 @@ const About = () => {
               <div className="relative">
                 {/* Main Photo */}
                 <div className="aspect-[3/4] rounded-2xl overflow-hidden bg-muted shadow-2xl">
-                  <div className="w-full h-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-32 h-32 bg-primary/30 rounded-full mx-auto mb-4 flex items-center justify-center border-4 border-background shadow-lg">
-                        <span className="text-5xl font-serif text-primary">OM</span>
-                      </div>
-                      <p className="text-muted-foreground text-sm">Author Photo</p>
-                    </div>
-                  </div>
+                  <img 
+                    src={aboutImage} 
+                    alt="Om Mahajan - Digital Transformation Specialist & Author"
+                    className="w-full h-full object-cover object-top"
+                  />
                 </div>
                 {/* Decorative elements */}
                 <div className="absolute -bottom-4 -left-4 w-24 h-24 bg-primary/10 rounded-2xl -z-10" />
