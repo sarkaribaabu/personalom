@@ -77,11 +77,11 @@ const Footer = () => {
               </a>
             </div>
             <a 
-              href="mailto:contact@ommahajan.com" 
+              href="mailto:hello@ommahajan.com" 
               className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
             >
               <Mail className="w-4 h-4" />
-              <span>contact@ommahajan.com</span>
+              <span>hello@ommahajan.com</span>
             </a>
           </div>
         </div>
