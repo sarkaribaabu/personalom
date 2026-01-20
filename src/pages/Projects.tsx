@@ -31,6 +31,7 @@ import mhPolice from '@/assets/mh-police.png';
 import smithNephew from '@/assets/smith-nephew.png';
 import tcIsland from '@/assets/t-c-island.png';
 import mrugrae from '@/assets/mrugrae.png';
+import jnanaPrabodhini from '@/assets/jnana-prabodhini.jpg';
 
 const categories = ['All', 'Web Apps', 'Mobile Apps', 'AI/ML/CV', 'eGovernance', 'eCommerce', 'BI Dashboards'];
 
@@ -74,9 +75,9 @@ const projects = [
     title: "Jnana Prabodhini",
     category: "Web Apps",
     date: "2018",
-    excerpt: "Educational institution portal with student management and learning resources.",
-    image: images[5],
-    height: "short"
+    excerpt: "eTechSchool – Integrated School ERP Platform with 40+ modules for academics, administration, and finance.",
+    image: jnanaPrabodhini,
+    height: "tall"
   },
   {
     title: "Smith+Nephew Surgical Planner",

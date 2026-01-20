@@ -71,6 +71,7 @@ import mhPolice from '@/assets/mh-police.png';
 import smithNephew from '@/assets/smith-nephew.png';
 import tcIsland from '@/assets/t-c-island.png';
 import mrugrae from '@/assets/mrugrae.png';
+import jnanaPrabodhini from '@/assets/jnana-prabodhini.jpg';
 
 // Tech stack icon mapping
 const techIcons: Record<string, React.ReactNode> = {
@@ -3500,6 +3501,144 @@ const projectsData: Record<string, {
       insights: []
     },
     gallery: [mrugrae]
+  },
+  'jnana-prabodhini': {
+    title: "Jnana Prabodhini – eTechSchool",
+    category: "Education | School Management | Academic Administration",
+    image: jnanaPrabodhini,
+    snapshot: {
+      client: "Jnana Prabodhini",
+      industry: "Education | School Management | Academic Administration",
+      role: "Project / Product Manager",
+      duration: "Multi-academic-year rollout",
+      techStack: ["Java", "HTML5", "MySQL"]
+    },
+    brief: {
+      problem: "Educational institutions faced systemic inefficiencies that constrained operational clarity and academic growth. Administrative processes were largely manual, leading to duplication of records and avoidable errors. Communication delays impacted coordination between teachers, parents, and students. Fee management and physical resource tracking were inefficient, while institutions lacked real-time academic analytics and struggled with regulatory compliance across multiple education boards.",
+      context: "Schools operate as complex ecosystems involving academics, administration, finance, compliance, and stakeholder communication. The objective was to replace fragmented and manual processes with a single, integrated ERP platform that could support institutions from pre-primary to senior secondary levels, while remaining scalable, secure, and easy to adopt.",
+      constraints: [
+        "High dependency on manual administrative workflows",
+        "Multiple stakeholders with different access needs",
+        "Board-specific academic and compliance requirements",
+        "Need for real-time visibility into academics and operations",
+        "Scalability across classes, sections, and academic years",
+        "Secure handling of student and financial data"
+      ]
+    },
+    contextReality: {
+      environment: "Most school operations were handled through paper records, spreadsheets, or disconnected software tools. Data silos limited visibility, increased reconciliation effort, and delayed decision-making.",
+      existingSystems: [
+        "Manual attendance, fee tracking, and record keeping",
+        "Delayed communication with parents and students",
+        "Limited academic performance analytics",
+        "High effort to meet regulatory and board compliance"
+      ],
+      constraints: [
+        "Web and mobile access for all stakeholders",
+        "Centralized data with role-based access",
+        "Support for CBSE, ICSE, and State Board patterns",
+        "Integration with physical infrastructure and payment systems"
+      ]
+    },
+    approach: {
+      principles: [
+        "Automate routine work to free academic focus",
+        "Centralize data to eliminate duplication",
+        "Visibility drives better academic outcomes",
+        "Technology should simplify, not complicate, schooling"
+      ],
+      strategicDecisions: [
+        "Adopted a modular ERP approach with 40+ integrated modules",
+        "Designed mobile-first experiences for parents, teachers, and students",
+        "Embedded compliance logic aligned with major education boards",
+        "Integrated physical infrastructure for attendance, transport, and security"
+      ],
+      tradeoffs: [
+        "Standardized workflows over excessive customization",
+        "Process discipline over ad-hoc administrative flexibility",
+        "Long-term scalability over short-term implementation shortcuts"
+      ]
+    },
+    execution: {
+      architecture: "eTechSchool ERP was designed as a cloud-enabled, modular platform that unifies academic, administrative, and financial workflows into a single digital environment. The system centralizes all institutional data while providing real-time insights through dashboards and analytics.",
+      keyModules: [
+        "Student information and academic lifecycle management",
+        "Attendance, timetable, and examination management",
+        "Fee collection, accounting, and payment reconciliation",
+        "Teacher and staff administration",
+        "Inventory and physical resource management",
+        "Compliance and statutory reporting"
+      ],
+      integrations: [
+        "Payment Gateway: CCAvenue",
+        "Communication: SMS, WhatsApp, Email",
+        "Infrastructure: GPS, RFID, Biometric Devices, IP Cameras"
+      ],
+      considerations: [
+        "Ease of adoption for non-technical school staff",
+        "Reliability during peak academic and examination periods",
+        "Data security and role-based access controls",
+        "Long-term scalability across academic years"
+      ]
+    },
+    challengesThatMattered: [
+      {
+        title: "Reducing Manual Administration and Errors",
+        description: "Manual processes consumed staff time and introduced inconsistencies.",
+        impact: "Automated academic, administrative, and financial workflows, significantly reducing manual intervention and record duplication."
+      },
+      {
+        title: "Improving Communication Across Stakeholders",
+        description: "Delayed or missed communication impacted coordination and trust.",
+        impact: "Implemented automated alerts and notifications via WhatsApp, SMS, app notifications, and email to ensure timely information flow."
+      },
+      {
+        title: "Providing Actionable Academic Insights",
+        description: "Schools lacked tools to track performance trends effectively.",
+        impact: "Introduced real-time dashboards and analytics for monitoring student performance, attendance, and academic progress."
+      }
+    ],
+    solutions: [
+      {
+        problem: "Reducing Manual Administration and Errors",
+        decision: "Automate academic, administrative, and financial workflows",
+        intervention: "Implemented comprehensive workflow automation across all operational areas to eliminate manual intervention.",
+        result: "Significantly reduced manual effort and record duplication"
+      },
+      {
+        problem: "Improving Communication Across Stakeholders",
+        decision: "Implement multi-channel automated notifications",
+        intervention: "Integrated WhatsApp, SMS, app notifications, and email for automated alerts and updates.",
+        result: "Ensured timely information flow and improved coordination"
+      },
+      {
+        problem: "Providing Actionable Academic Insights",
+        decision: "Introduce real-time dashboards and analytics",
+        intervention: "Built comprehensive dashboards for monitoring student performance, attendance, and academic progress.",
+        result: "Enabled data-driven academic monitoring and decision-making"
+      }
+    ],
+    outcomes: {
+      quantitative: [
+        "Significant reduction in manual administrative effort",
+        "Faster fee collection and reconciliation",
+        "Improved data accuracy across academic and financial records"
+      ],
+      qualitative: [
+        "Improved transparency for management and parents",
+        "Better academic monitoring and decision-making",
+        "Simplified regulatory and board compliance",
+        "Higher stakeholder engagement through mobile access",
+        "Established a scalable digital foundation for future growth"
+      ],
+      impact: "The eTechSchool ERP implementation demonstrated how integrated digital systems can transform educational institutions. By unifying administration, academics, finance, and communication, the platform enabled Jnana Prabodhini to operate with greater clarity, efficiency, and compliance, while staying focused on its core mission of education."
+    },
+    learnings: {
+      keyLearnings: [],
+      improvements: [],
+      insights: []
+    },
+    gallery: [jnanaPrabodhini]
   }
 };
 
