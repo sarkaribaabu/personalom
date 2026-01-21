@@ -25,10 +25,20 @@ const experienceHighlights = [
 const About = () => {
   return (
     <div className="min-h-screen bg-background">
-      <SEO 
-        title="About Om Mahajan"
-        description="Learn about Om Mahajan - Digital Transformation Specialist, Partner at Techlead Group, Founder of Precise IT Solutions & Tantrayu Software, and published author."
-        keywords={["Om Mahajan", "About", "Digital Transformation Specialist", "IT Professional", "Author", "Techlead Group", "Precise IT Solutions", "Tantrayu Software", "E-Governance Expert"]}
+      <SEO
+        title="About Om Mahajan | Digital Transformation, e-Governance & Storytelling"
+        description="Learn about Om Mahajan’s journey across e-Governance, urban digital transformation, and creative writing, where technology meets human narrative."
+        keywords={[
+          "Om Mahajan",
+          "Digital Governance Expert",
+          "Digital Transformation Specialist",
+          "IT Professional",
+          "e-Governance Specialist",
+          "Techlead Group",
+          "Digital Transformation Leader India",
+          "Government ERP Consultant",
+          "Urban Digital Transformation",
+        ]}
         url="/about"
         type="profile"
       />
