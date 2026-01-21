@@ -261,7 +261,7 @@ const Contact = () => {
                     </div>
                   </div>
 
-                  {/* Name & Email Row */}
+                  {/* Name & Mobile Row */}
                   <div className="grid md:grid-cols-2 gap-6">
                     <div className="space-y-2">
                       <Label htmlFor="name">Your Name</Label>
@@ -278,42 +278,44 @@ const Contact = () => {
                     </div>
 
                     <div className="space-y-2">
-                      <Label htmlFor="email">Email Address</Label>
-                      <Input
-                        id="email"
-                        name="email"
-                        type="email"
-                        placeholder="john@example.com"
-                        value={formData.email}
-                        onChange={handleChange}
-                        className="h-12 rounded-xl"
-                        required
-                      />
+                      <Label htmlFor="mobile">Mobile Number</Label>
+                      <div className="relative">
+                        <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                        <Input
+                          id="mobile"
+                          name="mobile"
+                          type="tel"
+                          placeholder="+91 98765 43210"
+                          value={formData.mobile}
+                          onChange={handleChange}
+                          className="h-12 rounded-xl pl-11"
+                          required
+                        />
+                      </div>
                     </div>
                   </div>
 
-                  {/* Mobile Number */}
+                  {/* Email Address */}
                   <div className="space-y-2">
-                    <Label htmlFor="mobile">
-                      Mobile Number <span className="text-muted-foreground text-xs">(Optional)</span>
+                    <Label htmlFor="email">
+                      Email Address <span className="text-muted-foreground text-xs">(Optional)</span>
                     </Label>
-                    <div className="relative">
-                      <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-                      <Input
-                        id="mobile"
-                        name="mobile"
-                        type="tel"
-                        placeholder="+91 98765 43210"
-                        value={formData.mobile}
-                        onChange={handleChange}
-                        className="h-12 rounded-xl pl-11"
-                      />
-                    </div>
+                    <Input
+                      id="email"
+                      name="email"
+                      type="email"
+                      placeholder="john@example.com"
+                      value={formData.email}
+                      onChange={handleChange}
+                      className="h-12 rounded-xl"
+                    />
                   </div>
 
                   {/* Message */}
                   <div className="space-y-2">
-                    <Label htmlFor="message">Your Message</Label>
+                    <Label htmlFor="message">
+                      Your Message <span className="text-muted-foreground text-xs">(Optional)</span>
+                    </Label>
                     <Textarea
                       id="message"
                       name="message"
@@ -322,7 +324,6 @@ const Contact = () => {
                       value={formData.message}
                       onChange={handleChange}
                       className="rounded-xl resize-none"
-                      required
                     />
                   </div>
 

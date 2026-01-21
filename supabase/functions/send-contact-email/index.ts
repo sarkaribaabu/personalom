@@ -32,9 +32,9 @@ const handler = async (req: Request): Promise<Response> => {
     const { name, email, mobile, reason, message }: ContactEmailRequest = await req.json();
 
     // Validate required fields
-    if (!name || !email || !message) {
+    if (!name || !mobile || !reason) {
       return new Response(
-        JSON.stringify({ error: "Name, email, and message are required" }),
+        JSON.stringify({ error: "Name, mobile number, and category are required" }),
         {
           status: 400,
           headers: { "Content-Type": "application/json", ...corsHeaders },
@@ -69,28 +69,30 @@ const handler = async (req: Request): Promise<Response> => {
           </tr>
           <tr>
             <td style="padding: 10px; background: #f8f9fa; border: 1px solid #dee2e6; font-weight: bold;">
-              Email
+              Mobile
             </td>
             <td style="padding: 10px; border: 1px solid #dee2e6;">
-              <a href="mailto:${email}">${email}</a>
+              ${mobile}
             </td>
           </tr>
           <tr>
             <td style="padding: 10px; background: #f8f9fa; border: 1px solid #dee2e6; font-weight: bold;">
-              Mobile
+              Email
             </td>
             <td style="padding: 10px; border: 1px solid #dee2e6;">
-              ${mobile || "Not provided"}
+              ${email ? `<a href="mailto:${email}">${email}</a>` : "Not provided"}
             </td>
           </tr>
         </table>
         
+        ${message ? `
         <div style="margin-top: 20px;">
           <h3 style="color: #333;">Message:</h3>
           <div style="padding: 15px; background: #f8f9fa; border-left: 4px solid #007bff; white-space: pre-wrap;">
             ${message}
           </div>
         </div>
+        ` : ''}
         
         <p style="color: #666; font-size: 12px; margin-top: 30px; border-top: 1px solid #dee2e6; padding-top: 15px;">
           This email was sent from the contact form on ommahajan.com
@@ -107,7 +109,7 @@ const handler = async (req: Request): Promise<Response> => {
       body: JSON.stringify({
         from: "Website Contact <onboarding@resend.dev>",
         to: ["hello@ommahajan.com"],
-        reply_to: email,
+        ...(email && { reply_to: email }),
         subject: `New Enquiry: ${reasonLabel} from ${name}`,
         html: emailHtml,
       }),
