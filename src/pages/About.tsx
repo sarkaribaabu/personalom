@@ -152,20 +152,25 @@ const About = () => {
               </h2>
               <div className="space-y-4 text-muted-foreground">
                 <p className="leading-relaxed">
-                  <strong className="text-foreground">2026:</strong> <b>Honorary Doctorate (Hon. Ph.D.)</b> in Digital
-                  Transformation in Urban Governance | <br />
+                  <strong className="text-foreground">2026:</strong> Honorary Doctorate (Hon. Ph.D.) <br />
+                   <b> Digital Transformation in Urban Governance |
                   <em>
-                    <b>Frankford International University</b>
+                    Frankford International University</b>
                   </em>
-                  .
                 </p>
                 <p className="leading-relaxed">
-                  <strong className="text-foreground">2012:</strong> Master of Business Administration (MBA) in
-                  Marketing.
+                  <strong className="text-foreground">2012:</strong> Master of Business Administration (MBA) <br />
+                  <b> Marketing | 
+                  <em>
+                    Indira College Of Institute</b>
+                  </em>
                 </p>
                 <p className="leading-relaxed">
-                  <strong className="text-foreground">2010:</strong> Bachelor of Engineering (B.E.) in Information
-                  Technology.
+                  <strong className="text-foreground">2010:</strong> Bachelor of Engineering (B.E.) <br />
+                  <b> Information Technology | 
+                  <em>
+                    Sinhgad College of Engineering</b>
+                  </em>
                 </p>
               </div>
             </div>
