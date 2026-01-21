@@ -162,14 +162,14 @@ const About = () => {
                   <strong className="text-foreground">2012:</strong> Master of Business Administration (MBA) <br />
                   <b>
                     {" "}
-                    Marketing |<em>Indira College Of Institute</em>{" "}
+                    Marketing |<em> Indira College Of Institute</em>{" "}
                   </b>
                 </p>
                 <p className="leading-relaxed">
                   <strong className="text-foreground">2010:</strong> Bachelor of Engineering (B.E.) <br />
                   <b>
                     {" "}
-                    Information Technology |<em>Sinhgad College of Engineering</em>{" "}
+                    Information Technology |<em> Sinhgad College of Engineering</em>{" "}
                   </b>
                 </p>
               </div>
