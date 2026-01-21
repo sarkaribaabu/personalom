@@ -1,18 +1,13 @@
-import { useState, useEffect } from 'react';
-import { Button } from '@/components/ui/button';
-import { BookOpen, Code, Terminal } from 'lucide-react';
-import heroImage from '@/assets/om-headshot.png';
+import { useState, useEffect } from "react";
+import { Button } from "@/components/ui/button";
+import { BookOpen, Code, Terminal } from "lucide-react";
+import heroImage from "@/assets/om-headshot.png";
 
-const roles = [
-  "e-Governance Innovator",
-  "Urban Tech Researcher",
-  "Published Novelist",
-  "The Rusty Rider"
-];
+const roles = ["e-Governance Innovator", "Urban Tech Researcher", "Published Novelist", "The Rusty Rider"];
 
 const HeroSection = () => {
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
-  const [displayText, setDisplayText] = useState('');
+  const [displayText, setDisplayText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
@@ -42,10 +37,10 @@ const HeroSection = () => {
   return (
     <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-gradient-to-br from-background via-background to-muted/20">
       {/* Subtle grid pattern */}
-      <div 
+      <div
         className="absolute inset-0 opacity-[0.03]"
         style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
         }}
       />
 
@@ -54,12 +49,8 @@ const HeroSection = () => {
           {/* Content */}
           <div className="space-y-8 order-2 lg:order-1">
             <div className="space-y-2">
-              <p className="text-primary font-medium tracking-wider uppercase text-sm">
-                Hello, I'm
-              </p>
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight">
-                Om Mahajan
-              </h1>
+              <p className="text-primary font-medium tracking-wider uppercase text-sm">Hello, I'm</p>
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight">Om Mahajan</h1>
               <div className="flex items-center gap-3 text-2xl md:text-3xl text-muted-foreground">
                 <span className="h-1 w-8 bg-primary rounded-full" />
                 <span className="font-light">
@@ -74,8 +65,9 @@ const HeroSection = () => {
                 Architecting Digital Systems. Crafting Human Narratives.
               </h2>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Bridging the precision of e-Governance with the empathy of Storytelling. With <span className="text-foreground font-semibold">15+ years</span> in IT 
-                and a lifetime of imagination, I build solutions for Smart Cities and write stories for the soul.
+                Bridging the precision of e-Governance with the empathy of Storytelling. With{" "}
+                <span className="text-foreground font-semibold">15+ years</span> in IT and a lifetime of imagination, I
+                build solutions for Smart Cities and write stories for the soul.
               </p>
             </div>
 
@@ -86,7 +78,7 @@ const HeroSection = () => {
                 <div className="text-sm text-muted-foreground">Years in IT</div>
               </div>
               <div className="text-center">
-                <div className="text-4xl font-bold text-primary">2</div>
+                <div className="text-4xl font-bold text-primary">2+</div>
                 <div className="text-sm text-muted-foreground">Books Written</div>
               </div>
               <div className="text-center">
@@ -110,7 +102,6 @@ const HeroSection = () => {
                 </a>
               </Button>
             </div>
-
           </div>
 
           {/* Image with Professional Abstract Background */}
@@ -118,17 +109,17 @@ const HeroSection = () => {
             {/* Clean gradient orbs */}
             <div className="absolute w-[450px] h-[450px] rounded-full bg-gradient-to-br from-primary/20 via-primary/10 to-transparent blur-3xl" />
             <div className="absolute w-[350px] h-[350px] rounded-full bg-gradient-to-tr from-accent/15 to-transparent blur-2xl translate-x-10 translate-y-10" />
-            
+
             {/* Subtle geometric accents */}
             <div className="absolute top-20 right-16 w-20 h-20 border border-primary/20 rounded-full" />
             <div className="absolute bottom-32 left-12 w-14 h-14 border border-primary/15 rounded-full" />
             <div className="absolute top-1/3 right-8 w-3 h-3 bg-primary/40 rounded-full" />
             <div className="absolute bottom-1/3 left-20 w-2 h-2 bg-primary/30 rounded-full" />
-            
+
             {/* Decorative lines */}
             <div className="absolute top-28 left-1/4 w-16 h-[1px] bg-gradient-to-r from-transparent via-primary/30 to-transparent rotate-45" />
             <div className="absolute bottom-40 right-1/4 w-20 h-[1px] bg-gradient-to-r from-transparent via-primary/20 to-transparent -rotate-12" />
-            
+
             {/* Profile image container */}
             <div className="relative z-10">
               <div className="relative w-72 h-[420px] md:w-80 md:h-[480px]">
@@ -138,8 +129,8 @@ const HeroSection = () => {
                   alt="Om Mahajan - IT Professional and Author"
                   className="w-full h-full object-cover object-top rounded-2xl shadow-2xl"
                   style={{
-                    maskImage: 'linear-gradient(to bottom, black 90%, transparent 100%)',
-                    WebkitMaskImage: 'linear-gradient(to bottom, black 90%, transparent 100%)'
+                    maskImage: "linear-gradient(to bottom, black 90%, transparent 100%)",
+                    WebkitMaskImage: "linear-gradient(to bottom, black 90%, transparent 100%)",
                   }}
                 />
                 {/* Subtle border glow */}
@@ -159,7 +150,7 @@ const HeroSection = () => {
                 </div>
               </div>
             </div>
-            
+
             <div className="absolute bottom-20 left-2 md:left-8 bg-background border border-border/50 rounded-xl p-3 shadow-lg z-20">
               <div className="flex items-center gap-2">
                 <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
@@ -167,7 +158,7 @@ const HeroSection = () => {
                 </div>
                 <div>
                   <span className="text-xs font-semibold block">Author</span>
-                  <span className="text-[10px] text-muted-foreground">2 Books</span>
+                  <span className="text-[10px] text-muted-foreground">2+ Books</span>
                 </div>
               </div>
             </div>
