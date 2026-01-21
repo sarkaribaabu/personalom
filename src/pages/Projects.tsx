@@ -352,11 +352,12 @@ const Projects = () => {
               {/* Left: Title & Subtitle */}
               <div className="flex-1">
                 <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-primary/10 rounded-full text-primary text-xs font-medium mb-3">
-                  <span>45+ Projects Delivered</span>
+                  <span>50+ Projects Delivered</span>
                 </div>
                 <h1 className="text-3xl md:text-4xl font-bold text-foreground">Projects</h1>
                 <p className="text-sm text-muted-foreground max-w-lg leading-relaxed mt-2">
-                  Enterprise solutions spanning web apps, mobile apps, AI/ML, eGovernance, eCommerce, and BI dashboards.
+                  Design and delivery of enterprise e-Governance, ERP, and analytics platforms powering urban
+                  governance, municipal corporations, and public sector institutions.
                 </p>
               </div>
             </div>
