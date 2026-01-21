@@ -1,40 +1,40 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-import SEO from '@/components/SEO';
-import { Button } from '@/components/ui/button';
-import businessPost from '@/assets/business-post.jpg';
-import techPost from '@/assets/tech-post.jpg';
-import fashionPost from '@/assets/fashion-post.jpg';
-import lifestylePost from '@/assets/lifestyle-post.jpg';
-import workLifestyle from '@/assets/work-lifestyle.jpg';
-import fashionLifestyle from '@/assets/fashion-lifestyle.jpg';
-import nmmcEgovernance from '@/assets/nmmc-egovernance.png';
-import pcmcEgovernance from '@/assets/pcmc-egovernance.png';
-import nmPoliceBi from '@/assets/nm-police-bi.png';
-import scLandrecords from '@/assets/sc-landrecords.png';
-import mhadaApp from '@/assets/mhada-app.png';
-import dmsApp from '@/assets/dms-app.png';
-import bmcPothole from '@/assets/bmc-pothole.png';
-import pwdPothole from '@/assets/pwd-pothole.png';
-import nepalPolice from '@/assets/nepal-police.png';
-import nmmcDashboard from '@/assets/nmmc-dashboard.png';
-import bajajFinserv from '@/assets/bajaj-finserv.png';
-import guppaai from '@/assets/guppaai.png';
-import pngBrothers from '@/assets/png-brothers.png';
-import csJewellers from '@/assets/cs-jewellers.png';
-import lomAi from '@/assets/lom-ai.png';
-import bmcDm from '@/assets/bmc-dm.png';
-import mobileGames from '@/assets/mobile-games.png';
-import vendimanMax from '@/assets/vendiman-max.png';
-import mhPolice from '@/assets/mh-police.png';
-import smithNephew from '@/assets/smith-nephew.png';
-import tcIsland from '@/assets/t-c-island.png';
-import mrugrae from '@/assets/mrugrae.png';
-import jnanaPrabodhini from '@/assets/jnana-prabodhini.jpg';
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
+import { Button } from "@/components/ui/button";
+import businessPost from "@/assets/business-post.jpg";
+import techPost from "@/assets/tech-post.jpg";
+import fashionPost from "@/assets/fashion-post.jpg";
+import lifestylePost from "@/assets/lifestyle-post.jpg";
+import workLifestyle from "@/assets/work-lifestyle.jpg";
+import fashionLifestyle from "@/assets/fashion-lifestyle.jpg";
+import nmmcEgovernance from "@/assets/nmmc-egovernance.png";
+import pcmcEgovernance from "@/assets/pcmc-egovernance.png";
+import nmPoliceBi from "@/assets/nm-police-bi.png";
+import scLandrecords from "@/assets/sc-landrecords.png";
+import mhadaApp from "@/assets/mhada-app.png";
+import dmsApp from "@/assets/dms-app.png";
+import bmcPothole from "@/assets/bmc-pothole.png";
+import pwdPothole from "@/assets/pwd-pothole.png";
+import nepalPolice from "@/assets/nepal-police.png";
+import nmmcDashboard from "@/assets/nmmc-dashboard.png";
+import bajajFinserv from "@/assets/bajaj-finserv.png";
+import guppaai from "@/assets/guppaai.png";
+import pngBrothers from "@/assets/png-brothers.png";
+import csJewellers from "@/assets/cs-jewellers.png";
+import lomAi from "@/assets/lom-ai.png";
+import bmcDm from "@/assets/bmc-dm.png";
+import mobileGames from "@/assets/mobile-games.png";
+import vendimanMax from "@/assets/vendiman-max.png";
+import mhPolice from "@/assets/mh-police.png";
+import smithNephew from "@/assets/smith-nephew.png";
+import tcIsland from "@/assets/t-c-island.png";
+import mrugrae from "@/assets/mrugrae.png";
+import jnanaPrabodhini from "@/assets/jnana-prabodhini.jpg";
 
-const categories = ['All', 'Web Apps', 'Mobile Apps', 'AI/ML/CV', 'eGovernance', 'eCommerce', 'BI Dashboards'];
+const categories = ["All", "Web Apps", "Mobile Apps", "AI/ML/CV", "eGovernance", "eCommerce", "BI Dashboards"];
 
 const images = [businessPost, techPost, fashionPost, lifestylePost, workLifestyle, fashionLifestyle];
 
@@ -46,7 +46,7 @@ const projects = [
     date: "2022",
     excerpt: "Unified Citizen Services Platform providing access to 70+ land record services for Maharashtra citizens.",
     image: scLandrecords,
-    height: "tall"
+    height: "tall",
   },
   {
     title: "NMMC Portal",
@@ -54,7 +54,7 @@ const projects = [
     date: "2024",
     excerpt: "Enterprise ERP platform for Navi Mumbai Municipal Corporation with 21 integrated modules.",
     image: nmmcEgovernance,
-    height: "medium"
+    height: "medium",
   },
   {
     title: "PCMC Portal",
@@ -62,31 +62,34 @@ const projects = [
     date: "2024",
     excerpt: "Enterprise ERP & GIS platform for Pimpri Chinchwad Municipal Corporation under Smart City mission.",
     image: pcmcEgovernance,
-    height: "medium"
+    height: "medium",
   },
   {
     title: "DMS",
     category: "Web Apps",
     date: "2025",
-    excerpt: "Unified Sales, Service & Operations Platform for multi-brand distributor with 10% business throughput increase.",
+    excerpt:
+      "Unified Sales, Service & Operations Platform for multi-brand distributor with 10% business throughput increase.",
     image: dmsApp,
-    height: "medium"
+    height: "medium",
   },
   {
     title: "Jnana Prabodhini",
     category: "Web Apps",
     date: "2018",
-    excerpt: "eTechSchool – Integrated School ERP Platform with 40+ modules for academics, administration, and finance.",
+    excerpt:
+      "eTechSchool – Integrated School ERP Platform with 40+ modules for academics, administration, and finance.",
     image: jnanaPrabodhini,
-    height: "tall"
+    height: "tall",
   },
   {
     title: "Smith+Nephew Surgical Planner",
     category: "Web Apps",
     date: "2025",
-    excerpt: "AI-powered pre-operative surgical planning platform with interactive visualization and parameter-based simulation for surgeons.",
+    excerpt:
+      "AI-powered pre-operative surgical planning platform with interactive visualization and parameter-based simulation for surgeons.",
     image: smithNephew,
-    height: "tall"
+    height: "tall",
   },
   {
     title: "Vendiman",
@@ -94,7 +97,7 @@ const projects = [
     date: "2024",
     excerpt: "Autonomous Retail & Anti-Fraud Intelligence Platform with sensor fusion and real-time fraud prevention.",
     image: vendimanMax,
-    height: "tall"
+    height: "tall",
   },
 
   // Mobile Apps (6 projects)
@@ -102,9 +105,10 @@ const projects = [
     title: "MHADA App",
     category: "Mobile Apps",
     date: "2023",
-    excerpt: "Digital Housing Lottery & Verification Platform with OCR-based document verification and Aadhaar-based uniqueness validation.",
+    excerpt:
+      "Digital Housing Lottery & Verification Platform with OCR-based document verification and Aadhaar-based uniqueness validation.",
     image: mhadaApp,
-    height: "tall"
+    height: "tall",
   },
   {
     title: "PWD Pothole",
@@ -112,23 +116,25 @@ const projects = [
     date: "2023",
     excerpt: "State Highway & Road Maintenance Platform with statewide coverage and division-wise analytics.",
     image: pwdPothole,
-    height: "tall"
+    height: "tall",
   },
   {
     title: "BMC Pothole",
     category: "Mobile Apps",
     date: "2022",
-    excerpt: "Citizen Grievance & Field Operations Platform with GPS-based complaint registration and before-and-after photo verification.",
+    excerpt:
+      "Citizen Grievance & Field Operations Platform with GPS-based complaint registration and before-and-after photo verification.",
     image: bmcPothole,
-    height: "tall"
+    height: "tall",
   },
   {
     title: "Smith+Nephew Surgical Planner",
     category: "Mobile Apps",
     date: "2025",
-    excerpt: "Cross-platform surgical planning mobile app with AI/ML-assisted recommendations and high-fidelity anatomical visualization.",
+    excerpt:
+      "Cross-platform surgical planning mobile app with AI/ML-assisted recommendations and high-fidelity anatomical visualization.",
     image: smithNephew,
-    height: "tall"
+    height: "tall",
   },
   {
     title: "BMC Disaster Management",
@@ -136,15 +142,16 @@ const projects = [
     date: "2021",
     excerpt: "City-Scale Weather Intelligence & Citizen Information Platform with 50+ automated weather stations.",
     image: bmcDm,
-    height: "medium"
+    height: "medium",
   },
   {
     title: "Mobile Games Development",
     category: "Mobile Apps",
     date: "2021",
-    excerpt: "Simulation Games & Game Production Collaboration with Train Simulator, Rescue Ship, and Offroad simulations.",
+    excerpt:
+      "Simulation Games & Game Production Collaboration with Train Simulator, Rescue Ship, and Offroad simulations.",
     image: mobileGames,
-    height: "tall"
+    height: "tall",
   },
 
   // AI/ML/CV (2 projects)
@@ -154,15 +161,16 @@ const projects = [
     date: "2022",
     excerpt: "AI-Driven Custom Apparel Platform with 1,260 microsizes and zero-waste on-demand manufacturing.",
     image: lomAi,
-    height: "tall"
+    height: "tall",
   },
   {
     title: "GuppaAI",
     category: "AI/ML/CV",
     date: "2025",
-    excerpt: "Conversational AI Platform enabling intent-driven discovery and decision-making with natural language interaction.",
+    excerpt:
+      "Conversational AI Platform enabling intent-driven discovery and decision-making with natural language interaction.",
     image: guppaai,
-    height: "medium"
+    height: "medium",
   },
 
   // eGovernance (6 projects)
@@ -172,7 +180,7 @@ const projects = [
     date: "2024",
     excerpt: "Comprehensive ERP solution with 21 modules serving 52+ citizen services for NMMC.",
     image: nmmcEgovernance,
-    height: "tall"
+    height: "tall",
   },
   {
     title: "PCMC eGovernance",
@@ -180,15 +188,16 @@ const projects = [
     date: "2024",
     excerpt: "Enterprise ERP & GIS platform with integrated modules serving PCMC Smart City initiatives.",
     image: pcmcEgovernance,
-    height: "medium"
+    height: "medium",
   },
   {
     title: "Maharashtra Police - Dial 100",
     category: "eGovernance",
     date: "2019",
-    excerpt: "Real-Time Command & Control Platform unifying call handling, dispatch, field execution, and post-incident verification.",
+    excerpt:
+      "Real-Time Command & Control Platform unifying call handling, dispatch, field execution, and post-incident verification.",
     image: mhPolice,
-    height: "tall"
+    height: "tall",
   },
   {
     title: "Navi Mumbai Police",
@@ -196,7 +205,7 @@ const projects = [
     date: "2025",
     excerpt: "Integrated Command & Analytics Platform enabling data-driven policing with predictive insights.",
     image: nmPoliceBi,
-    height: "tall"
+    height: "tall",
   },
   {
     title: "Nepal Police",
@@ -204,7 +213,7 @@ const projects = [
     date: "2024",
     excerpt: "National Policing Analytics Platform enabling data-driven policing with AI-powered predictive insights.",
     image: nepalPolice,
-    height: "medium"
+    height: "medium",
   },
   {
     title: "SC Land Records eGov",
@@ -212,15 +221,16 @@ const projects = [
     date: "2022",
     excerpt: "Unified Citizen Services Platform providing access to 70+ land record services for Maharashtra citizens.",
     image: scLandrecords,
-    height: "short"
+    height: "short",
   },
   {
     title: "Turks & Caicos Island",
     category: "eGovernance",
     date: "2018",
-    excerpt: "KRegistry – Commercial Registry & Regulatory Compliance Platform for AML/CFT compliance and digital entity registration.",
+    excerpt:
+      "KRegistry – Commercial Registry & Regulatory Compliance Platform for AML/CFT compliance and digital entity registration.",
     image: tcIsland,
-    height: "tall"
+    height: "tall",
   },
 
   // eCommerce (3 projects)
@@ -230,7 +240,7 @@ const projects = [
     date: "2022",
     excerpt: "Phygital Jewelry Ecommerce Platform combining online convenience with in-store credibility and trust.",
     image: pngBrothers,
-    height: "tall"
+    height: "tall",
   },
   {
     title: "CS Jewellers",
@@ -238,15 +248,16 @@ const projects = [
     date: "2016",
     excerpt: "Phygital Ecommerce & B2B Inventory Platform with dual-layer B2C and B2B capabilities across 36 stores.",
     image: csJewellers,
-    height: "medium"
+    height: "medium",
   },
   {
     title: "Mrugrae",
     category: "eCommerce",
     date: "2024",
-    excerpt: "Premium Ayurvedic skincare D2C e-commerce platform with cold-processed soaps, eco-friendly packaging, and secure payment integration.",
+    excerpt:
+      "Premium Ayurvedic skincare D2C e-commerce platform with cold-processed soaps, eco-friendly packaging, and secure payment integration.",
     image: mrugrae,
-    height: "medium"
+    height: "medium",
   },
 
   // BI Dashboards (4 projects)
@@ -256,7 +267,7 @@ const projects = [
     date: "2025",
     excerpt: "Integrated Command & Analytics Platform enabling data-driven policing with predictive insights.",
     image: nmPoliceBi,
-    height: "tall"
+    height: "tall",
   },
   {
     title: "NMMC Dashboard",
@@ -264,7 +275,7 @@ const projects = [
     date: "2024",
     excerpt: "Commissionerate-Level Decision Intelligence with unified Power BI analytics across 15+ departments.",
     image: nmmcDashboard,
-    height: "medium"
+    height: "medium",
   },
   {
     title: "Nepal Police Dashboard",
@@ -272,7 +283,7 @@ const projects = [
     date: "2024",
     excerpt: "National Policing Analytics Platform with AI-powered predictive insights and crime heatmaps.",
     image: nepalPolice,
-    height: "medium"
+    height: "medium",
   },
   {
     title: "Bajaj Finserv",
@@ -280,53 +291,62 @@ const projects = [
     date: "2020",
     excerpt: "Nationwide Vendor & Service Analytics Platform with centralized visibility across 10+ vendors.",
     image: bajajFinserv,
-    height: "medium"
-  }
+    height: "medium",
+  },
 ];
 
 const Projects = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-  const [selectedCategory, setSelectedCategory] = useState('All');
+  const [selectedCategory, setSelectedCategory] = useState("All");
 
   const getHeightClass = (height: string) => {
     switch (height) {
-      case 'tall':
-        return 'row-span-3';
-      case 'medium':
-        return 'row-span-2';
-      case 'short':
-        return 'row-span-1';
+      case "tall":
+        return "row-span-3";
+      case "medium":
+        return "row-span-2";
+      case "short":
+        return "row-span-1";
       default:
-        return 'row-span-2';
+        return "row-span-2";
     }
   };
 
-  const filteredProjects = selectedCategory === 'All' 
-    ? projects 
-    : projects.filter(project => project.category === selectedCategory);
+  const filteredProjects =
+    selectedCategory === "All" ? projects : projects.filter((project) => project.category === selectedCategory);
 
   const getCategoryCount = (category: string) => {
-    if (category === 'All') return projects.length;
-    return projects.filter(p => p.category === category).length;
+    if (category === "All") return projects.length;
+    return projects.filter((p) => p.category === category).length;
   };
 
   return (
     <>
-      <SEO 
-        title="Projects"
-        description="45+ enterprise projects spanning web apps, mobile apps, AI/ML, eGovernance, eCommerce, and BI dashboards. Explore Om Mahajan's portfolio of digital transformation solutions."
-        keywords={["Om Mahajan Projects", "E-Governance Projects", "Web Apps", "Mobile Apps", "AI ML Projects", "BI Dashboards", "NMMC", "PCMC", "MHADA", "Maharashtra Police"]}
+      <SEO
+        title="e-Governance & ERP Projects | Om Mahajan"
+        description="Explore large-scale e-Governance, ERP, and urban digital transformation projects led by Om Mahajan across public sector institutions."
+        keywords={[
+          "E-Governance Projects",
+          "Urban Digital Transformation",
+          "Government ERP Consultant",
+          "Om Mahajan",
+          "AI/ML/BI Dashboards",
+          "NMMC",
+          "PCMC",
+          "MHADA",
+          "Maharashtra Police",
+        ]}
         url="/projects"
       />
       <Header />
-      
+
       <main id="main-content" className="min-h-screen bg-background">
         {/* Hero Section - Compact */}
         <section className="relative overflow-hidden pt-24 pb-8">
           <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-accent/5" />
           <div className="absolute top-10 left-10 w-48 h-48 bg-primary/10 rounded-full blur-3xl" />
           <div className="absolute bottom-5 right-10 w-64 h-64 bg-accent/10 rounded-full blur-3xl" />
-          
+
           <div className="container-blog relative z-10">
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
               {/* Left: Title & Subtitle */}
@@ -334,9 +354,7 @@ const Projects = () => {
                 <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-primary/10 rounded-full text-primary text-xs font-medium mb-3">
                   <span>45+ Projects Delivered</span>
                 </div>
-                <h1 className="text-3xl md:text-4xl font-bold text-foreground">
-                  Projects
-                </h1>
+                <h1 className="text-3xl md:text-4xl font-bold text-foreground">Projects</h1>
                 <p className="text-sm text-muted-foreground max-w-lg leading-relaxed mt-2">
                   Enterprise solutions spanning web apps, mobile apps, AI/ML, eGovernance, eCommerce, and BI dashboards.
                 </p>
@@ -363,10 +381,16 @@ const Projects = () => {
               ))}
             </div>
           </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 auto-rows-[180px]" style={{ gridAutoFlow: 'row dense' }}>
+
+          <div
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 auto-rows-[180px]"
+            style={{ gridAutoFlow: "row dense" }}
+          >
             {filteredProjects.map((project, index) => {
-              const projectSlug = project.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+              const projectSlug = project.title
+                .toLowerCase()
+                .replace(/[^a-z0-9]+/g, "-")
+                .replace(/(^-|-$)/g, "");
               return (
                 <Link
                   key={index}
@@ -383,9 +407,9 @@ const Projects = () => {
                       loading="lazy"
                       decoding="async"
                       width="294"
-                      height={project.height === 'tall' ? '540' : project.height === 'medium' ? '360' : '180'}
+                      height={project.height === "tall" ? "540" : project.height === "medium" ? "360" : "180"}
                       sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 294px"
-                      style={{ minHeight: '100%', maxHeight: '100%' }}
+                      style={{ minHeight: "100%", maxHeight: "100%" }}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                     <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
@@ -395,9 +419,7 @@ const Projects = () => {
                         </span>
                         <span className="text-xs opacity-80">{project.date}</span>
                       </div>
-                      <h3 className="font-bold text-sm md:text-base mb-2 line-clamp-2">
-                        {project.title}
-                      </h3>
+                      <h3 className="font-bold text-sm md:text-base mb-2 line-clamp-2">{project.title}</h3>
                       {hoveredIndex === index && project.excerpt && (
                         <p className="text-xs opacity-90 line-clamp-2 transition-opacity duration-300">
                           {project.excerpt}
@@ -409,13 +431,13 @@ const Projects = () => {
               );
             })}
           </div>
-          
+
           {filteredProjects.length === 0 && (
             <p className="text-center text-muted-foreground py-8">No projects found in this category.</p>
           )}
         </section>
       </main>
-      
+
       <Footer />
     </>
   );
