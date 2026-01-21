@@ -1,7 +1,7 @@
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-import SEO from '@/components/SEO';
-import { GraduationCap, Compass, Rocket, Building2, Award, Crown, Sparkles, Target, Clock } from 'lucide-react';
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
+import { GraduationCap, Compass, Rocket, Building2, Award, Crown, Sparkles, Target, Clock } from "lucide-react";
 
 const journeySteps = [
   {
@@ -9,51 +9,112 @@ const journeySteps = [
     year: "2026",
     title: "The Next Chapter & Recognition",
     content: [
-      <>In 2025, I launched <span className="font-semibold text-primary">Tantrayu Software Pvt Ltd</span> with a focused mission — to bring <span className="font-semibold">digital transformation</span> to small-scale municipal corporations, councils, Zilla Parishads, and Nagar Parishads across India.</>,
-      <>In January 2026, I was honored with an <span className="font-semibold text-primary underline decoration-primary/50">Honorary Doctorate</span> by <span className="font-medium">Frankford International University</span> for my contributions toward <span className="italic">'Digital Transformation in Urban Governance.'</span> The same year, I upgraded to a <span className="font-semibold">BMW G310RR</span> — reviving a dream that was sacrificed back in 2014 when I sold my Honda CBR250RR to fund Precise IT Solutions. The passion that never faded is now alive again.</>
+      <>
+        In 2025, I launched <span className="font-semibold text-primary">Tantrayu Software Pvt Ltd</span> with a focused
+        mission — to bring <span className="font-semibold">digital transformation</span> to small-scale municipal
+        corporations, councils, Zilla Parishads, and Nagar Parishads across India.
+      </>,
+      <>
+        In January 2026, I was honored with an{" "}
+        <span className="font-semibold text-primary underline decoration-primary/50">Honorary Doctorate</span> by{" "}
+        <span className="font-medium">Frankford International University</span> for my contributions toward{" "}
+        <span className="italic">'Digital Transformation in Urban Governance.'</span> The same year, I upgraded to a{" "}
+        <span className="font-semibold">BMW G310RR</span> — reviving a dream that was sacrificed back in 2014 when I
+        sold my Honda CBR250RR to fund Precise IT Solutions. The passion that never faded is now alive again.
+      </>,
     ],
-    align: "right"
+    align: "right",
   },
   {
     icon: Building2,
     year: "2025",
     title: "Scaling New Heights with Techlead",
     content: [
-      <>In 2022, I joined <span className="font-semibold text-primary">Techlead Group</span> as a <span className="font-semibold">Partner and Core Team Member</span>, bringing my eGovernance expertise to larger platforms. This role challenged me to handle massive ERP projects for organizations like <span className="font-medium">MHADA, PCMC, and NMMC</span>.</>,
-      <>It was more than sales — it tested my core competencies in <span className="font-semibold text-primary">Project Management</span> and <span className="font-semibold text-primary">Head Operations (Technical)</span>. Managing, implementing, and delivering these complex projects refined my leadership and execution capabilities to new heights.</>
+      <>
+        In 2022, I joined <span className="font-semibold text-primary">Techlead Group</span> as a{" "}
+        <span className="font-semibold">Partner and Core Team Member</span>, bringing my eGovernance expertise to larger
+        platforms. This role challenged me to handle massive ERP projects for organizations like{" "}
+        <span className="font-medium">MHADA, PCMC, and NMMC</span>.
+      </>,
+      <>
+        It was more than sales — it tested my core competencies in{" "}
+        <span className="font-semibold text-primary">Project Management</span> and{" "}
+        <span className="font-semibold text-primary">Head Operations (Technical)</span>. Managing, implementing, and
+        delivering these complex projects refined my leadership and execution capabilities to new heights.
+      </>,
     ],
-    align: "left"
+    align: "left",
   },
   {
     icon: Award,
     year: "2022",
     title: "Government Excellence & Recognition",
     content: [
-      <>From 2018 to 2022, I dedicated myself to delivering <span className="font-semibold">turnkey solutions</span> to <span className="font-semibold text-primary">Maharashtra Government</span> and the <span className="font-medium">Home Department</span>. Our commitment wasn't just about completing projects — it was about exceeding expectations, delivering <span className="font-semibold underline decoration-primary/50">more than 100% satisfaction</span> on every engagement.</>,
-      <>Our dedication was recognized at the highest levels. I was <span className="font-semibold text-primary">felicitated by Shri Devendra Fadnavis</span> for our due diligence in implementing the <span className="font-semibold">Dial 100 system</span>, complete with analytics and proven track records. In 2020, I also published my first erotica novel <span className="font-semibold italic text-primary">'Lustful Love'</span> — now available globally on Amazon, Flipkart, Kindle, and more. In early 2025, I completed another <span className="font-medium">suspense erotica murder mystery</span>, ready to captivate readers.</>
+      <>
+        From 2018 to 2022, I dedicated myself to delivering <span className="font-semibold">turnkey solutions</span> to{" "}
+        <span className="font-semibold text-primary">Maharashtra Government</span> and the{" "}
+        <span className="font-medium">Home Department</span>. Our commitment wasn't just about completing projects — it
+        was about exceeding expectations, delivering{" "}
+        <span className="font-semibold underline decoration-primary/50">more than 100% satisfaction</span> on every
+        engagement.
+      </>,
+      <>
+        Our dedication was recognized at the highest levels. I was{" "}
+        <span className="font-semibold text-primary">felicitated by Shri Devendra Fadnavis</span> for our due diligence
+        in implementing the <span className="font-semibold">Dial 100 system</span>, complete with analytics and proven
+        track records. In 2020, I also published my first erotica novel{" "}
+        <span className="font-semibold italic text-primary">'Lustful Love'</span> — now available globally on Amazon,
+        Flipkart, Kindle, and more. In early 2025, I completed another{" "}
+        <span className="font-medium">suspense erotica murder mystery</span>, ready to captivate readers.
+      </>,
     ],
-    align: "right"
+    align: "right",
   },
   {
     icon: Rocket,
     year: "2018",
     title: "The Entrepreneurial Leap",
     content: [
-      <>Armed with comprehensive experience and market insights, I took the entrepreneurial plunge in 2014 — founding <span className="font-semibold text-primary">Precise IT Solutions Pvt Ltd</span>. The response was overwhelming — we achieved <span className="font-semibold underline decoration-primary/50">300% Year-over-Year growth</span> in the private sector.</>,
-      <>In 2018, recognizing the opportunity in the government sector, I partnered with a <span className="font-medium">proven market leader</span> who had been excelling since 2009. This strategic alliance opened doors to the <span className="font-semibold text-primary">Government sector</span>, expanding our horizons beyond private enterprises.</>
+      <>
+        Armed with comprehensive experience and market insights, I took the entrepreneurial plunge in 2014 — founding{" "}
+        <span className="font-semibold text-primary">Precise IT Solutions Pvt Ltd</span>. The response was overwhelming
+        — we achieved <span className="font-semibold underline decoration-primary/50">300% Year-over-Year growth</span>{" "}
+        in the private sector.
+      </>,
+      <>
+        In 2018, recognizing the opportunity in the government sector, I partnered with a{" "}
+        <span className="font-medium">proven market leader</span> who had been excelling since 2009. This strategic
+        alliance opened doors to the <span className="font-semibold text-primary">Government sector</span>, expanding
+        our horizons beyond private enterprises.
+      </>,
     ],
-    align: "left"
+    align: "left",
   },
   {
     icon: GraduationCap,
     year: "2014",
     title: "The Foundation Years",
     content: [
-      <>While pursuing <span className="font-semibold">Engineering (IT)</span>, I made a decision that surprised everyone — I <span className="font-semibold text-primary">declined an MNC job offer</span> from campus placement. Instead, I chose to pursue an <span className="font-semibold">MBA in Marketing</span>. My first career step was at <span className="font-semibold text-primary">Excellence IT Solutions Pvt Ltd</span> as Business Development Manager.</>,
-      <>Working at <span className="font-semibold text-primary">Excellence IT Solutions</span> became my <span className="font-semibold italic">real-world MBA</span>. I handled multiple roles — <span className="font-medium">finance, accounts, HR, sales, pre-sales, development, testing, execution, and management</span>. These two years were transformative, building the vision for what would come next. I also started <span className="font-medium text-primary">writing poems and articles</span> during college days — exploring themes of love, romance, and lust — planting the seeds of the author within.</>
+      <>
+        While pursuing <span className="font-semibold">Engineering (IT)</span>, I made a decision that surprised
+        everyone — I <span className="font-semibold text-primary">declined an MNC job offer</span> from campus
+        placement. Instead, I chose to pursue an <span className="font-semibold">MBA in Marketing</span>. My first
+        career step was at <span className="font-semibold text-primary">Excellence IT Solutions Pvt Ltd</span> as
+        Business Development Manager.
+      </>,
+      <>
+        Working at <span className="font-semibold text-primary">Excellence IT Solutions</span> became my{" "}
+        <span className="font-semibold italic">real-world MBA</span>. I handled multiple roles —{" "}
+        <span className="font-medium">
+          finance, accounts, HR, sales, pre-sales, development, testing, execution, and management
+        </span>
+        . These two years were transformative, building the vision for what would come next. I also started{" "}
+        <span className="font-medium text-primary">writing poems and articles</span> during college days — exploring
+        themes of love, romance, and lust — planting the seeds of the author within.
+      </>,
     ],
-    align: "right"
-  }
+    align: "right",
+  },
 ];
 
 const professionalExperience = [
@@ -67,8 +128,8 @@ const professionalExperience = [
     highlights: [
       "Focused on digital transformation for municipal corporations, councils & Zilla Parishads",
       "Honorary Doctorate recipient for contributions in Urban Governance digitalization",
-      "Building scalable eGovernance solutions for grassroot-level administration"
-    ]
+      "Building scalable eGovernance solutions for grassroot-level administration",
+    ],
   },
   {
     role: "Partner & Core Team Member",
@@ -80,8 +141,8 @@ const professionalExperience = [
     highlights: [
       "Leading eGovernance projects for MHADA, PCMC, NMMC",
       "Managing complex ERP implementations with technical leadership",
-      "Project Management for large-scale government digital initiatives"
-    ]
+      "Project Management for large-scale government digital initiatives",
+    ],
   },
   {
     role: "Founder & Director",
@@ -94,8 +155,8 @@ const professionalExperience = [
       "Achieved 300% YoY growth in private sector",
       "Strategic partnership in 2018 to enter Government sector",
       "Delivered Dial 100 system implementation for MH Police with analytics",
-      "Felicitated by Shri Devendra Fadnavis for due diligence & project excellence"
-    ]
+      "Felicitated by Shri Devendra Fadnavis for due diligence & project excellence",
+    ],
   },
   {
     role: "Business Development Manager",
@@ -107,18 +168,28 @@ const professionalExperience = [
     highlights: [
       "Cross-functional experience across all departments",
       "Learned finance, HR, sales, development, testing & management",
-      "Gained deep understanding of IT market trends and requirements"
-    ]
-  }
+      "Gained deep understanding of IT market trends and requirements",
+    ],
+  },
 ];
 
 const Journey = () => {
   return (
     <div className="min-h-screen bg-background">
-      <SEO 
-        title="My Journey"
-        description="15+ years of innovation - from declining an MNC offer to receiving an Honorary Doctorate. Explore Om Mahajan's professional journey in IT and digital transformation."
-        keywords={["Om Mahajan Journey", "Professional Experience", "Career Timeline", "IT Leadership", "Digital Transformation", "Honorary Doctorate", "Techlead Group", "Precise IT Solutions"]}
+      <SEO
+        title="Journey | Om Mahajan’s Path in Digital Governance & Creativity"
+        description="A 15-year journey through enterprise systems, government platforms, entrepreneurship, and storytelling."
+        keywords={[
+          "Om Mahajan Journey",
+          "Smart city governance systems",
+          "Public sector ERP implementation",
+          "IT Leadership",
+          "Digital Transformation",
+          "Honorary Doctorate",
+          "Techlead Group",
+          "Government IT architecture",
+          "Municipal digital transformation",
+        ]}
         url="/journey"
       />
       <Header />
@@ -129,7 +200,7 @@ const Journey = () => {
           <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-accent/10" />
           <div className="absolute top-10 left-10 w-48 h-48 bg-primary/10 rounded-full blur-3xl" />
           <div className="absolute bottom-5 right-10 w-64 h-64 bg-accent/20 rounded-full blur-3xl" />
-          
+
           <div className="container-blog relative z-10">
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
               {/* Left: Title & Subtitle */}
@@ -138,11 +209,10 @@ const Journey = () => {
                   <Compass className="w-3.5 h-3.5" />
                   <span>15+ Years of Innovation</span>
                 </div>
-                <h1 className="text-3xl md:text-4xl font-bold text-foreground">
-                  My Journey
-                </h1>
+                <h1 className="text-3xl md:text-4xl font-bold text-foreground">My Journey</h1>
                 <p className="text-sm text-muted-foreground max-w-lg leading-relaxed mt-2">
-                  From declining an MNC offer to receiving an Honorary Doctorate — a story of bold decisions and digital transformation
+                  From declining an MNC offer to receiving an Honorary Doctorate — a story of bold decisions and digital
+                  transformation
                 </p>
               </div>
             </div>
@@ -154,10 +224,10 @@ const Journey = () => {
           {/* Decorative winding path SVG */}
           <div className="absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-full max-w-4xl hidden lg:block pointer-events-none">
             <svg className="w-full h-full" preserveAspectRatio="none" viewBox="0 0 400 1200" fill="none">
-              <path 
-                d="M200 0 Q350 100, 200 200 Q50 300, 200 400 Q350 500, 200 600 Q50 700, 200 800 Q350 900, 200 1000 Q50 1100, 200 1200" 
-                stroke="hsl(var(--primary) / 0.15)" 
-                strokeWidth="3" 
+              <path
+                d="M200 0 Q350 100, 200 200 Q50 300, 200 400 Q350 500, 200 600 Q50 700, 200 800 Q350 900, 200 1000 Q50 1100, 200 1200"
+                stroke="hsl(var(--primary) / 0.15)"
+                strokeWidth="3"
                 strokeDasharray="8 8"
                 fill="none"
               />
@@ -168,12 +238,12 @@ const Journey = () => {
             {journeySteps.map((step, index) => {
               const Icon = step.icon;
               const isEven = index % 2 === 0;
-              
+
               return (
-                <div 
-                  key={index} 
+                <div
+                  key={index}
                   className={`relative flex flex-col lg:flex-row items-center gap-8 lg:gap-16 py-12 ${
-                    isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'
+                    isEven ? "lg:flex-row" : "lg:flex-row-reverse"
                   }`}
                 >
                   {/* Milestone marker - center */}
@@ -195,8 +265,10 @@ const Journey = () => {
                   <div className="lg:w-5/12">
                     <div className="group relative bg-card border border-border rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-500 hover:border-primary/30 hover:-translate-y-1">
                       {/* Decorative corner accent */}
-                      <div className={`absolute top-0 ${isEven ? 'right-0 rounded-tr-2xl rounded-bl-2xl' : 'left-0 rounded-tl-2xl rounded-br-2xl'} w-24 h-24 bg-gradient-to-br from-primary/10 to-transparent -z-10`} />
-                      
+                      <div
+                        className={`absolute top-0 ${isEven ? "right-0 rounded-tr-2xl rounded-bl-2xl" : "left-0 rounded-tl-2xl rounded-br-2xl"} w-24 h-24 bg-gradient-to-br from-primary/10 to-transparent -z-10`}
+                      />
+
                       {/* Mobile Icon */}
                       <div className="flex items-center gap-4 mb-6 lg:hidden">
                         <div className="relative">
@@ -224,7 +296,9 @@ const Journey = () => {
                       </div>
 
                       {/* Decorative quote mark */}
-                      <div className={`absolute ${isEven ? '-left-4' : '-right-4'} top-8 text-6xl text-primary/10 font-serif hidden lg:block`}>
+                      <div
+                        className={`absolute ${isEven ? "-left-4" : "-right-4"} top-8 text-6xl text-primary/10 font-serif hidden lg:block`}
+                      >
                         "
                       </div>
                     </div>
@@ -250,9 +324,7 @@ const Journey = () => {
         <section className="py-16 bg-muted/30">
           <div className="container-blog">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                Professional Experience
-              </h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Professional Experience</h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
                 A timeline of roles spanning entrepreneurship, government partnerships, and digital transformation
               </p>
@@ -262,17 +334,19 @@ const Journey = () => {
               {professionalExperience.map((exp, index) => {
                 const Icon = exp.icon;
                 return (
-                  <div 
+                  <div
                     key={index}
                     className="bg-card border border-border rounded-xl p-6 hover:shadow-lg transition-all duration-300 hover:border-primary/30"
                   >
                     <div className="flex flex-col md:flex-row md:items-start gap-4">
                       {/* Icon */}
-                      <div className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 ${
-                        exp.type === 'employer' 
-                          ? 'bg-gradient-to-br from-primary to-primary/70' 
-                          : 'bg-gradient-to-br from-secondary to-secondary/70'
-                      }`}>
+                      <div
+                        className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 ${
+                          exp.type === "employer"
+                            ? "bg-gradient-to-br from-primary to-primary/70"
+                            : "bg-gradient-to-br from-secondary to-secondary/70"
+                        }`}
+                      >
                         <Icon className="w-6 h-6 text-primary-foreground" />
                       </div>
 
@@ -285,12 +359,14 @@ const Journey = () => {
                           </div>
                           <div className="flex flex-col items-start md:items-end gap-1">
                             <div className="flex items-center gap-2">
-                              <span className={`px-3 py-1 text-xs font-medium rounded-full ${
-                                exp.type === 'employer'
-                                  ? 'bg-primary/10 text-primary'
-                                  : 'bg-secondary/10 text-secondary-foreground'
-                              }`}>
-                                {exp.type === 'employer' ? 'Founder' : 'Employee'}
+                              <span
+                                className={`px-3 py-1 text-xs font-medium rounded-full ${
+                                  exp.type === "employer"
+                                    ? "bg-primary/10 text-primary"
+                                    : "bg-secondary/10 text-secondary-foreground"
+                                }`}
+                              >
+                                {exp.type === "employer" ? "Founder" : "Employee"}
                               </span>
                               <span className="text-sm text-muted-foreground">{exp.period}</span>
                             </div>
@@ -322,8 +398,9 @@ const Journey = () => {
                 <Award className="w-12 h-12 text-primary mx-auto mb-4" />
                 <h3 className="text-xl font-bold text-foreground mb-2">Recognition & Honors</h3>
                 <p className="text-muted-foreground max-w-xl mx-auto">
-                  Felicitated by <span className="text-foreground font-medium">Shri Devendra Fadnavis</span> for Dial 100 implementation • 
-                  <span className="text-foreground font-medium"> Honorary Doctorate</span> from Frankford International University for Digital Transformation in Urban Governance (2026)
+                  Felicitated by <span className="text-foreground font-medium">Shri Devendra Fadnavis</span> for Dial
+                  100 implementation •<span className="text-foreground font-medium"> Honorary Doctorate</span> from
+                  Frankford International University for Digital Transformation in Urban Governance (2026)
                 </p>
               </div>
             </div>
