@@ -153,24 +153,24 @@ const About = () => {
               <div className="space-y-4 text-muted-foreground">
                 <p className="leading-relaxed">
                   <strong className="text-foreground">2026:</strong> Honorary Doctorate (Hon. Ph.D.) <br />
-                   <b> Digital Transformation in Urban Governance |
-                  <em>
-                    Frankford International University</b>
-                  </em>
+                  <b>
+                    {" "}
+                    Digital Transformation in Urban Governance |<em>Frankford International University</em>{" "}
+                  </b>
                 </p>
                 <p className="leading-relaxed">
                   <strong className="text-foreground">2012:</strong> Master of Business Administration (MBA) <br />
-                  <b> Marketing | 
-                  <em>
-                    Indira College Of Institute</b>
-                  </em>
+                  <b>
+                    {" "}
+                    Marketing |<em>Indira College Of Institute</em>{" "}
+                  </b>
                 </p>
                 <p className="leading-relaxed">
                   <strong className="text-foreground">2010:</strong> Bachelor of Engineering (B.E.) <br />
-                  <b> Information Technology | 
-                  <em>
-                    Sinhgad College of Engineering</b>
-                  </em>
+                  <b>
+                    {" "}
+                    Information Technology |<em>Sinhgad College of Engineering</em>{" "}
+                  </b>
                 </p>
               </div>
             </div>
