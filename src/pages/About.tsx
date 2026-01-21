@@ -153,7 +153,11 @@ const About = () => {
               <div className="space-y-4 text-muted-foreground">
                 <p className="leading-relaxed">
                   <strong className="text-foreground">2026:</strong> Honorary Doctorate (Hon. Ph.D.) in Digital
-                  Transformation in Urban Governance | <em>Frankford International University</em>.
+                  Transformation in Urban Governance |{" "}
+                  <em>
+                    <b>Frankford International University</b>
+                  </em>
+                  .
                 </p>
                 <p className="leading-relaxed">
                   <strong className="text-foreground">2012:</strong> Master of Business Administration (MBA) in
