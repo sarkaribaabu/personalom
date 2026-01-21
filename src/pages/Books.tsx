@@ -57,10 +57,20 @@ const Books = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <SEO 
-        title="Books"
-        description="Explore books by Om Mahajan - from erotic romance to romantic thrillers. Published author of Lustful Love with upcoming releases including 26 October ki Raat."
-        keywords={["Om Mahajan Books", "Lustful Love", "26 October ki Raat", "Indian Author", "Erotic Romance", "Romantic Thriller", "Fiction Books", "Published Author"]}
+      <SEO
+        title="Books & Writing | Om Mahajan – Fiction, Poetry & Suspense"
+        description="Discover novels, poetry, and reflective writing by Om Mahajan, exploring human emotion, suspense, and psychological depth."
+        keywords={[
+          "Om Mahajan",
+          "Lustful Love",
+          "26 October ki Raat",
+          "Indian fiction author",
+          "Erotic Romance",
+          "Erotic thriller novelist",
+          "Author with tech background",
+          "Technology and storytelling",
+          "Narrative-driven leadership",
+        ]}
         url="/books"
       />
       <Header />
