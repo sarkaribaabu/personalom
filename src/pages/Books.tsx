@@ -75,25 +75,7 @@ const Books = () => {
               </div>
             </div>
           </div>
-          /* {/* Quick Links */}
-          <div className="flex flex-wrap gap-4 mb-16">
-            <a href="#latest" className="px-6 py-3 border border-border rounded-lg hover:bg-accent transition-colors">
-              Latest Release
-            </a>
-            <a
-              href="#coming-soon"
-              className="px-6 py-3 border border-border rounded-lg hover:bg-accent transition-colors"
-            >
-              Coming Soon
-            </a>
-            <a
-              href="#all-books"
-              className="px-6 py-3 border border-border rounded-lg hover:bg-accent transition-colors"
-            >
-              Browse All Books
-            </a>
-          </div>{" "}
-          */
+
           {/* Latest Release Section */}
           {latestBook && (
             <section id="latest" className="mb-20">
@@ -137,6 +119,7 @@ const Books = () => {
               </Link>
             </section>
           )}
+
           {/* Coming Soon Section */}
           <section id="coming-soon" className="mb-20">
             <div className="flex items-center gap-4 mb-12">
@@ -173,6 +156,7 @@ const Books = () => {
               ))}
             </div>
           </section>
+
           {/* Browse All Books Section */}
           <section id="all-books">
             <div className="flex items-center gap-4 mb-8">
