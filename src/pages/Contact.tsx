@@ -1,5 +1,6 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import SEO from '@/components/SEO';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -78,6 +79,12 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO 
+        title="Contact"
+        description="Get in touch with Om Mahajan for consulting, project collaborations, speaking engagements, or general inquiries. Available for digital transformation projects globally."
+        keywords={["Contact Om Mahajan", "IT Consulting", "Digital Transformation Consulting", "Project Collaboration", "Speaking Engagements", "E-Governance Expert"]}
+        url="/contact"
+      />
       <Header />
       
       {/* Hero Section - Compact */}

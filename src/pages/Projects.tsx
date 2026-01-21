@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import SEO from '@/components/SEO';
 import { Button } from '@/components/ui/button';
 import businessPost from '@/assets/business-post.jpg';
 import techPost from '@/assets/tech-post.jpg';
@@ -311,6 +312,12 @@ const Projects = () => {
 
   return (
     <>
+      <SEO 
+        title="Projects"
+        description="45+ enterprise projects spanning web apps, mobile apps, AI/ML, eGovernance, eCommerce, and BI dashboards. Explore Om Mahajan's portfolio of digital transformation solutions."
+        keywords={["Om Mahajan Projects", "E-Governance Projects", "Web Apps", "Mobile Apps", "AI ML Projects", "BI Dashboards", "NMMC", "PCMC", "MHADA", "Maharashtra Police"]}
+        url="/projects"
+      />
       <Header />
       
       <main id="main-content" className="min-h-screen bg-background">

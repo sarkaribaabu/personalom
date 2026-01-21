@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Mail, Linkedin, Twitter, Briefcase, Building2, ArrowRight } from "lucide-react";
@@ -24,6 +25,13 @@ const experienceHighlights = [
 const About = () => {
   return (
     <div className="min-h-screen bg-background">
+      <SEO 
+        title="About Om Mahajan"
+        description="Learn about Om Mahajan - Digital Transformation Specialist, Partner at Techlead Group, Founder of Precise IT Solutions & Tantrayu Software, and published author."
+        keywords={["Om Mahajan", "About", "Digital Transformation Specialist", "IT Professional", "Author", "Techlead Group", "Precise IT Solutions", "Tantrayu Software", "E-Governance Expert"]}
+        url="/about"
+        type="profile"
+      />
       <Header />
 
       {/* Main Bio Section - Side by Side Layout */}
