@@ -1,63 +1,63 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-import { Button } from '@/components/ui/button';
-import lustfulLoveCover from '@/assets/lustful-love-cover.png';
-import octoberCover from '@/assets/26october-cover.jpg';
-import codenameCover from '@/assets/codename-cover.png';
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import { Button } from "@/components/ui/button";
+import lustfulLoveCover from "@/assets/lustful-love-cover.png";
+import octoberCover from "@/assets/26october-cover.jpg";
+import codenameCover from "@/assets/codename-cover.png";
 
 const books = [
   {
-    id: 'lustful-love',
-    title: 'Lustful Love',
-    subtitle: 'A Sizzling Erotica',
+    id: "lustful-love",
+    title: "Lustful Love",
+    subtitle: "A Sizzling Erotica",
     cover: lustfulLoveCover,
-    status: 'Published',
-    year: '2020',
-    releaseDate: 'December 2020',
-    category: 'Erotic Romance',
+    status: "Published",
+    year: "2020",
+    releaseDate: "December 2020",
+    category: "Erotic Romance",
     isLatest: true,
   },
 ];
 
 const comingSoonBooksData = [
   {
-    id: '26-october-ki-raat',
-    title: '26 October ki Raat',
-    subtitle: 'Where Lust Meets Suspense',
+    id: "26-october-ki-raat",
+    title: "26 October ki Raat",
+    subtitle: "Where Lust Meets Suspense",
     cover: octoberCover,
-    status: 'Coming Soon',
-    releaseDate: 'Q2, 2026',
-    category: 'Romantic Thriller',
-    storyline: 'On a fateful Chabbis October ki Raat, love and darkness collide. During a train journey, Riya, an aspiring writer, meets Arjun, a magnetic stranger. Attraction is instant, but danger lurks beneath the surface. As passion deepens, secrets unravel. Riya begins to see the darkness behind Arjun\'s charm, and desire turns into a perilous game of trust, obsession, and survival.',
+    status: "Coming Soon",
+    releaseDate: "Q2, 2026",
+    category: "Romantic Thriller",
+    storyline:
+      "On a fateful Chabbis October ki Raat, love and darkness collide. During a train journey, Riya, an aspiring writer, meets Arjun, a magnetic stranger. Attraction is instant, but danger lurks beneath the surface. As passion deepens, secrets unravel. Riya begins to see the darkness behind Arjun's charm, and desire turns into a perilous game of trust, obsession, and survival.",
   },
   {
-    id: 'codename-untitled',
-    title: 'Codename: Untitled',
-    subtitle: 'They loved. They lived. They never stopped.',
+    id: "codename-untitled",
+    title: "Codename: Untitled",
+    subtitle: "They loved. They lived. They never stopped.",
     cover: codenameCover,
-    status: 'Coming Soon',
-    releaseDate: 'Q4, 2026',
-    category: 'Pure Intense Love Story',
-    storyline: 'Some love stories begin quietly. This one began with a message and never truly ended. They loved deeply, but life demanded choices love could not make. Years passed. Paths changed. Yet something remained, steady and unspoken. Not all love stories end in togetherness. Some end in understanding.',
+    status: "Coming Soon",
+    releaseDate: "Q4, 2026",
+    category: "Pure Intense Love Story",
+    storyline:
+      "Some love stories begin quietly. This one began with a message and never truly ended. They loved deeply, but life demanded choices love could not make. Years passed. Paths changed. Yet something remained, steady and unspoken. Not all love stories end in togetherness. Some end in understanding.",
   },
 ];
 
-const categories = ['All', 'Erotic Romance', 'Romantic Thriller', 'Pure Intense Love Story'];
+const categories = ["All", "Erotic Romance", "Romantic Thriller", "Pure Intense Love Story"];
 
 const Books = () => {
-  const [selectedCategory, setSelectedCategory] = useState('All');
+  const [selectedCategory, setSelectedCategory] = useState("All");
 
-  const latestBook = books.find(book => book.isLatest);
-  const allBooks = selectedCategory === 'All' 
-    ? books 
-    : books.filter(book => book.category === selectedCategory);
+  const latestBook = books.find((book) => book.isLatest);
+  const allBooks = selectedCategory === "All" ? books : books.filter((book) => book.category === selectedCategory);
 
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      
+
       <main className="pt-24 pb-16">
         <div className="container-blog">
           {/* Hero Section - Compact */}
@@ -68,29 +68,32 @@ const Books = () => {
                 <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-primary/10 rounded-full text-primary text-xs font-medium mb-3">
                   <span>Author & Storyteller</span>
                 </div>
-                <h1 className="text-3xl md:text-4xl font-bold text-foreground">
-                  Books
-                </h1>
+                <h1 className="text-3xl md:text-4xl font-bold text-foreground">Books</h1>
                 <p className="text-sm text-muted-foreground max-w-lg leading-relaxed mt-2">
                   Exploring diverse themes from romance to thrillers. Click on any cover for details and purchase links.
                 </p>
               </div>
             </div>
           </div>
-
-          {/* Quick Links */}
+          /* {/* Quick Links */}
           <div className="flex flex-wrap gap-4 mb-16">
             <a href="#latest" className="px-6 py-3 border border-border rounded-lg hover:bg-accent transition-colors">
               Latest Release
             </a>
-            <a href="#coming-soon" className="px-6 py-3 border border-border rounded-lg hover:bg-accent transition-colors">
+            <a
+              href="#coming-soon"
+              className="px-6 py-3 border border-border rounded-lg hover:bg-accent transition-colors"
+            >
               Coming Soon
             </a>
-            <a href="#all-books" className="px-6 py-3 border border-border rounded-lg hover:bg-accent transition-colors">
+            <a
+              href="#all-books"
+              className="px-6 py-3 border border-border rounded-lg hover:bg-accent transition-colors"
+            >
               Browse All Books
             </a>
-          </div>
-
+          </div>{" "}
+          */
           {/* Latest Release Section */}
           {latestBook && (
             <section id="latest" className="mb-20">
@@ -100,10 +103,7 @@ const Books = () => {
                 <div className="h-px flex-1 bg-border" />
               </div>
 
-              <Link
-                to={`/books/${latestBook.id}`}
-                className="group grid grid-cols-1 md:grid-cols-2 gap-8 items-center"
-              >
+              <Link to={`/books/${latestBook.id}`} className="group grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                 <div className="relative aspect-[2/3] max-w-sm mx-auto md:mx-0 overflow-hidden rounded-lg shadow-2xl">
                   <img
                     src={latestBook.cover}
@@ -121,10 +121,15 @@ const Books = () => {
                     <span className="text-muted-foreground">Published: {latestBook.year}</span>
                   </div>
                   <p className="text-muted-foreground leading-relaxed mb-6">
-                    Nick is tired of being single after a life of constant moves. All he wants now is a real connection: long-term, meaningful, and passionate.
-                    <br /><br />
-                    Then he meets Gabby. He's ordinary and inexperienced. She's dazzling, almost unreal. Desire sparks instantly but staying together proves dangerous. Jealous rivals, twisted strangers, and chilling threats close in.
-                    <br /><br />
+                    Nick is tired of being single after a life of constant moves. All he wants now is a real connection:
+                    long-term, meaningful, and passionate.
+                    <br />
+                    <br />
+                    Then he meets Gabby. He's ordinary and inexperienced. She's dazzling, almost unreal. Desire sparks
+                    instantly but staying together proves dangerous. Jealous rivals, twisted strangers, and chilling
+                    threats close in.
+                    <br />
+                    <br />
                     Is this Nick's dream finally coming true, or the beginning of another devastating end?
                   </p>
                   <Button size="lg">Get Your Copy</Button>
@@ -132,7 +137,6 @@ const Books = () => {
               </Link>
             </section>
           )}
-
           {/* Coming Soon Section */}
           <section id="coming-soon" className="mb-20">
             <div className="flex items-center gap-4 mb-12">
@@ -156,24 +160,19 @@ const Books = () => {
                       </div>
                     </div>
                     <div>
-                      <h3 className="text-xl md:text-2xl font-bold text-foreground mb-2">
-                        {book.title}
-                      </h3>
+                      <h3 className="text-xl md:text-2xl font-bold text-foreground mb-2">{book.title}</h3>
                       <p className="text-sm text-muted-foreground italic mb-4">{book.subtitle}</p>
                       <div className="flex flex-wrap items-center gap-2 mb-4">
                         <span className="px-3 py-1 bg-primary/10 text-primary text-xs rounded">{book.category}</span>
                         <span className="text-xs text-muted-foreground">Expected: {book.releaseDate}</span>
                       </div>
-                      <p className="text-sm text-muted-foreground leading-relaxed">
-                        {book.storyline}
-                      </p>
+                      <p className="text-sm text-muted-foreground leading-relaxed">{book.storyline}</p>
                     </div>
                   </div>
                 </div>
               ))}
             </div>
           </section>
-
           {/* Browse All Books Section */}
           <section id="all-books">
             <div className="flex items-center gap-4 mb-8">
@@ -200,18 +199,14 @@ const Books = () => {
             {/* Books Grid */}
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
               {allBooks.map((book) => (
-                <Link
-                  key={book.id}
-                  to={`/books/${book.id}`}
-                  className="group block"
-                >
+                <Link key={book.id} to={`/books/${book.id}`} className="group block">
                   <div className="relative aspect-[2/3] mb-3 overflow-hidden rounded-lg shadow-md">
                     <img
                       src={book.cover}
                       alt={book.title}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
-                    {book.status === 'Coming Soon' && (
+                    {book.status === "Coming Soon" && (
                       <div className="absolute top-2 right-2 px-2 py-0.5 bg-primary text-primary-foreground text-xs font-medium rounded-full">
                         Soon
                       </div>
