@@ -78,7 +78,7 @@ const professionalExperience = [
     icon: Target,
     highlights: [
       "Leading eGovernance projects for MHADA, PCMC, NMMC",
-      "Head of Operations (Technical) managing complex ERP implementations",
+      "Managing complex ERP implementations with technical leadership",
       "Project Management for large-scale government digital initiatives"
     ]
   },
