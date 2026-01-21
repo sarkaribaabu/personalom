@@ -9,15 +9,15 @@ import aboutImage from '@/assets/about.png';
 const experienceHighlights = [
   {
     icon: Building2,
-    title: "Head of Operations (Technical)",
-    company: "Multinational Company",
-    description: "Leading e-governance projects and managing 45+ team members"
+    title: "Partner & Core Team Member",
+    company: "Techlead Group",
+    description: "Leading e-governance projects for MHADA, PCMC, NMMC and managing complex ERP implementations"
   },
   {
     icon: Briefcase,
     title: "Founder & Director",
-    company: "Precise IT Solutions Pvt Ltd",
-    description: "Built an IT company specializing in eCommerce and mobile solutions"
+    company: "Precise IT Solutions Pvt Ltd & Tantrayu Software Pvt Ltd",
+    description: "Running own IT firms alongside, specializing in eGovernance and digital transformation"
   }
 ];
 
