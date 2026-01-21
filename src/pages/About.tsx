@@ -158,7 +158,7 @@ const About = () => {
                   <h3 className="font-semibold text-foreground mb-2">Strategic Leadership in e-Governance</h3>
                   <p className="leading-relaxed">
                     Founder of Tantrayu Software Pvt Ltd (2025), focused on driving digital transformation for municipal
-                    councils and Zilla Parishads. Parallely a Partner at Techlead Group, where he managed large-scale
+                    councils and Zilla Parishads. Parallely a Partner at Techlead Group, where he manages large-scale
                     ERP implementations for major bodies like MHADA, PCMC, and NMMC.
                   </p>
                 </div>
