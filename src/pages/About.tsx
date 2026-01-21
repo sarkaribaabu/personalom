@@ -153,7 +153,7 @@ const About = () => {
               <div className="space-y-4 text-muted-foreground">
                 <p className="leading-relaxed">
                   <strong className="text-foreground">2026:</strong> <b>Honorary Doctorate (Hon. Ph.D.)</b> in Digital
-                  Transformation in Urban Governance |{" "}</br>
+                  Transformation in Urban Governance | <br />
                   <em>
                     <b>Frankford International University</b>
                   </em>
