@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import lustfulLoveCover from "@/assets/lustful-love-cover.png";
 import octoberCover from "@/assets/26october-cover.jpg";
@@ -56,6 +57,12 @@ const Books = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO 
+        title="Books"
+        description="Explore books by Om Mahajan - from erotic romance to romantic thrillers. Published author of Lustful Love with upcoming releases including 26 October ki Raat."
+        keywords={["Om Mahajan Books", "Lustful Love", "26 October ki Raat", "Indian Author", "Erotic Romance", "Romantic Thriller", "Fiction Books", "Published Author"]}
+        url="/books"
+      />
       <Header />
 
       <main className="pt-24 pb-16">

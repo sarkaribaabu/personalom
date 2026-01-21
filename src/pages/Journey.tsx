@@ -1,5 +1,6 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import SEO from '@/components/SEO';
 import { GraduationCap, Compass, Rocket, Building2, Award, Crown, Sparkles, Target, Clock } from 'lucide-react';
 
 const journeySteps = [
@@ -114,6 +115,12 @@ const professionalExperience = [
 const Journey = () => {
   return (
     <div className="min-h-screen bg-background">
+      <SEO 
+        title="My Journey"
+        description="15+ years of innovation - from declining an MNC offer to receiving an Honorary Doctorate. Explore Om Mahajan's professional journey in IT and digital transformation."
+        keywords={["Om Mahajan Journey", "Professional Experience", "Career Timeline", "IT Leadership", "Digital Transformation", "Honorary Doctorate", "Techlead Group", "Precise IT Solutions"]}
+        url="/journey"
+      />
       <Header />
       <main id="main-content">
         {/* Hero Section - Compact */}
