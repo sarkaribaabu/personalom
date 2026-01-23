@@ -47,6 +47,7 @@ const projects = [
     excerpt: "Unified Citizen Services Platform providing access to 70+ land record services for Maharashtra citizens.",
     image: scLandrecords,
     height: "tall",
+    slug: "sc-land-records",
   },
   {
     title: "NMMC Portal",
@@ -55,6 +56,7 @@ const projects = [
     excerpt: "Enterprise ERP platform for Navi Mumbai Municipal Corporation with 21 integrated modules.",
     image: nmmcEgovernance,
     height: "medium",
+    slug: "nmmc-portal",
   },
   {
     title: "PCMC Portal",
@@ -63,6 +65,7 @@ const projects = [
     excerpt: "Enterprise ERP & GIS platform for Pimpri Chinchwad Municipal Corporation under Smart City mission.",
     image: pcmcEgovernance,
     height: "medium",
+    slug: "pcmc-portal",
   },
   {
     title: "DMS",
@@ -72,6 +75,7 @@ const projects = [
       "Unified Sales, Service & Operations Platform for multi-brand distributor with 10% business throughput increase.",
     image: dmsApp,
     height: "medium",
+    slug: "dms-app",
   },
   {
     title: "Jnana Prabodhini",
@@ -81,6 +85,7 @@ const projects = [
       "eTechSchool – Integrated School ERP Platform with 40+ modules for academics, administration, and finance.",
     image: jnanaPrabodhini,
     height: "tall",
+    slug: "jnana-prabodhini",
   },
   {
     title: "Smith+Nephew Surgical Planner",
@@ -90,6 +95,7 @@ const projects = [
       "AI-powered pre-operative surgical planning platform with interactive visualization and parameter-based simulation for surgeons.",
     image: smithNephew,
     height: "tall",
+    slug: "smith-nephew",
   },
   {
     title: "Vendiman",
@@ -98,6 +104,7 @@ const projects = [
     excerpt: "Autonomous Retail & Anti-Fraud Intelligence Platform with sensor fusion and real-time fraud prevention.",
     image: vendimanMax,
     height: "tall",
+    slug: "vendiman-max",
   },
 
   // Mobile Apps (6 projects)
@@ -109,6 +116,7 @@ const projects = [
       "Digital Housing Lottery & Verification Platform with OCR-based document verification and Aadhaar-based uniqueness validation.",
     image: mhadaApp,
     height: "tall",
+    slug: "mhada-app",
   },
   {
     title: "PWD Pothole",
@@ -117,6 +125,7 @@ const projects = [
     excerpt: "State Highway & Road Maintenance Platform with statewide coverage and division-wise analytics.",
     image: pwdPothole,
     height: "tall",
+    slug: "pwd-pothole",
   },
   {
     title: "BMC Pothole",
@@ -126,15 +135,17 @@ const projects = [
       "Citizen Grievance & Field Operations Platform with GPS-based complaint registration and before-and-after photo verification.",
     image: bmcPothole,
     height: "tall",
+    slug: "bmc-pothole",
   },
   {
-    title: "Smith+Nephew Surgical Planner",
+    title: "Smith+Nephew Surgical Planner Mobile",
     category: "Mobile Apps",
     date: "2025",
     excerpt:
       "Cross-platform surgical planning mobile app with AI/ML-assisted recommendations and high-fidelity anatomical visualization.",
     image: smithNephew,
     height: "tall",
+    slug: "smith-nephew",
   },
   {
     title: "BMC Disaster Management",
@@ -143,6 +154,7 @@ const projects = [
     excerpt: "City-Scale Weather Intelligence & Citizen Information Platform with 50+ automated weather stations.",
     image: bmcDm,
     height: "medium",
+    slug: "bmc-dm",
   },
   {
     title: "Mobile Games Development",
@@ -152,6 +164,7 @@ const projects = [
       "Simulation Games & Game Production Collaboration with Train Simulator, Rescue Ship, and Offroad simulations.",
     image: mobileGames,
     height: "tall",
+    slug: "mobile-games",
   },
 
   // AI/ML/CV (2 projects)
@@ -162,6 +175,7 @@ const projects = [
     excerpt: "AI-Driven Custom Apparel Platform with 1,260 microsizes and zero-waste on-demand manufacturing.",
     image: lomAi,
     height: "tall",
+    slug: "laws-of-motion",
   },
   {
     title: "GuppaAI",
@@ -171,6 +185,7 @@ const projects = [
       "Conversational AI Platform enabling intent-driven discovery and decision-making with natural language interaction.",
     image: guppaai,
     height: "medium",
+    slug: "guppaai",
   },
 
   // eGovernance (6 projects)
@@ -181,6 +196,7 @@ const projects = [
     excerpt: "Comprehensive ERP solution with 21 modules serving 52+ citizen services for NMMC.",
     image: nmmcEgovernance,
     height: "tall",
+    slug: "nmmc-portal",
   },
   {
     title: "PCMC eGovernance",
@@ -189,6 +205,7 @@ const projects = [
     excerpt: "Enterprise ERP & GIS platform with integrated modules serving PCMC Smart City initiatives.",
     image: pcmcEgovernance,
     height: "medium",
+    slug: "pcmc-portal",
   },
   {
     title: "Maharashtra Police - Dial 100",
@@ -198,6 +215,7 @@ const projects = [
       "Real-Time Command & Control Platform unifying call handling, dispatch, field execution, and post-incident verification.",
     image: mhPolice,
     height: "tall",
+    slug: "mh-police",
   },
   {
     title: "Navi Mumbai Police",
@@ -206,6 +224,7 @@ const projects = [
     excerpt: "Integrated Command & Analytics Platform enabling data-driven policing with predictive insights.",
     image: nmPoliceBi,
     height: "tall",
+    slug: "navi-mumbai-police",
   },
   {
     title: "Nepal Police",
@@ -214,6 +233,7 @@ const projects = [
     excerpt: "National Policing Analytics Platform enabling data-driven policing with AI-powered predictive insights.",
     image: nepalPolice,
     height: "medium",
+    slug: "nepal-police",
   },
   {
     title: "SC Land Records eGov",
@@ -222,6 +242,7 @@ const projects = [
     excerpt: "Unified Citizen Services Platform providing access to 70+ land record services for Maharashtra citizens.",
     image: scLandrecords,
     height: "short",
+    slug: "sc-land-records",
   },
   {
     title: "Turks & Caicos Island",
@@ -231,6 +252,7 @@ const projects = [
       "KRegistry – Commercial Registry & Regulatory Compliance Platform for AML/CFT compliance and digital entity registration.",
     image: tcIsland,
     height: "tall",
+    slug: "tc-island",
   },
 
   // eCommerce (3 projects)
@@ -241,6 +263,7 @@ const projects = [
     excerpt: "Phygital Jewelry Ecommerce Platform combining online convenience with in-store credibility and trust.",
     image: pngBrothers,
     height: "tall",
+    slug: "png-brothers",
   },
   {
     title: "CS Jewellers",
@@ -249,6 +272,7 @@ const projects = [
     excerpt: "Phygital Ecommerce & B2B Inventory Platform with dual-layer B2C and B2B capabilities across 36 stores.",
     image: csJewellers,
     height: "medium",
+    slug: "cs-jewellers",
   },
   {
     title: "Mrugrae",
@@ -258,6 +282,7 @@ const projects = [
       "Premium Ayurvedic skincare D2C e-commerce platform with cold-processed soaps, eco-friendly packaging, and secure payment integration.",
     image: mrugrae,
     height: "medium",
+    slug: "mrugrae",
   },
 
   // BI Dashboards (4 projects)
@@ -268,6 +293,7 @@ const projects = [
     excerpt: "Integrated Command & Analytics Platform enabling data-driven policing with predictive insights.",
     image: nmPoliceBi,
     height: "tall",
+    slug: "navi-mumbai-police",
   },
   {
     title: "NMMC Dashboard",
@@ -276,6 +302,7 @@ const projects = [
     excerpt: "Commissionerate-Level Decision Intelligence with unified Power BI analytics across 15+ departments.",
     image: nmmcDashboard,
     height: "medium",
+    slug: "nmmc-dashboard",
   },
   {
     title: "Nepal Police Dashboard",
@@ -284,6 +311,7 @@ const projects = [
     excerpt: "National Policing Analytics Platform with AI-powered predictive insights and crime heatmaps.",
     image: nepalPolice,
     height: "medium",
+    slug: "nepal-police",
   },
   {
     title: "Bajaj Finserv",
@@ -292,6 +320,7 @@ const projects = [
     excerpt: "Nationwide Vendor & Service Analytics Platform with centralized visibility across 10+ vendors.",
     image: bajajFinserv,
     height: "medium",
+    slug: "bajaj-finserv",
   },
 ];
 
@@ -387,15 +416,11 @@ const Projects = () => {
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 auto-rows-[180px]"
             style={{ gridAutoFlow: "row dense" }}
           >
-            {filteredProjects.map((project, index) => {
-              const projectSlug = project.title
-                .toLowerCase()
-                .replace(/[^a-z0-9]+/g, "-")
-                .replace(/(^-|-$)/g, "");
+          {filteredProjects.map((project, index) => {
               return (
                 <Link
                   key={index}
-                  to={`/projects/${projectSlug}`}
+                  to={`/projects/${project.slug}`}
                   className={`group cursor-pointer ${getHeightClass(project.height)} transition-all duration-300 hover:scale-[1.02] hover:shadow-lg block`}
                   onMouseEnter={() => setHoveredIndex(index)}
                   onMouseLeave={() => setHoveredIndex(null)}

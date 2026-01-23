@@ -1477,6 +1477,150 @@ const projectsData: Record<string, {
     },
     gallery: [bmcPothole]
   },
+  'bmc-dm': {
+    title: "BMC Disaster Management System",
+    category: "City-Scale Weather Intelligence & Citizen Information Platform | Mobile Application",
+    image: bmcDm,
+    snapshot: {
+      client: "Brihanmumbai Municipal Corporation (BMC)",
+      industry: "Government | Urban Governance | Disaster Management",
+      role: "Business Analyst",
+      duration: "1+ year",
+      techStack: ["Java", "Angular", "Flutter", "PostgreSQL", "IoT Integration"]
+    },
+    brief: {
+      problem: "Mumbai faces annual monsoon-related disasters including flooding, waterlogging, and infrastructure failures. Citizens lacked real-time information about weather conditions, flood alerts, and safe routes during emergencies. BMC needed a unified platform to collect weather data, disseminate alerts, and coordinate disaster response.",
+      context: "With 50+ automated weather stations across the city and a population of 20+ million, the challenge was to translate raw sensor data into actionable citizen alerts while enabling coordinated response across multiple departments.",
+      constraints: [
+        "Real-time data from 50+ weather stations",
+        "Multi-channel alert dissemination",
+        "Integration with existing BMC systems",
+        "Mobile-first citizen interface",
+        "Coordination across multiple departments",
+        "24x7 operational reliability during emergencies"
+      ]
+    },
+    contextReality: {
+      environment: "Earlier, weather monitoring was fragmented, and citizen alerts were delayed or inconsistent. Different departments operated in silos during emergencies, leading to uncoordinated response.",
+      existingSystems: [
+        "Delayed weather data aggregation",
+        "Manual alert dissemination",
+        "No centralized disaster dashboard",
+        "Limited citizen engagement during emergencies"
+      ],
+      constraints: [
+        "Real-time weather data aggregation",
+        "Automated alert generation based on thresholds",
+        "Multi-channel notification system",
+        "Citizen mobile app for alerts and reporting",
+        "Centralized command dashboard",
+        "Historical data analysis for planning"
+      ]
+    },
+    approach: {
+      principles: [
+        "Real-time data must translate to real-time action",
+        "Citizens are both consumers and contributors of information",
+        "Interoperability across departments is essential",
+        "Historical patterns inform future preparedness"
+      ],
+      strategicDecisions: [
+        "IoT-first architecture for weather station integration",
+        "Threshold-based automated alerting",
+        "Mobile-first citizen engagement",
+        "Centralized dashboard for command and control"
+      ],
+      tradeoffs: [
+        "Automated alerts over manual verification for speed",
+        "Broad coverage over deep customization",
+        "Real-time reliability over feature richness"
+      ]
+    },
+    execution: {
+      architecture: "IoT-integrated platform with real-time data ingestion from 50+ weather stations. Threshold-based alert engine with multi-channel dissemination. Mobile app for citizens and web dashboard for command center operations.",
+      keyModules: [
+        "Weather station data aggregation",
+        "Real-time monitoring dashboard",
+        "Automated alert generation engine",
+        "Multi-channel notification system (SMS, App, WhatsApp)",
+        "Citizen mobile app for alerts and reporting",
+        "Historical data analytics",
+        "Inter-department coordination module"
+      ],
+      integrations: [
+        "50+ automated weather stations",
+        "SMS gateway for mass alerts",
+        "WhatsApp Business API",
+        "BMC internal systems",
+        "Google Maps for flood zone visualization"
+      ],
+      considerations: [
+        "24x7 system reliability during emergencies",
+        "Scalability for peak monsoon loads",
+        "Data accuracy and validation",
+        "Citizen privacy and data security"
+      ]
+    },
+    challengesThatMattered: [
+      {
+        title: "Real-Time Data Aggregation at Scale",
+        description: "Collecting and processing data from 50+ weather stations with varying data formats and connectivity.",
+        impact: "Standardized data ingestion pipeline with fault tolerance. Real-time validation and anomaly detection. Result: Consistent, reliable weather data for decision-making."
+      },
+      {
+        title: "Timely Alert Dissemination",
+        description: "Ensuring alerts reach millions of citizens within minutes of threshold breach.",
+        impact: "Multi-channel notification infrastructure with SMS, app push, and WhatsApp. Priority-based message queuing. Result: Alerts delivered to citizens within minutes."
+      },
+      {
+        title: "Coordinating Multi-Department Response",
+        description: "Ensuring different departments (drainage, roads, emergency services) receive relevant alerts and act in coordination.",
+        impact: "Department-specific alert routing with shared situational awareness dashboard. Result: Improved coordination and faster response times during emergencies."
+      }
+    ],
+    solutions: [
+      {
+        problem: "Real-Time Data Aggregation at Scale",
+        decision: "Build standardized data ingestion pipeline with fault tolerance",
+        intervention: "Real-time validation and anomaly detection for all incoming sensor data",
+        result: "Consistent, reliable weather data for decision-making across the city"
+      },
+      {
+        problem: "Timely Alert Dissemination",
+        decision: "Implement multi-channel notification infrastructure",
+        intervention: "Priority-based message queuing with SMS, app push, and WhatsApp integration",
+        result: "Alerts delivered to millions of citizens within minutes of threshold breach"
+      },
+      {
+        problem: "Coordinating Multi-Department Response",
+        decision: "Create department-specific alert routing with shared situational awareness",
+        intervention: "Unified command dashboard with role-based views for different departments",
+        result: "Improved coordination and faster response times during emergencies"
+      }
+    ],
+    outcomes: {
+      quantitative: [
+        "Real-time data from 50+ weather stations",
+        "Multi-million citizen reach for alerts",
+        "Significant reduction in alert delivery time",
+        "Improved emergency response coordination"
+      ],
+      qualitative: [
+        "Citizens empowered with real-time weather information",
+        "Proactive disaster preparedness through historical analysis",
+        "Enhanced inter-department coordination",
+        "Foundation for smart city disaster management",
+        "Increased citizen trust in municipal emergency response"
+      ],
+      impact: "The platform transformed Mumbai's disaster response from reactive to proactive, providing real-time weather intelligence to millions of citizens while enabling coordinated multi-department emergency response."
+    },
+    learnings: {
+      keyLearnings: [],
+      improvements: [],
+      insights: []
+    },
+    gallery: [bmcDm]
+  },
   'pwd-pothole': {
     title: "PWD Pothole Management System",
     category: "State Highway & Road Maintenance Platform | Web & Mobile Application",
