@@ -34,7 +34,7 @@ const EditorsPick = () => {
     },
     {
       id: '2',
-      title: 'Digital Transformation in Urban Governance',
+      title: 'Operationalizing Governance through Digital Systems',
       category: 'TECHNOLOGY',
       date: 'January 10, 2026',
       excerpt: 'Exploring how smart city initiatives are reshaping municipal operations and citizen services.',
