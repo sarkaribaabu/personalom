@@ -31,7 +31,7 @@ const masonryPosts = [
     excerpt: "AI-powered pre-operative surgical planning platform with interactive visualization and parameter-based simulation.",
     image: smithNephew,
     height: "tall",
-    slug: "smith-nephew-surgical-planner"
+    slug: "smith-nephew"
   },
   {
     title: "Vendiman",
@@ -40,7 +40,7 @@ const masonryPosts = [
     excerpt: "Autonomous Retail & Anti-Fraud Intelligence Platform with sensor fusion and real-time fraud prevention.",
     image: vendimanMax,
     height: "medium",
-    slug: "vendiman"
+    slug: "vendiman-max"
   },
   {
     title: "SC Land Records",
@@ -69,7 +69,7 @@ const masonryPosts = [
     excerpt: "Simulation Games & Game Production Collaboration with Train Simulator, Rescue Ship, and Offroad simulations.",
     image: mobileGames,
     height: "medium",
-    slug: "mobile-games-development"
+    slug: "mobile-games"
   },
 
   // AI/ML/CV (2 projects)
@@ -100,7 +100,7 @@ const masonryPosts = [
     excerpt: "Real-Time Command & Control Platform unifying call handling, dispatch, field execution, and post-incident verification.",
     image: mhPolice,
     height: "tall",
-    slug: "maharashtra-police-dial-100"
+    slug: "mh-police"
   },
   {
     title: "NMMC eGovernance",
@@ -109,7 +109,7 @@ const masonryPosts = [
     excerpt: "Comprehensive ERP solution with 21 modules serving 52+ citizen services for NMMC.",
     image: nmmcEgovernance,
     height: "medium",
-    slug: "nmmc-egovernance"
+    slug: "nmmc-portal"
   },
 
   // eCommerce (2 projects)
@@ -140,7 +140,7 @@ const masonryPosts = [
     excerpt: "National Policing Analytics Platform with AI-powered predictive insights and crime heatmaps.",
     image: nepalPolice,
     height: "medium",
-    slug: "nepal-police-dashboard"
+    slug: "nepal-police"
   },
   {
     title: "NMMC Dashboard",
@@ -202,11 +202,10 @@ const MasonryBlock = () => {
         }}
       >
         {filteredPosts.map((post, index) => {
-          const projectSlug = post.slug || post.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
           return (
             <Link
               key={index}
-              to={`/projects/${projectSlug}`}
+              to={`/projects/${post.slug}`}
               className={`group cursor-pointer ${getHeightClass(post.height)} transition-all duration-300 hover:scale-[1.02] hover:shadow-lg block`}
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
