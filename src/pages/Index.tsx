@@ -10,10 +10,10 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="Om Mahajan | Digital Governance Architect, e-Governance Leader & Author"
-        description="Om Mahajan is a Digital Transformation Specialist, e-Governance architect, and published author with 15+ years of experience in urban governance, ERP systems, and human-centric technology."
+        title="Dr. Om Mahajan | Digital Governance Architect, e-Governance Leader & Author"
+        description="Dr. Om Mahajan is a Digital Transformation Specialist, e-Governance architect, and published author with 15+ years of experience in urban governance, ERP systems, and human-centric technology."
         keywords={[
-          "Om Mahajan",
+          "Dr. Om Mahajan",
           "Techlead Group",
           "Digital Governance Expert",
           "e-Governance Specialist",

@@ -13,19 +13,19 @@ interface SEOProps {
 }
 
 const SEO = ({
-  title = "Om Mahajan | IT Professional & Author",
+  title = "Dr. Om Mahajan | IT Professional & Author",
   description = "IT Professional with 15+ years of experience in enterprise solutions, e-governance, and digital transformation. Author of fiction and technical books.",
-  keywords = ["Om Mahajan", "IT Professional", "Author", "E-Governance", "Digital Transformation", "Mumbai"],
+  keywords = ["Dr. Om Mahajan", "IT Professional", "Author", "E-Governance", "Digital Transformation", "Mumbai"],
   image = "/og-image.jpg",
   url,
   type = "website",
-  author = "Om Mahajan",
+  author = "Dr. Om Mahajan",
   publishedTime,
   noIndex = false,
 }: SEOProps) => {
   const siteUrl = "https://ommahajan.com";
   const fullUrl = url ? `${siteUrl}${url}` : siteUrl;
-  const fullTitle = title.includes("Om Mahajan") ? title : `${title} | Om Mahajan`;
+  const fullTitle = title.includes("Om Mahajan") ? title : `${title} | Dr. Om Mahajan`;
 
   return (
     <Helmet>
@@ -48,7 +48,7 @@ const SEO = ({
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
       <meta property="og:image" content={`${siteUrl}${image}`} />
-      <meta property="og:site_name" content="Om Mahajan" />
+      <meta property="og:site_name" content="Dr. Om Mahajan" />
       
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />

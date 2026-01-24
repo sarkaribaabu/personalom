@@ -92,10 +92,10 @@ const Contact = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="Contact Om Mahajan | Digital Governance & e-Governance Consulting"
-        description="Get in touch with Om Mahajan for discussions on digital governance, e-Governance systems, urban digital transformation, ERP consulting, or creative collaborations."
+        title="Contact Dr. Om Mahajan | Digital Governance & e-Governance Consulting"
+        description="Get in touch with Dr. Om Mahajan for discussions on digital governance, e-Governance systems, urban digital transformation, ERP consulting, or creative collaborations."
         keywords={[
-          "Contact Om Mahajan",
+          "Contact Dr. Om Mahajan",
           "IT Consulting",
           "Digital Transformation Consulting",
           "digital governance advisory",

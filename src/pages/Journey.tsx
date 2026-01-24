@@ -180,7 +180,7 @@ const Journey = () => {
         title="Journey | Om Mahajan’s Path in Digital Governance & Creativity"
         description="A 15-year journey through enterprise systems, government platforms, entrepreneurship, and storytelling."
         keywords={[
-          "Om Mahajan Journey",
+          "Dr. Om Mahajan Journey",
           "Smart city governance systems",
           "Public sector ERP implementation",
           "IT Leadership",

@@ -26,10 +26,10 @@ const About = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="About Om Mahajan | Digital Transformation, e-Governance & Storytelling"
-        description="Learn about Om Mahajan’s journey across e-Governance, urban digital transformation, and creative writing, where technology meets human narrative."
+        title="About Dr. Om Mahajan | Digital Transformation, e-Governance & Storytelling"
+        description="Learn about Dr. Om Mahajan's journey across e-Governance, urban digital transformation, and creative writing, where technology meets human narrative."
         keywords={[
-          "Om Mahajan",
+          "Dr. Om Mahajan",
           "Digital Governance Expert",
           "Digital Transformation Specialist",
           "IT Professional",
@@ -62,7 +62,7 @@ const About = () => {
 
               <div className="space-y-6 text-muted-foreground leading-relaxed">
                 <p className="text-lg text-foreground">
-                  Om Mahajan is a Digital Transformation Specialist and Creative Author. With over 15 years of
+                  Dr. Om Mahajan is a Digital Transformation Specialist and Creative Author. With over 15 years of
                   experience, he bridges the gap between precision-driven e-Governance systems and the art of
                   storytelling, helping organizations build technology that serves the human experience.
                 </p>
@@ -120,7 +120,7 @@ const About = () => {
                 <div className="aspect-[3/4] rounded-2xl overflow-hidden bg-muted shadow-2xl">
                   <img
                     src={aboutImage}
-                    alt="Om Mahajan - Digital Transformation Specialist & Author"
+                    alt="Dr. Om Mahajan - Digital Transformation Specialist & Author"
                     className="w-full h-full object-cover object-top"
                   />
                 </div>

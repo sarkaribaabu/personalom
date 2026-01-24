@@ -8,7 +8,7 @@ const Footer = () => {
         <div className="grid md:grid-cols-4 gap-8">
           {/* Brand */}
           <div className="space-y-4">
-            <h2 className="text-lg font-bold text-foreground">Om Mahajan</h2>
+            <h2 className="text-lg font-bold text-foreground">Dr. Om Mahajan</h2>
             <p className="text-sm text-muted-foreground">
               IT Professional with 15+ years of experience in enterprise solutions, e-governance, and digital
               transformation. Author and technology enthusiast.
@@ -161,7 +161,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-border mt-8 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-muted-foreground">© 2026 Om Mahajan. All rights reserved.</p>
+          <p className="text-sm text-muted-foreground">© 2026 Dr. Om Mahajan. All rights reserved.</p>
           <p className="text-xs text-muted-foreground">IT Professional • Author • Technology Enthusiast</p>
         </div>
       </div>

@@ -50,7 +50,7 @@ const HeroSection = () => {
           <div className="space-y-8 order-2 lg:order-1">
             <div className="space-y-2">
               <p className="text-primary font-medium tracking-wider uppercase text-sm">Hello, I'm</p>
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight">Om Mahajan</h1>
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight">Dr. Om Mahajan</h1>
               <div className="flex items-center gap-3 text-2xl md:text-3xl text-muted-foreground">
                 <span className="h-1 w-8 bg-primary rounded-full" />
                 <span className="font-light">
@@ -126,7 +126,7 @@ const HeroSection = () => {
                 {/* Clean image presentation */}
                 <img
                   src={heroImage}
-                  alt="Om Mahajan - IT Professional and Author"
+                  alt="Dr. Om Mahajan - IT Professional and Author"
                   className="w-full h-full object-cover object-top rounded-2xl shadow-2xl"
                   style={{
                     maskImage: "linear-gradient(to bottom, black 90%, transparent 100%)",

@@ -352,13 +352,13 @@ const Projects = () => {
   return (
     <>
       <SEO
-        title="e-Governance & ERP Projects | Om Mahajan"
-        description="Explore large-scale e-Governance, ERP, and urban digital transformation projects led by Om Mahajan across public sector institutions."
+        title="e-Governance & ERP Projects | Dr. Om Mahajan"
+        description="Explore large-scale e-Governance, ERP, and urban digital transformation projects led by Dr. Om Mahajan across public sector institutions."
         keywords={[
           "E-Governance Projects",
           "Urban Digital Transformation",
           "Government ERP Consultant",
-          "Om Mahajan",
+          "Dr. Om Mahajan",
           "AI/ML/BI Dashboards",
           "NMMC",
           "PCMC",
