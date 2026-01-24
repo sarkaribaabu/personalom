@@ -37,7 +37,7 @@ const AboutAuthor = () => {
 
             <div className="text-muted-foreground leading-relaxed space-y-4">
               <p>
-                Om Mahajan believes code and prose share a single purpose: solving problems and touching lives. Specializing in operationalizing governance through digital systems, he modernizes city systems through initiatives such as the NMMC Property Tax module and ongoing doctoral research.
+                Dr. Om Mahajan believes code and prose share a single purpose: solving problems and touching lives. Specializing in operationalizing governance through digital systems, he modernizes city systems through initiatives such as the NMMC Property Tax module and ongoing doctoral research.
               </p>
               <p>
                 Beyond technology, he is a storyteller whose fiction and poetry deepen his empathy and leadership. Whether shaping systems or stories, he turns complexity into meaningful experience.
@@ -69,7 +69,7 @@ const AboutAuthor = () => {
                 <div className="aspect-[3/4] rounded-2xl overflow-hidden shadow-xl">
                   <img
                     src={heroImage}
-                    alt="Om Mahajan working on technology projects"
+                    alt="Dr. Om Mahajan working on technology projects"
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                   />
                 </div>
@@ -78,7 +78,7 @@ const AboutAuthor = () => {
                 <div className="aspect-[3/4] rounded-2xl overflow-hidden shadow-xl">
                   <img
                     src={workLifestyle}
-                    alt="Om Mahajan writing and creating content"
+                    alt="Dr. Om Mahajan writing and creating content"
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                   />
                 </div>

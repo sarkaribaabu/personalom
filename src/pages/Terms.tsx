@@ -23,7 +23,7 @@ const Terms = () => {
             <section>
               <h2 className="text-2xl font-semibold text-foreground mb-4">2. Intellectual Property</h2>
               <p>
-                All content on this website, including but not limited to text, graphics, images, project descriptions, and design elements, is the intellectual property of Om Mahajan unless otherwise stated. This includes:
+                All content on this website, including but not limited to text, graphics, images, project descriptions, and design elements, is the intellectual property of Dr. Om Mahajan unless otherwise stated. This includes:
               </p>
               <ul className="list-disc pl-6 mt-4 space-y-2">
                 <li>Project case studies and documentation</li>

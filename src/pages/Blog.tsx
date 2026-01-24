@@ -19,7 +19,7 @@ const blogPosts = [
     excerpt: "In government, policies are framed internally, but execution often happens through vendors - contractors, service providers, system integrators, suppliers.",
     image: vendorManagementCover,
     slug: "vendor-management-governance-execution",
-    author: "Om Mahajan"
+    author: "Dr. Om Mahajan"
   },
   {
     title: "Operationalizing Governance through Digital Systems: A Case Study",
@@ -28,7 +28,7 @@ const blogPosts = [
     excerpt: "Exploring how smart city initiatives are reshaping municipal operations and citizen services.",
     image: techPost,
     slug: "digital-transformation-urban-governance",
-    author: "Om Mahajan"
+    author: "Dr. Om Mahajan"
   },
   {
     title: "The Art of Storytelling in Technical Documentation",
@@ -37,7 +37,7 @@ const blogPosts = [
     excerpt: "Bridging the gap between complex systems and human understanding through narrative.",
     image: businessPost,
     slug: "storytelling-technical-documentation",
-    author: "Om Mahajan"
+    author: "Dr. Om Mahajan"
   },
   {
     title: "Building Resilient e-Governance Systems",
@@ -46,7 +46,7 @@ const blogPosts = [
     excerpt: "Key considerations for designing government digital infrastructure that scales.",
     image: workLifestyle,
     slug: "resilient-egovernance-systems",
-    author: "Om Mahajan"
+    author: "Dr. Om Mahajan"
   },
   {
     title: "From Code to Prose: My Journey as a Technical Author",
@@ -55,7 +55,7 @@ const blogPosts = [
     excerpt: "How programming logic influences my approach to fiction writing.",
     image: fashionLifestyle,
     slug: "code-to-prose-journey",
-    author: "Om Mahajan"
+    author: "Dr. Om Mahajan"
   },
   {
     title: "Smart City Strategies for Developing Nations",
@@ -64,7 +64,7 @@ const blogPosts = [
     excerpt: "Practical approaches to implementing smart city solutions with limited resources.",
     image: lifestylePost,
     slug: "smart-city-developing-nations",
-    author: "Om Mahajan"
+    author: "Dr. Om Mahajan"
   },
   {
     title: "The Poetry of Problem Solving",
@@ -73,7 +73,7 @@ const blogPosts = [
     excerpt: "Finding creative inspiration in the structured world of IT solutions.",
     image: fashionPost,
     slug: "poetry-problem-solving",
-    author: "Om Mahajan"
+    author: "Dr. Om Mahajan"
   },
   {
     title: "Property Tax Digitization: Lessons Learned",
@@ -82,7 +82,7 @@ const blogPosts = [
     excerpt: "Insights from implementing digital property tax systems for municipal corporations.",
     image: techPost,
     slug: "property-tax-digitization",
-    author: "Om Mahajan"
+    author: "Dr. Om Mahajan"
   },
   {
     title: "Writing Fiction While Working in Tech",
@@ -91,7 +91,7 @@ const blogPosts = [
     excerpt: "Balancing creative pursuits with a demanding technology career.",
     image: businessPost,
     slug: "fiction-while-in-tech",
-    author: "Om Mahajan"
+    author: "Dr. Om Mahajan"
   },
   {
     title: "User Experience in Government Applications",
@@ -100,7 +100,7 @@ const blogPosts = [
     excerpt: "Why citizen-centric design matters in public sector digital services.",
     image: workLifestyle,
     slug: "ux-government-applications",
-    author: "Om Mahajan"
+    author: "Dr. Om Mahajan"
   },
   {
     title: "The Intersection of Technology and Storytelling",
@@ -109,7 +109,7 @@ const blogPosts = [
     excerpt: "How my dual passions inform and enrich each other.",
     image: fashionLifestyle,
     slug: "technology-storytelling-intersection",
-    author: "Om Mahajan"
+    author: "Dr. Om Mahajan"
   }
 ];
 

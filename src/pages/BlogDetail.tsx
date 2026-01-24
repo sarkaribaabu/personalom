@@ -71,7 +71,7 @@ const blogPosts: Record<string, {
     category: "EGOVERNANCE",
     date: "January 16, 2026",
     readTime: "5 min read",
-    author: "Om Mahajan",
+    author: "Dr. Om Mahajan",
     heroImage: vendorManagementCover,
     inlineImages: [
       { src: vendorPerformanceDashboard, alt: "Vendor performance tracking dashboard", caption: "A digital vendor management system enables centralized tracking and evaluation", afterParagraph: 2 }
@@ -115,7 +115,7 @@ const blogPosts: Record<string, {
     category: "TECHNOLOGY",
     date: "January 10, 2026",
     readTime: "8 min read",
-    author: "Om Mahajan",
+    author: "Dr. Om Mahajan",
     heroImage: techPost,
     inlineImages: [
       { src: workLifestyle, alt: "Smart city infrastructure", caption: "Modern urban infrastructure powered by digital solutions", afterParagraph: 2 }
@@ -166,7 +166,7 @@ const blogPosts: Record<string, {
     category: "WRITING",
     date: "January 5, 2026",
     readTime: "6 min read",
-    author: "Om Mahajan",
+    author: "Dr. Om Mahajan",
     heroImage: businessPost,
     content: `
       <p class="lead">Technical documentation doesn't have to be dry and uninspiring. By applying narrative techniques, we can create documentation that engages readers and improves comprehension.</p>
@@ -200,7 +200,7 @@ const blogPosts: Record<string, {
     category: "TECHNOLOGY",
     date: "December 28, 2025",
     readTime: "7 min read",
-    author: "Om Mahajan",
+    author: "Dr. Om Mahajan",
     heroImage: workLifestyle,
     content: `
       <p class="lead">Government digital infrastructure must be designed for reliability, scalability, and security. This article explores key considerations for building e-governance systems that can withstand the demands of public service.</p>
@@ -232,7 +232,7 @@ const blogPosts: Record<string, {
     category: "WRITING",
     date: "December 20, 2025",
     readTime: "5 min read",
-    author: "Om Mahajan",
+    author: "Dr. Om Mahajan",
     heroImage: fashionLifestyle,
     content: `
       <p class="lead">The skills that make a good programmer often translate surprisingly well to writing fiction. This personal reflection explores the unexpected connections between coding and creative writing.</p>
@@ -257,7 +257,7 @@ const blogPosts: Record<string, {
     category: "TECHNOLOGY",
     date: "December 15, 2025",
     readTime: "8 min read",
-    author: "Om Mahajan",
+    author: "Dr. Om Mahajan",
     heroImage: lifestylePost,
     content: `
       <p class="lead">Smart city initiatives in developing nations face unique constraints and opportunities. This article explores practical strategies for implementing smart city solutions with limited resources.</p>
@@ -287,7 +287,7 @@ const blogPosts: Record<string, {
     category: "LIFESTYLE",
     date: "December 10, 2025",
     readTime: "4 min read",
-    author: "Om Mahajan",
+    author: "Dr. Om Mahajan",
     heroImage: fashionPost,
     content: `
       <p class="lead">Finding creative inspiration in the structured world of IT solutions might seem paradoxical, but the parallels between poetry and programming run deeper than you might expect.</p>
@@ -314,7 +314,7 @@ const blogPosts: Record<string, {
     category: "TECHNOLOGY",
     date: "December 5, 2025",
     readTime: "7 min read",
-    author: "Om Mahajan",
+    author: "Dr. Om Mahajan",
     heroImage: techPost,
     content: `
       <p class="lead">Insights from implementing digital property tax systems for municipal corporations, including practical lessons that can inform future e-governance initiatives.</p>
@@ -344,7 +344,7 @@ const blogPosts: Record<string, {
     category: "WRITING",
     date: "November 28, 2025",
     readTime: "5 min read",
-    author: "Om Mahajan",
+    author: "Dr. Om Mahajan",
     heroImage: businessPost,
     content: `
       <p class="lead">Balancing creative pursuits with a demanding technology career is challenging but rewarding. Here's how I manage to write fiction while maintaining a full-time IT career.</p>
@@ -369,7 +369,7 @@ const blogPosts: Record<string, {
     category: "TECHNOLOGY",
     date: "November 20, 2025",
     readTime: "6 min read",
-    author: "Om Mahajan",
+    author: "Dr. Om Mahajan",
     heroImage: workLifestyle,
     content: `
       <p class="lead">Why citizen-centric design matters in public sector digital services, and how to apply UX principles in government application development.</p>
@@ -399,7 +399,7 @@ const blogPosts: Record<string, {
     category: "LIFESTYLE",
     date: "November 15, 2025",
     readTime: "5 min read",
-    author: "Om Mahajan",
+    author: "Dr. Om Mahajan",
     heroImage: fashionLifestyle,
     content: `
       <p class="lead">How my dual passions for technology and storytelling inform and enrich each other, creating unique perspectives in both domains.</p>
@@ -582,7 +582,7 @@ const BlogDetail = () => {
               <p className="text-sm text-primary font-medium mb-1">Written by</p>
               <h3 className="text-xl font-bold text-foreground mb-3">{post.author}</h3>
               <p className="text-muted-foreground leading-relaxed">
-                Om Mahajan specializes in operationalizing governance through digital systems and is also a fiction author.
+                Dr. Om Mahajan specializes in operationalizing governance through digital systems and is also a fiction author.
                 He modernizes city systems through initiatives such as the NMMC Property Tax module and 
                 explores life through compelling narratives.
               </p>
