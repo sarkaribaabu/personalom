@@ -77,7 +77,7 @@ const About = () => {
                 <p className="text-muted-foreground leading-relaxed">
                   Om has spent over a decade and a half mastering the architecture of complex systems. While his roots
                   lie in Cloud Computing and DevOps, his passion has evolved into a specialized focus on e-Governance
-                  and Urban Digital Transformation. Currently pursuing a Doctorate in Operationalizing Governance through Digital Systems, Om combines academic rigor with practical execution. He is known for leading high-impact
+                  and Urban Digital Transformation. Currently pursuing a Doctorate in Digital Transformation in Urban Governance, Om combines academic rigor with practical execution. He is known for leading high-impact
                   initiatives, including award-nominated projects for municipal corporations (such as NMMC) that
                   modernize how cities interact with their citizens.
                 </p>
@@ -154,7 +154,7 @@ const About = () => {
                   <strong className="text-foreground">2026:</strong> Honorary Doctorate (Hon. Ph.D.) <br />
                   <b>
                     {" "}
-                    Operationalizing Governance through Digital Systems |<em> (Frankford International University)</em>{" "}
+                    Digital Transformation in Urban Governance |<em> (Frankford International University)</em>{" "}
                   </b>
                 </p>
                 <p className="leading-relaxed">

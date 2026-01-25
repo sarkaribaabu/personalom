@@ -22,7 +22,7 @@ const blogPosts = [
     author: "Dr. Om Mahajan"
   },
   {
-    title: "Operationalizing Governance through Digital Systems: A Case Study",
+    title: "Digital Transformation in Urban Governance: A Case Study",
     category: "TECHNOLOGY",
     date: "January 10, 2026",
     excerpt: "Exploring how smart city initiatives are reshaping municipal operations and citizen services.",

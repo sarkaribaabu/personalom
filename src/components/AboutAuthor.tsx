@@ -37,7 +37,7 @@ const AboutAuthor = () => {
 
             <div className="text-muted-foreground leading-relaxed space-y-4">
               <p>
-                Dr. Om Mahajan believes code and prose share a single purpose: solving problems and touching lives. Specializing in operationalizing governance through digital systems, he modernizes city systems through initiatives such as the NMMC Property Tax module and ongoing doctoral research.
+                Dr. Om Mahajan believes code and prose share a single purpose: solving problems and touching lives. Specializing in digital transformation in urban governance, he modernizes city systems through initiatives such as the NMMC Property Tax module and ongoing doctoral research.
               </p>
               <p>
                 Beyond technology, he is a storyteller whose fiction and poetry deepen his empathy and leadership. Whether shaping systems or stories, he turns complexity into meaningful experience.
