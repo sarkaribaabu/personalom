@@ -18,7 +18,7 @@ const journeySteps = [
         In January 2026, I was honored with an{" "}
         <span className="font-semibold text-primary underline decoration-primary/50">Honorary Doctorate</span> by{" "}
         <span className="font-medium">Frankford International University</span> for my contributions toward{" "}
-        <span className="italic">'Operationalizing Governance through Digital Systems.'</span> The same year, I upgraded to a{" "}
+        <span className="italic">'Digital Transformation in Urban Governance.'</span> The same year, I upgraded to a{" "}
         <span className="font-semibold">BMW G310RR</span> — reviving a dream that was sacrificed back in 2014 when I
         sold my Honda CBR250RR to fund Precise IT Solutions. The passion that never faded is now alive again.
       </>,

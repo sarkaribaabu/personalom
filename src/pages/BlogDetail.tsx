@@ -111,7 +111,7 @@ const blogPosts: Record<string, {
     `
   },
   "digital-transformation-urban-governance": {
-    title: "Operationalizing Governance through Digital Systems: A Case Study",
+    title: "Digital Transformation in Urban Governance: A Case Study",
     category: "TECHNOLOGY",
     date: "January 10, 2026",
     readTime: "8 min read",
@@ -125,7 +125,7 @@ const blogPosts: Record<string, {
       { type: 'quote', text: "The foundations laid today will determine the smart cities of tomorrow.", afterParagraph: 6 }
     ],
     content: `
-      <p class="lead">Operationalizing governance through digital systems represents a fundamental shift in how cities operate, deliver services, and engage with citizens. This case study explores the journey of implementing smart city initiatives in municipal operations.</p>
+      <p class="lead">Digital transformation in urban governance represents a fundamental shift in how cities operate, deliver services, and engage with citizens. This case study explores the journey of implementing smart city initiatives in municipal operations.</p>
       
       <h2>The Challenge of Urban Digitization</h2>
       
@@ -582,7 +582,7 @@ const BlogDetail = () => {
               <p className="text-sm text-primary font-medium mb-1">Written by</p>
               <h3 className="text-xl font-bold text-foreground mb-3">{post.author}</h3>
               <p className="text-muted-foreground leading-relaxed">
-                Dr. Om Mahajan specializes in operationalizing governance through digital systems and is also a fiction author.
+                Dr. Om Mahajan specializes in digital transformation in urban governance and is also a fiction author.
                 He modernizes city systems through initiatives such as the NMMC Property Tax module and 
                 explores life through compelling narratives.
               </p>
