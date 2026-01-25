@@ -30,7 +30,7 @@ const Header = () => {
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link to="/" className="block">
-              <h1 className="text-2xl font-bold text-foreground">.OM.</h1>
+              <h1 className="text-2xl font-bold text-foreground">!i Dr. Om i!</h1>
             </Link>
           </div>
 
