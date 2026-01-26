@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { BookOpen, Code, Terminal } from "lucide-react";
 import heroImage from "@/assets/om-headshot.png";
@@ -90,16 +91,16 @@ const HeroSection = () => {
             {/* CTA Buttons */}
             <div className="flex flex-wrap gap-4">
               <Button size="lg" className="gap-2" asChild>
-                <a href="/projects">
+                <Link to="/projects">
                   <Code className="w-5 h-5" />
                   View Projects
-                </a>
+                </Link>
               </Button>
               <Button size="lg" variant="outline" className="gap-2" asChild>
-                <a href="/books">
+                <Link to="/books">
                   <BookOpen className="w-5 h-5" />
                   Explore Books
-                </a>
+                </Link>
               </Button>
             </div>
           </div>
