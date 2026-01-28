@@ -6,8 +6,8 @@ import heroImage from "@/assets/om-headshot.png";
 
 const roles = [
   "Hon. PhD Holder",
-  "Digital Transformation on Urban Governance",
   "e-Governance Innovator",
+  "Urban Tech Researcher",
   "Published Novelist",
   "The Rusty Rider",
 ];
