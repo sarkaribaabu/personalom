@@ -4,7 +4,13 @@ import { Button } from "@/components/ui/button";
 import { BookOpen, Code, Terminal } from "lucide-react";
 import heroImage from "@/assets/om-headshot.png";
 
-const roles = ["e-Governance Innovator", "Urban Tech Researcher", "Published Novelist", "The Rusty Rider"];
+const roles = [
+  "Hon. PhD Holder",
+  "e-Governance Innovator",
+  "Urban Tech Researcher",
+  "Published Novelist",
+  "The Rusty Rider",
+];
 
 const HeroSection = () => {
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
