@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Linkedin, Facebook, Instagram, Mail, MapPin } from "lucide-react";
+import VisitorCounter from "./VisitorCounter";
 
 const Footer = () => {
   return (
@@ -103,6 +104,7 @@ const Footer = () => {
                 </Link>
               </li>
             </ul>
+            <VisitorCounter />
           </div>
 
           {/* Connect */}
