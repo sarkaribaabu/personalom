@@ -70,44 +70,72 @@ const blogPosts: Record<string, {
     title: "Vendor Management: Where Governance Meets Execution",
     category: "EGOVERNANCE",
     date: "January 16, 2026",
-    readTime: "5 min read",
+    readTime: "6 min read",
     author: "Dr. Om Mahajan",
     heroImage: vendorManagementCover,
     inlineImages: [
-      { src: vendorPerformanceDashboard, alt: "Vendor performance tracking dashboard", caption: "A digital vendor management system enables centralized tracking and evaluation", afterParagraph: 2 }
+      { src: vendorPerformanceDashboard, alt: "Vendor performance tracking dashboard", caption: "A digital vendor management system enables centralized tracking and evaluation", afterParagraph: 4 }
     ],
     callouts: [
-      { type: 'key', text: "Should vendor performance history be shared across departments to prevent repeat failures?", afterParagraph: 3 }
+      { type: 'quote', text: "Policy failure is rarely about bad intent or poor drafting. It almost always traces back to weak vendor management.", afterParagraph: 1 },
+      { type: 'insight', text: "What vendor management really enables is objectivity at scale. Decisions stop being based on who remembers what, or who managed which vendor last year. Evaluation becomes comparative, traceable, and defensible.", afterParagraph: 5 },
+      { type: 'key', text: "Governance is judged not by how well policies are written, but by how reliably they are delivered. Vendor management is the bridge between the two.", afterParagraph: 8 }
     ],
     content: `
-      <p class="lead">In government, policies are framed internally, but execution often happens through vendors - contractors, service providers, system integrators, suppliers. When vendor management is weak, even the best policies fail on the ground.</p>
+      <p class="lead">In government systems, we spend an enormous amount of time getting policies right. Frameworks are debated, approvals are layered, and intent is carefully documented. Yet, once the file moves out of the department, execution largely shifts to vendors. Contractors, system integrators, OEMs, service partners, consultants. This is where governance stops being theoretical and starts being real.</p>
       
-      <p>Common symptoms are familiar:</p>
+      <p>In my experience, policy failure is rarely about bad intent or poor drafting. It almost always traces back to weak vendor management.</p>
       
-      <ul>
-        <li>Delays without clarity.</li>
-        <li>Cost overruns without ownership.</li>
-        <li>Quality disputes without evidence.</li>
-        <li>Blacklisting after damage is already done.</li>
-      </ul>
+      <h2>The Symptoms of Weak Vendor Management</h2>
       
-      <p>Strong vendor management changes this by bringing structure, transparency, and accountability into every stage of engagement.</p>
-      
-      <p>A digital vendor management system enables:</p>
+      <p>When vendor management is loose or informal, the symptoms are predictable and painfully familiar:</p>
       
       <ul>
-        <li>Centralized vendor onboarding and credential verification.</li>
-        <li>Performance tracking against SLAs and milestones.</li>
-        <li>Transparent payment linkage to deliverables.</li>
-        <li>Historical performance records across projects and departments.</li>
-        <li>Objective evaluation instead of memory-based decisions.</li>
+        <li>Projects drift without clear explanations.</li>
+        <li>Timelines slip, but accountability remains ambiguous.</li>
+        <li>Costs escalate, often justified after the fact.</li>
+        <li>Quality becomes subjective because there is no agreed baseline.</li>
+        <li>Escalations turn into personality-driven negotiations rather than contract-driven discussions.</li>
+        <li>And eventually, when things go visibly wrong, the system reacts with penalties or blacklisting, long after the damage has already been done.</li>
       </ul>
       
-      <p>The real shift is cultural. Vendor management moves governance from reactive firefighting to contractual discipline.</p>
+      <p>This reactive cycle is not governance. It is damage control.</p>
       
-      <p>When vendors know that timelines, quality, and compliance are continuously measured - not occasionally reviewed - behavior changes. Execution improves. Disputes reduce. Public money is better protected.</p>
+      <h2>What Strong Vendor Management Changes</h2>
       
-      <p>Vendor management is not about control for its own sake. It's about ensuring that public intent translates into public outcomes.</p>
+      <p>Strong vendor management changes the equation entirely. It introduces structure where ambiguity usually thrives. It replaces memory with data. It moves decision-making from emotion and urgency to evidence and discipline.</p>
+      
+      <p>A well-designed digital vendor management system becomes the backbone of this shift:</p>
+      
+      <ul>
+        <li><strong>Centralized onboarding</strong> ensures that credentials, statutory compliance, past experience, and financial standing are verified upfront, not discovered midway through execution.</li>
+        <li><strong>Performance tracking</strong> against clearly defined SLAs and milestones ensures that progress is continuously visible, not assessed only during review meetings.</li>
+        <li><strong>Payment linkages</strong> tied directly to measurable deliverables bring financial discipline into execution, not just procurement.</li>
+        <li><strong>Historical performance records</strong> across projects and departments create institutional memory, preventing the system from repeating the same mistakes with the same vendors under different banners.</li>
+      </ul>
+      
+      <p>What this really enables is objectivity at scale. Decisions stop being based on who remembers what, or who managed which vendor last year. Evaluation becomes comparative, traceable, and defensible.</p>
+      
+      <h2>The Cultural Shift</h2>
+      
+      <p>But the most important shift is not technological. It is cultural.</p>
+      
+      <p>Effective vendor management changes how governance behaves. It moves the system away from reactive firefighting and toward contractual discipline. When vendors know that timelines, quality parameters, compliance obligations, and service levels are being continuously measured, not occasionally reviewed, behavior changes.</p>
+      
+      <ul>
+        <li>Delays reduce because they are visible early.</li>
+        <li>Quality improves because benchmarks are explicit.</li>
+        <li>Disputes reduce because evidence replaces argument.</li>
+        <li>Escalations become structured conversations rather than confrontations.</li>
+      </ul>
+      
+      <h2>Protecting Public Money</h2>
+      
+      <p>From a governance perspective, this is where public money is actually protected. Not through more clauses in tender documents, but through consistent enforcement during execution.</p>
+      
+      <p>Vendor management, when done right, is not about control for its own sake. It is not about mistrust. It is about alignment. It ensures that public intent does not get diluted as it passes through contracts, invoices, and milestones. It ensures that outcomes match approvals. It ensures that execution reflects policy, not undermines it.</p>
+      
+      <p>In the end, governance is judged not by how well policies are written, but by how reliably they are delivered. Vendor management is the bridge between the two.</p>
     `
   },
   "digital-transformation-urban-governance": {
