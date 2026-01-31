@@ -128,15 +128,16 @@ const EditorsPick = () => {
             key={pick.id}
             className="flex-shrink-0 w-80 bg-card rounded-lg overflow-hidden hover:shadow-md transition-shadow duration-200"
           >
-            <div
-              className="block focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-lg cursor-default"
-              aria-label={`Article: ${pick.title}`}
+            <a
+              href={`/blog/${pick.slug}`}
+              className="block focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-lg"
+              aria-label={`Read article: ${pick.title}`}
             >
               <div className="aspect-[4/3] overflow-hidden">
                 <img
                   src={pick.image}
                   alt={`Editor's pick article: ${pick.title} - A professional image related to ${pick.category.toLowerCase()}`}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                   loading="lazy"
                 />
               </div>
@@ -148,7 +149,7 @@ const EditorsPick = () => {
                   <time className="blog-meta" dateTime="2023-09-10">{pick.date}</time>
                 </div>
                 
-                <h3 className="text-lg font-bold text-foreground leading-tight mb-3">
+                <h3 className="text-lg font-bold text-foreground leading-tight mb-3 hover:text-primary transition-colors">
                   {pick.title}
                 </h3>
                 
@@ -156,11 +157,11 @@ const EditorsPick = () => {
                   {pick.excerpt}
                 </p>
                 
-                <span className="inline-flex items-center px-3 py-1.5 text-xs font-medium text-muted-foreground bg-muted rounded-md">
-                  COMING SOON
+                <span className="inline-flex items-center text-sm font-medium text-primary hover:underline">
+                  READ MORE →
                 </span>
               </div>
-            </div>
+            </a>
           </article>
         ))}
       </div>
