@@ -1,1 +1,10 @@
 project_id = "gpayajhjeribysvweejc"
+
+[functions.send-contact-email]
+verify_jwt = false
+
+[functions.fetch-hashnode-post]
+verify_jwt = false
+
+[functions.fetch-hashnode-posts]
+verify_jwt = false
