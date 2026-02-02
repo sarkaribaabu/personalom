@@ -214,21 +214,37 @@ const Blog = () => {
               </div>
             </div>
           ) : posts.length > 0 ? (
-            <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
-              {/* Featured Large Post - takes 3 columns */}
-              {featuredPost && (
-                <div className="lg:col-span-3">
+            <>
+              {/* Layout adapts based on number of posts */}
+              {posts.length === 1 ? (
+                // Single post - full width featured
+                <div className="max-w-4xl mx-auto">
                   <PostCard post={featuredPost} index={0} variant="featured" />
                 </div>
+              ) : posts.length <= 3 ? (
+                // 2-3 posts - featured + remaining as grid
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                  <PostCard post={featuredPost} index={0} variant="featured" />
+                  <div className="grid grid-cols-1 gap-4">
+                    {gridPosts.map((post, index) => (
+                      <PostCard key={post.id} post={post} index={index + 1} variant="grid" />
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                // 4+ posts - featured (3 cols) + grid (2 cols)
+                <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
+                  <div className="lg:col-span-3">
+                    <PostCard post={featuredPost} index={0} variant="featured" />
+                  </div>
+                  <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {gridPosts.map((post, index) => (
+                      <PostCard key={post.id} post={post} index={index + 1} variant="grid" />
+                    ))}
+                  </div>
+                </div>
               )}
-
-              {/* 2x2 Grid Posts - takes 2 columns */}
-              <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {gridPosts.map((post, index) => (
-                  <PostCard key={post.id} post={post} index={index + 1} variant="grid" />
-                ))}
-              </div>
-            </div>
+            </>
           ) : !loading && (
             <div className="text-center py-12">
               <p className="text-muted-foreground">No posts found. Check back soon!</p>
