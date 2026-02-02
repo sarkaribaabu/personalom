@@ -76,7 +76,7 @@ const PostCard = ({ post, index, variant }: PostCardProps) => {
     return (
       <Link 
         to={`/blog/${post.slug}`}
-        className="group relative overflow-hidden rounded-2xl bg-card aspect-[4/5] lg:aspect-auto lg:row-span-2"
+        className="group relative overflow-hidden rounded-2xl bg-card min-h-[400px] lg:min-h-[500px]"
       >
         <img
           src={coverImage}
@@ -214,14 +214,16 @@ const Blog = () => {
               </div>
             </div>
           ) : posts.length > 0 ? (
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-              {/* Featured Large Post */}
+            <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
+              {/* Featured Large Post - takes 3 columns */}
               {featuredPost && (
-                <PostCard post={featuredPost} index={0} variant="featured" />
+                <div className="lg:col-span-3">
+                  <PostCard post={featuredPost} index={0} variant="featured" />
+                </div>
               )}
 
-              {/* 2x2 Grid Posts */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              {/* 2x2 Grid Posts - takes 2 columns */}
+              <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {gridPosts.map((post, index) => (
                   <PostCard key={post.id} post={post} index={index + 1} variant="grid" />
                 ))}
@@ -239,14 +241,14 @@ const Blog = () => {
           <h2 className="text-xl md:text-2xl font-bold text-foreground mb-6">
             Read by Category
           </h2>
-          <div className="flex gap-4 overflow-x-auto pb-4 scrollbar-hide">
+          <div className="grid grid-cols-3 sm:grid-cols-5 gap-4 md:gap-6">
             {categories.map((category) => (
               <Link
                 key={category.slug}
                 to={`/blog?category=${category.slug}`}
-                className="group flex-shrink-0"
+                className="group"
               >
-                <div className="w-24 h-24 md:w-28 md:h-28 rounded-2xl overflow-hidden mb-2 ring-2 ring-transparent group-hover:ring-primary transition-all duration-300">
+                <div className="aspect-square rounded-2xl overflow-hidden mb-2 ring-2 ring-transparent group-hover:ring-primary transition-all duration-300">
                   <img
                     src={category.image}
                     alt={category.name}
