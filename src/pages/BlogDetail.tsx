@@ -233,6 +233,45 @@ const BlogDetail = () => {
     }
   };
 
+  // Get raw content (may be undefined during loading)
+  const rawContent = hashnodePost?.content?.html ?? localPost?.content ?? '';
+
+  // Normalize Hashnode HTML: remove empty paragraphs and layout elements.
+  // This hook must run unconditionally (Rules of Hooks).
+  const renderedContent = useMemo(() => {
+    if (!rawContent || !isUsingHashnode) return rawContent;
+    if (typeof window === 'undefined') return rawContent;
+
+    try {
+      const doc = new DOMParser().parseFromString(rawContent, 'text/html');
+
+      // Remove layout elements that might shift our page design.
+      doc.querySelectorAll('aside, nav').forEach((el) => el.remove());
+
+      // Remove empty paragraphs or paragraphs that only contain <br> / whitespace.
+      doc.querySelectorAll('p').forEach((p) => {
+        const text = (p.textContent ?? '').replace(/\u00a0/g, ' ').trim();
+        const hasOnlyBreaksOrWhitespace = Array.from(p.childNodes).every((node) => {
+          if (node.nodeType === Node.TEXT_NODE) {
+            return (node.textContent ?? '').replace(/\u00a0/g, ' ').trim() === '';
+          }
+          if (node.nodeType === Node.ELEMENT_NODE) {
+            return (node as Element).tagName.toLowerCase() === 'br';
+          }
+          return true;
+        });
+
+        if (text === '' && hasOnlyBreaksOrWhitespace) {
+          p.remove();
+        }
+      });
+
+      return doc.body.innerHTML;
+    } catch {
+      return rawContent;
+    }
+  }, [rawContent, isUsingHashnode]);
+
   // Loading state
   if (isLoadingHashnode) {
     return (
@@ -290,47 +329,7 @@ const BlogDetail = () => {
   const heroImage = isUsingHashnode 
     ? (hashnodePost.coverImage?.url || techPost)
     : localPost!.heroImage;
-  const content = isUsingHashnode 
-    ? hashnodePost.content.html
-    : localPost!.content;
-
-  // Hashnode HTML can include empty paragraphs (e.g., when you add blank lines)
-  // which then get large margins from our typography styles. Normalize that.
-  const renderedContent = useMemo(() => {
-    if (!isUsingHashnode) return content;
-    if (typeof window === 'undefined') return content;
-
-    try {
-      const doc = new DOMParser().parseFromString(content, 'text/html');
-
-      // Remove common "layout" elements that might appear in embedded HTML
-      // (keeps our page layout stable).
-      doc.querySelectorAll('aside, nav').forEach((el) => el.remove());
-
-      // Remove empty paragraphs or paragraphs that only contain <br> / whitespace.
-      doc.querySelectorAll('p').forEach((p) => {
-        const text = (p.textContent ?? '').replace(/\u00a0/g, ' ').trim();
-
-        const hasOnlyBreaksOrWhitespace = Array.from(p.childNodes).every((node) => {
-          if (node.nodeType === Node.TEXT_NODE) {
-            return (node.textContent ?? '').replace(/\u00a0/g, ' ').trim() === '';
-          }
-          if (node.nodeType === Node.ELEMENT_NODE) {
-            return (node as Element).tagName.toLowerCase() === 'br';
-          }
-          return true;
-        });
-
-        if (text === '' && hasOnlyBreaksOrWhitespace) {
-          p.remove();
-        }
-      });
-
-      return doc.body.innerHTML;
-    } catch {
-      return content;
-    }
-  }, [content, isUsingHashnode]);
+  // (renderedContent already computed before early returns)
   const authorBio = isUsingHashnode 
     ? (hashnodePost.author.bio?.text || 'Author & IT Professional')
     : 'Dr. Om Mahajan specializes in digital transformation in urban governance and is also a fiction author.';
