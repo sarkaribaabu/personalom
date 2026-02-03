@@ -236,8 +236,8 @@ const BlogDetail = () => {
   // Get raw content (may be undefined during loading)
   const rawContent = hashnodePost?.content?.html ?? localPost?.content ?? '';
 
-  // Normalize Hashnode HTML: remove empty paragraphs and layout elements.
-  // This hook must run unconditionally (Rules of Hooks).
+  // Normalize Hashnode HTML: only remove layout elements that could break our page design.
+  // Keep empty paragraphs - they represent intentional line breaks from Hashnode editor.
   const renderedContent = useMemo(() => {
     if (!rawContent || !isUsingHashnode) return rawContent;
     if (typeof window === 'undefined') return rawContent;
@@ -247,24 +247,6 @@ const BlogDetail = () => {
 
       // Remove layout elements that might shift our page design.
       doc.querySelectorAll('aside, nav').forEach((el) => el.remove());
-
-      // Remove empty paragraphs or paragraphs that only contain <br> / whitespace.
-      doc.querySelectorAll('p').forEach((p) => {
-        const text = (p.textContent ?? '').replace(/\u00a0/g, ' ').trim();
-        const hasOnlyBreaksOrWhitespace = Array.from(p.childNodes).every((node) => {
-          if (node.nodeType === Node.TEXT_NODE) {
-            return (node.textContent ?? '').replace(/\u00a0/g, ' ').trim() === '';
-          }
-          if (node.nodeType === Node.ELEMENT_NODE) {
-            return (node as Element).tagName.toLowerCase() === 'br';
-          }
-          return true;
-        });
-
-        if (text === '' && hasOnlyBreaksOrWhitespace) {
-          p.remove();
-        }
-      });
 
       return doc.body.innerHTML;
     } catch {
