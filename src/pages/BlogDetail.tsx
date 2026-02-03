@@ -1,5 +1,5 @@
 import { useParams, Link } from 'react-router-dom';
-import { useRef } from 'react';
+import { useMemo, useRef } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ReadingProgress from '@/components/ReadingProgress';
@@ -293,6 +293,44 @@ const BlogDetail = () => {
   const content = isUsingHashnode 
     ? hashnodePost.content.html
     : localPost!.content;
+
+  // Hashnode HTML can include empty paragraphs (e.g., when you add blank lines)
+  // which then get large margins from our typography styles. Normalize that.
+  const renderedContent = useMemo(() => {
+    if (!isUsingHashnode) return content;
+    if (typeof window === 'undefined') return content;
+
+    try {
+      const doc = new DOMParser().parseFromString(content, 'text/html');
+
+      // Remove common "layout" elements that might appear in embedded HTML
+      // (keeps our page layout stable).
+      doc.querySelectorAll('aside, nav').forEach((el) => el.remove());
+
+      // Remove empty paragraphs or paragraphs that only contain <br> / whitespace.
+      doc.querySelectorAll('p').forEach((p) => {
+        const text = (p.textContent ?? '').replace(/\u00a0/g, ' ').trim();
+
+        const hasOnlyBreaksOrWhitespace = Array.from(p.childNodes).every((node) => {
+          if (node.nodeType === Node.TEXT_NODE) {
+            return (node.textContent ?? '').replace(/\u00a0/g, ' ').trim() === '';
+          }
+          if (node.nodeType === Node.ELEMENT_NODE) {
+            return (node as Element).tagName.toLowerCase() === 'br';
+          }
+          return true;
+        });
+
+        if (text === '' && hasOnlyBreaksOrWhitespace) {
+          p.remove();
+        }
+      });
+
+      return doc.body.innerHTML;
+    } catch {
+      return content;
+    }
+  }, [content, isUsingHashnode]);
   const authorBio = isUsingHashnode 
     ? (hashnodePost.author.bio?.text || 'Author & IT Professional')
     : 'Dr. Om Mahajan specializes in digital transformation in urban governance and is also a fiction author.';
@@ -354,8 +392,8 @@ const BlogDetail = () => {
           </div>
         </div>
 
-        {/* Article Content - 70% width */}
-        <article className="max-w-[70%] mx-auto px-6 lg:px-0">
+        {/* Article Content */}
+        <article className="w-full max-w-3xl mx-auto px-6 lg:px-0">
           <div 
             className={`prose prose-lg max-w-none
               prose-headings:text-foreground prose-headings:font-bold prose-headings:mt-14 prose-headings:mb-6
@@ -373,7 +411,7 @@ const BlogDetail = () => {
               prose-img:rounded-xl prose-img:my-8
               [&_.lead]:text-xl [&_.lead]:md:text-2xl [&_.lead]:text-foreground [&_.lead]:font-normal [&_.lead]:leading-[1.8] [&_.lead]:mb-10
               ${isUsingHashnode ? 'hashnode-content' : ''}`}
-            dangerouslySetInnerHTML={{ __html: content }}
+            dangerouslySetInnerHTML={{ __html: renderedContent }}
           />
 
           {/* Inline callouts for local posts only */}
@@ -398,7 +436,7 @@ const BlogDetail = () => {
         </article>
 
         {/* Author Bio Section */}
-        <section className="max-w-[70%] mx-auto px-6 lg:px-0 mt-16 pt-10 border-t border-border">
+        <section className="w-full max-w-3xl mx-auto px-6 lg:px-0 mt-16 pt-10 border-t border-border">
           <div className="flex flex-col sm:flex-row gap-6 items-start bg-secondary/30 rounded-2xl p-6">
             <img 
               src={authorImage} 
