@@ -1,83 +1,13 @@
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useRef } from 'react';
-import businessPost from '@/assets/business-post.jpg';
+import { useHashnodePosts, formatHashnodeDate, getCategoryFromTags } from '@/hooks/useHashnodePosts';
+import { Skeleton } from '@/components/ui/skeleton';
 import techPost from '@/assets/tech-post.jpg';
-import fashionPost from '@/assets/fashion-post.jpg';
-import lifestylePost from '@/assets/lifestyle-post.jpg';
-import workLifestyle from '@/assets/work-lifestyle.jpg';
-import fashionLifestyle from '@/assets/fashion-lifestyle.jpg';
-import vendorManagementCover from '@/assets/vendor-management-cover.jpg';
-
-interface PickItem {
-  id: string;
-  title: string;
-  category: string;
-  date: string;
-  excerpt: string;
-  image: string;
-  slug: string;
-}
 
 const EditorsPick = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
-
-  const picks: PickItem[] = [
-    {
-      id: '1',
-      title: 'Vendor Management: Where Governance Meets Execution',
-      category: 'EGOVERNANCE',
-      date: 'January 16, 2026',
-      excerpt: 'In government, policies are framed internally, but execution often happens through vendors.',
-      image: vendorManagementCover,
-      slug: 'vendor-management-governance-execution',
-    },
-    {
-      id: '2',
-      title: 'Digital Transformation in Urban Governance',
-      category: 'TECHNOLOGY',
-      date: 'January 10, 2026',
-      excerpt: 'Exploring how smart city initiatives are reshaping municipal operations and citizen services.',
-      image: techPost,
-      slug: 'digital-transformation-urban-governance',
-    },
-    {
-      id: '3',
-      title: 'Building Resilient e-Governance Systems',
-      category: 'TECHNOLOGY',
-      date: 'December 28, 2025',
-      excerpt: 'Key considerations for designing government digital infrastructure that scales.',
-      image: workLifestyle,
-      slug: 'resilient-egovernance-systems',
-    },
-    {
-      id: '4',
-      title: 'Smart City Strategies for Developing Nations',
-      category: 'TECHNOLOGY',
-      date: 'December 15, 2025',
-      excerpt: 'Practical approaches to implementing smart city solutions with limited resources.',
-      image: lifestylePost,
-      slug: 'smart-city-developing-nations',
-    },
-    {
-      id: '5',
-      title: 'Property Tax Digitization: Lessons Learned',
-      category: 'TECHNOLOGY',
-      date: 'December 5, 2025',
-      excerpt: 'Insights from implementing digital property tax systems for municipal corporations.',
-      image: businessPost,
-      slug: 'property-tax-digitization',
-    },
-    {
-      id: '6',
-      title: 'User Experience in Government Applications',
-      category: 'TECHNOLOGY',
-      date: 'November 20, 2025',
-      excerpt: 'Why citizen-centric design matters in public sector digital services.',
-      image: fashionPost,
-      slug: 'ux-government-applications',
-    },
-  ];
+  const { posts, loading, error } = useHashnodePosts(7);
 
   const scroll = (direction: 'left' | 'right') => {
     if (scrollRef.current) {
@@ -87,6 +17,11 @@ const EditorsPick = () => {
         behavior: 'smooth',
       });
     }
+  };
+
+  // Fallback image for posts without cover
+  const getImage = (post: typeof posts[0]) => {
+    return post.coverImage?.url || techPost;
   };
 
   return (
@@ -123,47 +58,68 @@ const EditorsPick = () => {
         aria-label="Technical blogs carousel"
         tabIndex={0}
       >
-        {picks.map((pick) => (
-          <article
-            key={pick.id}
-            className="flex-shrink-0 w-80 bg-card rounded-lg overflow-hidden hover:shadow-md transition-shadow duration-200"
-          >
-            <a
-              href={`/blog/${pick.slug}`}
-              className="block focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-lg"
-              aria-label={`Read article: ${pick.title}`}
-            >
-              <div className="aspect-[4/3] overflow-hidden">
-                <img
-                  src={pick.image}
-                  alt={`Editor's pick article: ${pick.title} - A professional image related to ${pick.category.toLowerCase()}`}
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                  loading="lazy"
-                />
+        {loading ? (
+          // Loading skeletons
+          Array.from({ length: 4 }).map((_, idx) => (
+            <div key={idx} className="flex-shrink-0 w-80 bg-card rounded-lg overflow-hidden">
+              <Skeleton className="aspect-[4/3] w-full" />
+              <div className="p-6 space-y-3">
+                <Skeleton className="h-4 w-24" />
+                <Skeleton className="h-6 w-full" />
+                <Skeleton className="h-4 w-full" />
+                <Skeleton className="h-4 w-20" />
               </div>
-              
-              <div className="p-6">
-                <div className="flex items-center space-x-4 mb-3">
-                  <span className="blog-meta">{pick.category}</span>
-                  <span className="text-muted-foreground" aria-hidden="true">—</span>
-                  <time className="blog-meta" dateTime="2023-09-10">{pick.date}</time>
+            </div>
+          ))
+        ) : error ? (
+          <p className="text-muted-foreground">Failed to load blogs. Please try again later.</p>
+        ) : posts.length === 0 ? (
+          <p className="text-muted-foreground">No blog posts available.</p>
+        ) : (
+          posts.map((post) => (
+            <article
+              key={post.id}
+              className="flex-shrink-0 w-80 bg-card rounded-lg overflow-hidden hover:shadow-md transition-shadow duration-200"
+            >
+              <a
+                href={`/blog/${post.slug}`}
+                className="block focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-lg"
+                aria-label={`Read article: ${post.title}`}
+              >
+                <div className="aspect-[4/3] overflow-hidden">
+                  <img
+                    src={getImage(post)}
+                    alt={`Article: ${post.title}`}
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                    loading="lazy"
+                  />
                 </div>
                 
-                <h3 className="text-lg font-bold text-foreground leading-tight mb-3 hover:text-primary transition-colors">
-                  {pick.title}
-                </h3>
-                
-                <p className="text-muted-foreground text-sm leading-relaxed mb-4">
-                  {pick.excerpt}
-                </p>
-                
-                <span className="inline-flex items-center text-sm font-medium text-primary hover:underline">
-                  READ MORE →
-                </span>
-              </div>
-            </a>
-          </article>
-        ))}
+                <div className="p-6">
+                  <div className="flex items-center space-x-4 mb-3">
+                    <span className="blog-meta">{getCategoryFromTags(post.tags)}</span>
+                    <span className="text-muted-foreground" aria-hidden="true">—</span>
+                    <time className="blog-meta" dateTime={post.publishedAt}>
+                      {formatHashnodeDate(post.publishedAt)}
+                    </time>
+                  </div>
+                  
+                  <h3 className="text-lg font-bold text-foreground leading-tight mb-3 hover:text-primary transition-colors line-clamp-2">
+                    {post.title}
+                  </h3>
+                  
+                  <p className="text-muted-foreground text-sm leading-relaxed mb-4 line-clamp-2">
+                    {post.brief}
+                  </p>
+                  
+                  <span className="inline-flex items-center text-sm font-medium text-primary hover:underline">
+                    READ MORE →
+                  </span>
+                </div>
+              </a>
+            </article>
+          ))
+        )}
       </div>
     </section>
   );
