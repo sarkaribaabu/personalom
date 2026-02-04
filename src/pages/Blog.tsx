@@ -1,8 +1,10 @@
+import { useState, useMemo } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Link } from 'react-router-dom';
 import { useHashnodePosts, formatHashnodeDate, getCategoryFromTags, HashnodePost } from '@/hooks/useHashnodePosts';
 import { Skeleton } from '@/components/ui/skeleton';
+import { X } from 'lucide-react';
 import omHeadshot from '@/assets/om-headshot.png';
 
 // Fallback images for posts without cover images
@@ -17,14 +19,6 @@ const fallbackImages = [businessPost, techPost, lifestylePost, workLifestyle, fa
 const getFallbackImage = (index: number): string => {
   return fallbackImages[index % fallbackImages.length];
 };
-
-const categories = [
-  { name: "eGovernance", image: businessPost, slug: "e-governance" },
-  { name: "Technology", image: techPost, slug: "technology" },
-  { name: "Writing", image: lifestylePost, slug: "writing" },
-  { name: "Lifestyle", image: workLifestyle, slug: "lifestyle" },
-  { name: "Projects", image: fashionLifestyle, slug: "projects" },
-];
 
 // Loading skeleton for featured post
 const FeaturedPostSkeleton = () => (
@@ -185,17 +179,77 @@ const PostCard = ({ post, index, variant }: PostCardProps) => {
 };
 
 const Blog = () => {
-  const { posts, loading, error, hasNextPage, loadMore } = useHashnodePosts(10);
+  const { posts, loading, error, hasNextPage, loadMore } = useHashnodePosts(20);
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
-  const featuredPost = posts[0];
-  const gridPosts = posts.slice(1, 5);
-  const listPosts = posts.slice(5);
+  // Auto-generate unique categories from Hashnode tags
+  const categories = useMemo(() => {
+    const categoryMap = new Map<string, { name: string; count: number; image: string }>();
+    
+    posts.forEach((post, index) => {
+      const category = getCategoryFromTags(post.tags);
+      const slug = category.toLowerCase().replace(/\s+/g, '-');
+      
+      if (!categoryMap.has(slug)) {
+        categoryMap.set(slug, {
+          name: category,
+          count: 1,
+          image: post.coverImage?.url || getFallbackImage(index)
+        });
+      } else {
+        const existing = categoryMap.get(slug)!;
+        existing.count += 1;
+      }
+    });
+
+    // Sort by count descending
+    return Array.from(categoryMap.entries())
+      .map(([slug, data]) => ({ slug, ...data }))
+      .sort((a, b) => b.count - a.count);
+  }, [posts]);
+
+  // Filter posts based on selected category
+  const filteredPosts = useMemo(() => {
+    if (!selectedCategory) return posts;
+    return posts.filter(post => {
+      const category = getCategoryFromTags(post.tags).toLowerCase().replace(/\s+/g, '-');
+      return category === selectedCategory;
+    });
+  }, [posts, selectedCategory]);
+
+  const featuredPost = filteredPosts[0];
+  const gridPosts = filteredPosts.slice(1, 5);
+  const listPosts = filteredPosts.slice(5);
+
+  const handleCategoryClick = (slug: string) => {
+    setSelectedCategory(prev => prev === slug ? null : slug);
+  };
+
+  const clearFilter = () => {
+    setSelectedCategory(null);
+  };
 
   return (
     <div className="min-h-screen bg-background">
       <Header />
       
       <main id="main-content" className="container-blog py-8 md:py-12">
+        {/* Active Filter Banner */}
+        {selectedCategory && (
+          <div className="mb-6 flex items-center gap-3 p-4 bg-primary/10 rounded-xl border border-primary/20">
+            <span className="text-sm text-foreground">
+              Showing posts in: <strong className="text-primary capitalize">{selectedCategory.replace(/-/g, ' ')}</strong>
+            </span>
+            <button
+              onClick={clearFilter}
+              className="ml-auto flex items-center gap-1 px-3 py-1 text-sm font-medium text-primary hover:bg-primary/20 rounded-full transition-colors"
+            >
+              <X className="w-4 h-4" />
+              Clear filter
+            </button>
+          </div>
+        )}
+
         {/* Hero Section - Featured + Grid */}
         <section className="mb-12 md:mb-16">
           {error && (
@@ -213,15 +267,15 @@ const Blog = () => {
                 ))}
               </div>
             </div>
-          ) : posts.length > 0 ? (
+          ) : filteredPosts.length > 0 ? (
             <>
               {/* Layout adapts based on number of posts */}
-              {posts.length === 1 ? (
+              {filteredPosts.length === 1 ? (
                 // Single post - full width featured
                 <div className="max-w-4xl mx-auto">
                   <PostCard post={featuredPost} index={0} variant="featured" />
                 </div>
-              ) : posts.length <= 3 ? (
+              ) : filteredPosts.length <= 3 ? (
                 // 2-3 posts - featured + remaining as grid
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                   <PostCard post={featuredPost} index={0} variant="featured" />
@@ -247,43 +301,61 @@ const Blog = () => {
             </>
           ) : !loading && (
             <div className="text-center py-12">
-              <p className="text-muted-foreground">No posts found. Check back soon!</p>
+              <p className="text-muted-foreground">
+                {selectedCategory 
+                  ? `No posts found in "${selectedCategory.replace(/-/g, ' ')}". Try another category.`
+                  : 'No posts found. Check back soon!'}
+              </p>
+              {selectedCategory && (
+                <button
+                  onClick={clearFilter}
+                  className="mt-4 px-6 py-2 text-sm font-medium text-primary hover:bg-primary/10 rounded-full transition-colors"
+                >
+                  View all posts
+                </button>
+              )}
             </div>
           )}
         </section>
 
-        {/* Read by Category */}
-        <section className="mb-12 md:mb-16">
-          <h2 className="text-xl md:text-2xl font-bold text-foreground mb-6">
-            Read by Category
-          </h2>
-          <div className="grid grid-cols-3 sm:grid-cols-5 gap-4 md:gap-6">
-            {categories.map((category) => (
-              <Link
-                key={category.slug}
-                to={`/blog?category=${category.slug}`}
-                className="group"
-              >
-                <div className="aspect-square rounded-2xl overflow-hidden mb-2 ring-2 ring-transparent group-hover:ring-primary transition-all duration-300">
-                  <img
-                    src={category.image}
-                    alt={category.name}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                </div>
-                <p className="text-sm font-medium text-center text-foreground group-hover:text-primary transition-colors">
-                  {category.name}
-                </p>
-              </Link>
-            ))}
-          </div>
-        </section>
+        {/* Read by Category - Auto-generated from Hashnode tags */}
+        {categories.length > 0 && (
+          <section className="mb-12 md:mb-16">
+            <h2 className="text-xl md:text-2xl font-bold text-foreground mb-6">
+              Read by Category
+            </h2>
+            <div className="flex flex-wrap gap-3">
+              {categories.map((category) => (
+                <button
+                  key={category.slug}
+                  onClick={() => handleCategoryClick(category.slug)}
+                  className={`group flex items-center gap-2 px-4 py-2 rounded-full border transition-all duration-300 ${
+                    selectedCategory === category.slug
+                      ? 'bg-primary text-primary-foreground border-primary'
+                      : 'bg-card border-border hover:border-primary/50 hover:bg-primary/5'
+                  }`}
+                >
+                  <span className="font-medium text-sm">
+                    {category.name}
+                  </span>
+                  <span className={`text-xs px-2 py-0.5 rounded-full ${
+                    selectedCategory === category.slug
+                      ? 'bg-primary-foreground/20 text-primary-foreground'
+                      : 'bg-muted text-muted-foreground'
+                  }`}>
+                    {category.count}
+                  </span>
+                </button>
+              ))}
+            </div>
+          </section>
+        )}
 
         {/* Latest Articles List - 2 column grid */}
         {listPosts.length > 0 && (
           <section>
             <h2 className="text-xl md:text-2xl font-bold text-foreground mb-6">
-              Latest Articles
+              {selectedCategory ? 'More Articles' : 'Latest Articles'}
             </h2>
             {loading && posts.length === 0 ? (
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -302,7 +374,7 @@ const Blog = () => {
         )}
 
         {/* Load More Button */}
-        {hasNextPage && (
+        {hasNextPage && !selectedCategory && (
           <div className="flex justify-center mt-12">
             <button 
               onClick={loadMore}
