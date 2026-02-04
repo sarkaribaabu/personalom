@@ -70,7 +70,7 @@ const PostCard = ({ post, index, variant }: PostCardProps) => {
     return (
       <Link 
         to={`/blog/${post.slug}`}
-        className="group relative overflow-hidden rounded-2xl bg-card min-h-[400px] lg:min-h-[500px]"
+        className="group relative overflow-hidden rounded-2xl bg-card min-h-[400px] lg:min-h-[500px] h-full block"
       >
         <img
           src={coverImage}
@@ -288,8 +288,10 @@ const Blog = () => {
               ) : (
                 // 4+ posts - featured (3 cols) + grid (2 cols)
                 <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
-                  <div className="lg:col-span-3">
-                    <PostCard post={featuredPost} index={0} variant="featured" />
+                  <div className="lg:col-span-3 h-full">
+                    {featuredPost && (
+                      <PostCard post={featuredPost} index={0} variant="featured" />
+                    )}
                   </div>
                   <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {gridPosts.map((post, index) => (
