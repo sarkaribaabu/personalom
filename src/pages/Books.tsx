@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import lustfulLoveCover from "@/assets/lustful-love-cover.png";
 import octoberCover from "@/assets/26october-cover.jpg";
 import codenameCover from "@/assets/codename-cover.png";
+import codenameEgovCover from "@/assets/codename-egovernance-cover.png";
 
 const books = [
   {
@@ -45,9 +46,20 @@ const comingSoonBooksData = [
     storyline:
       "Some love stories begin quietly. This one began with a message and never truly ended. They loved deeply, but life demanded choices love could not make. Years passed. Paths changed. Yet something remained, steady and unspoken. Not all love stories end in togetherness. Some end in understanding.",
   },
+  {
+    id: "codename-egovernance",
+    title: "Codename: eGovernance",
+    subtitle: "Where Policy Meets Code in the Machinery of Government",
+    cover: codenameEgovCover,
+    status: "Coming Soon",
+    releaseDate: "Q1, 26-27",
+    category: "eGovernance",
+    storyline:
+      "Large public systems don't fail for lack of intent or technology - they fail because something breaks between policy and execution. This book examines that missing layer, where reforms must survive audit, scale, field reality, and political pressure. It reveals the patterns that decide whether public systems stabilize quietly - or unravel after they're declared complete.",
+  },
 ];
 
-const categories = ["All", "Erotic Romance", "Romantic Thriller", "Pure Intense Love Story"];
+const categories = ["All", "Erotic Romance", "Romantic Thriller", "Pure Intense Love Story", "eGovernance"];
 
 const Books = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
