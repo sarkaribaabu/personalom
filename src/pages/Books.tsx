@@ -53,7 +53,7 @@ const comingSoonBooksData = [
     cover: codenameCover,
     status: "Coming Soon",
     releaseDate: "Q4, 26-27",
-    category: "Pure Intense Love Story",
+    category: "Intense Love Story",
     storyline:
       "Some love stories begin quietly. This one began with a message and never truly ended. They loved deeply, but life demanded choices love could not make. Years passed. Paths changed. Yet something remained, steady and unspoken. Not all love stories end in togetherness. Some end in understanding.",
   },
