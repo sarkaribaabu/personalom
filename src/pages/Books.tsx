@@ -25,12 +25,23 @@ const books = [
 
 const comingSoonBooksData = [
   {
+    id: "codename-egovernance",
+    title: "Codename: eGovernance",
+    subtitle: "Where Policy Meets Code in the Machinery of Government",
+    cover: codenameEgovCover,
+    status: "Coming Soon",
+    releaseDate: "Q1, 26-27",
+    category: "eGovernance",
+    storyline:
+      "Large public systems don't fail for lack of intent or technology - they fail because something breaks between policy and execution. This book examines that missing layer, where reforms must survive audit, scale, field reality, and political pressure. It reveals the patterns that decide whether public systems stabilize quietly - or unravel after they're declared complete.",
+  },
+  {
     id: "26-october-ki-raat",
     title: "26 October ki Raat",
     subtitle: "Where Lust Meets Suspense",
     cover: octoberCover,
     status: "Coming Soon",
-    releaseDate: "Q2, 2026",
+    releaseDate: "Q2, 26-27",
     category: "Romantic Thriller",
     storyline:
       "On a fateful Chabbis October ki Raat, love and darkness collide. During a train journey, Riya, an aspiring writer, meets Arjun, a magnetic stranger. Attraction is instant, but danger lurks beneath the surface. As passion deepens, secrets unravel. Riya begins to see the darkness behind Arjun's charm, and desire turns into a perilous game of trust, obsession, and survival.",
@@ -41,21 +52,10 @@ const comingSoonBooksData = [
     subtitle: "They loved. They lived. They never stopped.",
     cover: codenameCover,
     status: "Coming Soon",
-    releaseDate: "Q4, 2026",
+    releaseDate: "Q4, 26-27",
     category: "Pure Intense Love Story",
     storyline:
       "Some love stories begin quietly. This one began with a message and never truly ended. They loved deeply, but life demanded choices love could not make. Years passed. Paths changed. Yet something remained, steady and unspoken. Not all love stories end in togetherness. Some end in understanding.",
-  },
-  {
-    id: "codename-egovernance",
-    title: "Codename: eGovernance",
-    subtitle: "Where Policy Meets Code in the Machinery of Government",
-    cover: codenameEgovCover,
-    status: "Coming Soon",
-    releaseDate: "Q1, 26-27",
-    category: "eGovernance",
-    storyline:
-      "Large public systems don't fail for lack of intent or technology - they fail because something breaks between policy and execution. This book examines that missing layer, where reforms must survive audit, scale, field reality, and political pressure. It reveals the patterns that decide whether public systems stabilize quietly - or unravel after they're declared complete.",
   },
 ];
 
