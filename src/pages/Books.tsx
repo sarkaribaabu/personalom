@@ -41,7 +41,7 @@ const comingSoonBooksData = [
     subtitle: "Where Lust Meets Suspense",
     cover: octoberCover,
     status: "Coming Soon",
-    releaseDate: "Q2, 26-27",
+    releaseDate: "Q3, 26-27",
     category: "Romantic Thriller",
     storyline:
       "On a fateful Chabbis October ki Raat, love and darkness collide. During a train journey, Riya, an aspiring writer, meets Arjun, a magnetic stranger. Attraction is instant, but danger lurks beneath the surface. As passion deepens, secrets unravel. Riya begins to see the darkness behind Arjun's charm, and desire turns into a perilous game of trust, obsession, and survival.",
