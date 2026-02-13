@@ -357,7 +357,7 @@ const Blog = () => {
         {listPosts.length > 0 && (
           <section>
             <h2 className="text-xl md:text-2xl font-bold text-foreground mb-6">
-              {selectedCategory ? 'More Articles' : 'Latest Articles'}
+              {selectedCategory ? 'More Articles' : 'All Articles'}
             </h2>
             {loading && posts.length === 0 ? (
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
