@@ -88,6 +88,16 @@ serve(async (req) => {
       }),
     });
 
+    if (response.status >= 300 && response.status < 400) {
+      console.error('Hashnode redirected API request to:', response.headers.get('location'));
+      return new Response(
+        JSON.stringify({ error: 'Hashnode API is unavailable or requires Pro API access.' }),
+        { status: 503, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      );
+    }
+
+    const contentType = response.headers.get('content-type') || '';
+
     if (!response.ok) {
       const errorText = await response.text();
       console.error(`Hashnode API error [${response.status}]:`, errorText);
@@ -97,7 +107,6 @@ serve(async (req) => {
       );
     }
 
-    const contentType = response.headers.get('content-type') || '';
     if (!contentType.includes('application/json')) {
       const responseText = await response.text();
       console.error('Hashnode returned a non-JSON response:', responseText.slice(0, 300));
