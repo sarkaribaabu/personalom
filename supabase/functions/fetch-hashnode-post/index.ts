@@ -94,8 +94,8 @@ serve(async (req) => {
     if (response.status >= 300 && response.status < 400) {
       console.error('Hashnode redirected API request to:', response.headers.get('location'));
       return new Response(
-        JSON.stringify({ error: 'Hashnode API is unavailable or requires Pro API access.' }),
-        { status: 503, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+        JSON.stringify({ post: null, unavailable: true }),
+        { status: 200, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
       );
     }
 
@@ -114,8 +114,8 @@ serve(async (req) => {
       const responseText = await response.text();
       console.error('Hashnode returned a non-JSON response:', responseText.slice(0, 300));
       return new Response(
-        JSON.stringify({ error: 'Hashnode API is unavailable or requires Pro API access.' }),
-        { status: 503, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+        JSON.stringify({ post: null, unavailable: true }),
+        { status: 200, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
       );
     }
 
