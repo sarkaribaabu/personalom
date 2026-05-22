@@ -7,6 +7,21 @@ const corsHeaders = {
 
 const HASHNODE_API = 'https://gql.hashnode.com';
 
+const buildHashnodeHeaders = () => {
+  const headers: Record<string, string> = {
+    'Content-Type': 'application/json',
+    'Accept': 'application/json',
+    'User-Agent': 'ommahajan.com blog integration',
+  };
+
+  const token = Deno.env.get('HASHNODE_PAT') || Deno.env.get('HASHNODE_API_TOKEN');
+  if (token) {
+    headers.Authorization = token.startsWith('Bearer ') ? token : `Bearer ${token}`;
+  }
+
+  return headers;
+};
+
 serve(async (req) => {
   // Handle CORS preflight requests
   if (req.method === 'OPTIONS') {
@@ -68,14 +83,23 @@ serve(async (req) => {
 
     const response = await fetch(HASHNODE_API, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      headers: buildHashnodeHeaders(),
+      redirect: 'manual',
       body: JSON.stringify({
         query,
         variables: { host, slug }
       }),
     });
+
+    if (response.status >= 300 && response.status < 400) {
+      console.error('Hashnode redirected API request to:', response.headers.get('location'));
+      return new Response(
+        JSON.stringify({ post: null, unavailable: true }),
+        { status: 200, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      );
+    }
+
+    const contentType = response.headers.get('content-type') || '';
 
     if (!response.ok) {
       const errorText = await response.text();
@@ -83,6 +107,15 @@ serve(async (req) => {
       return new Response(
         JSON.stringify({ error: `Hashnode API error: ${response.status}` }),
         { status: response.status, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      );
+    }
+
+    if (!contentType.includes('application/json')) {
+      const responseText = await response.text();
+      console.error('Hashnode returned a non-JSON response:', responseText.slice(0, 300));
+      return new Response(
+        JSON.stringify({ post: null, unavailable: true }),
+        { status: 200, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
       );
     }
 

@@ -20,6 +20,31 @@ const getFallbackImage = (index: number): string => {
   return fallbackImages[index % fallbackImages.length];
 };
 
+const localFallbackPosts: HashnodePost[] = [
+  {
+    id: 'local-vendor-management-governance-execution',
+    title: 'Vendor Management: Where Governance Meets Execution',
+    slug: 'vendor-management-governance-execution',
+    brief: 'In government systems, execution often shifts from policy files to vendor delivery. This article examines why strong vendor management is essential to make governance real.',
+    coverImage: { url: businessPost },
+    publishedAt: '2026-01-16T00:00:00.000Z',
+    readTimeInMinutes: 6,
+    author: { name: 'Dr. Om Mahajan', profilePicture: omHeadshot },
+    tags: [{ name: 'eGovernance', slug: 'egovernance' }],
+  },
+  {
+    id: 'local-digital-transformation-urban-governance',
+    title: 'Digital Transformation in Urban Governance: A Case Study',
+    slug: 'digital-transformation-urban-governance',
+    brief: 'A practical look at how thoughtful digital intervention can transform citizen services, municipal operations, and urban governance outcomes.',
+    coverImage: { url: techPost },
+    publishedAt: '2026-01-10T00:00:00.000Z',
+    readTimeInMinutes: 8,
+    author: { name: 'Dr. Om Mahajan', profilePicture: omHeadshot },
+    tags: [{ name: 'Technology', slug: 'technology' }],
+  },
+];
+
 // Loading skeleton for featured post
 const FeaturedPostSkeleton = () => (
   <div className="relative overflow-hidden rounded-2xl bg-card aspect-[4/5] lg:aspect-auto lg:row-span-2">
@@ -181,12 +206,14 @@ const PostCard = ({ post, index, variant }: PostCardProps) => {
 const Blog = () => {
   const { posts, loading, error, hasNextPage, loadMore } = useHashnodePosts(20);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const displayPosts = posts.length > 0 ? posts : localFallbackPosts;
+  const showLoadingState = loading && posts.length === 0;
 
   // Auto-generate unique categories from Hashnode tags
   const categories = useMemo(() => {
     const categoryMap = new Map<string, { name: string; count: number; image: string }>();
     
-    posts.forEach((post, index) => {
+    displayPosts.forEach((post, index) => {
       const category = getCategoryFromTags(post.tags);
       const slug = category.toLowerCase().replace(/\s+/g, '-');
       
@@ -206,16 +233,16 @@ const Blog = () => {
     return Array.from(categoryMap.entries())
       .map(([slug, data]) => ({ slug, ...data }))
       .sort((a, b) => b.count - a.count);
-  }, [posts]);
+  }, [displayPosts]);
 
   // Filter posts based on selected category
   const filteredPosts = useMemo(() => {
-    if (!selectedCategory) return posts;
-    return posts.filter(post => {
+    if (!selectedCategory) return displayPosts;
+    return displayPosts.filter(post => {
       const category = getCategoryFromTags(post.tags).toLowerCase().replace(/\s+/g, '-');
       return category === selectedCategory;
     });
-  }, [posts, selectedCategory]);
+  }, [displayPosts, selectedCategory]);
 
   const featuredPost = filteredPosts[0];
   const gridPosts = filteredPosts.slice(1, 5);
@@ -252,13 +279,13 @@ const Blog = () => {
 
         {/* Hero Section - Featured + Grid */}
         <section className="mb-12 md:mb-16">
-          {error && (
+          {error && posts.length > 0 && (
             <div className="text-center py-8 text-destructive">
               <p>Failed to load posts. Please try again later.</p>
             </div>
           )}
           
-          {loading && posts.length === 0 ? (
+          {showLoadingState ? (
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               <FeaturedPostSkeleton />
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -359,7 +386,7 @@ const Blog = () => {
             <h2 className="text-xl md:text-2xl font-bold text-foreground mb-6">
               {selectedCategory ? 'More Articles' : 'All Articles'}
             </h2>
-            {loading && posts.length === 0 ? (
+            {showLoadingState ? (
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {[1, 2, 3, 4].map((i) => (
                   <ListPostSkeleton key={i} />
@@ -376,7 +403,7 @@ const Blog = () => {
         )}
 
         {/* Load More Button */}
-        {hasNextPage && !selectedCategory && (
+        {hasNextPage && posts.length > 0 && !selectedCategory && (
           <div className="flex justify-center mt-12">
             <button 
               onClick={loadMore}
