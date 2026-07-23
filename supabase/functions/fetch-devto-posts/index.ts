@@ -14,6 +14,17 @@ interface DevArticle {
   user: { name: string; username: string; profile_image: string };
 }
 
+const normalizeTags = (tagList: string[] | string | null | undefined) => {
+  if (Array.isArray(tagList)) return tagList;
+  if (typeof tagList === 'string') {
+    return tagList
+      .split(',')
+      .map((tag) => tag.trim())
+      .filter(Boolean);
+  }
+  return [];
+};
+
 Deno.serve(async (req) => {
   if (req.method === 'OPTIONS') {
     return new Response('ok', { headers: corsHeaders });
@@ -67,7 +78,7 @@ Deno.serve(async (req) => {
         name: a.user?.name ?? 'Dr. Om Mahajan',
         profilePicture: a.user?.profile_image ?? '',
       },
-      tags: (a.tag_list ?? []).map((t) => ({ name: t, slug: t })),
+      tags: normalizeTags(a.tag_list).map((t) => ({ name: t, slug: t })),
     }));
 
     return new Response(

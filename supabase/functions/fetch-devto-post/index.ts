@@ -21,6 +21,17 @@ interface DevArticleFull {
   };
 }
 
+const normalizeTags = (tagList: string[] | string | null | undefined) => {
+  if (Array.isArray(tagList)) return tagList;
+  if (typeof tagList === 'string') {
+    return tagList
+      .split(',')
+      .map((tag) => tag.trim())
+      .filter(Boolean);
+  }
+  return [];
+};
+
 Deno.serve(async (req) => {
   if (req.method === 'OPTIONS') {
     return new Response('ok', { headers: corsHeaders });
@@ -104,7 +115,7 @@ Deno.serve(async (req) => {
         profilePicture: a.user?.profile_image ?? '',
         bio: { text: a.user?.summary ?? 'Author & IT Professional' },
       },
-      tags: (a.tag_list ?? []).map((t) => ({ name: t, slug: t })),
+      tags: normalizeTags(a.tag_list).map((t) => ({ name: t, slug: t })),
       seo: {
         title: a.title,
         description: a.description,
