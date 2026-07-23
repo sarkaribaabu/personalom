@@ -2,7 +2,7 @@ import { useState, useMemo } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Link } from 'react-router-dom';
-import { useHashnodePosts, formatHashnodeDate, getCategoryFromTags, HashnodePost } from '@/hooks/useHashnodePosts';
+import { useDevtoPosts, formatDevtoDate, getCategoryFromTags, DevtoPost } from '@/hooks/useDevtoPosts';
 import { Skeleton } from '@/components/ui/skeleton';
 import { X } from 'lucide-react';
 import omHeadshot from '@/assets/om-headshot.png';
@@ -54,7 +54,7 @@ const ListPostSkeleton = () => (
 );
 
 interface PostCardProps {
-  post: HashnodePost;
+  post: DevtoPost;
   index: number;
   variant: 'featured' | 'grid' | 'list';
 }
@@ -62,7 +62,7 @@ interface PostCardProps {
 const PostCard = ({ post, index, variant }: PostCardProps) => {
   const coverImage = post.coverImage?.url || getFallbackImage(index);
   const category = getCategoryFromTags(post.tags);
-  const date = formatHashnodeDate(post.publishedAt);
+  const date = formatDevtoDate(post.publishedDate);
   const authorImage = post.author?.profilePicture || omHeadshot;
   const authorName = post.author?.name || 'Dr. Om Mahajan';
 
@@ -179,12 +179,12 @@ const PostCard = ({ post, index, variant }: PostCardProps) => {
 };
 
 const Blog = () => {
-  const { posts, loading, error, hasNextPage, loadMore } = useHashnodePosts(20);
+  const { posts, loading, error, hasNextPage, loadMore } = useDevtoPosts(20);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const displayPosts = posts;
   const showLoadingState = loading && posts.length === 0;
 
-  // Auto-generate unique categories from Hashnode tags
+  // Auto-generate unique categories from DEV.to tags
   const categories = useMemo(() => {
     const categoryMap = new Map<string, { name: string; count: number; image: string }>();
     
@@ -254,7 +254,7 @@ const Blog = () => {
 
         {/* Hero Section - Featured + Grid */}
         <section className="mb-12 md:mb-16">
-          {error && posts.length > 0 && (
+          {error && (
             <div className="text-center py-8 text-destructive">
               <p>Failed to load posts. Please try again later.</p>
             </div>
@@ -322,7 +322,7 @@ const Blog = () => {
           )}
         </section>
 
-        {/* Read by Category - Auto-generated from Hashnode tags */}
+        {/* Read by Category - Auto-generated from DEV.to tags */}
         {categories.length > 0 && (
           <section className="mb-12 md:mb-16">
             <h2 className="text-xl md:text-2xl font-bold text-foreground mb-6">

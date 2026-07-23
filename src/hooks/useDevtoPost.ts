@@ -1,12 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import { supabase } from '@/integrations/supabase/client';
 
-// NOTE: This hook now fetches from DEV.to via the fetch-devto-post edge function.
-// The exported names remain unchanged to avoid touching existing UI components.
-
-export const HASHNODE_HOST = 'dev.to';
-
-interface HashnodePost {
+interface DevtoPost {
   id: string;
   title: string;
   slug: string;
@@ -42,16 +37,16 @@ interface HashnodePost {
   canonicalUrl?: string;
 }
 
-interface HashnodePostResponse {
-  post: HashnodePost | null;
+interface DevtoPostResponse {
+  post: DevtoPost | null;
   error?: string;
 }
 
-export const useHashnodePost = (slug: string) => {
+export const useDevtoPost = (slug: string) => {
   return useQuery({
     queryKey: ['devto-post', slug],
     enabled: !!slug,
-    queryFn: async (): Promise<HashnodePost | null> => {
+    queryFn: async (): Promise<DevtoPost | null> => {
       const { data, error } = await supabase.functions.invoke('fetch-devto-post', {
         body: { slug },
       });
@@ -61,7 +56,7 @@ export const useHashnodePost = (slug: string) => {
         return null;
       }
 
-      const response = data as HashnodePostResponse;
+      const response = data as DevtoPostResponse;
       if (response?.error) {
         console.log('DEV.to post not found:', response.error);
         return null;

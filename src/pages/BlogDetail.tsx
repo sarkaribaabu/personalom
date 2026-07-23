@@ -4,15 +4,14 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ReadingProgress from '@/components/ReadingProgress';
 import BackToTop from '@/components/BackToTop';
-import { useHashnodePost } from '@/hooks/useHashnodePost';
-import { useHashnodePosts } from '@/hooks/useHashnodePosts';
+import { useDevtoPost } from '@/hooks/useDevtoPost';
+import { useDevtoPosts } from '@/hooks/useDevtoPosts';
 import omHeadshot from '@/assets/om-headshot.png';
 import techPost from '@/assets/tech-post.jpg';
 import { ArrowLeft, ChevronLeft, ChevronRight, Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
-// Helper to format date from Hashnode format
-const formatHashnodeDate = (dateString: string) => {
+const formatDevtoDate = (dateString: string) => {
   const date = new Date(dateString);
   return date.toLocaleDateString('en-US', { 
     year: 'numeric', 
@@ -25,11 +24,10 @@ const BlogDetail = () => {
   const { slug } = useParams();
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   
-  const { data: hashnodePost, isLoading: isLoadingHashnode } = useHashnodePost(slug || '');
-  const { posts } = useHashnodePosts(20);
+  const { data: devtoPost, isLoading: isLoadingDevto } = useDevtoPost(slug || '');
+  const { posts } = useDevtoPosts(20);
   
-  const isUsingHashnode = !!hashnodePost;
-  const hasContent = !!hashnodePost;
+  const hasContent = !!devtoPost;
   
   const relatedPosts = posts
     .filter(p => p.slug !== slug)
@@ -38,7 +36,7 @@ const BlogDetail = () => {
       slug: post.slug,
       title: post.title,
       category: post.tags?.[0]?.name?.toUpperCase() || 'ARTICLE',
-      date: formatHashnodeDate(post.publishedDate),
+      date: formatDevtoDate(post.publishedDate),
       image: post.coverImage?.url || techPost,
     }));
 
@@ -53,11 +51,11 @@ const BlogDetail = () => {
   };
 
   // Get raw content (may be undefined during loading)
-  const rawContent = hashnodePost?.content?.html ?? '';
+  const rawContent = devtoPost?.content?.html ?? '';
 
   // Normalize DEV.to HTML: only remove layout elements that could break our page design.
   const renderedContent = useMemo(() => {
-    if (!rawContent || !isUsingHashnode) return rawContent;
+    if (!rawContent) return rawContent;
     if (typeof window === 'undefined') return rawContent;
 
     try {
@@ -70,10 +68,10 @@ const BlogDetail = () => {
     } catch {
       return rawContent;
     }
-  }, [rawContent, isUsingHashnode]);
+  }, [rawContent]);
 
   // Loading state
-  if (isLoadingHashnode) {
+  if (isLoadingDevto) {
     return (
       <div className="min-h-screen bg-background">
         <Header />
@@ -110,15 +108,15 @@ const BlogDetail = () => {
   }
 
   // Render content based on source
-  const title = hashnodePost.title;
-  const category = hashnodePost.tags?.[0]?.name?.toUpperCase() || 'ARTICLE';
-  const date = formatHashnodeDate(hashnodePost.publishedDate);
-  const readTime = `${hashnodePost.readingTime} min read`;
-  const author = hashnodePost.author.name;
-  const authorImage = hashnodePost.author.profilePicture || omHeadshot;
-  const heroImage = hashnodePost.coverImage?.url || techPost;
+  const title = devtoPost.title;
+  const category = devtoPost.tags?.[0]?.name?.toUpperCase() || 'ARTICLE';
+  const date = formatDevtoDate(devtoPost.publishedDate);
+  const readTime = `${devtoPost.readingTime} min read`;
+  const author = devtoPost.author.name;
+  const authorImage = devtoPost.author.profilePicture || omHeadshot;
+  const heroImage = devtoPost.coverImage?.url || techPost;
   // (renderedContent already computed before early returns)
-  const authorBio = hashnodePost.author.bio?.text || 'Author & IT Professional';
+  const authorBio = devtoPost.author.bio?.text || 'Author & IT Professional';
 
   return (
     <div className="min-h-screen bg-background">
@@ -195,7 +193,7 @@ const BlogDetail = () => {
               prose-pre:bg-muted prose-pre:p-4 prose-pre:rounded-lg prose-pre:overflow-x-auto
               prose-img:rounded-xl prose-img:my-8
               [&_.lead]:text-xl [&_.lead]:md:text-2xl [&_.lead]:text-foreground [&_.lead]:font-normal [&_.lead]:leading-[1.8] [&_.lead]:mb-10
-              ${isUsingHashnode ? 'hashnode-content' : ''}`}
+              devto-content`}
             dangerouslySetInnerHTML={{ __html: renderedContent }}
           />
 
