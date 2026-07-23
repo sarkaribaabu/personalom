@@ -1,13 +1,13 @@
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useRef } from 'react';
-import { useHashnodePosts, formatHashnodeDate, getCategoryFromTags } from '@/hooks/useHashnodePosts';
+import { useDevtoPosts, formatDevtoDate, getCategoryFromTags } from '@/hooks/useDevtoPosts';
 import { Skeleton } from '@/components/ui/skeleton';
 import techPost from '@/assets/tech-post.jpg';
 
 const EditorsPick = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
-  const { posts, loading, error } = useHashnodePosts(7);
+  const { posts, loading, error } = useDevtoPosts(7);
 
   const scroll = (direction: 'left' | 'right') => {
     if (scrollRef.current) {
@@ -99,8 +99,8 @@ const EditorsPick = () => {
                   <div className="flex items-center space-x-4 mb-3">
                     <span className="blog-meta">{getCategoryFromTags(post.tags)}</span>
                     <span className="text-muted-foreground" aria-hidden="true">—</span>
-                    <time className="blog-meta" dateTime={post.publishedAt}>
-                      {formatHashnodeDate(post.publishedAt)}
+                    <time className="blog-meta" dateTime={post.publishedDate}>
+                      {formatDevtoDate(post.publishedDate)}
                     </time>
                   </div>
                   
@@ -109,7 +109,7 @@ const EditorsPick = () => {
                   </h3>
                   
                   <p className="text-muted-foreground text-sm leading-relaxed mb-4 line-clamp-2">
-                    {post.brief}
+                    {post.excerpt}
                   </p>
                   
                   <span className="inline-flex items-center text-sm font-medium text-primary hover:underline">

@@ -1,21 +1,21 @@
 import { useState, useEffect } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 
-// NOTE: This hook now sources posts from DEV.to via the fetch-devto-posts edge
-// function. The exported names are kept for backward compatibility with existing
-// UI components (Blog.tsx, EditorsPick.tsx, BlogDetail.tsx).
+export const DEVTO_USERNAME = 'dr_om_mahajan';
 
-export const HASHNODE_HOST = 'dev.to';
-
-export interface HashnodePost {
+export interface DevtoPost {
   id: string;
   title: string;
   slug: string;
+  url?: string;
+  excerpt: string;
   brief: string;
   coverImage: {
     url: string;
   } | null;
+  publishedDate: string;
   publishedAt: string;
+  readingTime: number;
   readTimeInMinutes: number;
   author: {
     name: string;
@@ -27,16 +27,16 @@ export interface HashnodePost {
   }>;
 }
 
-interface UseHashnodePostsResult {
-  posts: HashnodePost[];
+interface UseDevtoPostsResult {
+  posts: DevtoPost[];
   loading: boolean;
   error: string | null;
   hasNextPage: boolean;
   loadMore: () => void;
 }
 
-export const useHashnodePosts = (initialCount: number = 30): UseHashnodePostsResult => {
-  const [posts, setPosts] = useState<HashnodePost[]>([]);
+export const useDevtoPosts = (initialCount: number = 30): UseDevtoPostsResult => {
+  const [posts, setPosts] = useState<DevtoPost[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -65,10 +65,20 @@ export const useHashnodePosts = (initialCount: number = 30): UseHashnodePostsRes
           return;
         }
 
-        setPosts(data?.posts ?? []);
+        const mappedPosts = (data?.posts ?? []).map((post: DevtoPost) => ({
+          ...post,
+          excerpt: post.excerpt ?? post.brief ?? '',
+          brief: post.brief ?? post.excerpt ?? '',
+          publishedDate: post.publishedDate ?? post.publishedAt,
+          publishedAt: post.publishedAt ?? post.publishedDate,
+          readingTime: post.readingTime ?? post.readTimeInMinutes ?? 3,
+          readTimeInMinutes: post.readTimeInMinutes ?? post.readingTime ?? 3,
+        }));
+
+        setPosts(mappedPosts);
       } catch (err) {
         if (!cancelled) {
-          console.error('Error in useHashnodePosts:', err);
+          console.error('Error in useDevtoPosts:', err);
           setError('Failed to fetch posts');
         }
       } finally {
@@ -80,12 +90,10 @@ export const useHashnodePosts = (initialCount: number = 30): UseHashnodePostsRes
     };
   }, [initialCount]);
 
-  // DEV.to's `me/published` returns all articles in a single page (up to 1000),
-  // so pagination is not needed here.
   return { posts, loading, error, hasNextPage: false, loadMore: () => {} };
 };
 
-export const formatHashnodeDate = (dateString: string): string => {
+export const formatDevtoDate = (dateString: string): string => {
   const date = new Date(dateString);
   return date.toLocaleDateString('en-US', {
     year: 'numeric',
