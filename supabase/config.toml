@@ -3,8 +3,8 @@ project_id = "gpayajhjeribysvweejc"
 [functions.send-contact-email]
 verify_jwt = false
 
-[functions.fetch-hashnode-post]
+[functions.fetch-devto-post]
 verify_jwt = false
 
-[functions.fetch-hashnode-posts]
+[functions.fetch-devto-posts]
 verify_jwt = false
