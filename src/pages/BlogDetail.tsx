@@ -5,194 +5,11 @@ import Footer from '@/components/Footer';
 import ReadingProgress from '@/components/ReadingProgress';
 import BackToTop from '@/components/BackToTop';
 import { useHashnodePost } from '@/hooks/useHashnodePost';
+import { useHashnodePosts } from '@/hooks/useHashnodePosts';
 import omHeadshot from '@/assets/om-headshot.png';
 import techPost from '@/assets/tech-post.jpg';
-import businessPost from '@/assets/business-post.jpg';
-import lifestylePost from '@/assets/lifestyle-post.jpg';
-import workLifestyle from '@/assets/work-lifestyle.jpg';
-import fashionLifestyle from '@/assets/fashion-lifestyle.jpg';
-import fashionPost from '@/assets/fashion-post.jpg';
-import vendorManagementCover from '@/assets/vendor-management-cover.jpg';
-import vendorPerformanceDashboard from '@/assets/vendor-performance-dashboard.png';
-import { ArrowLeft, ChevronLeft, ChevronRight, Quote, Lightbulb, ArrowRight, Loader2 } from 'lucide-react';
+import { ArrowLeft, ChevronLeft, ChevronRight, Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-
-// Callout component for highlighted text blocks
-const Callout = ({ type, children }: { type: 'quote' | 'insight' | 'key'; children: React.ReactNode }) => {
-  const styles = {
-    quote: 'border-l-4 border-primary bg-primary/5 pl-6 pr-4 py-4 my-8 italic',
-    insight: 'bg-accent/50 border border-accent rounded-xl p-6 my-8',
-    key: 'bg-secondary/50 border border-secondary rounded-xl p-6 my-8'
-  };
-  
-  const icons = {
-    quote: <Quote className="w-5 h-5 text-primary mb-2" />,
-    insight: <Lightbulb className="w-5 h-5 text-primary mb-2" />,
-    key: <ArrowRight className="w-5 h-5 text-primary mb-2" />
-  };
-
-  return (
-    <div className={styles[type]}>
-      {icons[type]}
-      <div className="text-foreground font-medium">{children}</div>
-    </div>
-  );
-};
-
-// Inline image component
-const InlineImage = ({ src, alt, caption }: { src: string; alt: string; caption?: string }) => (
-  <figure className="my-10">
-    <img 
-      src={src} 
-      alt={alt} 
-      className="w-full rounded-xl object-cover aspect-[16/9]"
-    />
-    {caption && (
-      <figcaption className="text-sm text-muted-foreground text-center mt-3 italic">
-        {caption}
-      </figcaption>
-    )}
-  </figure>
-);
-
-// Local blog posts data (fallback when not found on Hashnode)
-const localBlogPosts: Record<string, {
-  title: string;
-  category: string;
-  date: string;
-  readTime: string;
-  author: string;
-  heroImage: string;
-  content: string;
-  inlineImages?: { src: string; alt: string; caption?: string; afterParagraph: number }[];
-  callouts?: { type: 'quote' | 'insight' | 'key'; text: string; afterParagraph: number }[];
-}> = {
-  "vendor-management-governance-execution": {
-    title: "Vendor Management: Where Governance Meets Execution",
-    category: "EGOVERNANCE",
-    date: "January 16, 2026",
-    readTime: "6 min read",
-    author: "Dr. Om Mahajan",
-    heroImage: vendorManagementCover,
-    inlineImages: [
-      { src: vendorPerformanceDashboard, alt: "Vendor performance tracking dashboard", caption: "A digital vendor management system enables centralized tracking and evaluation", afterParagraph: 4 }
-    ],
-    callouts: [
-      { type: 'quote', text: "Policy failure is rarely about bad intent or poor drafting. It almost always traces back to weak vendor management.", afterParagraph: 1 },
-      { type: 'insight', text: "What vendor management really enables is objectivity at scale. Decisions stop being based on who remembers what, or who managed which vendor last year. Evaluation becomes comparative, traceable, and defensible.", afterParagraph: 5 },
-      { type: 'key', text: "Governance is judged not by how well policies are written, but by how reliably they are delivered. Vendor management is the bridge between the two.", afterParagraph: 8 }
-    ],
-    content: `
-      <p class="lead">In government systems, we spend an enormous amount of time getting policies right. Frameworks are debated, approvals are layered, and intent is carefully documented. Yet, once the file moves out of the department, execution largely shifts to vendors. Contractors, system integrators, OEMs, service partners, consultants. This is where governance stops being theoretical and starts being real.</p>
-      
-      <p>In my experience, policy failure is rarely about bad intent or poor drafting. It almost always traces back to weak vendor management.</p>
-      
-      <h2>The Symptoms of Weak Vendor Management</h2>
-      
-      <p>When vendor management is loose or informal, the symptoms are predictable and painfully familiar:</p>
-      
-      <ul>
-        <li>Projects drift without clear explanations.</li>
-        <li>Timelines slip, but accountability remains ambiguous.</li>
-        <li>Costs escalate, often justified after the fact.</li>
-        <li>Quality becomes subjective because there is no agreed baseline.</li>
-        <li>Escalations turn into personality-driven negotiations rather than contract-driven discussions.</li>
-        <li>And eventually, when things go visibly wrong, the system reacts with penalties or blacklisting, long after the damage has already been done.</li>
-      </ul>
-      
-      <p>This reactive cycle is not governance. It is damage control.</p>
-      
-      <h2>What Strong Vendor Management Changes</h2>
-      
-      <p>Strong vendor management changes the equation entirely. It introduces structure where ambiguity usually thrives. It replaces memory with data. It moves decision-making from emotion and urgency to evidence and discipline.</p>
-      
-      <p>A well-designed digital vendor management system becomes the backbone of this shift:</p>
-      
-      <ul>
-        <li><strong>Centralized onboarding</strong> ensures that credentials, statutory compliance, past experience, and financial standing are verified upfront, not discovered midway through execution.</li>
-        <li><strong>Performance tracking</strong> against clearly defined SLAs and milestones ensures that progress is continuously visible, not assessed only during review meetings.</li>
-        <li><strong>Payment linkages</strong> tied directly to measurable deliverables bring financial discipline into execution, not just procurement.</li>
-        <li><strong>Historical performance records</strong> across projects and departments create institutional memory, preventing the system from repeating the same mistakes with the same vendors under different banners.</li>
-      </ul>
-      
-      <p>What this really enables is objectivity at scale. Decisions stop being based on who remembers what, or who managed which vendor last year. Evaluation becomes comparative, traceable, and defensible.</p>
-      
-      <h2>The Cultural Shift</h2>
-      
-      <p>But the most important shift is not technological. It is cultural.</p>
-      
-      <p>Effective vendor management changes how governance behaves. It moves the system away from reactive firefighting and toward contractual discipline. When vendors know that timelines, quality parameters, compliance obligations, and service levels are being continuously measured, not occasionally reviewed, behavior changes.</p>
-      
-      <ul>
-        <li>Delays reduce because they are visible early.</li>
-        <li>Quality improves because benchmarks are explicit.</li>
-        <li>Disputes reduce because evidence replaces argument.</li>
-        <li>Escalations become structured conversations rather than confrontations.</li>
-      </ul>
-      
-      <h2>Protecting Public Money</h2>
-      
-      <p>From a governance perspective, this is where public money is actually protected. Not through more clauses in tender documents, but through consistent enforcement during execution.</p>
-      
-      <p>Vendor management, when done right, is not about control for its own sake. It is not about mistrust. It is about alignment. It ensures that public intent does not get diluted as it passes through contracts, invoices, and milestones. It ensures that outcomes match approvals. It ensures that execution reflects policy, not undermines it.</p>
-      
-      <p>In the end, governance is judged not by how well policies are written, but by how reliably they are delivered. Vendor management is the bridge between the two.</p>
-    `
-  },
-  "digital-transformation-urban-governance": {
-    title: "Digital Transformation in Urban Governance: A Case Study",
-    category: "TECHNOLOGY",
-    date: "January 10, 2026",
-    readTime: "8 min read",
-    author: "Dr. Om Mahajan",
-    heroImage: techPost,
-    inlineImages: [
-      { src: workLifestyle, alt: "Smart city infrastructure", caption: "Modern urban infrastructure powered by digital solutions", afterParagraph: 2 }
-    ],
-    callouts: [
-      { type: 'insight', text: "A 40% reduction in processing time was achieved within the first year of digital transformation implementation.", afterParagraph: 4 },
-      { type: 'quote', text: "The foundations laid today will determine the smart cities of tomorrow.", afterParagraph: 6 }
-    ],
-    content: `
-      <p class="lead">Digital transformation in urban governance represents a fundamental shift in how cities operate, deliver services, and engage with citizens. This case study explores the journey of implementing smart city initiatives in municipal operations.</p>
-      
-      <h2>The Challenge of Urban Digitization</h2>
-      
-      <p>Municipal corporations across developing nations face unique challenges when embarking on digital transformation journeys. Legacy systems, limited technical expertise, and resistance to change often create significant barriers to progress.</p>
-      
-      <p>The NMMC Property Tax module serves as an excellent example of how thoughtful digital intervention can transform citizen services while improving operational efficiency.</p>
-      
-      <h2>Key Implementation Strategies</h2>
-      
-      <p>Successful digital transformation in government requires a multi-pronged approach that addresses technology, process, and people simultaneously.</p>
-      
-      <ul>
-        <li><strong>Stakeholder Engagement:</strong> Building consensus among political leaders, administrators, and citizens</li>
-        <li><strong>Phased Implementation:</strong> Breaking down large projects into manageable milestones</li>
-        <li><strong>Capacity Building:</strong> Training staff at all levels to embrace new systems</li>
-        <li><strong>Citizen-Centric Design:</strong> Prioritizing user experience over technical complexity</li>
-      </ul>
-      
-      <h2>Measuring Success</h2>
-      
-      <p>The impact of digital transformation can be measured through multiple metrics including processing time reduction, citizen satisfaction scores, and revenue collection efficiency.</p>
-      
-      <h2>Lessons for Future Projects</h2>
-      
-      <p>Every digital transformation project offers valuable lessons. The importance of change management, the need for robust testing, and the value of iterative improvement have become clear through practical experience.</p>
-    `
-  }
-};
-
-// Related posts data from local posts
-const allLocalPosts = Object.entries(localBlogPosts).map(([slug, post]) => ({
-  slug,
-  title: post.title,
-  category: post.category,
-  date: post.date,
-  image: post.heroImage,
-  excerpt: post.content.replace(/<[^>]+>/g, '').substring(0, 150) + '...'
-}));
 
 // Helper to format date from Hashnode format
 const formatHashnodeDate = (dateString: string) => {
@@ -208,20 +25,22 @@ const BlogDetail = () => {
   const { slug } = useParams();
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   
-  // Fetch from Hashnode first
   const { data: hashnodePost, isLoading: isLoadingHashnode } = useHashnodePost(slug || '');
+  const { posts } = useHashnodePosts(20);
   
-  // Fallback to local content
-  const localPost = slug && localBlogPosts[slug] ? localBlogPosts[slug] : null;
-  
-  // Determine which content to use
   const isUsingHashnode = !!hashnodePost;
-  const hasContent = hashnodePost || localPost;
+  const hasContent = !!hashnodePost;
   
-  // Get related posts from local
-  const relatedPosts = allLocalPosts
+  const relatedPosts = posts
     .filter(p => p.slug !== slug)
-    .slice(0, 5);
+    .slice(0, 5)
+    .map((post) => ({
+      slug: post.slug,
+      title: post.title,
+      category: post.tags?.[0]?.name?.toUpperCase() || 'ARTICLE',
+      date: formatHashnodeDate(post.publishedDate),
+      image: post.coverImage?.url || techPost,
+    }));
 
   const scroll = (direction: 'left' | 'right') => {
     if (scrollContainerRef.current) {
@@ -234,10 +53,9 @@ const BlogDetail = () => {
   };
 
   // Get raw content (may be undefined during loading)
-  const rawContent = hashnodePost?.content?.html ?? localPost?.content ?? '';
+  const rawContent = hashnodePost?.content?.html ?? '';
 
-  // Normalize Hashnode HTML: only remove layout elements that could break our page design.
-  // Keep empty paragraphs - they represent intentional line breaks from Hashnode editor.
+  // Normalize DEV.to HTML: only remove layout elements that could break our page design.
   const renderedContent = useMemo(() => {
     if (!rawContent || !isUsingHashnode) return rawContent;
     if (typeof window === 'undefined') return rawContent;
@@ -292,29 +110,15 @@ const BlogDetail = () => {
   }
 
   // Render content based on source
-  const title = isUsingHashnode ? hashnodePost.title : localPost!.title;
-  const category = isUsingHashnode 
-    ? (hashnodePost.tags?.[0]?.name?.toUpperCase() || 'ARTICLE')
-    : localPost!.category;
-  const date = isUsingHashnode 
-    ? formatHashnodeDate(hashnodePost.publishedAt)
-    : localPost!.date;
-  const readTime = isUsingHashnode 
-    ? `${hashnodePost.readTimeInMinutes} min read`
-    : localPost!.readTime;
-  const author = isUsingHashnode 
-    ? hashnodePost.author.name
-    : localPost!.author;
-  const authorImage = isUsingHashnode 
-    ? (hashnodePost.author.profilePicture || omHeadshot)
-    : omHeadshot;
-  const heroImage = isUsingHashnode 
-    ? (hashnodePost.coverImage?.url || techPost)
-    : localPost!.heroImage;
+  const title = hashnodePost.title;
+  const category = hashnodePost.tags?.[0]?.name?.toUpperCase() || 'ARTICLE';
+  const date = formatHashnodeDate(hashnodePost.publishedDate);
+  const readTime = `${hashnodePost.readingTime} min read`;
+  const author = hashnodePost.author.name;
+  const authorImage = hashnodePost.author.profilePicture || omHeadshot;
+  const heroImage = hashnodePost.coverImage?.url || techPost;
   // (renderedContent already computed before early returns)
-  const authorBio = isUsingHashnode 
-    ? (hashnodePost.author.bio?.text || 'Author & IT Professional')
-    : 'Dr. Om Mahajan specializes in digital transformation in urban governance and is also a fiction author.';
+  const authorBio = hashnodePost.author.bio?.text || 'Author & IT Professional';
 
   return (
     <div className="min-h-screen bg-background">
@@ -395,25 +199,6 @@ const BlogDetail = () => {
             dangerouslySetInnerHTML={{ __html: renderedContent }}
           />
 
-          {/* Inline callouts for local posts only */}
-          {!isUsingHashnode && localPost?.callouts && localPost.callouts.length > 0 && (
-            <div className="mt-12 space-y-8">
-              {localPost.callouts.map((callout, index) => (
-                <Callout key={index} type={callout.type}>
-                  {callout.text}
-                </Callout>
-              ))}
-            </div>
-          )}
-
-          {/* Inline images for local posts only */}
-          {!isUsingHashnode && localPost?.inlineImages && localPost.inlineImages.length > 0 && (
-            <div className="mt-8">
-              {localPost.inlineImages.map((img, index) => (
-                <InlineImage key={index} src={img.src} alt={img.alt} caption={img.caption} />
-              ))}
-            </div>
-          )}
         </article>
 
         {/* Author Bio Section */}

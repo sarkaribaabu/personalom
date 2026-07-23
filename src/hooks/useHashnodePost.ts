@@ -10,6 +10,8 @@ interface HashnodePost {
   id: string;
   title: string;
   slug: string;
+  url?: string;
+  excerpt: string;
   brief: string;
   content: {
     html: string;
@@ -18,7 +20,9 @@ interface HashnodePost {
   coverImage?: {
     url: string;
   } | null;
+  publishedDate: string;
   publishedAt: string;
+  readingTime: number;
   readTimeInMinutes: number;
   author: {
     name: string;
@@ -63,7 +67,17 @@ export const useHashnodePost = (slug: string) => {
         return null;
       }
 
-      return response?.post ?? null;
+      if (!response?.post) return null;
+
+      return {
+        ...response.post,
+        excerpt: response.post.excerpt ?? response.post.brief ?? '',
+        brief: response.post.brief ?? response.post.excerpt ?? '',
+        publishedDate: response.post.publishedDate ?? response.post.publishedAt,
+        publishedAt: response.post.publishedAt ?? response.post.publishedDate,
+        readingTime: response.post.readingTime ?? response.post.readTimeInMinutes ?? 3,
+        readTimeInMinutes: response.post.readTimeInMinutes ?? response.post.readingTime ?? 3,
+      };
     },
     staleTime: 1000 * 60 * 5,
     retry: 1,

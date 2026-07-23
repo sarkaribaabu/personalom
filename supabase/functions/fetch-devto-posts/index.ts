@@ -5,6 +5,7 @@ interface DevArticle {
   title: string;
   description: string;
   slug: string;
+  url: string;
   cover_image: string | null;
   social_image: string | null;
   published_at: string;
@@ -19,24 +20,22 @@ Deno.serve(async (req) => {
   }
 
   try {
-    const apiKey = Deno.env.get('DEVTO_API_KEY');
-    if (!apiKey) {
-      return new Response(JSON.stringify({ error: 'DEVTO_API_KEY not configured', posts: [] }), {
-        status: 500,
-        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
-      });
-    }
-
     let first = 30;
     try {
       const body = await req.json();
       if (body?.first && Number.isFinite(body.first)) first = Math.min(1000, Math.max(1, body.first));
     } catch (_) { /* body optional */ }
 
-    const res = await fetch(`https://dev.to/api/articles/me/published?per_page=${first}`, {
+    const apiKey = Deno.env.get('DEVTO_API_KEY');
+    const headers: Record<string, string> = {
+      'accept': 'application/vnd.forem.api-v1+json',
+      'user-agent': 'ommahajan.com DEV.to integration',
+    };
+    if (apiKey) headers['api-key'] = apiKey;
+
+    const res = await fetch(`https://dev.to/api/articles?username=dr_om_mahajan&per_page=${first}`, {
       headers: {
-        'api-key': apiKey,
-        'accept': 'application/vnd.forem.api-v1+json',
+        ...headers,
       },
     });
 
@@ -50,14 +49,19 @@ Deno.serve(async (req) => {
     }
 
     const articles: DevArticle[] = await res.json();
+    console.log('DEV.to public articles JSON response:', JSON.stringify(articles));
 
     const posts = articles.map((a) => ({
       id: String(a.id),
       title: a.title,
       slug: a.slug,
+      url: a.url,
+      excerpt: a.description ?? '',
       brief: a.description ?? '',
       coverImage: a.cover_image || a.social_image ? { url: (a.cover_image || a.social_image) as string } : null,
+      publishedDate: a.published_at,
       publishedAt: a.published_at,
+      readingTime: a.reading_time_minutes ?? 3,
       readTimeInMinutes: a.reading_time_minutes ?? 3,
       author: {
         name: a.user?.name ?? 'Dr. Om Mahajan',
@@ -68,6 +72,7 @@ Deno.serve(async (req) => {
 
     return new Response(
       JSON.stringify({
+        articles,
         posts,
         pageInfo: { hasNextPage: false, endCursor: null },
         publicationTitle: 'Dr. Om Mahajan',

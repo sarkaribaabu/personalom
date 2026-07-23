@@ -11,11 +11,15 @@ export interface HashnodePost {
   id: string;
   title: string;
   slug: string;
+  url?: string;
+  excerpt: string;
   brief: string;
   coverImage: {
     url: string;
   } | null;
+  publishedDate: string;
   publishedAt: string;
+  readingTime: number;
   readTimeInMinutes: number;
   author: {
     name: string;
@@ -65,7 +69,17 @@ export const useHashnodePosts = (initialCount: number = 30): UseHashnodePostsRes
           return;
         }
 
-        setPosts(data?.posts ?? []);
+        const mappedPosts = (data?.posts ?? []).map((post: HashnodePost) => ({
+          ...post,
+          excerpt: post.excerpt ?? post.brief ?? '',
+          brief: post.brief ?? post.excerpt ?? '',
+          publishedDate: post.publishedDate ?? post.publishedAt,
+          publishedAt: post.publishedAt ?? post.publishedDate,
+          readingTime: post.readingTime ?? post.readTimeInMinutes ?? 3,
+          readTimeInMinutes: post.readTimeInMinutes ?? post.readingTime ?? 3,
+        }));
+
+        setPosts(mappedPosts);
       } catch (err) {
         if (!cancelled) {
           console.error('Error in useHashnodePosts:', err);

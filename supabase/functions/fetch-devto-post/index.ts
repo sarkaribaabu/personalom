@@ -5,6 +5,7 @@ interface DevArticleFull {
   title: string;
   description: string;
   slug: string;
+  url: string;
   cover_image: string | null;
   social_image: string | null;
   published_at: string;
@@ -26,14 +27,6 @@ Deno.serve(async (req) => {
   }
 
   try {
-    const apiKey = Deno.env.get('DEVTO_API_KEY');
-    if (!apiKey) {
-      return new Response(JSON.stringify({ error: 'DEVTO_API_KEY not configured', post: null }), {
-        status: 500,
-        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
-      });
-    }
-
     const { slug } = await req.json();
     if (!slug) {
       return new Response(JSON.stringify({ error: 'slug required', post: null }), {
@@ -42,11 +35,17 @@ Deno.serve(async (req) => {
       });
     }
 
-    // 1) Find article id by matching slug from the user's published list
-    const listRes = await fetch('https://dev.to/api/articles/me/published?per_page=1000', {
+    const apiKey = Deno.env.get('DEVTO_API_KEY');
+    const headers: Record<string, string> = {
+      'accept': 'application/vnd.forem.api-v1+json',
+      'user-agent': 'ommahajan.com DEV.to integration',
+    };
+    if (apiKey) headers['api-key'] = apiKey;
+
+    // 1) Find article id by matching slug from the user's public article list.
+    const listRes = await fetch('https://dev.to/api/articles?username=dr_om_mahajan&per_page=1000', {
       headers: {
-        'api-key': apiKey,
-        'accept': 'application/vnd.forem.api-v1+json',
+        ...headers,
       },
     });
 
@@ -59,6 +58,7 @@ Deno.serve(async (req) => {
     }
 
     const list = await listRes.json();
+    console.log('DEV.to public articles JSON response:', JSON.stringify(list));
     const match = list.find((a: { slug: string }) => a.slug === slug);
     if (!match) {
       return new Response(JSON.stringify({ error: 'Post not found', post: null }), {
@@ -69,8 +69,7 @@ Deno.serve(async (req) => {
     // 2) Fetch full article by id (public endpoint, but include key for consistency)
     const detailRes = await fetch(`https://dev.to/api/articles/${match.id}`, {
       headers: {
-        'api-key': apiKey,
-        'accept': 'application/vnd.forem.api-v1+json',
+        ...headers,
       },
     });
 
@@ -88,13 +87,17 @@ Deno.serve(async (req) => {
       id: String(a.id),
       title: a.title,
       slug: a.slug,
+      url: a.url,
+      excerpt: a.description ?? '',
       brief: a.description ?? '',
       content: {
         html: a.body_html ?? '',
         markdown: '',
       },
       coverImage: a.cover_image || a.social_image ? { url: (a.cover_image || a.social_image) as string } : null,
+      publishedDate: a.published_at,
       publishedAt: a.published_at,
+      readingTime: a.reading_time_minutes ?? 3,
       readTimeInMinutes: a.reading_time_minutes ?? 3,
       author: {
         name: a.user?.name ?? 'Dr. Om Mahajan',

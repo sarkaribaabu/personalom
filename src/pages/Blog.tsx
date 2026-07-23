@@ -20,31 +20,6 @@ const getFallbackImage = (index: number): string => {
   return fallbackImages[index % fallbackImages.length];
 };
 
-const localFallbackPosts: HashnodePost[] = [
-  {
-    id: 'local-vendor-management-governance-execution',
-    title: 'Vendor Management: Where Governance Meets Execution',
-    slug: 'vendor-management-governance-execution',
-    brief: 'In government systems, execution often shifts from policy files to vendor delivery. This article examines why strong vendor management is essential to make governance real.',
-    coverImage: { url: businessPost },
-    publishedAt: '2026-01-16T00:00:00.000Z',
-    readTimeInMinutes: 6,
-    author: { name: 'Dr. Om Mahajan', profilePicture: omHeadshot },
-    tags: [{ name: 'eGovernance', slug: 'egovernance' }],
-  },
-  {
-    id: 'local-digital-transformation-urban-governance',
-    title: 'Digital Transformation in Urban Governance: A Case Study',
-    slug: 'digital-transformation-urban-governance',
-    brief: 'A practical look at how thoughtful digital intervention can transform citizen services, municipal operations, and urban governance outcomes.',
-    coverImage: { url: techPost },
-    publishedAt: '2026-01-10T00:00:00.000Z',
-    readTimeInMinutes: 8,
-    author: { name: 'Dr. Om Mahajan', profilePicture: omHeadshot },
-    tags: [{ name: 'Technology', slug: 'technology' }],
-  },
-];
-
 // Loading skeleton for featured post
 const FeaturedPostSkeleton = () => (
   <div className="relative overflow-hidden rounded-2xl bg-card aspect-[4/5] lg:aspect-auto lg:row-span-2">
@@ -111,7 +86,7 @@ const PostCard = ({ post, index, variant }: PostCardProps) => {
             {post.title}
           </h2>
           <p className="text-white/80 text-sm md:text-base mb-4 line-clamp-2">
-            {post.brief}
+            {post.excerpt}
           </p>
           <div className="flex items-center gap-3">
             <img 
@@ -185,8 +160,8 @@ const PostCard = ({ post, index, variant }: PostCardProps) => {
         <h3 className="font-bold text-foreground mb-2 line-clamp-2 group-hover:text-primary transition-colors">
           {post.title}
         </h3>
-        <p className="text-sm text-muted-foreground mb-3 line-clamp-2 hidden sm:block">
-          {post.brief}
+          <p className="text-sm text-muted-foreground mb-3 line-clamp-2 hidden sm:block">
+          {post.excerpt}
         </p>
         <div className="flex items-center gap-2 text-xs text-muted-foreground">
           <img 
@@ -206,7 +181,7 @@ const PostCard = ({ post, index, variant }: PostCardProps) => {
 const Blog = () => {
   const { posts, loading, error, hasNextPage, loadMore } = useHashnodePosts(20);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
-  const displayPosts = posts.length > 0 ? posts : localFallbackPosts;
+  const displayPosts = posts;
   const showLoadingState = loading && posts.length === 0;
 
   // Auto-generate unique categories from Hashnode tags
