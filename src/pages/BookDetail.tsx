@@ -1,4 +1,5 @@
 import { useParams, Link } from 'react-router-dom';
+import SEO from '@/components/SEO';
 import { ArrowLeft, ExternalLink, BookOpen, Calendar, Tag } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -123,6 +124,13 @@ const BookDetail = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title={`${book.title} | Dr. Om Mahajan`.slice(0, 60)}
+        description={`${book.subtitle} — ${book.category} by Dr. Om Mahajan. ${book.status}${book.releaseDate ? `, ${book.releaseDate}` : ''}.`.slice(0, 158)}
+        url={`/books/${bookId}`}
+        type="article"
+        keywords={[book.title, book.category, 'Dr. Om Mahajan', 'books']}
+      />
       <Header />
       
       {/* Hero Section */}

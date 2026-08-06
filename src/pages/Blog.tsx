@@ -1,5 +1,6 @@
 import { useState, useMemo } from 'react';
 import Header from '@/components/Header';
+import SEO from '@/components/SEO';
 import Footer from '@/components/Footer';
 import { Link } from 'react-router-dom';
 import { useDevtoPosts, formatDevtoDate, getCategoryFromTags, DevtoPost } from '@/hooks/useDevtoPosts';
@@ -233,6 +234,11 @@ const Blog = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="Technical Blogs by Dr. Om Mahajan"
+        description="Articles on e-Governance, enterprise architecture, ERP delivery and digital transformation, written from 15+ years of hands-on public sector experience."
+        url="/blog"
+      />
       <Header />
       
       <main id="main-content" className="container-blog py-8 md:py-12">

@@ -1,6 +1,7 @@
 import { useParams, Link } from 'react-router-dom';
 import { useMemo, useRef } from 'react';
 import Header from '@/components/Header';
+import SEO from '@/components/SEO';
 import Footer from '@/components/Footer';
 import ReadingProgress from '@/components/ReadingProgress';
 import BackToTop from '@/components/BackToTop';
@@ -118,8 +119,19 @@ const BlogDetail = () => {
   // (renderedContent already computed before early returns)
   const authorBio = devtoPost.author.bio?.text || 'Author & IT Professional';
 
+  const seoDescription = (devtoPost.excerpt || devtoPost.title).slice(0, 155);
+
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title={devtoPost.title.slice(0, 60)}
+        description={seoDescription}
+        url={`/blog/${slug}`}
+        type="article"
+        image={devtoPost.coverImage?.url}
+        publishedTime={devtoPost.publishedDate}
+        keywords={(devtoPost.tags || []).map((t) => t.name)}
+      />
       <ReadingProgress />
       <Header />
       

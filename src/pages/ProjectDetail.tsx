@@ -1,4 +1,5 @@
 import { useParams, Link } from 'react-router-dom';
+import SEO from '@/components/SEO';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Badge } from '@/components/ui/badge';
@@ -3813,6 +3814,13 @@ const ProjectDetail = () => {
 
   return (
     <>
+      <SEO
+        title={`${project.title} | Dr. Om Mahajan`.slice(0, 60)}
+        description={`${project.category}: ${project.brief.problem}`.slice(0, 158)}
+        url={`/projects/${projectId}`}
+        type="article"
+        keywords={[project.title, project.category, project.snapshot.client, 'e-Governance', 'Dr. Om Mahajan']}
+      />
       <Header />
       
       <main id="main-content" className="min-h-screen bg-background">
