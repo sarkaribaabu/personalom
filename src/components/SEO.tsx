@@ -16,7 +16,7 @@ const SEO = ({
   title = "Dr. Om Mahajan | IT Professional & Author",
   description = "IT Professional with 15+ years of experience in enterprise solutions, e-governance, and digital transformation. Author of fiction and technical books.",
   keywords = ["Dr. Om Mahajan", "IT Professional", "Author", "E-Governance", "Digital Transformation", "Mumbai"],
-  image = "/og-image.jpg",
+  image,
   url,
   type = "website",
   author = "Dr. Om Mahajan",
@@ -26,6 +26,7 @@ const SEO = ({
   const siteUrl = "https://ommahajan.com";
   const fullUrl = url ? `${siteUrl}${url}` : siteUrl;
   const fullTitle = title.includes("Om Mahajan") ? title : `${title} | Dr. Om Mahajan`;
+  const resolvedImage = image?.startsWith("http") ? image : `${siteUrl}${image || "/og-image.jpg"}`;
 
   return (
     <Helmet>
@@ -47,7 +48,7 @@ const SEO = ({
       <meta property="og:url" content={fullUrl} />
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
-      <meta property="og:image" content={`${siteUrl}${image}`} />
+      <meta property="og:image" content={resolvedImage} />
       <meta property="og:site_name" content="Dr. Om Mahajan" />
       
       {/* Twitter */}
@@ -55,7 +56,7 @@ const SEO = ({
       <meta name="twitter:url" content={fullUrl} />
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={`${siteUrl}${image}`} />
+      <meta name="twitter:image" content={resolvedImage} />
       
       {/* Article specific */}
       {type === "article" && publishedTime && (
