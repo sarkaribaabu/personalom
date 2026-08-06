@@ -177,7 +177,7 @@ const Journey = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="Journey | Om Mahajan’s Path in Digital Governance & Creativity"
+        title="Career Journey of Dr. Om Mahajan"
         description="A 15-year journey through enterprise systems, government platforms, entrepreneurship, and storytelling."
         keywords={[
           "Dr. Om Mahajan Journey",

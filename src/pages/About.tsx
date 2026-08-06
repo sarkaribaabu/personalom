@@ -26,7 +26,7 @@ const About = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="About Dr. Om Mahajan | Digital Transformation, e-Governance & Storytelling"
+        title="About Dr. Om Mahajan | e-Governance & Author"
         description="Learn about Dr. Om Mahajan's journey across e-Governance, urban digital transformation, and creative writing, where technology meets human narrative."
         keywords={[
           "Dr. Om Mahajan",
