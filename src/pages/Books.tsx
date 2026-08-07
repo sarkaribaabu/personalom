@@ -71,7 +71,7 @@ const comingSoonBooksData = [
   },
 ];
 
-const categories = ["All", "Erotic Romance", "Romantic Thriller", "Pure Intense Love Story", "eGovernance"];
+const categories = ["All", "Erotic Romance", "Romantic Thriller", "Pure Intense Love Story", "eGovernance", "Revenge Love Story"];
 
 const Books = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
