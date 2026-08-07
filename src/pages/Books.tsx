@@ -57,17 +57,6 @@ const comingSoonBooksData = [
     storyline:
       "Some love stories begin quietly. This one began with a message and never truly ended. They loved deeply, but life demanded choices love could not make. Years passed. Paths changed. Yet something remained, steady and unspoken. Not all love stories end in togetherness. Some end in understanding.",
   },
-  {
-    id: "codename-horror",
-    title: "Codename: Horror",
-    subtitle: "He loved. She lived. Revenge.",
-    cover: codenameHorror,
-    status: "Coming Soon",
-    releaseDate: "Q3, 26-27",
-    category: "Revenge Love Story",
-    storyline:
-      "Some love stories begin quietly. This one began with a message and never truly ended. They loved deeply, but life demanded choices love could not make. Years passed. Paths changed. Yet something remained, steady and unspoken. Not all love stories end in togetherness. Some end in understanding.",
-  },
 ];
 
 const categories = ["All", "Erotic Romance", "Romantic Thriller", "Pure Intense Love Story", "eGovernance"];
