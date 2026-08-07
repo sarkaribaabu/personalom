@@ -58,6 +58,17 @@ const comingSoonBooksData = [
     storyline:
       "Some love stories begin quietly. This one began with a message and never truly ended. They loved deeply, but life demanded choices love could not make. Years passed. Paths changed. Yet something remained, steady and unspoken. Not all love stories end in togetherness. Some end in understanding.",
   },
+  {
+    id: "kali-bharti",
+    title: "काळी भरती",
+    subtitle: "जिथे प्रेम सुडाचे रूप घेते",
+    cover: kaliBhartiCover.url,
+    status: "Coming Soon",
+    releaseDate: "Q3, 26-27",
+    category: "Revenge Love Story",
+    storyline:
+      "बारा वर्षांनी मधु वेळापूरला परत येते. गाव अजूनही सागरच्या मृत्यूचं गूढ विसरलेलं नसतं. नयनसोबत आयुष्य नव्याने सुरू होईल असं वाटत असतानाच, पाऊस जुन्या सावल्या परत आणतो. गाव म्हणतं - सागर अजून चालतो. पण तो प्रेमासाठी नाही, हिशेब चुकता करायला आला आहे.",
+  },
 ];
 
 const categories = ["All", "Erotic Romance", "Romantic Thriller", "Pure Intense Love Story", "eGovernance"];
