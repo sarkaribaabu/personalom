@@ -8,6 +8,7 @@ import lustfulLoveCover from "@/assets/lustful-love-cover.png";
 import octoberCover from "@/assets/26october-cover.jpg";
 import codenameCover from "@/assets/codename-cover.png";
 import codenameEgovCover from "@/assets/codename-egovernance-cover.png";
+import kaliBhartiCover from "@/assets/kali-bharti-cover.png.asset.json";
 
 const books = [
   {
